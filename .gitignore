@@ -1,0 +1,17 @@
+# OS
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# Office temp files
+~$*.docx
+~$*.xlsx
+*.tmp
+
+# Large binaries (keep originals outside repo)
+*.docx
+*.pdf
+*.pptx
+
+# IDE
+.vscode/
