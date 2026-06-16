@@ -23,3 +23,10 @@ _site/
 .jekyll-metadata
 Gemfile.lock
 vendor/
+
+# Editorial-Material (interner Workflow, kein Publish)
+_archive/
+docs/
+*_MARKER_LOG*
+*_AUDIT*
+*_DOSSIER*

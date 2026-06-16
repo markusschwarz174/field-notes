@@ -1,10 +1,9 @@
 # Field Notes — Publish Repo
 
-> **Verbindlich ab:** 2026-06-16 (`D_260616_02_P6_P8_PIPELINE` in `FIELD_NOTES_DRAFT/DECISIONS_LOG.md`).
-> **Editorial Workspace:** `../FIELD_NOTES_DRAFT/` (DOCX-Iterationen, Sources, Marker, WIP — **nicht versioniert**).
+> **Editorial Workspace:** `../FIELD_NOTES_DRAFT/` (Drafts, Iterationen, Workflow — **nicht versioniert**).
 > **Publish Repo:** dieses Verzeichnis (nur fertige `.md` + `meta.yaml` + `img/`).
 
-Markus Schwarz' Werkstattbericht: AI im Unterricht. Serialisiertes Entwicklungstagebuch (Juli 2025 – Januar 2026), retrospektiv erzaehlt, Sixth-Sense-Rahmen.
+Markus Schwarz' Werkstattbericht ueber AI im Unterricht. Serialisiertes Entwicklungstagebuch (Juli 2025 – Januar 2026).
 
 ## Struktur
 
