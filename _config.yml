@@ -1,0 +1,41 @@
+# Jekyll Configuration — Field Notes
+# D_260616_02 (FIELD_NOTES_DRAFT)
+
+title: "Field Notes"
+description: "Markus' Werkstattbericht — AI im Unterricht"
+url: ""
+baseurl: ""
+
+author:
+  name: "Markus Schwarz"
+
+# Build settings
+theme: minima  # placeholder; ggf. ersetzen durch custom layout
+markdown: kramdown
+
+# Collections — eine Note pro Folder
+collections:
+  notes:
+    output: true
+    permalink: /:path/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "notes"
+    values:
+      layout: "note"
+
+# Excludes
+exclude:
+  - _archive/
+  - README.md
+  - .gitignore
+  - Gemfile
+  - Gemfile.lock
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag

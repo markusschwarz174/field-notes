@@ -1,0 +1,22 @@
+# series.yaml — Field Notes Series-Index
+# Single Source: <note>/DOSSIER.md Frontmatter (in FIELD_NOTES_DRAFT)
+# Generiert/aktualisiert von W_DOSSIER_INDEX_build (Pendenz)
+
+notes:
+  # Wird durch W_P8a_CONVERSATION_TRANSFORMER schrittweise befuellt
+  # beim ersten Per-Note-Lauf. Pattern:
+  # - nn: "01"
+  #   slug: "neugierde"
+  #   titel: "Am Anfang steht die Neugierde"
+  #   date: "2025-07-20"
+  #   summary: "..."
+  #   status: "publish-ready"
+
+cross_themen:
+  # Closed-List aus 0_S_STORYTELLING/S_FIELD_NOTES_INDEX.json (D_260606_05)
+  - SCHULSYSTEMKRITIK
+  - GESELLSCHAFTSKRITIK
+  - PRAXISBEZUG_SCHULZIMMER
+  - CHANCEN_RISIKEN_AI_SCHULE
+  - SIXTH_SENSE_KUENDIGUNG
+  - AI_HUMAN_COWORK_DEVELOPMENT
