@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+<title>Feldnotizen — KI &amp; Unterricht</title>
+<meta name="description" content="Storyline der Feldnotizen — KI und Unterricht von Markus Schwarz.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  html,body{margin:0;padding:0}
+  @keyframes wpshake{0%,100%{transform:translateY(-50%) translateX(0)}20%{transform:translateY(-50%) translateX(-4px)}40%{transform:translateY(-50%) translateX(4px)}60%{transform:translateY(-50%) translateX(-3px)}80%{transform:translateY(-50%) translateX(3px)}}
+</style>
+</helmet>
+
+<div style="--mono:'IBM Plex Mono',ui-monospace,Consolas,monospace; --sans:'IBM Plex Sans',Inter,'Segoe UI',system-ui,sans-serif; position:relative; min-height:100vh; background:#f2eadc; color:#191713; font-family:var(--sans); -webkit-font-smoothing:antialiased;">
+
+  <sc-if value="{{ textur }}" hint-placeholder-val="{{ true }}">
+    <div style="position:fixed; inset:0; pointer-events:none; z-index:0; opacity:.34; mix-blend-mode:multiply; background-image:radial-gradient(rgba(70,55,35,.13) 1px, transparent 1px); background-size:5px 5px;"></div>
+  </sc-if>
+
+  <header style="position:sticky; top:0; z-index:60; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:11px clamp(16px,4vw,34px); background:rgba(18,12,7,.86); backdrop-filter:blur(9px); -webkit-backdrop-filter:blur(9px); border-bottom:1px solid rgba(214,200,180,.18);">
+    <div style="display:flex; flex-direction:column; gap:2px; min-width:0;">
+      <span style="font:600 .95rem/1.1 'Spectral',Georgia,serif; color:#ffd9a8; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Feldnotizen — KI &amp; Unterricht</span>
+      <span style="font:400 italic .76rem/1.2 'Spectral',Georgia,serif; color:#c9bba6;">Übersicht aller Field Notes</span>
+    </div>
+    <span style="font:700 .7rem/1 var(--mono); letter-spacing:.22em; text-transform:uppercase; color:#d8cbb6; flex:none;">Storyline</span>
+  </header>
+
+  <section style="position:relative; z-index:1; width:100%; box-sizing:border-box; padding:12px clamp(14px,3vw,26px) 8px;">
+    <div style="display:flex; flex-wrap:wrap; align-items:center; gap:7px 14px; font:600 .66rem/1.4 var(--mono); letter-spacing:.05em; color:#9a8d7b;">
+      <span>▸ anklicken zum Lesen</span>
+      <span style="color:#cdbfa6;">·</span>
+      <span>ziehen zum Anordnen</span>
+      <span style="color:#cdbfa6;">·</span>
+      <span role="button" tabindex="0" onClick="{{ resetPositions }}" style="cursor:pointer; color:{{ accent }}; border-bottom:1px solid {{ accent }}; padding-bottom:1px;">zurücksetzen</span>
+    </div>
+  </section>
+
+  <section style="position:relative; z-index:1; width:100%; box-sizing:border-box; padding:0 clamp(12px,2.4vw,20px) 16px;">
+    <div ref="{{ mapRef }}" onClick="{{ closeCard }}" style="position:relative; width:100%; height:{{ svgH }}px; border:1px solid #e2d7c4; border-radius:3px; background-image:linear-gradient(rgba(17,9,6,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(17,9,6,.04) 1px,transparent 1px); background-size:40px 40px; background-position:-1px -1px;">
+      <div style="position:absolute; left:clamp(16px,2.2%,30px); top:18px; width:min(74%,840px); pointer-events:none; z-index:4;">
+        <h1 style="font-family:'Spectral',Georgia,serif; font-weight:600; font-size:clamp(2rem,3.6vw,2.9rem); line-height:.96; letter-spacing:-.01em; color:#191713; margin:0 0 12px;">Storyline</h1>
+        <p style="font-family:'Spectral',Georgia,serif; font-size:clamp(1rem,1.45vw,1.18rem); line-height:1.55; color:#3a342c; margin:0; max-width:64ch;">Jede Field Note ist ein Wegpunkt.<br>Die Linien zeigen, wie eine Idee aus der nächsten wächst —<br>mit Abzweigungen und Wiedervereinigungen. Von oben nach unten verläuft die Zeit.</p>
+      </div>
+
+      <svg width="{{ svgW }}" height="{{ svgH }}" viewBox="0 0 {{ svgW }} {{ svgH }}" style="position:absolute; inset:0; overflow:visible; pointer-events:none;">
+        <sc-for list="{{ paths }}" as="p" hint-placeholder-count="10">
+          <path d="{{ p.d }}" fill="none" stroke="{{ p.stroke }}" stroke-width="{{ p.w }}" stroke-linecap="round"></path>
+        </sc-for>
+      </svg>
+
+      <sc-for list="{{ waypoints }}" as="wp" hint-placeholder-count="11">
+        <div role="{{ wp.role }}" tabindex="0" aria-label="{{ wp.aria }}" aria-disabled="{{ wp.ariaDisabled }}" onPointerDown="{{ wp.onDown }}" onClick="{{ wp.onClick }}" onMouseEnter="{{ wp.onEnter }}" onMouseLeave="{{ wp.onLeave }}" onKeyDown="{{ wp.onKey }}" style="{{ wp.boxStyle }}">
+          <div style="{{ wp.dotStyle }}"></div>
+          <div style="min-width:0;">
+            <sc-if value="{{ wp.isLive }}" hint-placeholder-val="{{ true }}">
+              <div style="font:600 .67rem/1 var(--mono); letter-spacing:.08em; color:#9a8d7b; margin-bottom:4px;">{{ wp.meta }}</div>
+              <div style="{{ wp.titleStyle }}">{{ wp.kurztitel }}</div>
+              <sc-if value="{{ wp.showOpenHint }}" hint-placeholder-val="{{ false }}">
+                <div style="{{ wp.openHintStyle }}">öffnen →</div>
+              </sc-if>
+            </sc-if>
+            <sc-if value="{{ wp.isAnnounced }}" hint-placeholder-val="{{ false }}">
+              <div style="{{ wp.annMetaStyle }}">{{ wp.annMeta }}</div>
+              <div style="{{ wp.annTitleStyle }}">{{ wp.annTitle }}</div>
+              <div style="{{ wp.annPubStyle }}">{{ wp.annPub }}</div>
+            </sc-if>
+          </div>
+
+          <sc-if value="{{ wp.expanded }}" hint-placeholder-val="{{ false }}">
+            <div onClick="{{ wp.stop }}" onPointerDown="{{ wp.stop }}" style="{{ wp.cardStyle }}">
+              <div style="{{ wp.photoStyle }}">
+                <div style="{{ wp.cardInnerStyle }}">
+                  <div style="{{ wp.cardMetaStyle }}">{{ wp.meta }}</div>
+                  <div style="{{ wp.cardTitleStyle }}">{{ wp.titel }}</div>
+                  <div style="{{ wp.cardAbsStyle }}">{{ wp.abstract }}</div>
+                  <a href="{{ wp.url }}" style="{{ wp.cardLinkStyle }}">Note öffnen →</a>
+                </div>
+              </div>
+            </div>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <footer style="position:relative; z-index:1; max-width:860px; margin:0 auto; padding:28px clamp(20px,5vw,30px) 60px; border-top:1px solid #d6c8b4; font:500 .76rem/1.55 var(--mono); color:#6e6458; text-align:center;">
+    Serie „Feldnotizen — KI und Unterricht" · CC BY-NC-SA 4.0 · <span style="color:{{ accent }}; font-weight:700;">— Markus</span>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:960,&quot;height&quot;:680},&quot;accent&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Braun&quot;,&quot;Rot&quot;,&quot;Blau&quot;,&quot;Mono&quot;],&quot;default&quot;:&quot;Braun&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;textur&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  constructor(props){
+    super(props);
+    let saved = {};
+    try { saved = JSON.parse(localStorage.getItem("storyline_pos_v2") || "{}"); } catch(e){}
+    this.state = { cw: 820, mapH: 540, hoverId: null, expandedId: null, shakeId: null, dragId: null, positions: saved };
+    this.mapRef = React.createRef();
+    this._onMove = this._onMove.bind(this);
+    this._onUp = this._onUp.bind(this);
+    this._measure = this._measure.bind(this);
+  }
+
+  componentDidMount(){
+    this._measure();
+    window.addEventListener("resize", this._measure);
+  }
+  componentWillUnmount(){
+    window.removeEventListener("resize", this._measure);
+    window.removeEventListener("pointermove", this._onMove);
+    window.removeEventListener("pointerup", this._onUp);
+  }
+
+  _measure(){
+    const el = this.mapRef.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    const cw = el.clientWidth;
+    const mapH = Math.max(380, Math.round(window.innerHeight - rect.top - 64));
+    if (Math.abs(cw - this.state.cw) > 2 || Math.abs(mapH - this.state.mapH) > 2){
+      this.setState({ cw, mapH });
+    }
+  }
+
+  startDrag(n, e){
+    if (e.button !== undefined && e.button !== 0) return;
+    const p = (this._pos && this._pos[n.id]) || { x: 0, y: 0 };
+    this._drag = { id: n.id, sx: e.clientX, sy: e.clientY, ox: p.x, oy: p.y, moved: false };
+    window.addEventListener("pointermove", this._onMove);
+    window.addEventListener("pointerup", this._onUp);
+  }
+  _onMove(e){
+    const d = this._drag; if (!d) return;
+    const dx = e.clientX - d.sx, dy = e.clientY - d.sy;
+    if (!d.moved && Math.hypot(dx, dy) > 4){ d.moved = true; this.setState({ dragId: d.id, expandedId: null }); }
+    if (d.moved){
+      const cw = this.state.cw || 820, mapH = this.state.mapH || 540;
+      const nx = Math.max(14, Math.min(cw - 14, d.ox + dx));
+      const ny = Math.max(20, Math.min(mapH - 20, d.oy + dy));
+      // gespeichert wird NORMALISIERT (0..1) → bildschirmunabhängig
+      this.setState(s => ({ positions: { ...s.positions, [d.id]: { x: nx / cw, y: ny / mapH } } }));
+    }
+  }
+  _onUp(){
+    const d = this._drag; this._drag = null;
+    window.removeEventListener("pointermove", this._onMove);
+    window.removeEventListener("pointerup", this._onUp);
+    if (d && d.moved){
+      this._suppressClick = true;
+      setTimeout(() => { this._suppressClick = false; }, 60);
+      try { localStorage.setItem("storyline_pos_v2", JSON.stringify(this.state.positions)); } catch(e){}
+      this.setState({ dragId: null });
+    }
+  }
+  resetPositions(){
+    try { localStorage.setItem("storyline_pos_v2", "{}"); } catch(e){}
+    this.setState({ positions: {} });
+  }
+
+  // Eingebackene Default-Anordnung (normalisiert 0..1, bildschirmunabhängig).
+  defaultPositions(){
+    return {
+      "01": { x: 0.0291, y: 0.4366 },
+      "02": { x: 0.0380, y: 0.7023 },
+      "03": { x: 0.0314, y: 0.9094 },
+      "04": { x: 0.1121, y: 0.5576 },
+      "05": { x: 0.2244, y: 0.6441 },
+      "06": { x: 0.2828, y: 0.4744 },
+      "07": { x: 0.3658, y: 0.6104 },
+      "08": { x: 0.1156, y: 0.8042 },
+      "09": { x: 0.2690, y: 0.7360 },
+      "10": { x: 0.3650, y: 0.9239 },
+      "11": { x: 0.4459, y: 0.7501 }
+    };
+  }
+
+  data(){
+    return [
+      { id:"01", kurztitel:"NEUGIERDE", titel:"AM ANFANG STEHT DIE NEUGIERDE", datum:"2025-07-20", datum_publish:"2026-06-22", abstract:"Am 20. Juli 2025 beginnt ein Experiment mit GPT und einer Mathematikplanung. Aus einer Frage entstehen Materialien, neue Ideen und die Ahnung, dass sich mehr als nur ein Arbeitsblatt verändert.", status:"LIVE", url:"notes/neugierde/", hero:"heroes/hero_01.png", heroAnchor:"tl", kommt_von:[], geht_nach:[{ref:"02",typ:"direkt"}] },
+      { id:"02", kurztitel:"VISION", titel:"EIN UNTERRICHTSENTWURF ALS VISION", datum:"2025-08-05", datum_publish:null, abstract:"Aus einem Aufgabenblatt wächst im Dialog mit der KI Schritt für Schritt ein Unterrichtskonzept.", status:"ANNOUNCED", url:null, hero:"heroes/hero_02.png", heroAnchor:"br", kommt_von:[{ref:"01",typ:"direkt"}], geht_nach:[{ref:"03",typ:"direkt"},{ref:"04",typ:"Zweig"}] },
+      { id:"03", kurztitel:"WERKZEUGE", titel:"UNTERRICHTSENTWURF — WERKZEUGE", datum:"2025-08-12", datum_publish:null, abstract:"Was in der Vision als Idee aufblitzt, wird zur Werkstatt: Die ersten Werkzeuge werden gebaut.", status:"ANNOUNCED", url:null, kommt_von:[{ref:"02",typ:"direkt"}], geht_nach:[] },
+      { id:"04", kurztitel:"LETS YAML", titel:"LETS YAML", datum:"2025-08-18", datum_publish:null, abstract:"Warum eine schlichte Textstruktur zum Rückgrat des entstehenden Systems wird.", status:"ANNOUNCED", url:null, kommt_von:[{ref:"02",typ:"Zweig"}], geht_nach:[{ref:"05",typ:"direkt"}] },
+      { id:"05", kurztitel:"LETS PLAY", titel:"LETS PLAY", datum:"2025-08-25", datum_publish:null, abstract:"Das System steht — nun wird damit gespielt.", status:"ANNOUNCED", url:null, kommt_von:[{ref:"04",typ:"direkt"}], geht_nach:[{ref:"06",typ:"direkt"}] },
+      { id:"06", kurztitel:"WERKSTATT", titel:"DIE GEBURT DER WERKSTATT", datum:"2025-09-15", datum_publish:null, abstract:"Die Methode bekommt einen Namen und einen Ort.", status:"ANNOUNCED", url:null, kommt_von:[{ref:"05",typ:"direkt"}], geht_nach:[] }
+    ];
+  }
+
+  accentPair(){
+    const map = {
+      "Braun":  ["#7d4a23", "#5e3717"],
+      "Rot":    ["#bd3f2b", "#8b2c1c"],
+      "Blau":   ["#0a4de0", "#063aae"],
+      "Mono":   ["#241c12", "#000000"]
+    };
+    return map[this.props.accent] || map["Braun"];
+  }
+
+  fmt(iso){
+    if (!iso) return "TBD";
+    const p = iso.split("-");
+    return p[2] + "." + p[1] + "." + p[0];
+  }
+
+  rgba(hex, a){
+    const h = hex.replace("#", "");
+    const r = parseInt(h.slice(0,2),16), g = parseInt(h.slice(2,4),16), b = parseInt(h.slice(4,6),16);
+    return `rgba(${r},${g},${b},${a})`;
+  }
+
+  clickWp(n){
+    if (n.status === "LIVE"){
+      this.setState(s => ({ expandedId: s.expandedId === n.id ? null : n.id }));
+    } else {
+      this.setState({ shakeId: n.id });
+      setTimeout(() => this.setState(s => s.shakeId === n.id ? { shakeId: null } : null), 430);
+    }
+  }
+
+  layout(){
+    const data = this.data();
+    const cw = this.state.cw || 820;
+    const mapH = this.state.mapH || 540;
+    const mobile = cw < 560;
+    const byId = {}; data.forEach(n => byId[n.id] = n);
+    const children = {}; data.forEach(n => children[n.id] = (n.geht_nach||[]).map(e => e.ref));
+
+    // tidy-tree lane assignment: leaves take next lane, parents center over children
+    const lane = {}; const seen = {}; let next = 0;
+    const assign = (id) => {
+      if (seen[id]) return lane[id];
+      seen[id] = true;
+      const kids = children[id] || [];
+      if (kids.length === 0){ lane[id] = next++; return lane[id]; }
+      let sum = 0;
+      kids.forEach(k => sum += assign(k));
+      lane[id] = sum / kids.length;
+      return lane[id];
+    };
+    data.filter(n => (n.kommt_von||[]).length === 0).forEach(n => assign(n.id));
+    data.forEach(n => { if (!(n.id in lane)) assign(n.id); });
+
+    let maxLane = 0; data.forEach(n => { if (lane[n.id] > maxLane) maxLane = lane[n.id]; });
+
+    // Y = Graph-Rang (Reihenfolge), NICHT Datum → gleichmässige Verteilung, keine Überlappung,
+    // füllt die Höhe. Datum bleibt nur Label.
+    const parentsOf = {}; data.forEach(n => parentsOf[n.id] = (n.kommt_von||[]).map(e => e.ref));
+    const rank = {};
+    const rk = (id) => {
+      if (id in rank) return rank[id];
+      rank[id] = 1; // guard against cycles
+      const ps = parentsOf[id] || [];
+      rank[id] = ps.length ? Math.max.apply(null, ps.map(rk)) + 1 : 0;
+      return rank[id];
+    };
+    data.forEach(n => rk(n.id));
+    let maxRank = 0; data.forEach(n => { if (rank[n.id] > maxRank) maxRank = rank[n.id]; });
+
+    // Fit the whole graph into the visible canvas (cw x mapH) — one screen, no scroll.
+    const leftPad = mobile ? 26 : 58;
+    const rightPad = mobile ? 26 : 196;
+    const topPad = 30, botPad = 34;
+    const drawW = Math.max(60, cw - leftPad - rightPad);
+    const drawH = Math.max(220, mapH - topPad - botPad);
+
+    const defs = this.defaultPositions();
+    const base = {};
+    data.forEach(n => {
+      let x, y;
+      if (defs[n.id]) {
+        x = defs[n.id].x * cw; y = defs[n.id].y * mapH;
+      } else {
+        const lx = maxLane > 0 ? (lane[n.id] / maxLane) : 0.5;
+        x = mobile ? (leftPad + 6) : (leftPad + lx * drawW);
+        y = topPad + (maxRank > 0 ? (rank[n.id] / maxRank) : 0) * drawH;
+      }
+      base[n.id] = { x: Math.round(x), y: Math.round(y) };
+    });
+
+    return { data, byId, base, cw, mapH, mobile };
+  }
+
+  renderVals(){
+    const L = this.layout();
+    const [accent, accentDeep] = this.accentPair();
+    const line = "#bd9f7e";
+    const hoverId = this.state.hoverId;
+    const expandedId = this.state.expandedId;
+
+    const positions = this.state.positions || {};
+    const posOf = (id) => {
+      const p = positions[id];
+      if (p) return { x: p.x * L.cw, y: p.y * L.mapH };
+      return L.base[id] || { x: 0, y: 0 };
+    };
+    this._pos = {}; L.data.forEach(n => { this._pos[n.id] = posOf(n.id); });
+
+    const waypoints = L.data.map(n => {
+      const isLive = n.status === "LIVE";
+      const hovered = hoverId === n.id;
+      const expanded = expandedId === n.id;
+      const shaking = this.state.shakeId === n.id;
+      const dragging = this.state.dragId === n.id;
+      const P = posOf(n.id);
+      const left = Math.round(P.x - 6.5);
+      const top = Math.round(P.y);
+      const flip = P.y > (L.mapH * 0.56);
+
+      // LIVE-Punkt: doppelter Ring = sichtbare Klick-Affordanz
+      const dotStyle = isLive
+        ? `width:13px; height:13px; border-radius:50%; flex:none; background:${accent}; box-shadow:0 0 0 5px #f2eadc, 0 0 0 ${hovered ? 7.5 : 6.5}px ${this.rgba(accent, hovered ? .85 : .5)}; transform:scale(${hovered ? 1.3 : 1}); transition:transform .18s ease, box-shadow .18s ease;`
+        : `width:12px; height:12px; border-radius:50%; flex:none; background:#f2eadc; border:1.5px dashed #b8a78d; box-shadow:0 0 0 5px #f2eadc; opacity:.9;`;
+
+      const titleStyle = `font-family:var(--sans); font-weight:600; font-size:${hovered ? "1.04rem" : ".95rem"}; line-height:1.18; letter-spacing:-.01em; color:${hovered ? accentDeep : "#191713"}; transition:font-size .15s ease, color .15s ease;`;
+      const openHintStyle = `margin-top:5px; font:600 .62rem/1 var(--mono); letter-spacing:.08em; color:${accentDeep};`;
+
+      // ANNOUNCED: grau, kleiner, mit Publish-Zeile (kein Nebel mehr)
+      const annMetaStyle = `font:600 .64rem/1 var(--mono); letter-spacing:.08em; color:#b7a994; margin-bottom:4px;`;
+      const annTitleStyle = `font:600 .82rem/1.2 var(--sans); letter-spacing:0; color:#9d8f7c;`;
+      const annPubStyle = `font:500 .62rem/1.2 var(--mono); letter-spacing:.03em; color:#c0b3a0; margin-top:4px;`;
+
+      const linkStyle = `display:inline-block; margin-top:13px; font:600 .72rem/1 var(--mono); letter-spacing:.05em; color:${accentDeep}; text-decoration:none; border-bottom:1.5px solid ${accent}; padding-bottom:2px;`;
+
+      const boxStyle = `position:absolute; left:${left}px; top:${top}px; transform:translateY(-50%); display:flex; align-items:center; gap:13px; cursor:${dragging ? "grabbing" : "grab"}; touch-action:none; user-select:none; -webkit-user-select:none; outline:none; z-index:${expanded ? 60 : (dragging ? 55 : (hovered ? 30 : 10))};${shaking ? " animation:wpshake .43s ease;" : ""}`;
+
+      // --- Expanded card (3x grösser; Hero als Vollflächen-Hintergrund) ---
+      const hasHero = !!n.hero;
+      const cardW = Math.round(Math.min(540, L.cw - 24));
+      const clampedLeft = Math.max(8, Math.min(left, L.cw - cardW - 8));
+      const cardOffsetX = Math.round(clampedLeft - left);
+
+      const tsh = hasHero ? "0 1px 8px rgba(20,12,4,.7), 0 0 2px rgba(20,12,4,.5)" : "none";
+      // Passepartout-Rahmen (wie .evidence) + diagonaler warm-brauner Schleier (wie .hero der Note-Seite)
+      const cardStyle = hasHero
+        ? `position:absolute; top:${flip ? "auto" : "calc(100% + 13px)"}; bottom:${flip ? "calc(100% + 13px)" : "auto"}; left:${cardOffsetX}px; width:${cardW}px; padding:7px; background:#fffaf0; border:1px solid #b8a78d; border-radius:2px; box-shadow:0 22px 50px rgba(48,35,18,.26); overflow:hidden; z-index:50;`
+        : `position:absolute; top:${flip ? "auto" : "calc(100% + 13px)"}; bottom:${flip ? "calc(100% + 13px)" : "auto"}; left:${cardOffsetX}px; width:${cardW}px; min-height:168px; background:#fffaf0; border:1px solid #b8a78d; border-radius:2px; box-shadow:0 22px 50px rgba(48,35,18,.22); overflow:hidden; z-index:50;`;
+      const anchors = {
+        tl: { at:"0% 0%",     ai:"flex-start", jc:"flex-start", ta:"left"  },
+        br: { at:"100% 100%", ai:"flex-end",   jc:"flex-end",   ta:"right" },
+        tr: { at:"100% 0%",   ai:"flex-start", jc:"flex-end",   ta:"right" },
+        bl: { at:"0% 100%",   ai:"flex-end",   jc:"flex-start", ta:"left"  }
+      };
+      const A = anchors[n.heroAnchor] || anchors.tl;
+      // Schleier im Header-Farbton (Espresso-Braun der Kopfleiste, rgb(18,12,7))
+      const hv = "18,12,7";
+      const veil = `radial-gradient(140% 140% at ${A.at}, rgba(${hv},.95) 0%, rgba(${hv},.8) 28%, rgba(${hv},.4) 54%, rgba(${hv},0) 80%)`;
+      const photoStyle = hasHero
+        ? `display:flex; align-items:${A.ai}; justify-content:${A.jc}; min-height:252px; border:1px solid #cdbfa6; background-image:${veil}, url("${n.hero}"); background-size:cover; background-position:center;`
+        : "display:block;";
+      const cardInnerStyle = hasHero ? `padding:20px 22px; max-width:66%; text-align:${A.ta};` : "padding:18px 22px 20px; width:100%;";
+      const cardMetaStyle = `font:600 .68rem/1 var(--mono); letter-spacing:.12em; color:${hasHero ? "#ffd9a8" : "#9a8d7b"}; margin-bottom:10px; text-shadow:${tsh};`;
+      const cardTitleStyle = `font:600 1.22rem/1.18 var(--sans); letter-spacing:-.01em; color:${hasHero ? "#fffaf0" : "#241c12"}; margin:0; text-shadow:${tsh};`;
+      const cardAbsStyle = `font-family:'Spectral',Georgia,serif; font-size:1.02rem; line-height:1.55; color:${hasHero ? "#f6ecdd" : "#2c2620"}; margin:10px 0 0; text-shadow:${tsh};`;
+      const cardLinkStyle = `display:inline-block; margin-top:15px; font:600 .74rem/1 var(--mono); letter-spacing:.06em; color:${hasHero ? "#ffd9a8" : accentDeep}; text-decoration:none; border-bottom:1.5px solid ${hasHero ? "#ffd9a8" : accent}; padding-bottom:3px; text-shadow:${tsh};`;
+
+      return {
+        cardStyle, photoStyle, cardInnerStyle, cardMetaStyle, cardTitleStyle, cardAbsStyle, cardLinkStyle,
+        id: n.id, isLive, isAnnounced: !isLive, hovered, expanded,
+        meta: n.id + " · " + this.fmt(n.datum),
+        kurztitel: n.kurztitel, titel: n.titel,
+        abstract: n.abstract && n.abstract.trim() ? n.abstract : "Abstract folgt, sobald die Note gepflegt ist.",
+        url: n.url || "#",
+        showOpenHint: isLive && hovered, openHintStyle,
+        annMeta: n.id + " · " + this.fmt(n.datum),
+        annTitle: n.kurztitel,
+        annPub: n.datum_publish ? "erscheint " + this.fmt(n.datum_publish) : "Termin offen",
+        annMetaStyle, annTitleStyle, annPubStyle,
+        role: isLive ? "link" : "note",
+        ariaDisabled: isLive ? "false" : "true",
+        aria: isLive ? (n.kurztitel + " — Note öffnen") : (n.kurztitel + " — angekündigt, erscheint " + (n.datum_publish ? this.fmt(n.datum_publish) : "noch offen")),
+        dotStyle, titleStyle, linkStyle, boxStyle,
+        onDown: (e) => this.startDrag(n, e),
+        onClick: (e) => { if (e) e.stopPropagation(); if (this._suppressClick) return; this.clickWp(n); },
+        stop: (e) => { if (e) e.stopPropagation(); },
+        onEnter: () => { if (!this._drag) this.setState({ hoverId: n.id }); },
+        onLeave: () => this.setState(s => s.hoverId === n.id ? { hoverId: null } : null),
+        onKey: (e) => { if (e.key === "Enter" || e.key === " "){ e.preventDefault(); this.clickWp(n); } }
+      };
+    });
+
+    const paths = [];
+    L.data.forEach(n => {
+      (n.geht_nach || []).forEach(e => {
+        const a = posOf(n.id), b = posOf(e.ref);
+        const x1 = a.x, y1 = a.y;
+        const x2 = b.x, y2 = b.y;
+        const hot = hoverId === n.id || hoverId === e.ref;
+        let d;
+        if (Math.abs(x1 - x2) < 0.6){
+          d = `M ${x1.toFixed(1)} ${y1.toFixed(1)} L ${x2.toFixed(1)} ${y2.toFixed(1)}`;
+        } else {
+          const dy = y2 - y1;
+          d = `M ${x1.toFixed(1)} ${y1.toFixed(1)} C ${x1.toFixed(1)} ${(y1 + dy*0.45).toFixed(1)} ${x2.toFixed(1)} ${(y2 - dy*0.45).toFixed(1)} ${x2.toFixed(1)} ${y2.toFixed(1)}`;
+        }
+        paths.push({ d, stroke: hot ? accent : line, w: hot ? 2.2 : 1.5 });
+      });
+    });
+
+    const liveCount = L.data.filter(n => n.status === "LIVE").length;
+
+    return {
+      waypoints, paths,
+      svgW: Math.round(L.cw), svgH: Math.round(L.mapH),
+      mapRef: this.mapRef,
+      accent, accentDeep,
+      liveCount, annCount: L.data.length - liveCount,
+      textur: this.props.textur ?? true,
+      resetPositions: () => this.resetPositions(),
+      closeCard: () => { if (this.state.expandedId) this.setState({ expandedId: null }); }
+    };
+  }
+}
+</script>
+</body>
+</html>
