@@ -11,7 +11,3 @@ Die Feldnotizen erzählen, wie aus einzelnen Experimenten mit künstlicher Intel
 ## Autor
 
 Markus Schwarz
-
-## Lizenz
-
-Die veröffentlichten Inhalte stehen unter [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
