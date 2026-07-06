@@ -215,13 +215,16 @@ var DEFAULTS = {
 };
 
 /* HUM-fixierte Kurven-Griffe aus Draft-Mode-Export 260706 (Bezier-Feintuning).
-   Achtung: absolute Pixelwerte aus der Export-Viewportgroesse, nicht normiert
-   wie DEFAULTS -> bei stark abweichender Fenstergroesse ggf. erneut anpassen. */
+   Fix 260706b: cps wird jetzt normiert (0..1) gespeichert/gelesen (siehe gc()),
+   wie DEFAULTS/positions -> bleibt bei jeder Fenstergroesse korrekt platziert.
+   Diese Werte sind aus den urspruenglich exportierten Absolut-Pixeln anhand
+   des zuletzt verifizierten Testfensters (1528x717) zurückgerechnet — bei
+   Bedarf im Draft-Mode einmal neu ziehen+exportieren fuer echte Praezision. */
 var DEFAULT_CPS = {
-  '02-04':{x:127.95324021561066, y:561.0902661127832},
-  '02-03':{x:190.13574626636313, y:354.3137440713747},
-  '02-05':{x:100.4862941534582, y:510.2100331555335},
-  '04-06':{x:404.6749729879159, y:382.9465021622381}
+  '02-04':{x:0.08372868729818756, y:0.7825527004362667},
+  '02-03':{x:0.12443960097670097, y:0.4942437713686259},
+  '02-05':{x:0.06577369776012319, y:0.711577173156108},
+  '04-06':{x:0.26480096400255754, y:0.5341234969887561}
 };
 
 var LS_POS = 'fn-storyline-v7';
@@ -261,7 +264,10 @@ function posOf(id) {
 }
 
 function gc(eid, p1, p2) {
-  if (cps[eid]) return cps[eid];
+  /* cps ist normiert (0..1, wie DEFAULTS/positions) gespeichert -> hier
+     denormieren. Fix 260706: fruehere Version speicherte absolute Pixel,
+     dadurch waren Kurven bei abweichender Fenstergroesse falsch platziert. */
+  if (cps[eid]) return {x: cps[eid].x*cw, y: cps[eid].y*mapH};
   var mx=(p1.x+p2.x)/2, my=(p1.y+p2.y)/2;
   var dx=p2.x-p1.x, dy=p2.y-p1.y, len=Math.sqrt(dx*dx+dy*dy)||1;
   var sign = dy>5 ? -1 : dy<-5 ? 1 : 0;
@@ -398,7 +404,7 @@ function startCpDrag(eid, a, b, clientX, clientY) {
 function onCpMove(e) {
   if (!_cpDrag) return;
   var dx = e.clientX-_cpDrag.sx, dy = e.clientY-_cpDrag.sy;
-  cps[_cpDrag.id] = {x:_cpDrag.ox+dx, y:_cpDrag.oy+dy};
+  cps[_cpDrag.id] = {x:(_cpDrag.ox+dx)/cw, y:(_cpDrag.oy+dy)/mapH};
   render();
 }
 
@@ -563,7 +569,7 @@ function render() {
   var expNote = expandedId ? NOTES.find(function(n){return n.id===expandedId;}) : null;
   if (expNote && expNote.status === 'LIVE') {
     var hasHero = !!expNote.hero;
-    var hv = '18,12,7';
+    var hv = '46,26,14'; /* Espresso-Braun 260706, ersetzt alte V6.05-Schwarzbraun-Schattierung */
     var veil = 'radial-gradient(140% 140% at 0% 0%,rgba('+hv+',.95) 0%,rgba('+hv+',.8) 28%,rgba('+hv+',.4) 54%,rgba('+hv+',0) 80%)';
     var tsh = hasHero ? '0 1px 8px rgba(20,12,4,.7)' : 'none';
 
