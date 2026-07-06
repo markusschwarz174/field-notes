@@ -1,15 +1,15 @@
 <!doctype html>
 <!--
    WEB_PREVIEW — P6-Render, in P5 Stage 1 als LIVEVIEW ausgeliehen.
-   Design-SSoT: neuestes WEB_NOTE_*.zip / uploads/WEB_PREVIEW.html.
-   Content-Source: NEUGIERDE_V6.05_DRAFT_AI.docx
+   Design-SSoT: C:\Users\Markus\ClaudeCode\MeineProjekte\FIELD_NOTES_DRAFT\0_W_WORKFLOW\P6_PUBLISH\WEBDESIGN\_CURRENT\NOTE\index.html
+   Content-Source: NEUGIERDE_V6.22_RELEASE_HUMAN_260706.docx
 -->
 <html lang="de-CH">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Am Anfang steht die Neugierde · Field Notes Nr. 01</title>
-<meta name="description" content="Field Note Nr. 01 — 20. Juli 2025. Aus einer einfachen Unterrichtsplanung wächst durch Neugierde ein neues Verständnis von KI, Differenzierung und Unterricht.">
+<meta name="description" content="Field Note Nr. 01 — 20. Juli 2025. Wie aus einer Planungsfrage an GPT ein didaktisches Dessertbuffet entsteht — und am Schluss neue Ideen einen Anfang markieren.">
 <meta name="author" content="Markus Schwarz">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,7 +27,7 @@
 :root{
   --bg:#f2eadc;--paper:#fffaf0;--paper-deep:#faf4e6;--ink:#191713;--muted:#6e6458;
   --line:#d6c8b4;--line-deep:#b8a78d;--red:#bd3f2b;--red-deep:#8b2c1c;
-  --yellow:#f2c84b;--green:#486b55;
+  --yellow:#f2c84b;--green:#486b55;--ochre:#9A6A1F;
   --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
   --sans:"IBM Plex Sans",Inter,"Segoe UI",system-ui,sans-serif;
 }
@@ -147,7 +147,302 @@ body:before{
 .article em{font-style:italic}
 .mark{background:linear-gradient(transparent 55%,rgba(242,200,75,.55) 55%)}
 .article strong.hl1{font-weight:700;color:var(--red)}
-.article mark.hl2{background:linear-gradient(transparent 55%,rgba(242,200,75,.55) 55%);color:inherit;padding:0 2px}
+.article mark.hl2{background:transparent;color:var(--accent-2,#244f63);font-weight:650;padding:0}
+
+/* 4-STUFEN-HL-SYSTEM (Bauanleitung 2026-06-16) */
+/* Stufe 1: em (built-in) */
+/* Stufe 2: Schluesselsatz inline */
+.article .hl{
+  font-weight:600;color:var(--ochre,#9A6A1F);
+}
+/* Stufe 3: Kernsatz Block */
+.article p.kernsatz{
+  font-family:'Spectral',Georgia,serif;font-style:italic;font-weight:500;
+  font-size:1.5rem;line-height:1.34;color:#15171C;text-align:center;
+  max-width:26ch;margin:36px auto;
+}
+.article p.kernsatz + p.kernsatz{margin-top:-22px}
+.article ul.review-list{
+  margin:14px 0 22px 1.2rem;
+  padding-left:1.1rem;
+}
+.article ul.review-list li{
+  margin:7px 0;
+  line-height:1.7;
+}
+/* Stufe 4: Marker — Inschrift-Variante (HUMAN-Update 2026-06-17, Bauanleitung §2.3/§2.4/§5).
+   Word-Trick: Rahmen oben auf Label + Rahmen unten auf Marker, dazwischen kein Rahmen
+   -> visuell ein Kasten um beide Absaetze. CSS-Aequivalent: top/bottom border auf label/p,
+   zentriert + symmetrischer Einzug simuliert 2.5cm Word-Einzug. */
+.article .statement{
+  margin:48px auto;
+  max-width:520px;
+  text-align:center;
+}
+.article .statement .label{
+  font-family:var(--mono);font-size:.7rem;font-weight:600;letter-spacing:.24em;
+  text-transform:uppercase;color:#15171C;
+  border-top:1.5px solid #15171C;
+  padding:14px 0 10px 0;margin:0;
+}
+.article .statement p{
+  margin:0;font-family:'Spectral',Georgia,serif;font-weight:500;font-style:italic;
+  font-size:1.5rem;line-height:1.34;color:#15171C;
+  border-bottom:1.5px solid #15171C;
+  padding:0 0 16px 0;
+}
+
+/* W8: Bild-Rahmung staerker · W10: Bilder leicht rotieren */
+.evidence{
+  margin:36px -8px;padding:14px;
+  background:#fff;border:1px solid var(--line-deep);border-radius:2px;
+  transform:rotate(-.3deg);
+  box-shadow:0 16px 30px rgba(60,42,18,.13), 0 1px 0 rgba(255,255,255,.6) inset;
+}
+.evidence:nth-of-type(even){transform:rotate(.4deg)}
+.evidence img{
+  width:100%;display:block;height:auto;
+  border:1px solid #ddd5c4;background:#fafafa;
+}
+.cap{
+  font:500 .78rem/1.5 var(--mono);color:var(--muted);
+  padding:10px 4px 0;margin:0;
+}
+.evidence-pending{
+  margin:24px 0;padding:14px;
+  border:1px dashed var(--red);background:#fbeae5;
+  font:500 .85rem/1.4 var(--mono);color:var(--red-deep);
+}
+
+/* W3: Card-Familie vereinheitlicht — alle drei Karten gleich strukturiert, nur Seitenlinie-Farbe + Label-Farbe unterschiedlich */
+/* W4: Card-Text kleiner · W10: Cards NICHT rotieren */
+.card{
+  margin:22px 0;padding:14px 18px;
+  background:var(--paper);border-radius:3px;
+  font-family:var(--mono);font-size:.80rem;line-height:1.55;
+  border-left:4px solid var(--line-deep);
+}
+.card:before{
+  display:block;font:700 .60rem/1 var(--mono);
+  letter-spacing:.14em;margin-bottom:8px;
+}
+.card p{margin:0;font-size:inherit;color:#2c2620}
+.card p br{line-height:1.8}
+
+.prompt-card{border-left-color:var(--red);background:#fff8f4}
+.prompt-card:before{content:"\27a4  PROMPT";color:var(--red)}
+
+.response-card{border-left-color:var(--green);background:#f4f7ee}
+.response-card:before{content:"\25c6  RESPONSE";color:var(--green)}
+
+.output-card{border-left-color:#8a6d3d;background:#fbf6e8}
+.output-card:before{content:"\25a3  OUTPUT";color:#8a6d3d}
+
+.quote{
+  border-left:4px solid var(--red);padding:10px 0 10px 22px;
+  margin:34px 0;font-size:1.3rem;line-height:1.35;font-weight:600;
+  color:var(--ink);
+}
+
+/* W9: Cliff in reiner Werkbank-Identitaet */
+.cliff{
+  margin-top:60px;padding:32px 30px;
+  background:linear-gradient(135deg,#211915 0%,#2d211a 100%);
+  color:#fff3df;border-radius:4px;
+  border-top:3px solid var(--red);
+  box-shadow:0 12px 30px rgba(33,25,21,.3);
+}
+.cliff .k{
+  font:700 .72rem/1 var(--mono);color:#ffb19e;
+  text-transform:uppercase;letter-spacing:.16em;
+}
+.cliff h2{
+  margin:14px 0 0;font-size:1.7rem;color:#fffaf0;
+  line-height:1.22;font-weight:600;
+}
+
+/* FOOTER */
+.note-footer-meta{
+  margin-top:48px;padding-top:24px;border-top:1px solid var(--line);
+  font:500 .82rem/1.45 var(--mono);color:var(--muted);
+  display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;
+}
+.note-footer-meta .nav-next{color:var(--red);font-weight:600}
+.note-footer-meta a{color:inherit;text-decoration:none}
+.note-footer-meta a:hover{text-decoration:underline}
+.note-footer-meta .empty{color:var(--muted);font-style:italic}
+
+.colophon{
+  max-width:1280px;margin:0 auto;padding:32px 26px;
+  font:500 .78rem/1.5 var(--mono);color:var(--muted);
+  text-align:center;border-top:1px solid var(--line);
+}
+.colophon .sig{color:var(--red);font-weight:700}
+
+/* WERKSTATT-STATEMENT (HUMAN-Decision 2026-06-16: vom Hero-Postit nach unten) */
+.werkstatt-statement{
+  max-width:880px;margin:48px auto 0;padding:24px 26px 0;
+  font:500 .92rem/1.55 var(--sans);color:var(--muted);
+  text-align:center;font-style:italic;
+}
+
+/* W5: RESPONSIVE — Handy / Tablet / Monitor */
+@media(max-width:960px){
+  .hero-inner{grid-template-columns:1fr;gap:36px}
+  .desk{order:2}
+  .hero{min-height:auto;padding:84px 22px 44px}
+  .hero h1{max-width:12ch}
+  .reader{grid-template-columns:1fr;gap:24px}
+  .rail{
+    position:relative;top:auto;border-left:none;border-top:1px solid var(--red);
+    padding:14px 0 0 0;max-height:none;
+  }
+  .rail a{padding:6px 0}
+  .article{padding:28px 20px}
+  .evidence{margin:28px -4px}
+  .kapitel-head{flex-direction:column;gap:6px}
+  .kapitel-head .kapitel-nr{font-size:1.1rem}
+}
+@media(min-width:1440px){
+  .main{max-width:1380px}
+  .reader{grid-template-columns:260px minmax(0,920px);gap:64px}
+  .article p{font-size:1.08rem}
+}
+
+
+/* fieldnote.css — Werkbank-Styles fuer WEB_PREVIEW (P1-P5)
+   Extrahiert 2026-06-18 aus 01_2025_07_NEUGIERDE/_render_werkbank.py.
+   Cross-Ref: 0_W_WORKFLOW/P6_RELEASE/HTML_DESIGN_NEW_260617/Bauanleitung Hervorhebungs-System.md
+   Convention: 0_C_CONVENTION/C_FORMAT_HTML.md (ab §13 pending rewrite auf 4-Stufen).
+
+   GESTRICHEN 2026-06-18: .statement-block + .statement-label (Legacy HL1-AKZENT,
+   abgeloest durch 4-Stufen-System Stufe 4 = .statement + .label).
+*/
+
+:root{
+  --bg:#f2eadc;--paper:#fffaf0;--paper-deep:#faf4e6;--ink:#191713;--muted:#6e6458;
+  --line:#d6c8b4;--line-deep:#b8a78d;--red:#bd3f2b;--red-deep:#8b2c1c;
+  --yellow:#f2c84b;--green:#486b55;
+  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  --sans:"IBM Plex Sans",Inter,"Segoe UI",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.65;font-size:17px;text-align:left}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;opacity:.32;
+  background-image:radial-gradient(rgba(70,55,35,.12) 1px,transparent 1px);
+  background-size:5px 5px;mix-blend-mode:multiply;z-index:0;
+}
+
+/* HERO */
+.hero{
+  min-height:88vh;position:relative;display:grid;align-items:end;overflow:hidden;
+  padding:84px 26px 56px;
+  background:
+    linear-gradient(110deg,rgba(20,14,8,.86),rgba(28,20,12,.58) 40%,rgba(38,26,16,.36) 70%,rgba(245,238,224,.18) 100%),
+    url("P2_LAYOUTER/assets/01_33_abb_prompt_revolutionaer_full.png");
+  background-size:cover;background-position:center;
+}
+.hero:after{
+  content:"";position:absolute;inset:auto 0 0 0;height:16%;
+  background:linear-gradient(transparent,var(--bg));
+}
+.hero-inner{
+  position:relative;z-index:2;max-width:1280px;margin:0 auto;width:100%;
+  display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:64px;align-items:end;
+}
+.eyebrow{font:700 .76rem/1 var(--mono);color:#ffd9a8;text-transform:uppercase;letter-spacing:.18em}
+.hero h1{
+  font-size:clamp(2.8rem,8vw,6.8rem);line-height:.9;
+  margin:18px 0 24px;color:#fffaf0;letter-spacing:-.005em;max-width:10ch;
+  text-shadow:0 3px 18px rgba(0,0,0,.42);
+}
+.hero .lead{
+  font-size:clamp(1.08rem,1.6vw,1.32rem);max-width:680px;
+  color:#fff5e4;margin:0;line-height:1.45;font-weight:400;
+  text-shadow:0 2px 8px rgba(0,0,0,.4);
+}
+
+/* SLIPS (diskret-neutral, kein Postit) */
+.desk{display:grid;gap:14px;align-self:end}
+.slip{
+  background:var(--paper);border:1px solid var(--line-deep);
+  padding:16px 17px;border-radius:3px;
+  box-shadow:0 8px 22px rgba(22,17,10,.22);
+}
+.slip .k{
+  font:700 .68rem/1 var(--mono);color:var(--red);
+  text-transform:uppercase;letter-spacing:.12em;
+  display:block;margin-bottom:8px;
+}
+.slip h3{font-size:1.05rem;line-height:1.25;margin:0 0 6px;font-weight:600;color:var(--ink)}
+.slip p{font-size:.92rem;color:#4d453c;margin:0;line-height:1.5}
+.slip .date{
+  font:600 .82rem/1 var(--mono);color:var(--ink);
+  margin-bottom:8px;letter-spacing:.02em;
+}
+
+/* MAIN-LAYOUT (W5: breiter + responsive) */
+.main{
+  max-width:1280px;margin:0 auto;padding:64px 26px 80px;
+  position:relative;z-index:1;
+}
+.section-title{
+  font:700 .78rem/1 var(--mono);letter-spacing:.16em;
+  text-transform:uppercase;color:var(--red);margin-bottom:20px;
+}
+.reader{
+  display:grid;grid-template-columns:240px minmax(0,820px);gap:56px;
+}
+.rail{
+  position:sticky;top:62px;align-self:start;
+  border-left:2px solid var(--red);padding:8px 0 8px 18px;
+  font:500 .82rem/1.4 var(--mono);color:var(--muted);
+  max-height:calc(100vh - 80px);overflow-y:auto;
+}
+.rail a{
+  display:block;color:inherit;text-decoration:none;
+  padding:8px 0;border-bottom:1px solid var(--line);
+}
+.rail a:hover{color:var(--red)}
+.rail-nr{
+  display:inline-block;width:2em;color:var(--red);font-weight:700;
+}
+
+/* ARTICLE */
+.article{
+  background:rgba(255,250,240,.84);border:1px solid var(--line);
+  padding:42px clamp(24px,5vw,60px);
+  box-shadow:0 22px 70px rgba(48,35,18,.08);
+}
+
+/* ABSTRACT-BLOCK (DIRECTOR-Entscheid: abstract vor Akt-1) */
+.abstract-lead{
+  font-style:italic;font-size:1.12rem;line-height:1.55;
+  color:var(--muted);margin:0 0 36px 0;
+  padding:18px 22px;background:var(--paper-deep);
+  border-left:3px solid var(--line-deep);border-radius:2px;
+}
+
+/* KAPITEL-HEAD (HUMAN-Decision 2026-06-16: Nummerierung weg, scroll-margin-top fuer Anchor-Sprung) */
+.kapitel-head{
+  margin-top:48px;display:flex;align-items:baseline;gap:18px;
+  scroll-margin-top:24px;
+}
+.kapitel-head:first-of-type{margin-top:0}
+.kapitel-head .kapitel-nr{display:none}
+.kapitel-head h2{
+  font-size:1.7rem;line-height:1.18;margin:0;
+  font-weight:700;color:var(--ink);letter-spacing:-.005em;flex:1;
+}
+
+.article p{font-size:1.06rem;color:#2c2620;margin:14px 0 18px 0;line-height:1.65}
+.article strong{font-weight:700;color:#1a1410}
+.article em{font-style:italic}
+.mark{background:linear-gradient(transparent 55%,rgba(242,200,75,.55) 55%)}
+.article strong.hl1{font-weight:700;color:var(--red)}
+.article mark.hl2{background:transparent;color:var(--accent-2,#244f63);font-weight:650;padding:0}
 
 /* 4-STUFEN-HL-SYSTEM (Bauanleitung 2026-06-16) */
 /* Stufe 1: em (built-in) */
@@ -163,6 +458,15 @@ body:before{
   font-family:'Spectral',Georgia,serif;font-style:italic;font-weight:500;
   font-size:1.5rem;line-height:1.34;color:#15171C;text-align:center;
   max-width:26ch;margin:36px auto;
+}
+.article p.kernsatz + p.kernsatz{margin-top:-22px}
+.article ul.review-list{
+  margin:14px 0 22px 1.2rem;
+  padding-left:1.1rem;
+}
+.article ul.review-list li{
+  margin:7px 0;
+  line-height:1.7;
 }
 /* Stufe 4: Marker — Inschrift-Variante (HUMAN-Update 2026-06-17, Bauanleitung §2.3/§2.4/§5).
    Word-Trick: Rahmen oben auf Label + Rahmen unten auf Marker, dazwischen kein Rahmen
@@ -309,9 +613,12 @@ body:before{
 
   /* ============ HERO (echter Eröffnungs-Prompt als Textur) ============ */
   .hero{
-    background-image: url("P2_LAYOUTER/assets/01_33_abb_prompt_revolutionaer_full.png");
-    background-size: cover; background-position: left center;
-    min-height: 82vh;
+    background:
+      linear-gradient(to top,rgba(38,20,10,.85) 0%,rgba(46,26,14,.68) 26%,rgba(54,32,18,.32) 58%,rgba(54,32,18,0) 100%),
+      linear-gradient(110deg,rgba(46,26,14,.86),rgba(58,36,20,.58) 40%,rgba(72,46,26,.36) 70%,rgba(245,238,224,.18) 100%),
+      url("P2_LAYOUTER/assets/01_33_abb_prompt_revolutionaer_full.png");
+    background-size: cover; background-position: center;
+    min-height: 88vh;
   }
   .hero-inner{ grid-template-columns: 1fr; }
   .hero .eyebrow{ font-family: 'IBM Plex Sans', system-ui, sans-serif; font-weight: 700; }
@@ -321,7 +628,7 @@ body:before{
     font-family: 'Spectral', Georgia, serif; font-style: italic; font-weight: 600;
     text-transform: none; letter-spacing: .01em; font-size: 1rem; color: var(--mk);
   }
-  /* Inhaltsverzeichnis (Schiene) entfernt → Artikel zentriert, volle Breite */
+  /* Inhaltsverzeichnis (Schiene) entfernt -> Artikel zentriert, volle Breite */
   .reader{ grid-template-columns: minmax(0, 820px); justify-content: center; }
 
   /* ============ STICKY-HEADER — der ruhende Pol ============ */
@@ -378,6 +685,18 @@ body:before{
   .views .view + .view{ border-left: 1px solid rgba(214,200,180,.3); }
   .views .view:hover{ color: #fff3df; }
   .views .view.is-active{ background: #f2eadc; color: #191713; }
+
+  /* F19-Fix 260705: #back-top-btn stand als nacktes .view-Textbutton (Leck aus
+     deaktiviertem Scroll/Reader-Toggle) neben den quadratischen Icon-Buttons der
+     .notenav -- jetzt gleiche Box-Optik wie .notenav button (Icon statt Text). */
+  #back-top-btn{
+    display: flex; align-items: center; justify-content: center;
+    width: 30px; height: 30px; padding: 0; cursor: pointer;
+    border: 1px solid rgba(214,200,180,.26); border-radius: 3px;
+    background: transparent; color: #d8cbb6;
+  }
+  #back-top-btn:hover{ border-color: rgba(255,217,168,.7); color: #fff3df; }
+  #back-top-btn svg{ width: 16px; height: 16px; display: block; fill: none; stroke: currentColor; stroke-width: 1.7; }
 
   /* ============ BODY-SCHRIFT = SERIF ============ */
   .article > p{
@@ -588,7 +907,7 @@ body:before{
   .page .article .ocard p, .page .article .ccard pre{ font-size: .68rem; line-height: 1.5; }
   .page .article .ccard{ padding: 11px 13px; max-height: 150px; }
   .page .article .evidence .stub-tag{ font-size: .56rem; padding: 5px 9px; margin-bottom: 9px; }
-  .page .article .evidence img{ max-height: 22vh; padding: 11px; }
+  .page .article .evidence img{ max-height: 22vh; width: auto; max-width: 100%; padding: 11px; }
   .page .article .evidence .cap{ font-size: .72rem; padding-top: 9px; }
   .page .article .cliff{ margin-top: 22px; padding-top: 16px; }
   .page .article .cliff h2{ font-size: 1rem; }
@@ -614,6 +933,21 @@ body:before{
     cursor: pointer; border: 1px solid rgba(214,200,180,.32); background: transparent; color: #fff3df;
   }
   .pager-ui button:hover{ background: var(--mk); border-color: var(--mk); }
+  #pg-first{ font-size: .85rem !important; opacity: .65; }
+  #pg-first:hover{ opacity: 1 !important; }
+  #pg-first.at-start{ opacity: .25 !important; pointer-events: none; }
+
+  /* Zurück-nach-oben (Scroll-Modus) */
+  #back-to-top{
+    display: none; position: fixed; bottom: 24px; right: 24px; z-index: 50;
+    width: 36px; height: 36px; align-items: center; justify-content: center;
+    background: rgba(26,18,10,.82); color: #ffd9a8;
+    border: 1px solid rgba(214,200,180,.3); border-radius: 50%;
+    cursor: pointer; font-size: 1.1rem; backdrop-filter: blur(8px);
+    opacity: 0; transition: opacity .25s; pointer-events: none;
+  }
+  body.mode-scroll #back-to-top{ display: flex; }
+  #back-to-top.visible{ opacity: 1; pointer-events: auto; }
   .pager-ui .pg{ font: 600 .74rem/1 var(--mono); letter-spacing: .1em; color: #efe2cd; min-width: 56px; text-align: center; }
 
   /* ============ Final-Polish ============ */
@@ -647,12 +981,6 @@ body:before{
     .views .view{ padding: 5px 10px; font-size: .76rem; }
   }
 
-  /* P6 LIVEVIEW-Korrekturen 2026-06-22 */
-  .hero{
-    background-image:
-      linear-gradient(105deg, rgba(12,8,4,.88) 0%, rgba(18,12,7,.72) 48%, rgba(18,12,7,.46) 100%),
-      url("P2_LAYOUTER/assets/01_33_abb_prompt_revolutionaer_full.png") !important;
-  }
   .article p.kernsatz{
     max-width: 34ch; margin: 40px auto; text-align: center;
   }
@@ -676,6 +1004,137 @@ body:before{
     font-size: .64rem; line-height: 1.48; font-weight: 500;
   }
 
+  /* Abb.-Label: nach unten, gleicher Stil wie .cap, gleiche Zeile */
+  .article .evidence{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas: "img img" "stub cap";
+    gap: 0 6px;
+  }
+  .article .evidence img{ grid-area: img; width: 100%; }
+  .article .evidence .stub-tag{
+    grid-area: stub;
+    align-self: baseline;
+    background: none !important;
+    color: var(--muted) !important;
+    font: italic 500 .78rem/1.5 'Spectral', Georgia, serif !important;
+    letter-spacing: normal !important;
+    text-transform: none !important;
+    border-radius: 0 !important;
+    padding: 6px 0 0 !important;
+    margin: 0 !important;
+    display: block !important;
+  }
+  .article .evidence .cap{
+    grid-area: cap;
+    align-self: baseline;
+  }
+  .page .article .evidence .stub-tag{
+    font-size: .72rem !important; padding: 4px 0 0 !important;
+  }
+
+  /* Reader-Modus auf Mobile deaktivieren (≤ 680px) */
+  @media (max-width: 680px) {
+    #view-reader-btn { display: none !important; }
+  }
+  /* Reader-Modus auf Tablet-Portrait deaktivieren */
+  @media (max-width: 1024px) and (orientation: portrait) {
+    #view-reader-btn { display: none !important; }
+  }
+
+  /* Mobile: Hero auf Textspaltenbreite einschränken, 3:2 Seitenverhältnis (1536×1024) */
+  @media (max-width: 680px){
+    .hero{
+      margin: 16px 20px 0;
+      min-height: unset;
+      aspect-ratio: 3 / 2;
+      padding: 20px 20px 22px;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .hero h1{
+      font-size: clamp(1.8rem, 9vw, 3rem);
+      margin: 10px 0 14px;
+    }
+    .hero .lead{
+      font-size: 1rem;
+    }
+  }
+
+  .article p.kernsatz{
+    max-width: 34ch; margin: 40px auto; text-align: center;
+  }
+  .article .cliff{
+    margin-top: 46px; padding-top: 18px;
+  }
+  .article .cliff .k{
+    color: var(--muted); font-size: .64rem; letter-spacing: .09em;
+  }
+  .article .cliff .next-meta{
+    color: var(--muted); font-size: .72rem; font-weight: 500;
+  }
+  .article .cliff h2{
+    color: #4d453c; font-size: 1rem; font-weight: 500; line-height: 1.4;
+  }
+  .page .article .kapitel-head{
+    margin-top: 1.4rem; margin-bottom: .65rem;
+  }
+  .page .article .ocard p{
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+    font-size: .64rem; line-height: 1.48; font-weight: 500;
+  }
+  .article .evidence{
+    max-width: min(100%, 680px);
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .article .evidence img{
+    width: auto;
+    max-width: 100%;
+    max-height: 70vh;
+    margin: 0 auto;
+  }
+  .article .evidence.scale-ok img{
+    width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+  }
+  .article .evidence.no-scale img{
+    width: auto !important;
+    max-width: 100%;
+  }
+  .article mark.hl2{
+    background: transparent !important;
+    color: var(--ochre,#9A6A1F) !important;
+    font-weight: 600;
+    padding: 0;
+  }
+  .article p{
+    line-height:1.46 !important;
+    margin-top:.72rem !important;
+    margin-bottom:.92rem !important;
+  }
+  .article strong.hl1,
+  .article .hl1{
+    color:#7b2f23 !important;
+    font-weight:800 !important;
+    background:linear-gradient(180deg, transparent 58%, rgba(154,106,31,.18) 58%) !important;
+    box-decoration-break:clone;
+    -webkit-box-decoration-break:clone;
+  }
+  .article p,
+  .article .kernsatz,
+  .article .cliff h2{
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: auto;
+  }
+  .article .kernsatz,
+  .article .cliff h2{
+    text-wrap: balance;
+  }
+
 </style>
 </head>
 <body class="mode-scroll">
@@ -683,13 +1142,13 @@ body:before{
 <header class="topbar">
   <div class="topbar-left">
     <nav class="notenav" aria-label="Field-Note-Navigation">
-      <button type="button" disabled title="Keine vorherige Field Note" aria-label="Vorherige Field Note"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-      <a href="../../" title="Zur Storyline" aria-label="Zur Storyline"><svg viewBox="0 0 24 24"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z" stroke-linejoin="round"/></svg></a>
-      <button type="button" disabled title="Nächste Field Note erscheint demnächst" aria-label="Nächste Field Note"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button type="button" title="Vorherige Field Note" aria-label="Vorherige Field Note"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <a href="file:///C:/Users/Markus/ClaudeCode/MeineProjekte/FIELD_NOTES_DRAFT/0_W_WORKFLOW/P6_PUBLISH/WEBDESIGN/_CURRENT/STORYLINE/index.html" title="Zur Storyline" aria-label="Zur Storyline"><svg viewBox="0 0 24 24"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z" stroke-linejoin="round"/></svg></a>
+      <button type="button" title="Nächste Field Note" aria-label="Nächste Field Note"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
     </nav>
     <div class="brand">
       <span class="brand-series">Feldnotizen — KI &amp; Unterricht</span>
-      <span class="brand-nr">Field Note Nr. 01 · 20. Juli 2025</span>
+      <span class="brand-nr">Am Anfang steht die Neugierde · Nr. 01 · 20. Juli 2025</span>
     </div>
   </div>
   <div class="topbar-controls">
@@ -707,10 +1166,9 @@ body:before{
         <svg class="flag" viewBox="0 0 3 2" aria-hidden="true"><rect width="3" height="2" fill="#fff"/><rect width="1" height="2" fill="#0055A4"/><rect x="2" width="1" height="2" fill="#EF4135"/></svg>
       </button>
     </div>
-    <div class="views" role="group" aria-label="Ansicht">
-      <button id="view-scroll-btn" class="view is-active" type="button">Scroll</button>
-      <button id="view-reader-btn" class="view" type="button">Reader</button>
-    </div>
+    <button id="view-scroll-btn" class="view is-active" type="button" hidden aria-hidden="true">Scroll</button>
+    <button id="view-reader-btn" class="view" type="button" hidden aria-hidden="true">Reader</button>
+    <button id="back-top-btn" type="button" aria-label="Nach oben" title="Nach oben"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
   </div>
 </header>
 
@@ -719,7 +1177,7 @@ body:before{
     <div>
       <div class="eyebrow">Field Note Nr. 01 · 20. Juli 2025</div>
       <h1>Am Anfang steht die Neugierde</h1>
-      <p class="lead">Aus einer einfachen Unterrichtsplanung wächst durch Neugierde ein neues Verständnis von KI, Differenzierung und Unterricht.</p>
+      <p class="lead">Wie aus einer Planungsfrage an GPT ein didaktisches Dessertbuffet entsteht —<br>und am Schluss neue Ideen einen Anfang markieren.</p>
     </div>
   </div>
 </header>
@@ -732,16 +1190,11 @@ body:before{
   <h2>Warum nicht mit GPT?</h2>
 </div>
 
-  <p>Es ist der 20. Juli 2025 und in vier Wochen beginnt die Schule. Im Kopf habe ich eine Frage:<br><strong class="hl1">Warum nicht einmal mit GPT den Unterricht vorbereiten?</strong></p>
+  <p id="p-001">Es ist der 20. Juli 2025 und in vier Wochen beginnt die Schule. In meinem Kopf geistert seit einigen Wochen eine Idee und ich frage mich: &quot;Warum nicht einmal mit ChatGPT den Unterricht vorbereiten?&quot;<br>Ich denke dabei an ein Thema aus der Mathematik und so öffne ich den Laptop, starte GPT und tippe den ersten Satz:</p>
 
-  <p>Ich beschränke mich auf <em>ein Thema</em> aus der Mathematik.</p>
-
-  <p>Also starte ich den Laptop, öffne ChatGPT und tippe den ersten Satz:</p>
-
-  <div class="conv du">
-    <div class="lbl">DU:</div>
+  <div id="card-001" class="conv du">
     <div class="composer">
-      <p class="ptext">Ich gebe dir nachher Tabellen mit Lerninhalten und Lernzielen.</p>
+      <p class="ptext"><strong>DU:</strong><br>Ich gebe dir nachher Tabellen mit Lerninhalten und Lernzielen.</p>
       <div class="toolbar" aria-hidden="true">
         <button class="ibtn outline" type="button" tabindex="-1" aria-label="Hinzufügen"><svg class="icn" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
         <span class="spacer"></span>
@@ -751,164 +1204,128 @@ body:before{
     </div>
   </div>
 
-  <p>Und seine Begrüssung: Positiv, motivierend, geduldig.</p>
+  <p id="p-002">Und seine Antwort darauf ist irgendwie - positiv, motivierend und irgendwie geduldig.</p>
 
-  <div class="conv gpt">
-    <div class="lbl">GPT:</div>
+  <div id="card-002" class="conv gpt">
     <div class="rcard">
       <button class="copybtn" type="button" tabindex="-1" aria-label="Kopieren"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
-      <p>ChatGPT<br>Alles klar! Gib mir die Tabellen einfach, sobald du bereit bist. Sag mir auch gerne, was du genau damit machen möchtest – z. B. zusammenfassen, umformulieren, visualisieren, in ein bestimmtes Format bringen (z. B. PDF, Excel, Lernplan etc.) oder etwas anderes.</p>
+      <p><strong>AI:</strong><br><strong>ChatGPT:</strong><br>Alles klar! Gib mir die Tabellen einfach, sobald du bereit bist. Sag mir auch gerne, was du genau damit machen möchtest – z. B. zusammenfassen, umformulieren, visualisieren, in ein bestimmtes Format bringen (z. B. PDF, Excel, Lernplan etc.) oder etwas anderes.</p>
     </div>
   </div>
 
-  <p>Das war sie: Unsere erste Begegnung.</p>
+  <p id="p-003">Das war sie: <em>Unser erster Kontakt</em>.</p>
 
 <div class="kapitel-head" id="k-02">
   <div class="kapitel-nr">02</div>
   <h2>Um was geht es?</h2>
 </div>
 
-  <p>Es geht um Mathematik. &quot;Kongruenzabbildungen&quot; — Achsensymmetrie, Drehsymmetrie, Achsenspiegelung, Punktspiegelung. Ich habe rund 15-20 Jugendliche, 12 bis 13 Jahre alt, Niveau B und Fünf Wochen Zeit im Jahresplan.</p>
+  <p id="p-004">Es geht um Mathematik. Genauer gesagt um &quot;Kongruenzabbildungen&quot; — Achsensymmetrie, Drehsymmetrie, Achsenspiegelung und Punktspiegelung. Das mache ich für rund 15-20 Jugendliche, die 12 bis 13 Jahre alt sind, im Niveau B zur Schule gehen und dafür fünf Wochen Zeit im Jahresplan vorgesehen sind. Ich möchte ChatGPT nutzen, damit er mir bei einem Teil meiner Unterrichtsplanung hilft.</p>
 
-  <p>Ich möchte Chat GPT nutzen, damit er mir bei einem Teil meiner Unterrichtsplanung hilft.</p>
+  <p id="p-005">Um mich zu orientieren, lege ich mir die Planung in drei Ebenen zurecht: Jahr, Wochen, Tage. Das ist kein grosses Modell, sondern eine persönliche Ordnungshilfe und für mein Verständnis genügt sie.</p>
 
-  <p>Für einen besseren Überblick und zur Einordnung stelle ich mir den Planungsrhythmus vom Jahr über den Monat bis zum Tag vor. Nichts Besonderes und schon gar kein Vorzeigemodell, aber für mich und zum besseren Verständnis ist es okay.</p>
-
-  <figure class="evidence">
+  <figure id="abb-01" class="evidence scale-ok">
     <span class="stub-tag">Abb. 1</span>
     <img src="P2_LAYOUTER/assets/01_02_abb_planungsrhythmus.png" alt="Drei-Ebenen-Planungsrhythmus als visuelles Konzept" loading="lazy">
     <figcaption class="cap">Drei-Ebenen-Planungsrhythmus als visuelles Konzept</figcaption>
   </figure>
 
-  <p>Typische Top-Down-Planung. Linear. Beziehungsweise hier von links nach rechts.</p>
+  <p id="p-006">Es ist eine typische Top-Down-Planung. Linear. Beziehungsweise hier von links nach rechts. Mehrjahresplanung bestimmt die Jahresplanung und diese bestimmt die Kapitelplanung und diese bestimmt die Lektionsplanung.</p>
 
-  <p>Mehrjahresplanung bestimmt Jahresplanung bestimmt Kapitelplanung bestimmt Lektionsplanung.</p>
+  <p id="p-007">Ich will nicht mit ChatGPT eine Jahresplanung erstellen und ich will auch nicht einzelne Unterrichtsmaterialien generieren. Der mittlere Teil im ganzen Planungsprozess ist der Grund, warum ich GPT starte; der thematisch-didaktische Aufbau eines Kapitels wird <em>mein Experimentierfeld sein</em>.</p>
 
-  <p>Ich will nicht mit GPT eine Jahresplanung erstellen und ich will auch nicht einzelne Unterrichtsmaterialien generieren. Der mittlere Teil im ganzen Planungsprozess ist der Grund, warum ich GPT starte; der thematisch-didaktische Aufbau eines ganzen Kapitels; das ist <em>mein Experimentierfeld</em>.</p>
+  <p id="p-008">Warum? Bei der letzten Durchführung vor drei Jahren habe ich die Erfahrung gemacht, dass es mir nicht gelungen ist, das Lehrmittel genug differenziert einzusetzen. Die Heterogenität in der Klasse war zu gross.</p>
 
-  <p>Warum? Bei der letzten Durchführung vor drei Jahren habe ich die Erfahrung gemacht, dass ich das Lehrmittel nicht genug differenziert einsetzen konnte. Die Heterogenität in der Klasse war zu gross.</p>
+  <p id="p-009">Ich denke an einen Schüler aus der damaligen Klasse. Drei Wochen lang hatte er Probleme mit den verschiedenen Spiegelungen und ich konnte ihn nicht wirklich unterstützen. Und eine andere Schülerin dagegen war nach einer Woche fertig. <em>Diese Spannweite</em> will ich diesmal besser abdecken. <strong class="hl1">Nicht mit neuen oder mehr Arbeitsblättern, sondern indem ich das ganze Kapitel des Lehrmittels fachdidaktisch analysiere und neu strukturiere.</strong></p>
 
-  <p>Ich denke an einen Schüler aus dem damaligen Jahrgang. Drei Wochen lang hatte er Probleme mit den verschiedenen Spiegelungen — ich konnte ihm nicht wirklich helfen — und eine andere Schülerin war dagegen nach einer Woche fertig und gelangweilt. Diese Spannweite will ich diesmal besser bedienen. Nicht mit neuen Arbeitsblättern, nicht mit mehr Arbeitsblättern, sondern indem ich das ganze Kapitel des Lehrmittels auf den Prüfstand stelle und es strukturell und fachdidaktisch neu baue.</p>
+  <p id="p-010">Könnte ich aus dem gleichen Lehrmittelwerk den Band ein Niveau tiefer dazunehmen und so verheiraten, dass sie zusammen eine neue, gemeinsame Struktur ergeben? Geht das? Ich stelle mir vor, dass ich eine Wohnung mieten will. Und dazu organisiere ich einen Schlüssel für die Wohnung eine Etage darunter; <em>nur </em><em>so </em><em>für den Fall</em>.</p>
 
-  <p>Könnte ich aus dem gleichen Lehrmittelwerk den Band ein Niveau tiefer dazunehmen und so verheiraten, dass sie zusammen eine neue, gemeinsame Struktur ergeben? Geht das?</p>
+  <p id="p-011">GPT soll zwei Lehrmittelteile mit unterschiedlichen Strukturen, unterschiedlichen Lernzielformulierungen konsolidieren. Konkret: Lehrmittel A hat fünf Kapitel zu Achsenspiegelung, Punktspiegelung, Verschiebung, Drehung, Symmetrien. Lehrmittel B verteilt die gleichen Inhalte anders: Die Achsenspiegelung kommt erst hinten, dafür sind die Symmetrien als Einstieg vorgesehen. Ich will, dass GPT mir aus diesen zwei Reihenfolgen EINE bauen hilft, die für meine Klasse stimmt — und nicht einfach die Reihenfolge von Lehrmittel A oder von Lehrmittel B übernimmt.</p>
 
-  <p>Ich stelle mir vor, dass ich eine Wohnung mieten will. Und dazu organisiere ich einen Schlüssel für die Wohnung eine Etage darunter; nur für den Fall.</p>
-
-  <p>GPT soll zwei Lehrmittelteile mit unterschiedlichen Strukturen, unterschiedlichen Lernzielformulierungen konsolidieren.</p>
-
-  <p>Konkret: Lehrmittel A hat fünf Kapitel zu Achsenspiegelung, Punktspiegelung, Verschiebung, Drehung, Symmetrien. Lehrmittel B verteilt die gleichen Inhalte anders: Achsenspiegelung erst hinten, dafür Symmetrien als Einstieg. Ich will, dass GPT mir aus diesen zwei Reihenfolgen EINE bauen hilft, die für meine Klasse stimmt — und nicht einfach die Reihenfolge von A oder B übernimmt.</p>
-
-  <figure class="evidence">
+  <figure id="abb-02" class="evidence scale-ok">
     <span class="stub-tag">Abb. 2</span>
     <img src="P2_LAYOUTER/assets/01_03_abb_lehrmittel_vereinigung.png" alt="Prozess-Diagramm Lehrmittel-Synthese" loading="lazy">
     <figcaption class="cap">Prozess-Diagramm Lehrmittel-Synthese</figcaption>
   </figure>
 
-  <p>Das ist das Ziel. Deshalb habe ich GPT gestartet und das ist der gewünschte Output:</p>
-
-  <p>Welche Schwerpunkte gibt es in Lehrmittel A, welche in Lehrmittel B. Welche Schwerpunkte werden wie gewichtet? Welche übernehme ich in die neue Fassung, welche lasse ich weg, welche müssen ergänzt werden? GPT soll mir einen Vorschlag dazu erstellen. Verschieden formulierte Lernziele zu gleichen Zielen herausfiltern und nach der Taxonomie von Bloom darstellen.</p>
+  <p id="p-012">Und so sieht der Plan aus. Das ist das Ziel. Was wird GPT sagen? Welche Schwerpunkte gibt es in Lehrmittel A, welche in Lehrmittel B? Welche Schwerpunkte wird er wie gewichten? Und welche übernehme ich dann in die neue Fassung, welche lasse ich weg und welche müssen ergänzt werden? Ich erwarte von GPT einen Vorschlag ohne zu wissen, was ich von ihm erwarten kann. Und dazu möchte ich gleich noch, dass er zu den Schwerpunkten Lernziele formuliert und nach der Taxonomie von Bloom darstellt.</p>
 
 <div class="kapitel-head" id="k-03">
   <div class="kapitel-nr">03</div>
-  <h2>Und so lade ich einfach einmal alles hoch</h2>
+  <h2>Alles rein damit</h2>
 </div>
 
-  <p>Ich sichte, was ich in meiner Planung habe: Lerninhalte aus dem Handbuch, Seitenzahlen, Aufgabennummern, Lernziele. Alles zum Niveau B Grundanforderungen ist vorhanden. Ich suche und ergänze mit Materialien aus dem Niveau C und D und schreibe diese in die Planung ab.</p>
+  <p id="p-013">Ich sichte, was ich in meiner Planung habe: Lerninhalte aus dem Handbuch, Seitenzahlen, Aufgabennummern, Lernziele. Alles zum Niveau B Grundanforderungen ist vorhanden. Ich suche und ergänze mit Materialien aus dem Niveau C und D und schreibe diese in die Planung ab. Ich überlege mir, welche Auswahl an Materialien ich hochladen soll und ob ich die Tabellen noch übersichtlicher gestalten soll. Ist es Bequemlichkeit oder Ungeduld, die mich zum vollständigen Upload aller vorhandenen Materialien zu Kapitel 1 führt:</p>
 
-  <p>Nachher folgt der Upload:</p>
+  <p id="p-014">Ich erwarte, dass mir GPT von alleine eine thematische Lernzielstruktur erstellt. Und tatsächlich: Er nimmt alles entgegen und erstellt tabellarische Listen mit den Aufgaben. Und nun ist es Handwerk. Copy/Paste. Nichts Aufregendes. Ich lade die Informationen aus meiner Planung kapitelweise hoch und gehe davon aus, dass GPT auch weiterhin weiss, was ich will. Ich prüfe nur grob auf Richtigkeit – das ist der Preis für das zügige Vorwärtskommen. In einem Lehrmittelteil verwechselt er die Nummern und macht aus Aufgabennummern Seitenzahlen. Ok, das kann ich später noch ändern.</p>
 
-  <div class="conv du">
-    <div class="lbl">DU:</div>
-    <div class="composer">
-      <p class="ptext">Ich gebe dir nachher Tabellen mit Lerninhalten und Lernzielen.</p>
-      <div class="toolbar" aria-hidden="true">
-        <button class="ibtn outline" type="button" tabindex="-1" aria-label="Hinzufügen"><svg class="icn" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
-        <span class="spacer"></span>
-        <button class="ibtn" type="button" tabindex="-1" aria-label="Mikrofon"><svg class="icn" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3M9 21h6"/></svg></button>
-        <button class="ibtn send" type="button" tabindex="-1" aria-label="Senden"><svg class="icn" viewBox="0 0 24 24"><path d="m6 12 6-6 6 6M12 18V6"/></svg></button>
-      </div>
-    </div>
-  </div>
-
-  <p>Ich erwarte einfach, dass mir GPT von alleine eine thematische-Lernzielstruktur erstellt.</p>
-
-  <p>Er nimmt alles entgegen und erstellt tabellarische Listen mit den Aufgaben. Es ist Handwerk. Copy/Paste. Nichts Aufregendes. Ich lade die Informationen aus meiner Planung kapitelweise hoch und gehe davon aus, dass GPT schon weiss, was ich will. Ich prüfe grob auf Richtigkeit – das ist der Preis für eine zügiges Vorwärtskommen. In einem Lehrmittelteil verwechselt er Nummern und macht aus Aufgabennummern Seitenangaben. Ok, das kann ich später noch ändern.</p>
-
-  <figure class="evidence">
+  <figure id="abb-03" class="evidence scale-ok">
     <span class="stub-tag">Abb. 3</span>
     <img src="P2_LAYOUTER/assets/01_06_abb_aufgabenuebersicht.png" alt="Aufgaben-Tabelle Achsensymmetrie mit 2 Differenzierungs-Niveaus" loading="lazy">
     <figcaption class="cap">Aufgaben-Tabelle Achsensymmetrie mit 2 Differenzierungs-Niveaus</figcaption>
   </figure>
 
-  <p>Nach jedem Upload erhalte ich Vorschläge zu Ergänzungen oder weiteren möglichen nächsten Schritten. Am Anfang überlege ich noch kurz: Will ich eine tabellarische PDF-Datei davon? Einen Lernplan oder eine Übersicht zum Ausdrucken? Wären Inhalte für ein digitales Format oder eine didaktische Reduktion für unterschiedliche Lernniveaus etwas für mich?</p>
+  <p id="p-015">Nach jedem Upload erhalte ich Vorschläge zu Ergänzungen oder weiteren möglichen nächsten Schritten. Am Anfang überlege ich noch kurz: Möchte ich eine tabellarische PDF-Datei davon? Einen Lernplan oder eine Übersicht zum Ausdrucken? Wären Inhalte für ein digitales Format oder eine didaktische Reduktion für unterschiedliche Lernniveaus nicht etwas für mich? Wow.</p>
 
-  <p>WOW — ich sage nein und fahre mit dem Schritt-um-Schritt-Hochladen der Dokumente fort.</p>
+  <p id="p-016">Ich sage nein und fahre fort mit dem Schritt um Schritt Hochladen der Dokumente.</p>
 
-  <p>Nach acht Turns gibt er mir eine Übersicht der hochgeladenen Dokumente:</p>
+  <p id="p-017">Nach 8 Turns gibt er mir eine Übersicht mit den hochgeladenen Dokumenten…</p>
 
-  <figure class="evidence">
+  <figure id="abb-04" class="evidence scale-ok">
     <span class="stub-tag">Abb. 4</span>
     <img src="P2_LAYOUTER/assets/01_07_abb_gesamtueberblick.png" alt="Hierarchische Unterkapitel" loading="lazy">
     <figcaption class="cap">Hierarchische Unterkapitel</figcaption>
   </figure>
 
-  <p>und weist mich auf fehlende Teile hin. GPT &quot;weiss&quot;, was noch fehlt. Das finde ich super.</p>
+  <p id="p-018">…und weist mich auf fehlende Teile hin. GPT &quot;weiss&quot;, was noch fehlt. Das finde ich super.</p>
 
-  <figure class="evidence">
+  <figure id="abb-05" class="evidence scale-ok">
     <span class="stub-tag">Abb. 5</span>
-    <img src="P2_LAYOUTER/assets/01_07a_abb_luecken_warnung.png" alt="Lernziel-Luecken-Warnung" loading="lazy">
-    <figcaption class="cap">Lernziel-Luecken-Warnung</figcaption>
+    <img src="P2_LAYOUTER/assets/01_07a_abb_luecken_warnung.png" alt="Lernziel-Lücken-Warnung" loading="lazy">
+    <figcaption class="cap">Lernziel-Lücken-Warnung</figcaption>
   </figure>
 
-  <p>Früher habe ich viel Zeit damit verbracht, Lehrmittel nach Inhalten, Aufgaben und Lernzielen zu durchforsten und relevante Informationen abzuschreiben. Einmal digitalisiert, habe ich diese in selber erstellten Arbeitsplänen, Arbeitsblättern und Lernkontrollen verwendet.</p>
+  <p id="p-019">Früher habe ich viel Zeit damit verbracht, Lehrmittel nach Inhalten, Aufgaben und Lernzielen zu durchforsten und relevante Informationen abzuschreiben. Einmal digitalisiert, habe ich diese in selber erstellten Arbeitsplänen, Arbeitsblättern und Lernkontrollen verwendet.</p>
 
-  <p>Jedes Lehrmittel ist dabei anders. Es &quot;denkt&quot; anders. Hat einen anderen Aufbau, eine andere Nummerierung, Begrifflichkeit und Layoutstruktur. Das manuelle Anpassen erlaubt mir eine einheitliche Begrifflichkeit und Lernzielformulierung von der Planung bis zur Lösung der Lernkontrolle. Aufwändig, aber ein störendes Element weniger, das einen Schüler verwirren kann. Ich habe mehrmals versucht, verschiedene Lehrmittel zu verheiraten. Thematisch ist das eine Sache, strukturell, lernzieltechnisch scheiterte ich recht zuverlässig daran. Ich will mit GPT diese Herausforderung knacken.</p>
+  <p id="p-020">Jedes Lehrmittel ist dabei anders. Es &quot;denkt&quot; anders. Hat einen anderen Aufbau, eine andere Nummerierung, Begrifflichkeit und Layoutstruktur. Das manuelle Anpassen erlaubt mir eine einheitliche Begrifflichkeit und Lernzielformulierung von der Planung bis zur Lösung der Lernkontrolle. Aufwändig, aber dafür stolpert später niemand über unterschiedliche Begriffe. Ich habe mehrmals versucht, verschiedene Lehrmittel zu verheiraten. Thematisch ist das eine Sache, strukturell, lernzieltechnisch scheiterte ich recht zuverlässig daran. Ich will mit GPT diese Herausforderung <em>knacken</em>.</p>
 
-  <p>Nach 11 Turns entsteht eine Gesamtübersicht aller vier Teile beider Lehrmittelteile als dürftige, unvollständige Matrix. Aber immerhin eine Zusammenfassung.</p>
+  <p id="p-021">Nach 11 Turns entsteht eine Gesamtübersicht aller vier Teile beider Lehrmittelteile als dürftige, unvollständige Matrix. Aber immerhin eine Zusammenfassung. Mir fällt während dem Tippen eines auf: <strong class="hl1">Ich denke nicht mehr, sondern sammle nur noch und GPT liefert immer weiter.</strong> Wir bauen ein Materiallager, zu dem ich noch keinen Plan habe.</p>
 
-  <p>Mir fällt während dem Tippen eines auf: Ich denke nicht mehr, sondern sammle nur noch und GPT liefert <em>frei Haus</em>. Wir bauen ein Materiallager, zu dem ich noch keinen Plan habe.</p>
-
-  <figure class="evidence">
+  <figure id="abb-06" class="evidence scale-ok">
     <span class="stub-tag">Abb. 6</span>
     <img src="P2_LAYOUTER/assets/01_08_abb_inhalte_lernziele.png" alt="Mapping Unterkapitel: Inhalte vs. Lernziele" loading="lazy">
     <figcaption class="cap">Mapping Unterkapitel: Inhalte vs. Lernziele</figcaption>
   </figure>
 
-  <p>Ich komme auf eine weitere Idee:</p>
+  <p id="p-022">Dann komme ich auf eine weitere Idee: &quot;Warum nicht noch ein weiteres Lehrmittel in die Gegenüberstellung einbauen?&quot; Für GPT scheint alles recht einfach zu sein – bis jetzt auf alle Fälle.</p>
 
-  <p><strong class="hl1">Warum nicht noch ein weiteres Lehrmittel in die Gegenüberstellung einbauen?</strong></p>
+  <p id="p-023">Aufgrund der Vorarbeit ist das in einem Turn erledigt. GPT erstellt eine neue Übersichtsliste der Seiten, teilt diese in thematische Blöcke ein, vergleicht diese mit den vorhandenen Themen und ordnet die Blöcke mit den Seiten den Themen zu.</p>
 
-  <p>Denn bis jetzt scheint für GPT alles recht einfach zu sein.</p>
-
-  <p>Aufgrund der Vorarbeit ist das in einem Turn erledigt. GPT erstellt eine neue Übersichtsliste der Seiten, teilt diese in thematische Blöcke ein, vergleicht diese mit den vorhandenen Themen und ordnet diese zu. </p>
-
-  <figure class="evidence">
+  <figure id="abb-07" class="evidence scale-ok">
     <span class="stub-tag">Abb. 7</span>
-    <img src="P2_LAYOUTER/assets/01_10c_abb_lehrmittel_gegenueberstellung_vergleichsmatrix.png" alt="Gegenüberstellung der Themenbereiche in zwei Lehrmitteln" loading="lazy">
-    <figcaption class="cap">Gegenüberstellung der Themenbereiche in zwei Lehrmitteln</figcaption>
+    <img src="P2_LAYOUTER/assets/01_10c_abb_lehrmittel_gegenueberstellung_vergleichsmatrix.png" alt="Beschreibung fehlt" loading="lazy">
+    <figcaption class="cap">Beschreibung fehlt</figcaption>
   </figure>
 
-  <p>GPT erstellt mir nicht nur wieder einfach eine thematische Gegenüberstellung, sondern liefert zusätzlich eine kurze Analyse. &quot;Was willst du mehr?&quot;, denke ich.</p>
+  <p id="p-024">GPT erstellt mir nicht nur wieder einfach eine thematische Gegenüberstellung, sondern liefert zusätzlich eine kurze Analyse. &quot;Was willst du mehr?&quot;, denke ich.</p>
 
-  <div class="conv output">
-    <div class="lbl">OUTPUT:</div>
+  <div id="card-003" class="conv output">
     <div class="ocard">
       <button class="copybtn" type="button" tabindex="-1" aria-label="Kopieren"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
-      <p>AI-Output · gekürzt<br>Kurze Analyse:<br>• Beide Lehrmittel behandeln Achsensymmetrie, Drehsymmetrie, Achsenspiegelung und Punktspiegelung – mit ähnlichen Schwerpunkten, nur B ergänzt um Computerarbeit.<br>• Lehrmittel B umfasst zusätzlich Verschiebungen (Translationen) und historische Muster (Alhambra), die in Lehrmittel A so nicht explizit vorkommen.<br>• Beide haben Tests (Eintritt, Austritt) zur Kompetenzüberprüfung.</p>
+      <p><strong>OUTPUT:</strong><br>AI-Output · gekürzt<br>Kurze Analyse:<br>• Beide Lehrmittel behandeln Achsensymmetrie, Drehsymmetrie, Achsenspiegelung und Punktspiegelung – mit ähnlichen Schwerpunkten, nur B ergänzt um Computerarbeit.<br>• Lehrmittel B umfasst zusätzlich Verschiebungen (Translationen) und historische Muster (Alhambra), die in Lehrmittel A so nicht explizit vorkommen.<br>• Beide haben Tests (Eintritt, Austritt) zur Kompetenzüberprüfung.</p>
     </div>
   </div>
 
 <div class="kapitel-head" id="k-04">
   <div class="kapitel-nr">04</div>
-  <h2>Was brauchen meine Schülerinnen und Schüler?</h2>
+  <h2>Was brauchen meine Kids?</h2>
 </div>
 
-  <p>Mein nächster Prompt beginnt mit</p>
+  <p id="p-025">Mein nächster Prompt beginnt mit:</p>
 
-  <div class="conv du">
-    <div class="lbl">DU:</div>
+  <div id="card-004" class="conv du">
     <div class="composer">
-      <p class="ptext">&quot;Daraus bauen wir ein neues Lehrmittel…&quot;</p>
+      <p class="ptext"><strong>DU:</strong><br>Daraus bauen wir ein neues Lehrmittel…</p>
       <div class="toolbar" aria-hidden="true">
         <button class="ibtn outline" type="button" tabindex="-1" aria-label="Hinzufügen"><svg class="icn" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
         <span class="spacer"></span>
@@ -918,141 +1335,123 @@ body:before{
     </div>
   </div>
 
-  <p>Warum schreibe ich das? Weil ich das wirklich denke. Enthusiasmus begegnet Realismus. Natürlich meine ich eine Neustrukturierung des Kapitels. Aber GPT verzeiht solche Ungenauigkeiten. Durch das Hochladen der Materialien habe ich nach ein paar Runden alles vor mir: ein &quot;mise-en-place&quot; der Lehrmittel. Und jetzt kommt die eigentliche Frage: Meine Schülerinnen und Schüler sind 13 Jahre alt, und ich habe 18 Lektionen. Was lassen wir weg? Wie ist der Aufbau? Entscheiden muss schlussendlich ich, aber ich will zuerst den Vorschlag von GPT sehen.</p>
+  <p id="p-026">Warum schreibe ich das? Weil ich das wirklich denke. Enthusiasmus begegnet Realismus. Natürlich meine ich eine Neustrukturierung des Kapitels. Aber GPT verzeiht einem solche Ungenauigkeiten. Durch das Hochladen der Materialien habe ich nach ein paar Runden alles vor mir: Ein &quot;mise-en-place&quot; der Lehrmittel. Und jetzt kommt die eigentliche Frage: Meine Kids sind 13 jährig und ich habe 18 Lektionen. Was lassen wir weg? Wie ist der Aufbau? Entscheiden muss schlussendlich ich, aber ich will zuerst den Vorschlag von GPT sehen.</p>
 
-  <p>Jetzt wird es interessant: Nicht mehr nur sammeln und auslegen, sondern ich lasse KI auswählen und vorschlagen. Was brauchen meine Schüler wirklich? Das kann GPT eigentlich nicht wissen, aber ich versuche es trotzdem einmal. Vier Kernthemen aus dem Lehrmittel kristallisieren sich heraus: Achsensymmetrie, Achsenspiegelung, Punktspiegelung, Drehsymmetrie. In dieser Reihenfolge: Erkennen, dann Spiegeln, dann Konstruieren. Ich denke: &quot;ok, <em>sportlich</em>, aber go for it. ENTER&quot;</p>
+  <p id="p-027">Jetzt wird es <em>interessant</em>: Nicht mehr nur sammeln und auslegen, sondern ich lasse KI auswählen und vorschlagen. Was brauchen meine Schüler wirklich? Das kann GPT eigentlich nicht wissen, aber ich versuche es trotzdem einmal. Vier Kernthemen aus dem Lehrmittel kristallisieren sich heraus: Achsensymmetrie, Achsenspiegelung, Punktspiegelung, Drehsymmetrie. In dieser Reihenfolge: Erkennen, dann Spiegeln, dann Konstruieren. Ich denke: &quot;ok, sportlich, aber go for it. ENTER&quot;</p>
 
-  <p>GPT erstellt mir nicht nur einen möglichen Ablauf….,</p>
+  <p id="p-028">GPT erstellt mir nicht nur einen möglichen Ablauf, …</p>
 
-  <figure class="evidence">
+  <figure id="abb-08" class="evidence scale-ok">
     <span class="stub-tag">Abb. 8</span>
     <img src="P2_LAYOUTER/assets/01_11_abb_empfohlener_ablauf.png" alt="Lektions-zu-Themen-Mapping für 18 Lektionen" loading="lazy">
     <figcaption class="cap">Lektions-zu-Themen-Mapping für 18 Lektionen</figcaption>
   </figure>
 
-  <p>…sondern schlägt auch gleich vor, was Grund- und erweiterte Anforderungen sein könnten.</p>
+  <p id="p-029">…sondern schlägt auch gleich vor, was Grund- und erweiterte Anforderungen sind:</p>
 
-  <figure class="evidence">
+  <figure id="abb-09" class="evidence scale-ok">
     <span class="stub-tag">Abb. 9</span>
     <img src="P2_LAYOUTER/assets/01_12a_abb_anforderungen_kombiniert.png" alt="Differenzierungs-Tabelle für stärkere Schüler" loading="lazy">
     <figcaption class="cap">Differenzierungs-Tabelle für stärkere Schüler</figcaption>
   </figure>
 
-  <p><strong class="hl1">Ich sitze vor dem PC und mein grösstes Problem ist aktuell nicht &quot;Was mache ich?&quot;, sondern &quot;Was mache ich nicht?&quot;. NEIN-Sagen, Weglassen, streichen. Das Schwierigste im Leben überhaupt. GPT gibt mir einen Vorschlag dazu und macht gleich Beispiele. Was noch fehlt, sind die Begründungen. Ist das Gestrichene richtig? Das muss weiterhin ich entscheiden, aber nun habe ich eine Grundlage.</strong></p>
+  <p id="p-030"><strong class="hl1">Nun sitze ich vor dem PC und mein grösstes Problem ist aktuell nicht &quot;Was mache ich?&quot;, sondern &quot;Was mache ich nicht?&quot;.</strong> NEIN-Sagen, Weglassen, streichen. <em>Das Schwierigste</em> im Leben überhaupt. GPT gibt mir einen Vorschlag dazu und macht gleich Beispiele. Was fehlt sind noch die Begründungen. Ist das Gestrichene richtig? Das muss weiterhin ich entscheiden, aber nun habe ich eine Grundlage.</p>
 
-  <p>Es sind Achtzehn Lektionen und vier Themen für die Grundanforderungen. Alles andere - Verschiebungen, Alhambra, Computerarbeit - wird zum optionalen Erweiterungsraum. Tangram-Komplexität? Raus. Detaillierte Drehwinkelbestimmung? Raus. Ich starre auf die Liste, die immer kürzer wird.</p>
+  <p id="p-031">Es sind achtzehn Lektionen und vier Themen für die Grundanforderungen. Alles andere - Verschiebungen, Alhambra, Computerarbeit - wird zum optionalen Erweiterungsraum. Tangram-Komplexität? Raus. Detaillierte Drehwinkelbestimmung? Raus. Ich starre auf die Liste, die immer kürzer wird.</p>
 
-  <p>Nach ein paar Runden habe ich meinen Planungsentscheid: Nicht &quot;Was steht im Buch?&quot;, sondern &quot;Was könnte bei meinen Schülerinnen und Schülern funktionieren?&quot; Das klingt vielleicht trivial. Für mich ist es nicht.</p>
+  <p id="p-032">Nach ein paar Runden habe ich meinen Planungsentscheid: Nicht &quot;was steht im Buch&quot;, sondern &quot;was könnte bei meinen Kids funktionieren&quot;. Das klingt vielleicht trivial. Für mich ist es nicht.</p>
 
-  <div class="conv output">
-    <div class="lbl">OUTPUT:</div>
+  <div id="card-005" class="conv output">
     <div class="ocard">
       <button class="copybtn" type="button" tabindex="-1" aria-label="Kopieren"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
-      <p>AI-Output · gekürzt<br>Was kannst du weglassen oder stark reduzieren?<br>• Tangram- und Geobrett-Komplexität (für Grundanforderungen evtl. nur sehr vereinfacht oder weglassen).<br>• Detaillierte Bestimmung kleinster Drehwinkel oder exakte Konstruktionsverfahren (z.B. Winkelhalbierende, Mittelsenkrechte als Grundkonstruktionen nur anreißen).<br>• Komplexe Vielecke und komplexe Ergänzungsaufgaben.</p>
+      <p><strong>OUTPUT:</strong><br>AI-Output · gekürzt<br>Was kannst du weglassen oder stark reduzieren?<br>• Tangram- und Geobrett-Komplexität (für Grundanforderungen evtl. nur sehr vereinfacht oder weglassen).<br>• Detaillierte Bestimmung kleinster Drehwinkel oder exakte Konstruktionsverfahren (z.B. Winkelhalbierende, Mittelsenkrechte als Grundkonstruktionen nur anreissen).<br>• Komplexe Vielecke und komplexe Ergänzungsaufgaben.</p>
     </div>
   </div>
 
-  <div class="conv output">
-    <div class="lbl">OUTPUT:</div>
+  <div id="card-006" class="conv output">
     <div class="ocard">
       <button class="copybtn" type="button" tabindex="-1" aria-label="Kopieren"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
-      <p>AI-Output · gekürzt<br>Didaktische Tipps<br>• Nutze viele visuelle und praktische Übungen (z.B. Spiegeln mit Papierfalten, einfache Zeichnungen).<br>• Setze einfache Sprache und klare Schritt-für-Schritt-Anleitungen ein.<br>• Wiederhole zentrale Begriffe (Symmetrieachse, Spiegelzentrum, Drehpunkt) regelmäßig.<br>• Fördere eigenes Entdecken durch Musterbeispiele und kurze Partnerübungen.</p>
+      <p><strong>OUTPUT:</strong><br>AI-Output · gekürzt<br>Didaktische Tipps<br>• Nutze viele visuelle und praktische Übungen (z.B. Spiegeln mit Papierfalten, einfache Zeichnungen).<br>• Setze einfache Sprache und klare Schritt-für-Schritt-Anleitungen ein.<br>• Wiederhole zentrale Begriffe (Symmetrieachse, Spiegelzentrum, Drehpunkt) regelmässig.<br>• Fördere eigenes Entdecken durch Musterbeispiele und kurze Partnerübungen.</p>
     </div>
   </div>
 
-  <p>DER CHAT IST BEENDET. Eigentlich beendet. Denn:</p>
+  <p id="p-033">DER CHAT IST BEENDET.</p>
 
-  <p>Ich habe die thematische Gegenüberstellung und kann damit zurück in meine &quot;analoge Planung&quot;, von wo ich hergekommen bin.</p>
+  <p id="p-034">Ich habe die thematische Gegenüberstellung und kann damit zurück in meine &quot;analoge Planung&quot;, von wo ich hergekommen bin. Aber ich schaffe den Absprung nicht.</p>
 
-  <p>Per Zufall komme ich noch auf die Idee, dass es im einen Lehrmittel zu den Kapiteln jeweils Eintrittstests und Austrittstests gibt. Die Lernziele dazu lade ich in GPT hoch, ohne sie weiter zu bearbeiten. Es ist ein Upload auf Reserve. Ich schaue zu, wie er den Upload &quot;schluckt&quot; und seinen Kommentar Buchstabe um Buchstabe — Zeile um Zeile erstellt.</p>
+  <p id="p-035">Per Zufall komme ich noch auf die Idee, dass es im einen Lehrmittel zu den Kapiteln jeweils Eintrittstest und Austrittstests gibt. Die Lernziele dazu lade ich in GPT einfach hoch, ohne vorher oder nachher zu bearbeiten. Es ist ein Upload auf Reserve. Ich schaue zu, wie er seine Antwort Buchstaben um Buchstaben – Zeile um Zeile erstellt.</p>
 
 <div class="kapitel-head" id="k-05">
   <div class="kapitel-nr">05</div>
-  <h2>Ich beginne mich zu bedienen</h2>
+  <h2>Ich beginne zu konsumieren</h2>
 </div>
 
-  <p>Ich lese den untersten Satz:</p>
+  <p id="p-036">Ich lese den untersten Satz:</p>
 
-  <div class="conv gpt">
-    <div class="lbl">GPT:</div>
+  <div id="card-007" class="conv gpt">
     <div class="rcard">
       <button class="copybtn" type="button" tabindex="-1" aria-label="Kopieren"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
-      <p>ChatGPT:<br>Wenn du magst, kann ich dir auch differenzierte Einstiegsaufgaben oder Checklisten erstellen, mit denen du das Vorwissen gezielt abfragen kannst. Wäre das hilfreich?</p>
+      <p><strong>ChatGPT:</strong><br>Wenn du magst, kann ich dir auch differenzierte Einstiegsaufgaben oder Checklisten erstellen, mit denen du das Vorwissen gezielt abfragen kannst. Wäre das hilfreich?</p>
     </div>
   </div>
 
-  <p>Ist es böse Absicht von ihm? Ein Ablenkungsversuch? Eine Falle?</p>
+  <p id="p-037">Ist es böse Absicht von ihm? Ein Ablenkungsversuch? Eine Falle?</p>
 
-  <p>Ich sollte zurück in die Welt ohne KI. - aber Nein: Ich gerate in eine Phase, wo ich jedes Materialangebot von GPT annehme. <em>Also los!</em> Es ist ein Rausch, sich am Dessertbuffet der generativen künstlichen Intelligenz zu bedienen.</p>
+  <p id="p-038">Ich sollte zurück in die Welt ohne KI. - aber nein: Ich gerate in eine Phase, wo ich jedes Materialangebot von GPT annehme. Es wird <em>zum</em><em> Rausch</em>, sich am Dessertbuffet der generativen künstlichen Intelligenz zu bedienen. Er bietet ganze Aufgabensets an - ich greife ohne zu überlegen zu!<br>Brauche ich weitere Checklisten? GPT bietet und liefert diese sofort.</p>
 
-  <p>Er bietet eine Checkliste an - Ich greife ohne zu überlegen zu!</p>
-
-  <p>Eine Checkliste nötig? GPT bietet eine an und erstellt sie.</p>
-
-  <figure class="evidence">
+  <figure id="abb-10" class="evidence scale-ok">
     <span class="stub-tag">Abb. 10</span>
     <img src="P2_LAYOUTER/assets/01_18_abb_checklisten.png" alt="4 gestapelte Vorwissens-Checklisten als Self-Check-Karten" loading="lazy">
     <figcaption class="cap">4 gestapelte Vorwissens-Checklisten als Self-Check-Karten</figcaption>
   </figure>
 
-  <p>Die Checkliste passt mir nicht. Ich wünsche mir eine zum Ankreuzen. Ich hake nach, und sie wird verbessert.</p>
+  <p id="p-039">Eine seiner Checklisten passt mir nicht. Ich wünsche mir eine zum Ankreuzen. Ich hake nach, diese wird verbessert und schon bin ich bereits in einem iterativen Loop ohne es zu merken.<br>Praktische Aufgaben dazu? Aber sicher! ……. Und so weiter und so fort….</p>
 
-  <p>Praktische Aufgaben dazu? Aber sicher! Und so weiter und so fort — und schon bin ich in einem iterativen Loop.</p>
+  <p id="p-040">Als Lehrer ist man ein Sammler und Jäger; <em>eine Elster</em>, die alles Funkelnde und Glitzernde sofort nimmt und in sein Nest, das Schulzimmer, zurückbringt. GPT ist ein unglaublich guter Erzeuger von funkelnden Perlen, in einer Menge, die man kaum überblicken kann. Er legt sie nacheinander aus, so dass man auf eine Fährte geführt wird und die Orientierung verlieren kann.<strong class="hl1"> Es sind diese Entscheidungen, wie an Wegkreuzungen, die den Verlauf der Zukunft im Chat verändern.</strong> Und es gibt keine Taste &#x27;zurück&#x27;. Nur WEITER.</p>
 
-  <p>Als Lehrer ist man auch immer ein Sammler und Jäger; eine Elster, die alles Funkelnde und Glitzernde sofort nimmt und ins Nest Schulzimmer zurückbringt. GPT ist ein unglaublich guter Erzeuger von funkelnden Perlen, in einer Menge, die man kaum überblicken kann. Er legt sie nacheinander aus, so dass man auf eine Fährte geführt wird und die Orientierung verlieren kann.</p>
-
-  <p>Ob es nur Glasperlen sind, muss ich später in meiner Werkstatt testen.</p>
-
-  <p>Es sind diese Entscheidungen an Wegkreuzungen, die alles verändern.</p>
-
-  <p><strong class="hl1">Und es gibt keine Taste &#x27;zurück&#x27;. Nur WEITER.</strong></p>
+  <p id="p-041">Ob es nur <em>Glasperlen</em> sind, muss ich später in meiner Werkstatt testen.</p>
 
 <div class="kapitel-head" id="k-06">
   <div class="kapitel-nr">06</div>
   <h2>Von Bloom zu etwas Anderem</h2>
 </div>
 
-  <p>Ich merke, dass ich mich verloren habe und komme zurück auf die Eintritts- und Austrittstests. Ich will die Lernziele prüfen und anpassen.</p>
+  <p id="p-042">Ich merke, dass ich <em>mich verloren habe</em> und komme zurück auf die Eintritts- und Austrittstests. Ich will die Lernziele prüfen und anpassen. Bei den kognitiven Prozessdimensionen nutze ich seit langem die Taxonomie von Bloom und/oder Krathwohl. Deshalb ist es auch bei der Arbeit mit GPT klar, dass ich diese Taxonomie einbaue. Das ist eine uralte Tabelle, die ich einmal für mich erstellt habe und die ich bei der Unterrichtsplanung nutze und nun hochlade.</p>
 
-  <p>Bei den kognitiven Prozessdimensionen nutze ich seit langem die Taxonomie von Bloom und/oder Krathwohl. Deshalb ist es auch bei der Arbeit mit GPT klar, dass ich diese Taxonomie einbaue.</p>
-
-  <p>Das ist eine <em>uralte Tabelle</em>, die ich einmal für mich erstellt habe und die ich bei der Unterrichtsplanung nutze und nun hochlade.</p>
-
-  <figure class="evidence">
+  <figure id="abb-11" class="evidence scale-ok">
     <span class="stub-tag">Abb. 11</span>
     <img src="P2_LAYOUTER/assets/01_21_abb_bloom_taxonomie.png" alt="6-Stufen-Bloom-Taxonomie mit Verben-Beispielen — Referenz-Matrix" loading="lazy">
     <figcaption class="cap">6-Stufen-Bloom-Taxonomie mit Verben-Beispielen — Referenz-Matrix</figcaption>
   </figure>
 
-  <p>Ich habe in der neu erstellten Fassung vier Kapitel und pro Kapitel will ich fünf abgestufte Lernziele nach Bloom:</p>
+  <p id="p-043">Ich habe in der neu erstellten Fassung vier Kapitel und pro Kapitel will ich fünf abgestufte Lernziele nach Bloom:</p>
 
-  <figure class="evidence">
+  <figure id="abb-12" class="evidence scale-ok">
     <span class="stub-tag">Abb. 12</span>
     <img src="P2_LAYOUTER/assets/01_22_abb_bloom_lernziele.png" alt="Mapping Kapitel-Lernziele vs. Bloom-Stufe (konkrete Anwendung" loading="lazy">
     <figcaption class="cap">Mapping Kapitel-Lernziele vs. Bloom-Stufe (konkrete Anwendung</figcaption>
   </figure>
 
-  <p>Und als nächstes frage ich nach erweiterten Beurteilungsformen. GPT gibt mir in einer Tabelle mit 3 Spalten eine Übersicht mit 12 Formen.</p>
+  <p id="p-044">Und als nächstes frage ich nach erweiterten Beurteilungsformen. GPT erstellt eine Tabelle mit 3 Spalten und macht daraus eine Übersicht mit 12 Beurteilungsformen.</p>
 
-  <figure class="evidence">
+  <figure id="abb-13" class="evidence scale-ok">
     <span class="stub-tag">Abb. 13</span>
     <img src="P2_LAYOUTER/assets/01_28_abb_beurteilungsformen_erweitert.png" alt="4 alternative Beurteilungsformen mit konkreten Beispielen" loading="lazy">
     <figcaption class="cap">4 alternative Beurteilungsformen mit konkreten Beispielen</figcaption>
   </figure>
 
-  <p>Das Thema vertiefe ich nicht weiter, denn ich merke, dass ich im tiefen See der Beurteilung versunken bin und schleunigst wieder an die Wasseroberfläche zurückkommen muss. Trotzdem studiere ich nun an verschiedenen Beurteilungsprozessen herum und mir kommt eine letzte Frage in den Sinn.</p>
+  <p id="p-045">Das Thema vertiefe ich nicht weiter, denn ich merke, dass ich langsam im Meer der Beurteilung <em>versunken</em> bin. Ich muss schleunigst wieder an die Wasseroberfläche zurückkommen. Ich kann es aber nicht lassen und studiere nun trotzdem an verschiedenen Beurteilungsprozessen herum - mir kommt eine letzte Frage in den Sinn.</p>
 
 <div class="kapitel-head" id="k-07">
   <div class="kapitel-nr">07</div>
   <h2>Eine alte Idee kommt auf Besuch</h2>
 </div>
 
-  <p>Ohne gross zu überlegen erstelle ich den nächsten Prompt.</p>
+  <p id="p-046">Ohne gross zu überlegen schreibe ich einfach ins Promptfenster:</p>
 
-  <div class="conv du">
-    <div class="lbl">DU:</div>
+  <div id="card-008" class="conv du">
     <div class="composer">
-      <p class="ptext">Ich will einen Diagnosetest zu Beginn der Unterrichtseinheit machen, nachher die Jugendlichen individuell arbeiten lassen (entweder am fehlenden Vorwissen oder an den Grundanforderungen) und regelmässig den Kompetenzstand überprüfen. Ziel: möglichst grosser Lernfortschritt. Eventuell auf eine Schlussprüfung verzichten, aber dennoch Informationen für die Zeugnisnote generieren. Wie mache ich das?</p>
+      <p class="ptext"><strong>DU:</strong><br>Ich will einen Diagnosetest zu Beginn der Unterrichtseinheit machen, nachher die Kids individuell arbeiten lassen (entweder an dem nicht vorhandenen Vorwissen oder an den Grundanforderungen), regelmässig den Kompetenzstand überprüfen. Ziel: möglichst grosser Lernfortschritt. Evtl. auf eine Schlussprüfung verzichten, aber dennoch Informationen für die Zeugnisnote generieren. Wie mache ich das?</p>
       <div class="toolbar" aria-hidden="true">
         <button class="ibtn outline" type="button" tabindex="-1" aria-label="Hinzufügen"><svg class="icn" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
         <span class="spacer"></span>
@@ -1062,12 +1461,11 @@ body:before{
     </div>
   </div>
 
-  <p>Ich schreibe es noch einmal auseinander:</p>
+  <p id="p-047">Ich schreibe es noch einmal auseinander:</p>
 
-  <div class="conv du">
-    <div class="lbl">DU:</div>
+  <div id="card-009" class="conv du">
     <div class="composer">
-      <p class="ptext">ZIEL:<br>[Möglichst grosser Lernfortschritt] UND [Auf eine Schlussprüfung verzichten] UND [aber dennoch Informationen für die Zeugnisnote generieren] = FRAGE &quot;Wie mache ich das?&quot;</p>
+      <p class="ptext"><strong>DU:</strong><br>ZIEL:</p>
       <div class="toolbar" aria-hidden="true">
         <button class="ibtn outline" type="button" tabindex="-1" aria-label="Hinzufügen"><svg class="icn" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
         <span class="spacer"></span>
@@ -1077,31 +1475,40 @@ body:before{
     </div>
   </div>
 
-  <p>Ich denke: Solange die summative Prüfung am Ende mehr zählt als der gesamte Lernprozess davor, bleibt das Lernen nur Mittel zum Zweck. Es ist nicht die Prüfung an sich, die mich stört. Es ist, dass die wissenschaftlich wirksamen Feedbacks während des Lernens kaum Einfluss aufs Zeugnis haben — und am Schluss zählt, was die Jugendlichen an der summativen Prüfung aufschreiben können, auch wenn am Folgetag schon alles vergessen ist.</p>
+  <div id="card-010" class="conv du">
+    <div class="composer">
+      <p class="ptext"><strong>DU:</strong><br>[Möglichst grosser Lernfortschritt] UND [Auf eine Schlussprüfung verzichten] UND [aber dennoch Informationen für die Zeugnisnote generieren] = FRAGE &quot;Wie mache ich das?&quot;</p>
+      <div class="toolbar" aria-hidden="true">
+        <button class="ibtn outline" type="button" tabindex="-1" aria-label="Hinzufügen"><svg class="icn" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+        <span class="spacer"></span>
+        <button class="ibtn" type="button" tabindex="-1" aria-label="Mikrofon"><svg class="icn" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3M9 21h6"/></svg></button>
+        <button class="ibtn send" type="button" tabindex="-1" aria-label="Senden"><svg class="icn" viewBox="0 0 24 24"><path d="m6 12 6-6 6 6M12 18V6"/></svg></button>
+      </div>
+    </div>
+  </div>
 
-  <div class="statement"><p>Ich habe sechs Wörter, beiläufig hingeschrieben. Und sie stellen irgendwie dieses System auf den Kopf.</p></div>
+  <p id="p-048">Seit Jahren studiere an diesem Hauptproblem herum: Solange die summative Prüfung am Ende mehr zählt als der gesamte Lernprozess davor, bleibt das Lernen nur <em>Mittel zum Zweck</em>. Es ist nicht die Schlussbeurteilung an sich, die stört. Es ist, dass Beobachtungen und Feedbacks während der Lernphase  kaum Einfluss auf das Zeugnis haben — am Schluss zählt nur, was die Kids an der summativen Prüfung aufschreiben können, auch wenn am Folgetag schon alles vergessen ist.</p>
 
-  <p>Betreibe ich gerade <em>pädagogische Ketzerei</em>, wenn ich GPT solche Fragen stelle?</p>
+  <p id="p-049">Betreibe ich <em>pädagogische Ketzerei</em>, wenn ich GPT solche Fragen stelle?</p>
 
-  <p>Anyway, ich mache weiter und was folgt ist ein Konzept für Diagnosetest zu Beginn, individualisiertes Lernen basierend auf den Ergebnissen, regelmässige formative Überprüfung, und am Ende eine Zeugnisnote ohne klassische Schlussprüfung. Die Note entsteht aus kumulierten Daten: Arbeitsqualität, Fortschritt, Mitarbeit, Mini-Checks, Peer-Feedback, Kompetenzraster. Das wars.</p>
+  <p id="p-050">Anyway, ich mache weiter und was folgt ist ein Konzept für einen Diagnosetest zu Beginn, individualisiertes Lernen basierend auf den Ergebnissen, regelmässige formative Überprüfung, und am Ende eine Zeugnisnote ohne klassische Schlussprüfung. Die Note entsteht aus kumulierten Daten: Arbeitsqualität, Fortschritt, Mitarbeit, Mini-Checks, Peer-Feedback, Kompetenzraster. Das wars.<br>Aber wenn ich ehrlich bin — das gibt es alles schon; einfach meistens in der Theorie.</p>
 
-  <p>Aber wenn ich ehrlich bin — nicht wirklich etwas Neues für mich.</p>
-
-  <p>Dieser Prompt war nicht geplant. Ich suche kein neues Beurteilungskonzept. Das Ziel dieses Chats war auch nicht die materialtechnische Überschwemmung, sondern: Wie schaffe ich in diesem klitzekleinen Bereich &quot;Passung&quot; bessere Voraussetzungen für meine Schülerinnen und Schüler?</p>
+  <p id="p-051">Dieser Prompt war nicht geplant. Ich suche kein neues Beurteilungskonzept. Das Ziel dieses Chats war auch nicht die materialtechnische Überschwemmung, sondern: Wie schaffe ich in diesem klitzekleinen Bereich &#x27;Passung&#x27; bessere Voraussetzungen für meine Kids?</p>
 
 <div class="kapitel-head" id="k-08">
   <div class="kapitel-nr">08</div>
   <h2>Ich bin in der anderen Welt angekommen</h2>
 </div>
 
-  <p>Es ist Abend geworden. Ich habe eigentlich erreicht, wofür ich den Chat gestartet habe: Eine thematische Vergleichsübersicht mit formulierten Lernzielen und Materialien zu Diagnose.</p>
+  <p id="p-052">Es ist Abend geworden. Ich habe eigentlich erreicht, wofür ich den Chat gestartet habe: Eine thematische Vergleichsübersicht mit formulierten Lernzielen und Materialien zu Diagnose.</p>
 
-  <p><strong class="hl1">Ich könnte aufhören. Aber ich höre nicht auf:</strong></p>
+  <p id="hl3-01" class="kernsatz">Ich könnte aufhören. -<br>Aber ich höre nicht auf.<br>Es hat gerade erst angefangen.</p>
 
-  <div class="conv du">
-    <div class="lbl">DU:</div>
+  <p id="p-053">Es ist wie auf einer Wanderung, wo man immer etwas Neues, Faszinierendes sieht und weiter geht und weiter geht…</p>
+
+  <div id="card-011" class="conv du">
     <div class="composer">
-      <p class="ptext">Wie würde ein zukünftiger moderner Unterricht auch noch aussehen? Wie würdest du den Unterricht vorbereiten?</p>
+      <p class="ptext"><strong>DU:</strong><br>Wie würde ein zukünftiger moderner Unterricht auch noch aussehen? Wie würdest du den Unterricht vorbereiten?</p>
       <div class="toolbar" aria-hidden="true">
         <button class="ibtn outline" type="button" tabindex="-1" aria-label="Hinzufügen"><svg class="icn" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
         <span class="spacer"></span>
@@ -1111,20 +1518,17 @@ body:before{
     </div>
   </div>
 
-  <p>Und wie immer ist es aus Sicht von GPT eine super spannende Frage von mir. Das nervt langsam und ich muss noch rausfinden, wie ich diese Buchstabenverschwendung abstellen kann.</p>
+  <p id="p-054">Und wie immer ist es aus Sicht von GPT eine super spannende Frage von mir. Das <em>nervt langsam</em> und ich muss noch rausfinden, wie ich diese Buchstabenverschwendung abstellen kann.<br>Es ist ein zweiteiliger Frageprompt, den ich unbewusst ins Promptfenster tippe.</p>
 
-  <p>Es ist ein zweiteiliger Frageprompt, den ich unbewusst ins Promptfenster tippe.</p>
+  <p id="p-055">Neun Punkte kommen zurück: Darunter Lernziele, Diagnostik, Blended Learning, Methodenvielfalt; alle nicht neu.</p>
 
-  <p>Neun Punkte kommen zurück. Lernziele, Diagnostik, Blended Learning, Methodenvielfalt. Alle irgendwie nicht neu.</p>
+  <p id="p-056">Auch der Vorschlag für eine Unterrichtsvorbereitung von GPT ist nicht wirklich umwerfend. Klare Ziele setzen, Technik vorab prüfen, Aufgaben für verschiedene Niveaus variieren und den Raum für Gruppen- und Einzelarbeit planen. Sein Beispielablauf einer Unterrichtseinheit: Einstieg – Erarbeitung – Vertiefung – Feedback/Reflexion – Abschluss. Graue-traditionelle Linearität mit einem farbigen Post-It namens &quot;Feedback&quot;.</p>
 
-  <p>Auch die Unterrichtsvorbereitung von GPT ist nicht wirklich umwerfend. Klare Ziele setzen, Technik vorab prüfen, Aufgaben für verschiedene Niveaus variieren und den Raum für Gruppen- und Einzelarbeit planen. Sein Beispielablauf einer Unterrichtseinheit: Einstieg – Erarbeitung – Vertiefung – Feedback/ Reflexion – Abschluss. Graue-traditionelle Linearität mit einem farbigen Post-It namens &quot;Feedback&quot;.</p>
+  <p id="p-057">Na ja. Ich hake nach. Ich will mehr und schreibe…</p>
 
-  <p>Na ja. Ich hake nach. Ich will mehr und schreibe…</p>
-
-  <div class="conv du">
-    <div class="lbl">DU:</div>
+  <div id="card-012" class="conv du">
     <div class="composer">
-      <p class="ptext">Und wenn der Unterricht nicht zeitgemäss, sondern modern, revolutionär, visionär sein soll?</p>
+      <p class="ptext"><strong>DU:</strong><br>Und wenn der Unterricht nicht zeitgemäss, sondern modern, revolutionär, visionär sein soll?</p>
       <div class="toolbar" aria-hidden="true">
         <button class="ibtn outline" type="button" tabindex="-1" aria-label="Hinzufügen"><svg class="icn" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
         <span class="spacer"></span>
@@ -1134,55 +1538,55 @@ body:before{
     </div>
   </div>
 
-  <p>&quot;Was soll diese Frage? &quot;Diese Frage werde ich mir nie stellen.</p>
+  <p id="p-058"><em><strong>&quot;Was soll diese Frage?&quot;</strong></em><br><em><strong>&quot;Diese Frage werde ich mir nie stellen.&quot;</strong></em></p>
 
-  <p>Und so merke ich auch nicht, wie ich unbewusst eine Grenze überschreite.</p>
+  <p id="p-059">Und so merke ich auch nicht, wie ich unbewusst eine Grenze überschreite.</p>
 
-  <p>GPT scheint es auf alle Fälle toll zu finden…</p>
+  <p id="p-060">GPT scheint es auf alle Fälle toll zu finden…</p>
 
-  <figure class="evidence">
+  <figure id="abb-14" class="evidence scale-ok">
     <span class="stub-tag">Abb. 14</span>
-    <img src="P2_LAYOUTER/assets/01_33b_abb_response_prompt_beyond_2024.png" alt="Prompt und Antwort zur visionären Unterrichtsplanung vom 20. Juli 2025" loading="lazy">
-    <figcaption class="cap">Prompt und Antwort zur visionären Unterrichtsplanung vom 20. Juli 2025</figcaption>
+    <img src="P2_LAYOUTER/assets/01_33b_abb_response_prompt_beyond_2024.png" alt="dokumentiert wegweisende Prompt-Antwort vom 20. Juli 2025" loading="lazy">
+    <figcaption class="cap">dokumentiert wegweisende Prompt-Antwort vom 20. Juli 2025</figcaption>
   </figure>
 
-  <p class="kernsatz">Es ist der Moment, bei dem ich weitergehe als ich müsste. Vielleicht nicht dürfte und vielleicht nicht sollte.</p>
+  <p id="hl3-02" class="kernsatz">Es ist der Moment,<br>bei dem ich weitergehe als ich müsste.<br>Vielleicht nicht dürfte und<br>vielleicht nicht sollte.</p>
 
-  <p> Eine unsichtbare Linie. Und niemand zwingt mich dazu. Kein Berufsauftrag, kein Pflichtenheft, keine Formulare, kein Geld auf der Welt. Es sind andere Werte, die zählen: Sinn, das Gefühl von Freiheit und Entwicklungsmöglichkeiten unter Aufsicht einer inneren, berufsethischen Verantwortung und einer professionellen Haltung, das Richtige zu tun.</p>
+  <p id="p-061">Ich überschreite eine unsichtbare Linie. Ich verlasse in Gedanken mein Schulzimmer, und vielleicht auch die Realität, und betrete eine für mich so unbekannte Welt. Und niemand zwingt mich dazu.<br>Kein Berufsauftrag, keine Vollzugsverordnungen und kein Geld auf der Welt.<br>Es sind andere Werte, die mich anziehen: Sinn, eine pädagogische Notwendigkeit und neue Wege, die am Horizont sichtbar werden. Nicht beliebig, sondern getragen von einer professionellen Haltung und dem Anspruch, <em>das Richtige zu tun.</em></p>
 
-  <p>Zurück zum Chat:</p>
+  <p id="p-062">Zurück zum Chat:</p>
 
-  <p>Erst jetzt merke ich, dass ich &quot;2024&quot; getippt habe. Ich meinte &quot;2040&quot; und muss schmunzeln. Weisst GPT, dass ich mich vertippt habe?</p>
+  <p id="p-063">Erst jetzt merke ich, dass ich &quot;2024&quot; getippt habe. Ich meinte &quot;2040&quot; und muss schmunzeln. Weiss GPT, dass ich mich vertippt habe? Er liefert zehn Punkte zu Schule Beyond 2024 und die Antwort klingt irgendwie anders. Und dann fängt GPT von alleine an, Visionen zu malen — VR/AR-Stationen, Mobile Learning Kits, dynamische Kompetenzlandschaften. Ich habe gar nicht danach gefragt. Er schiebt nach. Es ist <em>sein Reflex</em>, mehr zu präsentieren, als ich brauche.<br>Ob Mobile Learning Kits oder Kompetenzportfolios je in mein Klassenzimmer kommen, ist heute irrelevant.</p>
 
-  <p>Er liefert zehn Punkte zu Schule Beyond 2024 und die Antwort klingt irgendwie anders.</p>
+  <p id="p-064">Ich weiss nicht, wie lange ich bereits im Chat bin, aber ich bin überwältigt von den viel zu vielen Eindrücken. Ich werde überschwemmt; nein - richtiger wäre: &quot;ich habe mich überschwemmt&quot;.</p>
 
-  <p>Und dann fängt GPT von alleine an, Visionen zu malen — VR/AR-Stationen, Mobile Learning Kits, dynamische Kompetenzlandschaften. Ich habe gar nicht danach gefragt. Er schiebt nach. Es ist sein Reflex, mehr zu präsentieren, als ich brauche.</p>
+  <p id="p-065">Ich stelle den PC ab.</p>
 
-  <p>Ob Mobile Learning Kits oder Kompetenzportfolios je in mein Klassenzimmer kommen, ist heute irrelevant.</p>
+  <p id="p-066">Eine Planung wollte ich – <em>ein Blatt Papier</em>.</p>
 
-  <p>Ich weiss nicht, wie lange ich bereits im Chat bin, aber ich bin überwältigt von den viel zu vielen Eindrücken. Ich werde überschwemmt; nein - richtiger wäre: &quot;ich habe mich überschwemmt&quot;.</p>
+  <p id="p-067">Erhalten habe ich Materialien, die ich in dieser Form und Menge nicht gekannt habe.</p>
 
-  <p>Ich stelle den PC ab.</p>
+  <p id="p-068">Werden die neu erstellten Dokumente an meinem Unterricht oder im Schulzimmer überhaupt etwas verändern? Das weiss ich heute noch nicht.</p>
 
-  <p>Eine Planung wollte ich – ein Blatt Papier.</p>
+  <p id="p-069">Was <em>mich fasziniert</em>, sind nicht die Unterlagen, die ich ausdrucken kann.</p>
 
-  <p>Erhalten habe ich Materialien, die ich in dieser Form und Menge nicht gekannt habe.</p>
+  <p id="p-070">Es ist das, was in meinem Kopf passiert: Gedanken, Vorstellungen, Fragen — <br>und vor allem Ideen. Viele Ideen.</p>
 
-  <p>Werden die neu erstellten Dokumente an meinem Unterricht oder im Schulzimmer überhaupt etwas verändern? Das weiss ich heute noch nicht.</p>
+  <p id="p-071">Warum nicht mit GPT?</p>
 
-  <p>Was mich fasziniert, sind nicht die Unterlagen, die ich ausdrucken kann.</p>
+  <p id="p-072">Warum mit GPT?</p>
 
-  <p>Es ist das, was in meinem Kopf passiert: Gedanken, Vorstellungen, Fragen — und vor allem Ideen. <em>Viele Ideen</em>.</p>
+  <p id="p-073">Es war <em>die Neugierde</em> - und diese scheint gerade grenzenlos.</p>
 
-  <p>Warum nicht mit GPT?</p>
-
-  <p>Warum mit GPT?</p>
-
-  <p>Es war die Neugierde - und diese scheint gerade grenzenlos.</p>
+      <div class="cliff">
+        <div class="k">Nächste Field Note</div>
+        <div class="next-meta">02_2025_08_UNTERRICHTSENTWURF-VISION</div>
+        <h2></h2>
+      </div>
 
       <div class="note-footer-meta">
         <span class="empty">← —</span>
-        <span class="empty">Nächste Note: VISION · demnächst</span>
+        <a class="nav-next" href="#">02_2025_08_UNTERRICHTSENTWURF-VISION →</a>
       </div>
     </article>
   </div>
@@ -1209,10 +1613,13 @@ body:before{
 </div>
 
 <div class="pager-ui" id="pager-ui" aria-label="Seitennavigation">
+  <button id="pg-first" type="button" aria-label="Erste Seite">Anfang</button>
   <button id="pg-prev" type="button" aria-label="Vorherige Seite">‹</button>
   <span class="pg" id="pg-count">1 / 1</span>
   <button id="pg-next" type="button" aria-label="Nächste Seite">›</button>
 </div>
+
+<button id="back-to-top" aria-label="Zurück nach oben" title="Seitenanfang">↑</button>
 
 <script>
 (function(){
@@ -1264,7 +1671,7 @@ body:before{
 
   function buildPages(){
     const contentW = geo.pageW - PADX * 2;
-    const contentH = geo.pageH - PADT - PADB;
+    const contentH = geo.pageH - PADT - PADB - 8;
     const meas = document.createElement("div");
     meas.className = "article";
     meas.style.cssText = "position:absolute;left:-99999px;top:0;visibility:hidden;width:" + contentW + "px;";
@@ -1278,6 +1685,14 @@ body:before{
     const blocks = Array.from(srcArticle.children);
     for (const b of blocks){
       const clone = cleanClone(b);
+      // Lazy-geladene Bilder haben 0px Höhe → max-height für Messung UND Rendering setzen
+      const imgH = Math.floor(contentH * 0.33);
+      clone.querySelectorAll('img').forEach(img => {
+        img.removeAttribute('loading');
+        img.style.maxHeight = imgH + 'px';
+        img.style.width = 'auto';
+        img.style.maxWidth = '100%';
+      });
       // Kapitel beginnen auf neuer Seite, sobald die laufende Seite bereits halb gefüllt ist.
       if (clone.classList.contains("kapitel-head") && meas.children.length && meas.offsetHeight > contentH * 0.45){
         commit();
@@ -1315,6 +1730,8 @@ body:before{
     setSlot(pageR, spread+1); setNo(noR, spread+1);
     flipper.style.display = "none"; flipper.style.transform = "";
     updateNav();
+    const pgFirst = document.getElementById("pg-first");
+    if (pgFirst) pgFirst.classList.toggle("at-start", spread === 0);
   }
   function updateNav(){ pgCount.textContent = (spread/2 + 1) + " / " + totalSpreads(); }
 
@@ -1322,7 +1739,7 @@ body:before{
   let animating = false, flipI = null;
   function runAngle(from, to, done){
     clearInterval(flipI);
-    const t0 = Date.now(), dur = 480;
+    const t0 = Date.now(), dur = 800;
     flipI = setInterval(() => {
       let p = Math.min(1, (Date.now() - t0) / dur);
       const e = p < .5 ? 2*p*p : 1 - Math.pow(-2*p + 2, 2)/2;
@@ -1398,6 +1815,7 @@ body:before{
     renderSpread();
   }
   function setMode(m){
+    m = "scroll";
     const r = (m === "reader");
     body.classList.toggle("mode-reader", r);
     body.classList.toggle("mode-scroll", !r);
@@ -1409,9 +1827,22 @@ body:before{
   }
 
   scrollBtn.addEventListener("click", () => setMode("scroll"));
-  readerBtn.addEventListener("click", () => setMode("reader"));
+  readerBtn.addEventListener("click", () => setMode("scroll"));
   pgPrev.addEventListener("click", e => { e.stopPropagation(); flip(-1); showNav(); });
   pgNext.addEventListener("click", e => { e.stopPropagation(); flip(1); showNav(); });
+  document.getElementById("pg-first").addEventListener("click", e => {
+    e.stopPropagation();
+    if (spread === 0) return;
+    spread = 0; renderSpread(); showNav();
+    document.getElementById("pg-first").classList.add("at-start");
+  });
+
+  /* Zurück-nach-oben (Scroll-Modus) */
+  const backToTop = document.getElementById("back-to-top");
+  window.addEventListener("scroll", () => {
+    backToTop.classList.toggle("visible", window.scrollY > 400);
+  }, {passive: true});
+  backToTop.addEventListener("click", () => window.scrollTo({top: 0, behavior: "smooth"}));
   window.addEventListener("keydown", e => {
     if (!isReader()) return;
     if (e.key === "ArrowRight") flip(1);
@@ -1421,8 +1852,13 @@ body:before{
   window.addEventListener("resize", () => { if (!isReader()) return; clearTimeout(rT); rT = setTimeout(enterReader, 180); });
 
   let saved = "scroll";
-  try { saved = localStorage.getItem(KEY) || "scroll"; } catch(e){}
-  setMode(saved);
+  try { localStorage.setItem(KEY, "scroll"); } catch(e){}
+  setMode("scroll");
+
+  const backTopBtn = document.getElementById("back-top-btn");
+  if (backTopBtn) {
+    backTopBtn.addEventListener("click", () => window.scrollTo({top: 0, behavior: "smooth"}));
+  }
 
   /* Header-Brand erst zeigen, wenn der Hero weggescrollt ist (loest die Doppelung) */
   function syncHeaderBrand(){
@@ -1433,6 +1869,42 @@ body:before{
   window.addEventListener("scroll", syncHeaderBrand, { passive: true });
   syncHeaderBrand();
 })();
+
+/* Reader-Modus auf Mobile/Tablet-Portrait: deaktivieren */
+(function(){
+  function isSmallOrPortrait(){
+    return window.innerWidth <= 680 ||
+           (window.innerWidth <= 1024 && window.innerHeight > window.innerWidth);
+  }
+  function forceScroll(){
+    try { localStorage.setItem('fieldnote_view', 'scroll'); } catch(e) {}
+    /* Falls Reader gerade aktiv ist, auf Scroll wechseln */
+    var scrollBtn = document.getElementById('view-scroll-btn');
+    if (scrollBtn && document.body.classList.contains('mode-reader')) scrollBtn.click();
+  }
+  if (isSmallOrPortrait()) forceScroll();
+  window.addEventListener('resize', function(){
+    if (isSmallOrPortrait()) forceScroll();
+  });
+})();
+
+/* Sprachflaggen: nur anzeigen wenn mind. eine weitere Sprache verfügbar (nicht disabled) */
+(function(){
+  var langs = document.querySelector('.langs');
+  if (!langs) return;
+  var available = langs.querySelectorAll('.lang:not([disabled])');
+  if (available.length <= 1) langs.style.display = 'none';
+})();
+
+/* P5 WEB_PREVIEW: Reader deaktiviert, Topbar-Button scrollt nach oben. */
+(function(){
+  var btn = document.getElementById("back-top-btn");
+  if (!btn) return;
+  btn.addEventListener("click", function(){
+    window.scrollTo({top: 0, behavior: "smooth"});
+  });
+})();
+
 </script>
 </body>
 </html>
