@@ -1,422 +1,614 @@
 <!DOCTYPE html>
 <html lang="de-CH">
 <head>
-<title>Feldnotizen — KI &amp; Unterricht</title>
-<meta name="description" content="Storyline der Feldnotizen — KI und Unterricht von Markus Schwarz.">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
-</head>
-<body>
-<x-dc>
-<helmet>
+<title>FieldNotes · Übersicht · KI &amp; Unterricht</title>
+<meta name="description" content="FieldNotes — eine interaktive Übersicht aller Wegpunkte der Serie ‹Feldnotizen — KI und Unterricht›.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=IBM+Plex+Mono:wght@500;600;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 <style>
-  html,body{margin:0;padding:0}
-  @keyframes wpshake{0%,100%{transform:translateY(-50%) translateX(0)}20%{transform:translateY(-50%) translateX(-4px)}40%{transform:translateY(-50%) translateX(4px)}60%{transform:translateY(-50%) translateX(-3px)}80%{transform:translateY(-50%) translateX(3px)}}
+:root {
+  --sans:'IBM Plex Sans',Inter,'Segoe UI',system-ui,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,Consolas,monospace;
+  --serif:'Spectral',Georgia,serif;
+  --accent:#7d4a23;
+  --accent-deep:#5e3717;
+  --line:#bd9f7e;
+  --bg:#ede6d4;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;overflow:hidden}
+body{background:var(--bg);color:#191713;font-family:var(--sans);-webkit-font-smoothing:antialiased}
+
+@keyframes wpshake{
+  0%,100%{transform:translateY(-50%) translateX(0)}
+  20%{transform:translateY(-50%) translateX(-4px)}
+  40%{transform:translateY(-50%) translateX(4px)}
+  60%{transform:translateY(-50%) translateX(-3px)}
+  80%{transform:translateY(-50%) translateX(3px)}
+}
+@keyframes wpPulse{
+  0%,100%{transform:scale(1);opacity:.9}
+  50%{transform:scale(1.22);opacity:1}
+}
+@keyframes linePulse{
+  0%,100%{stroke-opacity:.35}
+  50%{stroke-opacity:.9}
+}
+
+#bg-img{
+  position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:url('assets/werkstatt_a.png');
+  background-size:cover;background-position:center 30%;opacity:.8;
+}
+#bg-grad{
+  position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:linear-gradient(to bottom right,#ede6d4 0%,#ede6d4 5%,rgba(237,230,212,.3) 55%,rgba(237,230,212,0) 100%);
+}
+#map{position:relative;z-index:1;width:100%;height:100vh;box-sizing:border-box}
+
+#title-block{
+  position:absolute;left:clamp(18px,3vw,34px);top:22px;z-index:4;
+  pointer-events:none;max-width:480px;
+}
+#title-label{
+  font:700 .58rem/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(80,42,8,.45);margin-bottom:7px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+#title-h1{font:800 3rem/1 var(--sans);color:#18100a;margin:0 0 11px;letter-spacing:-.03em}
+#title-tag{font:italic 400 .95rem/1.5 var(--serif);color:#7a5020;margin:0}
+#title-time{font:500 .56rem/1.8 var(--mono);font-style:normal;color:rgba(80,42,8,.38);letter-spacing:.08em}
+
+#svg-lines{position:absolute;inset:0;overflow:visible;pointer-events:none;z-index:20}
+
+.waypoint{
+  position:absolute;display:flex;align-items:center;gap:13px;
+  cursor:pointer;touch-action:none;user-select:none;-webkit-user-select:none;
+  outline:none;z-index:10;transform:translateY(-50%);
+}
+body.draft-mode .waypoint{cursor:grab}
+body:not(.draft-mode) .cp-handle{display:none}
+#draft-export-btn{
+  display:none;position:fixed;right:16px;bottom:16px;z-index:80;
+  font:600 .74rem/1 var(--mono);letter-spacing:.04em;color:#fff3df;
+  background:rgba(26,18,10,.86);border:1px solid rgba(214,200,180,.3);
+  border-radius:6px;padding:9px 14px;cursor:pointer;
+}
+body.draft-mode #draft-export-btn{display:block}
+#draft-export-btn:hover{background:var(--accent,#9a6a1f)}
+.waypoint:focus-visible{outline:2px solid var(--accent)}
+.wp-dot{flex:none;border-radius:50%}
+.wp-meta{font:600 .64rem/1 var(--mono);letter-spacing:.08em;color:#9a8d7b;margin-bottom:4px}
+.wp-title{font:600 .94rem/1.18 var(--sans);letter-spacing:-.01em;color:#191713;transition:font-size .15s,color .15s}
+.wp-hint{margin-top:5px;font:600 .62rem/1 var(--mono);letter-spacing:.08em;color:var(--accent-deep)}
+.wp-ann-meta{font:600 .62rem/1 var(--mono);letter-spacing:.08em;color:#b7a994;margin-bottom:3px}
+.wp-ann-title{font:600 .82rem/1.2 var(--sans);color:#9d8f7c}
+.wp-ann-pub{font:500 .6rem/1.2 var(--mono);letter-spacing:.03em;color:#c0b3a0;margin-top:3px}
+
+#expanded-overlay{position:fixed;inset:0;z-index:55;display:none}
+#expanded-card{
+  position:fixed;top:20px;right:20px;width:min(500px,calc(100vw - 40px));
+  z-index:60;background:#fffaf0;border:1px solid #b8a78d;border-radius:2px;
+  box-shadow:0 22px 50px rgba(48,35,18,.28);overflow:hidden;display:none;
+}
+#card-photo{display:flex;align-items:flex-start;justify-content:flex-start;min-height:220px;background-size:cover;background-position:center}
+#card-inner{padding:20px 22px;max-width:66%;text-align:left}
+#card-meta{font:600 .68rem/1 var(--mono);letter-spacing:.12em;color:#ffd9a8;margin-bottom:10px;text-shadow:0 1px 8px rgba(20,12,4,.7)}
+#card-title{font:600 1.18rem/1.18 var(--sans);letter-spacing:-.01em;color:#fffaf0;margin:0;text-shadow:0 1px 8px rgba(20,12,4,.7)}
+#card-abs{font-family:var(--serif);font-size:.98rem;line-height:1.55;color:#f6ecdd;margin:10px 0 0;text-shadow:0 1px 8px rgba(20,12,4,.7)}
+#card-link{display:inline-block;margin-top:14px;font:600 .72rem/1 var(--mono);letter-spacing:.06em;color:#ffd9a8;text-decoration:none;border-bottom:1.5px solid #ffd9a8;padding-bottom:3px;text-shadow:0 1px 8px rgba(20,12,4,.7)}
+#card-link:hover{color:#fff}
+
+#footer{
+  position:fixed;bottom:0;left:0;right:0;z-index:200;pointer-events:none;
+  padding:0 0 13px;display:flex;justify-content:center;
+}
+#footer span{font:500 .6rem/1 var(--mono);color:#7d4a23;letter-spacing:.05em;white-space:nowrap}
+
+.cp-handle{cursor:crosshair;pointer-events:all}
 </style>
-</helmet>
+</head>
+<body>
 
-<div style="--mono:'IBM Plex Mono',ui-monospace,Consolas,monospace; --sans:'IBM Plex Sans',Inter,'Segoe UI',system-ui,sans-serif; position:relative; min-height:100vh; background:#f2eadc; color:#191713; font-family:var(--sans); -webkit-font-smoothing:antialiased;">
+<div id="bg-img"></div>
+<div id="bg-grad"></div>
 
-  <sc-if value="{{ textur }}" hint-placeholder-val="{{ true }}">
-    <div style="position:fixed; inset:0; pointer-events:none; z-index:0; opacity:.34; mix-blend-mode:multiply; background-image:radial-gradient(rgba(70,55,35,.13) 1px, transparent 1px); background-size:5px 5px;"></div>
-  </sc-if>
+<div id="map">
 
-  <header style="position:sticky; top:0; z-index:60; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:11px clamp(16px,4vw,34px); background:rgba(18,12,7,.86); backdrop-filter:blur(9px); -webkit-backdrop-filter:blur(9px); border-bottom:1px solid rgba(214,200,180,.18);">
-    <div style="display:flex; flex-direction:column; gap:2px; min-width:0;">
-      <span style="font:600 .95rem/1.1 'Spectral',Georgia,serif; color:#ffd9a8; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Feldnotizen — KI &amp; Unterricht</span>
-      <span style="font:400 italic .76rem/1.2 'Spectral',Georgia,serif; color:#c9bba6;">Übersicht aller Field Notes</span>
-    </div>
-    <span style="font:700 .7rem/1 var(--mono); letter-spacing:.22em; text-transform:uppercase; color:#d8cbb6; flex:none;">Storyline</span>
-  </header>
+  <div id="title-block">
+    <div id="title-label">Feldnotizen &middot; KI &amp; Unterricht</div>
+    <h1 id="title-h1">FieldNotes</h1>
+    <p id="title-tag">
+      Jede Field Note ist ein Wegpunkt &mdash;<br>
+      mit Abzweigungen und Wiedervereinigungen.
+    </p>
+  </div>
 
-  <section style="position:relative; z-index:1; width:100%; box-sizing:border-box; padding:12px clamp(14px,3vw,26px) 8px;">
-    <div style="display:flex; flex-wrap:wrap; align-items:center; gap:7px 14px; font:600 .66rem/1.4 var(--mono); letter-spacing:.05em; color:#9a8d7b;">
-      <span>▸ anklicken zum Lesen</span>
-      <span style="color:#cdbfa6;">·</span>
-      <span>ziehen zum Anordnen</span>
-      <span style="color:#cdbfa6;">·</span>
-      <span role="button" tabindex="0" onClick="{{ resetPositions }}" style="cursor:pointer; color:{{ accent }}; border-bottom:1px solid {{ accent }}; padding-bottom:1px;">zurücksetzen</span>
-    </div>
-  </section>
+  <svg id="svg-lines" width="100" height="100"></svg>
+  <div id="waypoints-container"></div>
+  <button id="draft-export-btn" type="button">Positionen exportieren (Draft-Mode)</button>
 
-  <section style="position:relative; z-index:1; width:100%; box-sizing:border-box; padding:0 clamp(12px,2.4vw,20px) 16px;">
-    <div ref="{{ mapRef }}" onClick="{{ closeCard }}" style="position:relative; width:100%; height:{{ svgH }}px; border:1px solid #e2d7c4; border-radius:3px; background-image:linear-gradient(rgba(17,9,6,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(17,9,6,.04) 1px,transparent 1px); background-size:40px 40px; background-position:-1px -1px;">
-      <div style="position:absolute; left:clamp(16px,2.2%,30px); top:18px; width:min(74%,840px); pointer-events:none; z-index:4;">
-        <h1 style="font-family:'Spectral',Georgia,serif; font-weight:600; font-size:clamp(2rem,3.6vw,2.9rem); line-height:.96; letter-spacing:-.01em; color:#191713; margin:0 0 12px;">Storyline</h1>
-        <p style="font-family:'Spectral',Georgia,serif; font-size:clamp(1rem,1.45vw,1.18rem); line-height:1.55; color:#3a342c; margin:0; max-width:64ch;">Jede Field Note ist ein Wegpunkt.<br>Die Linien zeigen, wie eine Idee aus der nächsten wächst —<br>mit Abzweigungen und Wiedervereinigungen. Von oben nach unten verläuft die Zeit.</p>
+  <div id="expanded-overlay"></div>
+  <div id="expanded-card">
+    <div id="card-photo">
+      <div id="card-inner">
+        <div id="card-meta"></div>
+        <div id="card-title"></div>
+        <div id="card-abs"></div>
+        <a id="card-link" href="#">Note öffnen →</a>
       </div>
-
-      <svg width="{{ svgW }}" height="{{ svgH }}" viewBox="0 0 {{ svgW }} {{ svgH }}" style="position:absolute; inset:0; overflow:visible; pointer-events:none;">
-        <sc-for list="{{ paths }}" as="p" hint-placeholder-count="10">
-          <path d="{{ p.d }}" fill="none" stroke="{{ p.stroke }}" stroke-width="{{ p.w }}" stroke-linecap="round"></path>
-        </sc-for>
-      </svg>
-
-      <sc-for list="{{ waypoints }}" as="wp" hint-placeholder-count="11">
-        <div role="{{ wp.role }}" tabindex="0" aria-label="{{ wp.aria }}" aria-disabled="{{ wp.ariaDisabled }}" onPointerDown="{{ wp.onDown }}" onClick="{{ wp.onClick }}" onMouseEnter="{{ wp.onEnter }}" onMouseLeave="{{ wp.onLeave }}" onKeyDown="{{ wp.onKey }}" style="{{ wp.boxStyle }}">
-          <div style="{{ wp.dotStyle }}"></div>
-          <div style="min-width:0;">
-            <sc-if value="{{ wp.isLive }}" hint-placeholder-val="{{ true }}">
-              <div style="font:600 .67rem/1 var(--mono); letter-spacing:.08em; color:#9a8d7b; margin-bottom:4px;">{{ wp.meta }}</div>
-              <div style="{{ wp.titleStyle }}">{{ wp.kurztitel }}</div>
-              <sc-if value="{{ wp.showOpenHint }}" hint-placeholder-val="{{ false }}">
-                <div style="{{ wp.openHintStyle }}">öffnen →</div>
-              </sc-if>
-            </sc-if>
-            <sc-if value="{{ wp.isAnnounced }}" hint-placeholder-val="{{ false }}">
-              <div style="{{ wp.annMetaStyle }}">{{ wp.annMeta }}</div>
-              <div style="{{ wp.annTitleStyle }}">{{ wp.annTitle }}</div>
-              <div style="{{ wp.annPubStyle }}">{{ wp.annPub }}</div>
-            </sc-if>
-          </div>
-
-          <sc-if value="{{ wp.expanded }}" hint-placeholder-val="{{ false }}">
-            <div onClick="{{ wp.stop }}" onPointerDown="{{ wp.stop }}" style="{{ wp.cardStyle }}">
-              <div style="{{ wp.photoStyle }}">
-                <div style="{{ wp.cardInnerStyle }}">
-                  <div style="{{ wp.cardMetaStyle }}">{{ wp.meta }}</div>
-                  <div style="{{ wp.cardTitleStyle }}">{{ wp.titel }}</div>
-                  <div style="{{ wp.cardAbsStyle }}">{{ wp.abstract }}</div>
-                  <a href="{{ wp.url }}" style="{{ wp.cardLinkStyle }}">Note öffnen →</a>
-                </div>
-              </div>
-            </div>
-          </sc-if>
-        </div>
-      </sc-for>
     </div>
-  </section>
+  </div>
 
-  <footer style="position:relative; z-index:1; max-width:860px; margin:0 auto; padding:28px clamp(20px,5vw,30px) 60px; border-top:1px solid #d6c8b4; font:500 .76rem/1.55 var(--mono); color:#6e6458; text-align:center;">
-    Serie „Feldnotizen — KI und Unterricht" · CC BY-NC-SA 4.0 · <span style="color:{{ accent }}; font-weight:700;">— Markus</span>
-  </footer>
+  <div id="footer">
+    <span>Serie &bdquo;Feldnotizen &mdash; KI und Unterricht&ldquo; &middot; CC BY-NC-SA 4.0 &middot; &mdash; Markus Schwarz</span>
+  </div>
+
 </div>
-</x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:960,&quot;height&quot;:680},&quot;accent&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Braun&quot;,&quot;Rot&quot;,&quot;Blau&quot;,&quot;Mono&quot;],&quot;default&quot;:&quot;Braun&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;textur&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
-class Component extends DCLogic {
-  constructor(props){
-    super(props);
-    let saved = {};
-    try { saved = JSON.parse(localStorage.getItem("storyline_pos_v2") || "{}"); } catch(e){}
-    this.state = { cw: 820, mapH: 540, hoverId: null, expandedId: null, shakeId: null, dragId: null, positions: saved };
-    this.mapRef = React.createRef();
-    this._onMove = this._onMove.bind(this);
-    this._onUp = this._onUp.bind(this);
-    this._measure = this._measure.bind(this);
-  }
 
-  componentDidMount(){
-    this._measure();
-    window.addEventListener("resize", this._measure);
-  }
-  componentWillUnmount(){
-    window.removeEventListener("resize", this._measure);
-    window.removeEventListener("pointermove", this._onMove);
-    window.removeEventListener("pointerup", this._onUp);
-  }
+<script>
+(function(){
+'use strict';
 
-  _measure(){
-    const el = this.mapRef.current;
-    if (!el) return;
-    const rect = el.getBoundingClientRect();
-    const cw = el.clientWidth;
-    const mapH = Math.max(380, Math.round(window.innerHeight - rect.top - 64));
-    if (Math.abs(cw - this.state.cw) > 2 || Math.abs(mapH - this.state.mapH) > 2){
-      this.setState({ cw, mapH });
-    }
+/* ── DATA ─────────────────────────────────────────────────────────── */
+var NOTES = [
+  {
+    id:'01', kurztitel:'NEUGIERDE',
+    titel:'AM ANFANG STEHT DIE NEUGIERDE',
+    datum:'2025-07-20', datum_publish:'2026-06-22',
+    abstract:'Wie aus einer Planungsfrage an GPT ein didaktisches Dessertbuffet entsteht — und am Schluss neue Ideen einen Anfang markieren.',
+    status:'LIVE', url:'notes/neugierde/index.html',
+    hero:'heroes/hero_01.png', heroAnchor:'tl',
+    geht_nach:[{ref:'02',typ:'direkt'}]
+  },
+  {
+    id:'02', kurztitel:'VISION',
+    titel:'EIN UNTERRICHTSENTWURF ALS VISION',
+    datum:'2025-08-05', datum_publish:null,
+    abstract:'Aus einem Aufgabenblatt wächst im Dialog mit der KI ein Unterrichtskonzept. Note 02 ist der zentrale Knoten — von hier verzweigen sich alle weiteren Stränge.',
+    status:'ANNOUNCED', url:null, hero:null,
+    geht_nach:[{ref:'03',typ:'Zweig'},{ref:'04',typ:'Zweig'},{ref:'05',typ:'Zweig'}]
+  },
+  {
+    id:'03', kurztitel:'WERKZEUGE',
+    titel:'UNTERRICHTSENTWURF — WERKZEUGE',
+    datum:'2025-08-12', datum_publish:null,
+    abstract:'Was in der Vision als Idee aufblitzt, wird zur Werkstatt: Die ersten Werkzeuge werden gebaut.',
+    status:'ANNOUNCED', url:null, hero:null,
+    geht_nach:[]
+  },
+  {
+    id:'04', kurztitel:'LETS YAML',
+    titel:'LETS YAML',
+    datum:'2025-08-18', datum_publish:null,
+    abstract:'Warum eine schlichte Textstruktur zum Rückgrat des entstehenden Systems wird. Der YAML-Strang führt später zur Baumhaus-Architektur zurück.',
+    status:'ANNOUNCED', url:null, hero:null,
+    geht_nach:[{ref:'06',typ:'Zweig'}]
+  },
+  {
+    id:'05', kurztitel:'LETS PLAY',
+    titel:'LETS PLAY — GAMIFICATION',
+    datum:'2025-08-25', datum_publish:null,
+    abstract:'Offener Seitenzweig: Gamification-Konzepte treffen auf den Unterrichtsalltag. Der Konflikt zwischen Spiel und Ernst bleibt unaufgelöst.',
+    status:'ANNOUNCED', url:null, hero:null,
+    geht_nach:[]
+  },
+  {
+    id:'06', kurztitel:'KI LERNT',
+    titel:'DIE KI LERNT EINE SPRACHE',
+    datum:'2025-09-15', datum_publish:null,
+    abstract:'Der Sprach-, Prompt- und YAML-Strang: Wie die KI eine eigene Sprache für den Unterrichtsdialog entwickelt.',
+    status:'ANNOUNCED', url:null, hero:null,
+    geht_nach:[]
   }
+];
 
-  startDrag(n, e){
+var DEFAULTS = {
+  '01':{x:0.05802083233992259, y:0.3026027397260274},
+  '02':{x:0.08427082538604735, y:0.5843836118097174},
+  '03':{x:0.29187498410542806, y:0.3675342005899508},
+  '04':{x:0.2121875278155009, y:0.6052055463398973},
+  '05':{x:0.1127083194255829, y:0.7847945205479452},
+  '06':{x:0.25708332538604733, y:0.5153424824753854}
+};
+
+/* HUM-fixierte Kurven-Griffe aus Draft-Mode-Export 260706 (Bezier-Feintuning).
+   Achtung: absolute Pixelwerte aus der Export-Viewportgroesse, nicht normiert
+   wie DEFAULTS -> bei stark abweichender Fenstergroesse ggf. erneut anpassen. */
+var DEFAULT_CPS = {
+  '02-04':{x:127.95324021561066, y:561.0902661127832},
+  '02-03':{x:190.13574626636313, y:354.3137440713747},
+  '02-05':{x:100.4862941534582, y:510.2100331555335},
+  '04-06':{x:404.6749729879159, y:382.9465021622381}
+};
+
+var LS_POS = 'fn-storyline-v7';
+var LS_CPS = 'fn-sl-cps-v7';
+
+/* ── DRAFT MODE (?draft=1): erlaubt HUMAN das Verschieben der Knoten/
+   Kurven-Griffe zum Feintuning. Ohne den Query-Parameter ist die Seite
+   fuer normale Besucher statisch (kein Draggen), Expand bleibt immer an. */
+var DRAFT_MODE = /(?:^|[?&])draft=1(?:&|$)/.test(location.search);
+if (DRAFT_MODE) document.body.classList.add('draft-mode');
+
+/* ── STATE ─────────────────────────────────────────────────────────── */
+var cw = window.innerWidth, mapH = window.innerHeight;
+var hoverId = null, expandedId = null, shakeId = null;
+var dragId = null, cpDragId = null;
+var positions = {}, cps = {};
+for (var _k in DEFAULT_CPS) cps[_k] = DEFAULT_CPS[_k];
+
+try { positions = JSON.parse(localStorage.getItem(LS_POS)||'{}'); } catch(e){}
+try {
+  var _lsCps = JSON.parse(localStorage.getItem(LS_CPS)||'{}');
+  for (var _k2 in _lsCps) cps[_k2] = _lsCps[_k2];
+} catch(e){}
+
+/* ── HELPERS ───────────────────────────────────────────────────────── */
+function fmt(iso) {
+  if (!iso) return 'TBD';
+  var p = iso.split('-');
+  return p[2]+'.'+p[1]+'.'+p[0];
+}
+
+function posOf(id) {
+  var p = positions[id];
+  if (p) return {x: p.x*cw, y: p.y*mapH};
+  var d = DEFAULTS[id];
+  return d ? {x: d.x*cw, y: d.y*mapH} : {x: cw*.5, y: mapH*.5};
+}
+
+function gc(eid, p1, p2) {
+  if (cps[eid]) return cps[eid];
+  var mx=(p1.x+p2.x)/2, my=(p1.y+p2.y)/2;
+  var dx=p2.x-p1.x, dy=p2.y-p1.y, len=Math.sqrt(dx*dx+dy*dy)||1;
+  var sign = dy>5 ? -1 : dy<-5 ? 1 : 0;
+  return {x: mx+(-dy/len)*55*sign, y: my+(dx/len)*55*sign};
+}
+
+function rgba(hex,a) {
+  var h=hex.replace('#','');
+  return 'rgba('+parseInt(h.slice(0,2),16)+','+parseInt(h.slice(2,4),16)+','+parseInt(h.slice(4,6),16)+','+a+')';
+}
+
+function savePosNorm(id, px, py) {
+  positions[id] = {x: px/cw, y: py/mapH};
+  try { localStorage.setItem(LS_POS, JSON.stringify(positions)); } catch(e){}
+}
+
+/* ── DOM REFS ──────────────────────────────────────────────────────── */
+var mapEl = document.getElementById('map');
+var svgEl = document.getElementById('svg-lines');
+var wpContainer = document.getElementById('waypoints-container');
+var expandedOverlay = document.getElementById('expanded-overlay');
+var expandedCard = document.getElementById('expanded-card');
+var cardPhoto = document.getElementById('card-photo');
+var cardMeta = document.getElementById('card-meta');
+var cardTitle = document.getElementById('card-title');
+var cardAbs = document.getElementById('card-abs');
+var cardLink = document.getElementById('card-link');
+
+/* ── DRAG STATE ────────────────────────────────────────────────────── */
+var _drag = null;
+var _cpDrag = null;
+var _suppressClick = false;
+
+/* ── WAYPOINT ELEMENTS ─────────────────────────────────────────────── */
+var wpEls = {};
+
+function createWaypoint(note) {
+  var el = document.createElement('div');
+  el.className = 'waypoint';
+  el.setAttribute('data-id', note.id);
+  el.setAttribute('tabindex', '0');
+  el.setAttribute('role', note.status==='LIVE' ? 'link' : 'note');
+
+  var dot = document.createElement('div');
+  dot.className = 'wp-dot';
+  el.appendChild(dot);
+
+  var info = document.createElement('div');
+  el.appendChild(info);
+
+  el.addEventListener('pointerdown', function(e) {
+    if (!DRAFT_MODE) return;
     if (e.button !== undefined && e.button !== 0) return;
-    const p = (this._pos && this._pos[n.id]) || { x: 0, y: 0 };
-    this._drag = { id: n.id, sx: e.clientX, sy: e.clientY, ox: p.x, oy: p.y, moved: false };
-    window.addEventListener("pointermove", this._onMove);
-    window.addEventListener("pointerup", this._onUp);
-  }
-  _onMove(e){
-    const d = this._drag; if (!d) return;
-    const dx = e.clientX - d.sx, dy = e.clientY - d.sy;
-    if (!d.moved && Math.hypot(dx, dy) > 4){ d.moved = true; this.setState({ dragId: d.id, expandedId: null }); }
-    if (d.moved){
-      const cw = this.state.cw || 820, mapH = this.state.mapH || 540;
-      const nx = Math.max(14, Math.min(cw - 14, d.ox + dx));
-      const ny = Math.max(20, Math.min(mapH - 20, d.oy + dy));
-      // gespeichert wird NORMALISIERT (0..1) → bildschirmunabhängig
-      this.setState(s => ({ positions: { ...s.positions, [d.id]: { x: nx / cw, y: ny / mapH } } }));
-    }
-  }
-  _onUp(){
-    const d = this._drag; this._drag = null;
-    window.removeEventListener("pointermove", this._onMove);
-    window.removeEventListener("pointerup", this._onUp);
-    if (d && d.moved){
-      this._suppressClick = true;
-      setTimeout(() => { this._suppressClick = false; }, 60);
-      try { localStorage.setItem("storyline_pos_v2", JSON.stringify(this.state.positions)); } catch(e){}
-      this.setState({ dragId: null });
-    }
-  }
-  resetPositions(){
-    try { localStorage.setItem("storyline_pos_v2", "{}"); } catch(e){}
-    this.setState({ positions: {} });
-  }
+    var P = posOf(note.id);
+    _drag = {id:note.id, sx:e.clientX, sy:e.clientY, ox:P.x, oy:P.y, moved:false};
+    window.addEventListener('pointermove', onMove);
+    window.addEventListener('pointerup', onUp);
+  });
 
-  // Eingebackene Default-Anordnung (normalisiert 0..1, bildschirmunabhängig).
-  defaultPositions(){
-    return {
-      "01": { x: 0.0291, y: 0.4366 },
-      "02": { x: 0.0380, y: 0.7023 },
-      "03": { x: 0.0314, y: 0.9094 },
-      "04": { x: 0.1121, y: 0.5576 },
-      "05": { x: 0.2244, y: 0.6441 },
-      "06": { x: 0.2828, y: 0.4744 },
-      "07": { x: 0.3658, y: 0.6104 },
-      "08": { x: 0.1156, y: 0.8042 },
-      "09": { x: 0.2690, y: 0.7360 },
-      "10": { x: 0.3650, y: 0.9239 },
-      "11": { x: 0.4459, y: 0.7501 }
-    };
-  }
-
-  data(){
-    return [
-      { id:"01", kurztitel:"NEUGIERDE", titel:"AM ANFANG STEHT DIE NEUGIERDE", datum:"2025-07-20", datum_publish:"2026-06-22", abstract:"Am 20. Juli 2025 beginnt ein Experiment mit GPT und einer Mathematikplanung. Aus einer Frage entstehen Materialien, neue Ideen und die Ahnung, dass sich mehr als nur ein Arbeitsblatt verändert.", status:"LIVE", url:"notes/neugierde/", hero:"heroes/hero_01.png", heroAnchor:"tl", kommt_von:[], geht_nach:[{ref:"02",typ:"direkt"}] },
-      { id:"02", kurztitel:"VISION", titel:"EIN UNTERRICHTSENTWURF ALS VISION", datum:"2025-08-05", datum_publish:null, abstract:"Aus einem Aufgabenblatt wächst im Dialog mit der KI Schritt für Schritt ein Unterrichtskonzept.", status:"ANNOUNCED", url:null, hero:"heroes/hero_02.png", heroAnchor:"br", kommt_von:[{ref:"01",typ:"direkt"}], geht_nach:[{ref:"03",typ:"direkt"},{ref:"04",typ:"Zweig"}] },
-      { id:"03", kurztitel:"WERKZEUGE", titel:"UNTERRICHTSENTWURF — WERKZEUGE", datum:"2025-08-12", datum_publish:null, abstract:"Was in der Vision als Idee aufblitzt, wird zur Werkstatt: Die ersten Werkzeuge werden gebaut.", status:"ANNOUNCED", url:null, kommt_von:[{ref:"02",typ:"direkt"}], geht_nach:[] },
-      { id:"04", kurztitel:"LETS YAML", titel:"LETS YAML", datum:"2025-08-18", datum_publish:null, abstract:"Warum eine schlichte Textstruktur zum Rückgrat des entstehenden Systems wird.", status:"ANNOUNCED", url:null, kommt_von:[{ref:"02",typ:"Zweig"}], geht_nach:[{ref:"05",typ:"direkt"}] },
-      { id:"05", kurztitel:"LETS PLAY", titel:"LETS PLAY", datum:"2025-08-25", datum_publish:null, abstract:"Das System steht — nun wird damit gespielt.", status:"ANNOUNCED", url:null, kommt_von:[{ref:"04",typ:"direkt"}], geht_nach:[{ref:"06",typ:"direkt"}] },
-      { id:"06", kurztitel:"WERKSTATT", titel:"DIE GEBURT DER WERKSTATT", datum:"2025-09-15", datum_publish:null, abstract:"Die Methode bekommt einen Namen und einen Ort.", status:"ANNOUNCED", url:null, kommt_von:[{ref:"05",typ:"direkt"}], geht_nach:[] }
-    ];
-  }
-
-  accentPair(){
-    const map = {
-      "Braun":  ["#7d4a23", "#5e3717"],
-      "Rot":    ["#bd3f2b", "#8b2c1c"],
-      "Blau":   ["#0a4de0", "#063aae"],
-      "Mono":   ["#241c12", "#000000"]
-    };
-    return map[this.props.accent] || map["Braun"];
-  }
-
-  fmt(iso){
-    if (!iso) return "TBD";
-    const p = iso.split("-");
-    return p[2] + "." + p[1] + "." + p[0];
-  }
-
-  rgba(hex, a){
-    const h = hex.replace("#", "");
-    const r = parseInt(h.slice(0,2),16), g = parseInt(h.slice(2,4),16), b = parseInt(h.slice(4,6),16);
-    return `rgba(${r},${g},${b},${a})`;
-  }
-
-  clickWp(n){
-    if (n.status === "LIVE"){
-      this.setState(s => ({ expandedId: s.expandedId === n.id ? null : n.id }));
+  el.addEventListener('click', function(e) {
+    e.stopPropagation();
+    if (_suppressClick) return;
+    if (note.status === 'LIVE') {
+      expandedId = (expandedId === note.id) ? null : note.id;
+      render();
     } else {
-      this.setState({ shakeId: n.id });
-      setTimeout(() => this.setState(s => s.shakeId === n.id ? { shakeId: null } : null), 430);
+      triggerShake(note.id);
     }
+  });
+
+  el.addEventListener('keydown', function(e) {
+    if (e.key==='Enter'||e.key===' ') { e.preventDefault(); el.click(); }
+  });
+
+  el.addEventListener('mouseenter', function() {
+    if (!_drag) { hoverId = note.id; render(); }
+  });
+  el.addEventListener('mouseleave', function() {
+    if (hoverId === note.id) { hoverId = null; render(); }
+  });
+
+  wpContainer.appendChild(el);
+  wpEls[note.id] = {el: el, dot: dot, info: info};
+}
+
+NOTES.forEach(createWaypoint);
+
+/* ── SHAKE ─────────────────────────────────────────────────────────── */
+function triggerShake(id) {
+  shakeId = id;
+  render();
+  setTimeout(function() { shakeId = null; render(); }, 430);
+}
+
+/* ── DRAG ──────────────────────────────────────────────────────────── */
+function onMove(e) {
+  if (!_drag) return;
+  var dx = e.clientX-_drag.sx, dy = e.clientY-_drag.sy;
+  if (!_drag.moved && Math.hypot(dx,dy)>4) {
+    _drag.moved = true;
+    dragId = _drag.id;
+    expandedId = null;
+    render();
   }
-
-  layout(){
-    const data = this.data();
-    const cw = this.state.cw || 820;
-    const mapH = this.state.mapH || 540;
-    const mobile = cw < 560;
-    const byId = {}; data.forEach(n => byId[n.id] = n);
-    const children = {}; data.forEach(n => children[n.id] = (n.geht_nach||[]).map(e => e.ref));
-
-    // tidy-tree lane assignment: leaves take next lane, parents center over children
-    const lane = {}; const seen = {}; let next = 0;
-    const assign = (id) => {
-      if (seen[id]) return lane[id];
-      seen[id] = true;
-      const kids = children[id] || [];
-      if (kids.length === 0){ lane[id] = next++; return lane[id]; }
-      let sum = 0;
-      kids.forEach(k => sum += assign(k));
-      lane[id] = sum / kids.length;
-      return lane[id];
-    };
-    data.filter(n => (n.kommt_von||[]).length === 0).forEach(n => assign(n.id));
-    data.forEach(n => { if (!(n.id in lane)) assign(n.id); });
-
-    let maxLane = 0; data.forEach(n => { if (lane[n.id] > maxLane) maxLane = lane[n.id]; });
-
-    // Y = Graph-Rang (Reihenfolge), NICHT Datum → gleichmässige Verteilung, keine Überlappung,
-    // füllt die Höhe. Datum bleibt nur Label.
-    const parentsOf = {}; data.forEach(n => parentsOf[n.id] = (n.kommt_von||[]).map(e => e.ref));
-    const rank = {};
-    const rk = (id) => {
-      if (id in rank) return rank[id];
-      rank[id] = 1; // guard against cycles
-      const ps = parentsOf[id] || [];
-      rank[id] = ps.length ? Math.max.apply(null, ps.map(rk)) + 1 : 0;
-      return rank[id];
-    };
-    data.forEach(n => rk(n.id));
-    let maxRank = 0; data.forEach(n => { if (rank[n.id] > maxRank) maxRank = rank[n.id]; });
-
-    // Fit the whole graph into the visible canvas (cw x mapH) — one screen, no scroll.
-    const leftPad = mobile ? 26 : 58;
-    const rightPad = mobile ? 26 : 196;
-    const topPad = 30, botPad = 34;
-    const drawW = Math.max(60, cw - leftPad - rightPad);
-    const drawH = Math.max(220, mapH - topPad - botPad);
-
-    const defs = this.defaultPositions();
-    const base = {};
-    data.forEach(n => {
-      let x, y;
-      if (defs[n.id]) {
-        x = defs[n.id].x * cw; y = defs[n.id].y * mapH;
-      } else {
-        const lx = maxLane > 0 ? (lane[n.id] / maxLane) : 0.5;
-        x = mobile ? (leftPad + 6) : (leftPad + lx * drawW);
-        y = topPad + (maxRank > 0 ? (rank[n.id] / maxRank) : 0) * drawH;
-      }
-      base[n.id] = { x: Math.round(x), y: Math.round(y) };
-    });
-
-    return { data, byId, base, cw, mapH, mobile };
-  }
-
-  renderVals(){
-    const L = this.layout();
-    const [accent, accentDeep] = this.accentPair();
-    const line = "#bd9f7e";
-    const hoverId = this.state.hoverId;
-    const expandedId = this.state.expandedId;
-
-    const positions = this.state.positions || {};
-    const posOf = (id) => {
-      const p = positions[id];
-      if (p) return { x: p.x * L.cw, y: p.y * L.mapH };
-      return L.base[id] || { x: 0, y: 0 };
-    };
-    this._pos = {}; L.data.forEach(n => { this._pos[n.id] = posOf(n.id); });
-
-    const waypoints = L.data.map(n => {
-      const isLive = n.status === "LIVE";
-      const hovered = hoverId === n.id;
-      const expanded = expandedId === n.id;
-      const shaking = this.state.shakeId === n.id;
-      const dragging = this.state.dragId === n.id;
-      const P = posOf(n.id);
-      const left = Math.round(P.x - 6.5);
-      const top = Math.round(P.y);
-      const flip = P.y > (L.mapH * 0.56);
-
-      // LIVE-Punkt: doppelter Ring = sichtbare Klick-Affordanz
-      const dotStyle = isLive
-        ? `width:13px; height:13px; border-radius:50%; flex:none; background:${accent}; box-shadow:0 0 0 5px #f2eadc, 0 0 0 ${hovered ? 7.5 : 6.5}px ${this.rgba(accent, hovered ? .85 : .5)}; transform:scale(${hovered ? 1.3 : 1}); transition:transform .18s ease, box-shadow .18s ease;`
-        : `width:12px; height:12px; border-radius:50%; flex:none; background:#f2eadc; border:1.5px dashed #b8a78d; box-shadow:0 0 0 5px #f2eadc; opacity:.9;`;
-
-      const titleStyle = `font-family:var(--sans); font-weight:600; font-size:${hovered ? "1.04rem" : ".95rem"}; line-height:1.18; letter-spacing:-.01em; color:${hovered ? accentDeep : "#191713"}; transition:font-size .15s ease, color .15s ease;`;
-      const openHintStyle = `margin-top:5px; font:600 .62rem/1 var(--mono); letter-spacing:.08em; color:${accentDeep};`;
-
-      // ANNOUNCED: grau, kleiner, mit Publish-Zeile (kein Nebel mehr)
-      const annMetaStyle = `font:600 .64rem/1 var(--mono); letter-spacing:.08em; color:#b7a994; margin-bottom:4px;`;
-      const annTitleStyle = `font:600 .82rem/1.2 var(--sans); letter-spacing:0; color:#9d8f7c;`;
-      const annPubStyle = `font:500 .62rem/1.2 var(--mono); letter-spacing:.03em; color:#c0b3a0; margin-top:4px;`;
-
-      const linkStyle = `display:inline-block; margin-top:13px; font:600 .72rem/1 var(--mono); letter-spacing:.05em; color:${accentDeep}; text-decoration:none; border-bottom:1.5px solid ${accent}; padding-bottom:2px;`;
-
-      const boxStyle = `position:absolute; left:${left}px; top:${top}px; transform:translateY(-50%); display:flex; align-items:center; gap:13px; cursor:${dragging ? "grabbing" : "grab"}; touch-action:none; user-select:none; -webkit-user-select:none; outline:none; z-index:${expanded ? 60 : (dragging ? 55 : (hovered ? 30 : 10))};${shaking ? " animation:wpshake .43s ease;" : ""}`;
-
-      // --- Expanded card (3x grösser; Hero als Vollflächen-Hintergrund) ---
-      const hasHero = !!n.hero;
-      const cardW = Math.round(Math.min(540, L.cw - 24));
-      const clampedLeft = Math.max(8, Math.min(left, L.cw - cardW - 8));
-      const cardOffsetX = Math.round(clampedLeft - left);
-
-      const tsh = hasHero ? "0 1px 8px rgba(20,12,4,.7), 0 0 2px rgba(20,12,4,.5)" : "none";
-      // Passepartout-Rahmen (wie .evidence) + diagonaler warm-brauner Schleier (wie .hero der Note-Seite)
-      const cardStyle = hasHero
-        ? `position:absolute; top:${flip ? "auto" : "calc(100% + 13px)"}; bottom:${flip ? "calc(100% + 13px)" : "auto"}; left:${cardOffsetX}px; width:${cardW}px; padding:7px; background:#fffaf0; border:1px solid #b8a78d; border-radius:2px; box-shadow:0 22px 50px rgba(48,35,18,.26); overflow:hidden; z-index:50;`
-        : `position:absolute; top:${flip ? "auto" : "calc(100% + 13px)"}; bottom:${flip ? "calc(100% + 13px)" : "auto"}; left:${cardOffsetX}px; width:${cardW}px; min-height:168px; background:#fffaf0; border:1px solid #b8a78d; border-radius:2px; box-shadow:0 22px 50px rgba(48,35,18,.22); overflow:hidden; z-index:50;`;
-      const anchors = {
-        tl: { at:"0% 0%",     ai:"flex-start", jc:"flex-start", ta:"left"  },
-        br: { at:"100% 100%", ai:"flex-end",   jc:"flex-end",   ta:"right" },
-        tr: { at:"100% 0%",   ai:"flex-start", jc:"flex-end",   ta:"right" },
-        bl: { at:"0% 100%",   ai:"flex-end",   jc:"flex-start", ta:"left"  }
-      };
-      const A = anchors[n.heroAnchor] || anchors.tl;
-      // Schleier im Header-Farbton (Espresso-Braun der Kopfleiste, rgb(18,12,7))
-      const hv = "18,12,7";
-      const veil = `radial-gradient(140% 140% at ${A.at}, rgba(${hv},.95) 0%, rgba(${hv},.8) 28%, rgba(${hv},.4) 54%, rgba(${hv},0) 80%)`;
-      const photoStyle = hasHero
-        ? `display:flex; align-items:${A.ai}; justify-content:${A.jc}; min-height:252px; border:1px solid #cdbfa6; background-image:${veil}, url("${n.hero}"); background-size:cover; background-position:center;`
-        : "display:block;";
-      const cardInnerStyle = hasHero ? `padding:20px 22px; max-width:66%; text-align:${A.ta};` : "padding:18px 22px 20px; width:100%;";
-      const cardMetaStyle = `font:600 .68rem/1 var(--mono); letter-spacing:.12em; color:${hasHero ? "#ffd9a8" : "#9a8d7b"}; margin-bottom:10px; text-shadow:${tsh};`;
-      const cardTitleStyle = `font:600 1.22rem/1.18 var(--sans); letter-spacing:-.01em; color:${hasHero ? "#fffaf0" : "#241c12"}; margin:0; text-shadow:${tsh};`;
-      const cardAbsStyle = `font-family:'Spectral',Georgia,serif; font-size:1.02rem; line-height:1.55; color:${hasHero ? "#f6ecdd" : "#2c2620"}; margin:10px 0 0; text-shadow:${tsh};`;
-      const cardLinkStyle = `display:inline-block; margin-top:15px; font:600 .74rem/1 var(--mono); letter-spacing:.06em; color:${hasHero ? "#ffd9a8" : accentDeep}; text-decoration:none; border-bottom:1.5px solid ${hasHero ? "#ffd9a8" : accent}; padding-bottom:3px; text-shadow:${tsh};`;
-
-      return {
-        cardStyle, photoStyle, cardInnerStyle, cardMetaStyle, cardTitleStyle, cardAbsStyle, cardLinkStyle,
-        id: n.id, isLive, isAnnounced: !isLive, hovered, expanded,
-        meta: n.id + " · " + this.fmt(n.datum),
-        kurztitel: n.kurztitel, titel: n.titel,
-        abstract: n.abstract && n.abstract.trim() ? n.abstract : "Abstract folgt, sobald die Note gepflegt ist.",
-        url: n.url || "#",
-        showOpenHint: isLive && hovered, openHintStyle,
-        annMeta: n.id + " · " + this.fmt(n.datum),
-        annTitle: n.kurztitel,
-        annPub: n.datum_publish ? "erscheint " + this.fmt(n.datum_publish) : "Termin offen",
-        annMetaStyle, annTitleStyle, annPubStyle,
-        role: isLive ? "link" : "note",
-        ariaDisabled: isLive ? "false" : "true",
-        aria: isLive ? (n.kurztitel + " — Note öffnen") : (n.kurztitel + " — angekündigt, erscheint " + (n.datum_publish ? this.fmt(n.datum_publish) : "noch offen")),
-        dotStyle, titleStyle, linkStyle, boxStyle,
-        onDown: (e) => this.startDrag(n, e),
-        onClick: (e) => { if (e) e.stopPropagation(); if (this._suppressClick) return; this.clickWp(n); },
-        stop: (e) => { if (e) e.stopPropagation(); },
-        onEnter: () => { if (!this._drag) this.setState({ hoverId: n.id }); },
-        onLeave: () => this.setState(s => s.hoverId === n.id ? { hoverId: null } : null),
-        onKey: (e) => { if (e.key === "Enter" || e.key === " "){ e.preventDefault(); this.clickWp(n); } }
-      };
-    });
-
-    const paths = [];
-    L.data.forEach(n => {
-      (n.geht_nach || []).forEach(e => {
-        const a = posOf(n.id), b = posOf(e.ref);
-        const x1 = a.x, y1 = a.y;
-        const x2 = b.x, y2 = b.y;
-        const hot = hoverId === n.id || hoverId === e.ref;
-        let d;
-        if (Math.abs(x1 - x2) < 0.6){
-          d = `M ${x1.toFixed(1)} ${y1.toFixed(1)} L ${x2.toFixed(1)} ${y2.toFixed(1)}`;
-        } else {
-          const dy = y2 - y1;
-          d = `M ${x1.toFixed(1)} ${y1.toFixed(1)} C ${x1.toFixed(1)} ${(y1 + dy*0.45).toFixed(1)} ${x2.toFixed(1)} ${(y2 - dy*0.45).toFixed(1)} ${x2.toFixed(1)} ${y2.toFixed(1)}`;
-        }
-        paths.push({ d, stroke: hot ? accent : line, w: hot ? 2.2 : 1.5 });
-      });
-    });
-
-    const liveCount = L.data.filter(n => n.status === "LIVE").length;
-
-    return {
-      waypoints, paths,
-      svgW: Math.round(L.cw), svgH: Math.round(L.mapH),
-      mapRef: this.mapRef,
-      accent, accentDeep,
-      liveCount, annCount: L.data.length - liveCount,
-      textur: this.props.textur ?? true,
-      resetPositions: () => this.resetPositions(),
-      closeCard: () => { if (this.state.expandedId) this.setState({ expandedId: null }); }
-    };
+  if (_drag.moved) {
+    var nx = Math.max(0.02, Math.min(0.97, (_drag.ox+dx)/cw));
+    var ny = Math.max(0.05, Math.min(0.95, (_drag.oy+dy)/mapH));
+    positions[_drag.id] = {x:nx, y:ny};
+    render();
   }
 }
+
+function onUp() {
+  var d = _drag; _drag = null;
+  window.removeEventListener('pointermove', onMove);
+  window.removeEventListener('pointerup', onUp);
+  if (d && d.moved) {
+    _suppressClick = true;
+    setTimeout(function(){_suppressClick=false;}, 60);
+    try { localStorage.setItem(LS_POS, JSON.stringify(positions)); } catch(e){}
+    dragId = null;
+    render();
+  }
+}
+
+/* ── CP DRAG ───────────────────────────────────────────────────────── */
+function startCpDrag(eid, a, b, clientX, clientY) {
+  var cp = gc(eid, a, b);
+  _cpDrag = {id:eid, sx:clientX, sy:clientY, ox:cp.x, oy:cp.y};
+  window.addEventListener('pointermove', onCpMove);
+  window.addEventListener('pointerup', onCpUp);
+}
+
+function onCpMove(e) {
+  if (!_cpDrag) return;
+  var dx = e.clientX-_cpDrag.sx, dy = e.clientY-_cpDrag.sy;
+  cps[_cpDrag.id] = {x:_cpDrag.ox+dx, y:_cpDrag.oy+dy};
+  render();
+}
+
+function onCpUp() {
+  try { localStorage.setItem(LS_CPS, JSON.stringify(cps)); } catch(e){}
+  _cpDrag = null;
+  window.removeEventListener('pointermove', onCpMove);
+  window.removeEventListener('pointerup', onCpUp);
+}
+
+/* ── DRAFT-MODE EXPORT ─────────────────────────────────────────────── */
+var draftExportBtn = document.getElementById('draft-export-btn');
+if (draftExportBtn) {
+  draftExportBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    var out = { DEFAULTS: positions, cps: cps };
+    var json = JSON.stringify(out, null, 2);
+    console.log('STORYLINE Positionen/Kurven (Draft-Mode Export):\n' + json);
+    var restore = draftExportBtn.textContent;
+    var done = function(ok) {
+      draftExportBtn.textContent = ok ? 'Kopiert! (auch in Konsole)' : 'Siehe Browser-Konsole';
+      setTimeout(function(){ draftExportBtn.textContent = restore; }, 2000);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(json).then(function(){done(true);}, function(){done(false);});
+    } else {
+      done(false);
+    }
+  });
+}
+
+/* ── CLOSE CARD ────────────────────────────────────────────────────── */
+mapEl.addEventListener('click', function() { expandedId = null; render(); });
+expandedOverlay.addEventListener('click', function() { expandedId = null; render(); });
+expandedCard.addEventListener('click', function(e) { e.stopPropagation(); });
+expandedCard.addEventListener('pointerdown', function(e) { e.stopPropagation(); });
+
+/* ── SVG HELPERS ───────────────────────────────────────────────────── */
+var NS = 'http://www.w3.org/2000/svg';
+var pathEls = {};
+var cpEls = {};
+
+function getOrCreate(tag, key, parent, attrs) {
+  if (!pathEls[key]) {
+    var el = document.createElementNS(NS, tag);
+    parent.appendChild(el);
+    pathEls[key] = el;
+  }
+  var el = pathEls[key];
+  for (var k in attrs) el.setAttribute(k, attrs[k]);
+  return el;
+}
+
+function getOrCreateCp(key, eid, a, b) {
+  if (!cpEls[key]) {
+    var el = document.createElementNS(NS, 'circle');
+    el.setAttribute('r','10');
+    el.setAttribute('fill','rgba(200,160,80,.3)');
+    el.setAttribute('stroke','rgba(120,70,20,.6)');
+    el.setAttribute('stroke-width','1.5');
+    el.classList.add('cp-handle');
+    (function(capturedEid, capturedA, capturedB) {
+      el.addEventListener('mousedown', function(e) {
+        if (!DRAFT_MODE) return;
+        e.stopPropagation();
+        startCpDrag(capturedEid, posOf(capturedEid.split('-')[0]), posOf(capturedEid.split('-')[1]), e.clientX, e.clientY);
+      });
+      el.addEventListener('touchstart', function(e) {
+        if (!DRAFT_MODE) return;
+        e.preventDefault();
+        e.stopPropagation();
+        startCpDrag(capturedEid, posOf(capturedEid.split('-')[0]), posOf(capturedEid.split('-')[1]), e.touches[0].clientX, e.touches[0].clientY);
+      });
+    })(eid, a, b);
+    svgEl.appendChild(el);
+    cpEls[key] = el;
+  }
+  return cpEls[key];
+}
+
+/* ── RENDER ────────────────────────────────────────────────────────── */
+function render() {
+  var accent = '#7d4a23', accentDeep = '#5e3717', line = '#bd9f7e';
+
+  /* Resize SVG */
+  svgEl.setAttribute('width', cw);
+  svgEl.setAttribute('height', mapH);
+  svgEl.setAttribute('viewBox', '0 0 '+cw+' '+mapH);
+
+  /* Draw connection lines */
+  NOTES.forEach(function(n) {
+    (n.geht_nach||[]).forEach(function(e) {
+      var eid = n.id+'-'+e.ref;
+      var a = posOf(n.id), b = posOf(e.ref);
+      var cp = gc(eid, a, b);
+      var hot = hoverId===n.id || hoverId===e.ref;
+      var pulsing = (hoverId===n.id || hoverId===e.ref) && !expandedId;
+      var d = 'M '+a.x.toFixed(1)+' '+a.y.toFixed(1)+' Q '+cp.x.toFixed(1)+' '+cp.y.toFixed(1)+' '+b.x.toFixed(1)+' '+b.y.toFixed(1);
+
+      getOrCreate('path', 'path-'+eid, svgEl, {
+        d: d,
+        fill: 'none',
+        stroke: hot ? accent : line,
+        'stroke-width': hot ? '2.2' : '1.5',
+        'stroke-linecap': 'round',
+        style: pulsing ? 'animation:linePulse 2.4s ease-in-out infinite' : ''
+      });
+
+      var cpEl = getOrCreateCp('cp-'+eid, eid, a, b);
+      cpEl.setAttribute('cx', cp.x.toFixed(1));
+      cpEl.setAttribute('cy', cp.y.toFixed(1));
+    });
+  });
+
+  /* Update waypoints */
+  NOTES.forEach(function(n) {
+    var isLive = n.status === 'LIVE';
+    var hovered = hoverId === n.id;
+    var expanded = expandedId === n.id;
+    var shaking = shakeId === n.id;
+    var dragging = dragId === n.id;
+    var P = posOf(n.id);
+    var left = Math.round(P.x - 6.5);
+    var top = Math.round(P.y);
+
+    var ref = wpEls[n.id];
+    if (!ref) return;
+    var el = ref.el, dot = ref.dot, info = ref.info;
+
+    /* Position */
+    el.style.left = left+'px';
+    el.style.top = top+'px';
+    el.style.cursor = !DRAFT_MODE ? 'pointer' : (dragging ? 'grabbing' : 'grab');
+    el.style.zIndex = expanded ? '60' : dragging ? '55' : hovered ? '30' : '10';
+    el.style.animation = shaking ? 'wpshake .43s ease' : '';
+    el.setAttribute('aria-label', isLive ? n.kurztitel+' — Note öffnen' : n.kurztitel+' — angekündigt');
+
+    /* Dot */
+    if (isLive) {
+      var pulseAnim = hovered && !expanded ? 'animation:wpPulse 2.4s ease-in-out infinite' : '';
+      dot.style.cssText = 'width:13px;height:13px;border-radius:50%;flex:none;background:'+accent+';box-shadow:0 0 0 5px #ede6d4,0 0 0 '+(hovered?7.5:6.5)+'px '+rgba(accent,hovered?.85:.5)+';'+pulseAnim;
+    } else {
+      dot.style.cssText = 'width:12px;height:12px;border-radius:50%;flex:none;background:#ede6d4;border:1.5px dashed #b8a78d;box-shadow:0 0 0 5px #ede6d4;opacity:.85';
+    }
+
+    /* Info */
+    info.style.minWidth = '0';
+    if (isLive) {
+      info.innerHTML =
+        '<div class="wp-meta">'+n.id+' &middot; '+fmt(n.datum)+'</div>'+
+        '<div class="wp-title" style="color:'+(hovered?accentDeep:'#191713')+';font-size:'+(hovered?'1.02rem':'.94rem')+'">'+n.kurztitel+'</div>'+
+        (hovered && !expanded ? '<div class="wp-hint">&ouml;ffnen &rarr;</div>' : '');
+    } else {
+      info.innerHTML =
+        '<div class="wp-ann-meta">'+n.id+' &middot; '+fmt(n.datum)+'</div>'+
+        '<div class="wp-ann-title">'+n.kurztitel+'</div>'+
+        '<div class="wp-ann-pub">'+(n.datum_publish ? 'erscheint '+fmt(n.datum_publish) : 'Termin offen')+'</div>';
+    }
+  });
+
+  /* Expanded card */
+  var expNote = expandedId ? NOTES.find(function(n){return n.id===expandedId;}) : null;
+  if (expNote && expNote.status === 'LIVE') {
+    var hasHero = !!expNote.hero;
+    var hv = '18,12,7';
+    var veil = 'radial-gradient(140% 140% at 0% 0%,rgba('+hv+',.95) 0%,rgba('+hv+',.8) 28%,rgba('+hv+',.4) 54%,rgba('+hv+',0) 80%)';
+    var tsh = hasHero ? '0 1px 8px rgba(20,12,4,.7)' : 'none';
+
+    expandedOverlay.style.display = 'block';
+    expandedCard.style.display = 'block';
+
+    if (hasHero) {
+      cardPhoto.style.backgroundImage = veil+',url("'+expNote.hero+'")';
+      cardPhoto.style.minHeight = '220px';
+      cardMeta.style.color = '#ffd9a8';
+      cardTitle.style.color = '#fffaf0';
+      cardAbs.style.color = '#f6ecdd';
+      cardLink.style.color = '#ffd9a8';
+      cardLink.style.borderBottomColor = '#ffd9a8';
+    } else {
+      cardPhoto.style.backgroundImage = 'none';
+      cardPhoto.style.minHeight = 'auto';
+      cardMeta.style.color = '#9a8d7b';
+      cardTitle.style.color = '#241c12';
+      cardAbs.style.color = '#2c2620';
+      cardLink.style.color = accentDeep;
+      cardLink.style.borderBottomColor = accent;
+    }
+    cardMeta.textContent = expNote.id+' · '+fmt(expNote.datum);
+    cardTitle.textContent = expNote.titel;
+    cardAbs.textContent = expNote.abstract||'Abstract folgt.';
+    cardLink.href = expNote.url||'#';
+    cardMeta.style.textShadow = cardTitle.style.textShadow = cardAbs.style.textShadow = cardLink.style.textShadow = tsh;
+  } else {
+    expandedOverlay.style.display = 'none';
+    expandedCard.style.display = 'none';
+  }
+}
+
+/* ── RESIZE ────────────────────────────────────────────────────────── */
+window.addEventListener('resize', function() {
+  cw = window.innerWidth;
+  mapH = window.innerHeight;
+  render();
+});
+
+/* ── INIT ──────────────────────────────────────────────────────────── */
+render();
+
+})();
 </script>
 </body>
 </html>
