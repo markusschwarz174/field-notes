@@ -2,7 +2,7 @@
 <!--
    WEB_PREVIEW — P6-Render, in P5 Stage 1 als LIVEVIEW ausgeliehen.
    Design-SSoT: C:\Users\Markus\ClaudeCode\MeineProjekte\FIELD_NOTES_DRAFT\0_W_WORKFLOW\P6_PUBLISH\WEBDESIGN\_CURRENT\NOTE\index.html
-   Content-Source: NEUGIERDE_V6.22_RELEASE_HUMAN_260706.docx
+   Content-Source: NEUGIERDE_V6.23_RELEASE_HUMAN_260706.docx
 -->
 <html lang="de-CH">
 <head>
@@ -359,7 +359,7 @@ body:before{
   text-shadow:0 3px 18px rgba(0,0,0,.42);
 }
 .hero .lead{
-  font-size:clamp(1.08rem,1.6vw,1.32rem);max-width:680px;
+  font-size:clamp(1.08rem,1.6vw,1.32rem);max-width:780px;
   color:#fff5e4;margin:0;line-height:1.45;font-weight:400;
   text-shadow:0 2px 8px rgba(0,0,0,.4);
 }
@@ -448,10 +448,7 @@ body:before{
 /* Stufe 1: em (built-in) */
 /* Stufe 2: Schluesselsatz inline */
 .article .hl{
-  font-weight:600;color:var(--ink,#15171C);
-  background-image:linear-gradient(#0A4DE0,#0A4DE0);
-  background-size:100% 1.5px;background-repeat:no-repeat;background-position:0 100%;
-  padding-bottom:1px;
+  font-weight:700;color:#9A6A1F;
 }
 /* Stufe 3: Kernsatz Block */
 .article p.kernsatz{
@@ -515,9 +512,9 @@ body:before{
 /* W3: Card-Familie vereinheitlicht — alle drei Karten gleich strukturiert, nur Seitenlinie-Farbe + Label-Farbe unterschiedlich */
 /* W4: Card-Text kleiner · W10: Cards NICHT rotieren */
 .card{
-  margin:22px 0;padding:14px 18px;
+  margin:22px 0;padding:10px 16px;
   background:var(--paper);border-radius:3px;
-  font-family:var(--mono);font-size:.80rem;line-height:1.55;
+  font-family:var(--mono);font-size:.80rem;line-height:1.5;
   border-left:4px solid var(--line-deep);
 }
 .card:before{
@@ -736,12 +733,12 @@ body:before{
   /* DU: — Prompt-Composer (ChatGPT-Eingabefeld) */
   .article .conv.du .lbl{ color: var(--mk); }
   .article .composer{
-    position: relative; padding: 17px 17px 11px; overflow: hidden;
+    position: relative; padding: 11px 17px 11px; overflow: hidden;
     background: #f4f1ec; border: 1px solid #ddd5c9; border-radius: 26px;
     box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 10px 26px rgba(60,42,18,.07);
   }
   .article .composer .ptext{
-    margin: 0; padding: 0 5px 13px; min-height: 36px;
+    margin: 0 !important; padding: 0 5px 11px;
     font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 1rem; line-height: 1.55; color: #2c2620;
   }
   .article .composer .ptext em{ font-style: italic; }
@@ -1115,14 +1112,12 @@ body:before{
     margin-top:.72rem !important;
     margin-bottom:.92rem !important;
   }
-  .article strong.hl1,
-  .article .hl1{
-    color:#7b2f23 !important;
-    font-weight:800 !important;
-    background:linear-gradient(180deg, transparent 58%, rgba(154,106,31,.18) 58%) !important;
-    box-decoration-break:clone;
-    -webkit-box-decoration-break:clone;
-  }
+  /* Legacy .hl1/strong.hl1-Bold-Balken-Regel entfernt 260706 (ITEM_260706_001):
+     traf nie genuines modernes HL1 (rendert als <em>, C_HERVORHEBUNG SS3.1),
+     nur die Legacy-Alias-Route HL1-AKZENT -> cls="hl1". Scan über alle 5 aktiven
+     Notes (SENTINEL_QUALITY-Check 260706) fand 0 Runs mit HL1-AKZENT o.ae.
+     Legacy-Styles in Gebrauch -> Regel war reiner Totcode, der zusaetzlich per
+     Mapping-Bug faelschlich echtes HL2 traf (siehe ITEM_260706_001). */
   .article p,
   .article .kernsatz,
   .article .cliff h2{
@@ -1143,7 +1138,7 @@ body:before{
   <div class="topbar-left">
     <nav class="notenav" aria-label="Field-Note-Navigation">
       <button type="button" title="Vorherige Field Note" aria-label="Vorherige Field Note"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-      <a href="file:///C:/Users/Markus/ClaudeCode/MeineProjekte/FIELD_NOTES_DRAFT/0_W_WORKFLOW/P6_PUBLISH/WEBDESIGN/_CURRENT/STORYLINE/index.html" title="Zur Storyline" aria-label="Zur Storyline"><svg viewBox="0 0 24 24"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z" stroke-linejoin="round"/></svg></a>
+      <a href="../../" title="Zur Storyline" aria-label="Zur Storyline"><svg viewBox="0 0 24 24"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z" stroke-linejoin="round"/></svg></a>
       <button type="button" title="Nächste Field Note" aria-label="Nächste Field Note"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
     </nav>
     <div class="brand">
@@ -1204,16 +1199,16 @@ body:before{
     </div>
   </div>
 
-  <p id="p-002">Und seine Antwort darauf ist irgendwie - positiv, motivierend und irgendwie geduldig.</p>
+  <p id="p-002">Und seine Antwort ist irgendwie positiv, verständnisvoll und ansteckend motivierend.</p>
 
   <div id="card-002" class="conv gpt">
     <div class="rcard">
       <button class="copybtn" type="button" tabindex="-1" aria-label="Kopieren"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
-      <p><strong>AI:</strong><br><strong>ChatGPT:</strong><br>Alles klar! Gib mir die Tabellen einfach, sobald du bereit bist. Sag mir auch gerne, was du genau damit machen möchtest – z. B. zusammenfassen, umformulieren, visualisieren, in ein bestimmtes Format bringen (z. B. PDF, Excel, Lernplan etc.) oder etwas anderes.</p>
+      <p><strong>ChatGPT:</strong><br>Alles klar! Gib mir die Tabellen einfach, sobald du bereit bist. Sag mir auch gerne, was du genau damit machen möchtest – z. B. zusammenfassen, umformulieren, visualisieren, in ein bestimmtes Format bringen (z. B. PDF, Excel, Lernplan etc.) oder etwas anderes.</p>
     </div>
   </div>
 
-  <p id="p-003">Das war sie: <em>Unser erster Kontakt</em>.</p>
+  <p id="p-003">Das war er: <em>Unser erster Kontakt</em>.</p>
 
 <div class="kapitel-head" id="k-02">
   <div class="kapitel-nr">02</div>
@@ -1236,9 +1231,9 @@ body:before{
 
   <p id="p-008">Warum? Bei der letzten Durchführung vor drei Jahren habe ich die Erfahrung gemacht, dass es mir nicht gelungen ist, das Lehrmittel genug differenziert einzusetzen. Die Heterogenität in der Klasse war zu gross.</p>
 
-  <p id="p-009">Ich denke an einen Schüler aus der damaligen Klasse. Drei Wochen lang hatte er Probleme mit den verschiedenen Spiegelungen und ich konnte ihn nicht wirklich unterstützen. Und eine andere Schülerin dagegen war nach einer Woche fertig. <em>Diese Spannweite</em> will ich diesmal besser abdecken. <strong class="hl1">Nicht mit neuen oder mehr Arbeitsblättern, sondern indem ich das ganze Kapitel des Lehrmittels fachdidaktisch analysiere und neu strukturiere.</strong></p>
+  <p id="p-009">Ich denke an einen Schüler aus der damaligen Klasse. Drei Wochen lang hatte er Probleme mit den verschiedenen Spiegelungen und ich konnte ihn nicht wirklich unterstützen. Und eine andere Schülerin dagegen war nach einer Woche fertig. <em>Diese Spannweite</em> will ich diesmal besser abdecken.<br><strong class="hl">Nicht mit neuen oder mehr Arbeitsblättern, sondern indem ich das ganze Kapitel des Lehrmittels fachdidaktisch analysiere und neu strukturiere.</strong></p>
 
-  <p id="p-010">Könnte ich aus dem gleichen Lehrmittelwerk den Band ein Niveau tiefer dazunehmen und so verheiraten, dass sie zusammen eine neue, gemeinsame Struktur ergeben? Geht das? Ich stelle mir vor, dass ich eine Wohnung mieten will. Und dazu organisiere ich einen Schlüssel für die Wohnung eine Etage darunter; <em>nur </em><em>so </em><em>für den Fall</em>.</p>
+  <p id="p-010">Könnte ich aus dem gleichen Lehrmittelwerk den Band ein Niveau tiefer dazunehmen und so verheiraten, dass sie zusammen eine neue, gemeinsame Struktur ergeben? Geht das? Ich stelle mir vor, dass ich eine Wohnung mieten will. Und dazu organisiere ich einen Schlüssel für die Wohnung eine Etage darunter; <em>nur so für den Fall</em>.</p>
 
   <p id="p-011">GPT soll zwei Lehrmittelteile mit unterschiedlichen Strukturen, unterschiedlichen Lernzielformulierungen konsolidieren. Konkret: Lehrmittel A hat fünf Kapitel zu Achsenspiegelung, Punktspiegelung, Verschiebung, Drehung, Symmetrien. Lehrmittel B verteilt die gleichen Inhalte anders: Die Achsenspiegelung kommt erst hinten, dafür sind die Symmetrien als Einstieg vorgesehen. Ich will, dass GPT mir aus diesen zwei Reihenfolgen EINE bauen hilft, die für meine Klasse stimmt — und nicht einfach die Reihenfolge von Lehrmittel A oder von Lehrmittel B übernimmt.</p>
 
@@ -1255,7 +1250,7 @@ body:before{
   <h2>Alles rein damit</h2>
 </div>
 
-  <p id="p-013">Ich sichte, was ich in meiner Planung habe: Lerninhalte aus dem Handbuch, Seitenzahlen, Aufgabennummern, Lernziele. Alles zum Niveau B Grundanforderungen ist vorhanden. Ich suche und ergänze mit Materialien aus dem Niveau C und D und schreibe diese in die Planung ab. Ich überlege mir, welche Auswahl an Materialien ich hochladen soll und ob ich die Tabellen noch übersichtlicher gestalten soll. Ist es Bequemlichkeit oder Ungeduld, die mich zum vollständigen Upload aller vorhandenen Materialien zu Kapitel 1 führt:</p>
+  <p id="p-013">Ich sichte, was ich in meiner Planung habe: Lerninhalte aus dem Handbuch, Seitenzahlen, Aufgabennummern, Lernziele. Alles zum Niveau B Grundanforderungen ist vorhanden. Ich suche und ergänze mit Materialien aus dem Niveau C und D und schreibe diese in die Planung ab. Ich überlege mir, welche Auswahl an Materialien ich hochladen und ob ich die Tabellen noch übersichtlicher gestalten soll. Ich lasse es sein. Ist es Bequemlichkeit oder einfach Ungeduld, die mich zum Upload aller vorhandenen Kapitel 1-Materialien drängt?</p>
 
   <p id="p-014">Ich erwarte, dass mir GPT von alleine eine thematische Lernzielstruktur erstellt. Und tatsächlich: Er nimmt alles entgegen und erstellt tabellarische Listen mit den Aufgaben. Und nun ist es Handwerk. Copy/Paste. Nichts Aufregendes. Ich lade die Informationen aus meiner Planung kapitelweise hoch und gehe davon aus, dass GPT auch weiterhin weiss, was ich will. Ich prüfe nur grob auf Richtigkeit – das ist der Preis für das zügige Vorwärtskommen. In einem Lehrmittelteil verwechselt er die Nummern und macht aus Aufgabennummern Seitenzahlen. Ok, das kann ich später noch ändern.</p>
 
@@ -1289,7 +1284,7 @@ body:before{
 
   <p id="p-020">Jedes Lehrmittel ist dabei anders. Es &quot;denkt&quot; anders. Hat einen anderen Aufbau, eine andere Nummerierung, Begrifflichkeit und Layoutstruktur. Das manuelle Anpassen erlaubt mir eine einheitliche Begrifflichkeit und Lernzielformulierung von der Planung bis zur Lösung der Lernkontrolle. Aufwändig, aber dafür stolpert später niemand über unterschiedliche Begriffe. Ich habe mehrmals versucht, verschiedene Lehrmittel zu verheiraten. Thematisch ist das eine Sache, strukturell, lernzieltechnisch scheiterte ich recht zuverlässig daran. Ich will mit GPT diese Herausforderung <em>knacken</em>.</p>
 
-  <p id="p-021">Nach 11 Turns entsteht eine Gesamtübersicht aller vier Teile beider Lehrmittelteile als dürftige, unvollständige Matrix. Aber immerhin eine Zusammenfassung. Mir fällt während dem Tippen eines auf: <strong class="hl1">Ich denke nicht mehr, sondern sammle nur noch und GPT liefert immer weiter.</strong> Wir bauen ein Materiallager, zu dem ich noch keinen Plan habe.</p>
+  <p id="p-021">Nach 11 Turns entsteht eine Gesamtübersicht aller vier Teile beider Lehrmittelteile als dürftige, unvollständige Matrix. Aber immerhin eine Zusammenfassung. Mir fällt während dem Tippen eines auf: <strong class="hl">Ich denke nicht mehr, sondern sammle nur noch und GPT liefert immer weiter.</strong> Wir bauen ein Materiallager, zu dem ich noch keinen Plan habe.</p>
 
   <figure id="abb-06" class="evidence scale-ok">
     <span class="stub-tag">Abb. 6</span>
@@ -1303,8 +1298,8 @@ body:before{
 
   <figure id="abb-07" class="evidence scale-ok">
     <span class="stub-tag">Abb. 7</span>
-    <img src="P2_LAYOUTER/assets/01_10c_abb_lehrmittel_gegenueberstellung_vergleichsmatrix.png" alt="Beschreibung fehlt" loading="lazy">
-    <figcaption class="cap">Beschreibung fehlt</figcaption>
+    <img src="P2_LAYOUTER/assets/01_10c_abb_lehrmittel_gegenueberstellung_vergleichsmatrix.png" alt="Einbau eines Drittlehrmittels in eine bereits bestehende Gegenüberstellung" loading="lazy">
+    <figcaption class="cap">Einbau eines Drittlehrmittels in eine bereits bestehende Gegenüberstellung</figcaption>
   </figure>
 
   <p id="p-024">GPT erstellt mir nicht nur wieder einfach eine thematische Gegenüberstellung, sondern liefert zusätzlich eine kurze Analyse. &quot;Was willst du mehr?&quot;, denke ich.</p>
@@ -1351,11 +1346,11 @@ body:before{
 
   <figure id="abb-09" class="evidence scale-ok">
     <span class="stub-tag">Abb. 9</span>
-    <img src="P2_LAYOUTER/assets/01_12a_abb_anforderungen_kombiniert.png" alt="Differenzierungs-Tabelle für stärkere Schüler" loading="lazy">
-    <figcaption class="cap">Differenzierungs-Tabelle für stärkere Schüler</figcaption>
+    <img src="P2_LAYOUTER/assets/01_12a_abb_anforderungen_kombiniert.png" alt="Differenzierungstabelle mit Grundanforderungen und Erweiterten Anforderungen" loading="lazy">
+    <figcaption class="cap">Differenzierungstabelle mit Grundanforderungen und Erweiterten Anforderungen</figcaption>
   </figure>
 
-  <p id="p-030"><strong class="hl1">Nun sitze ich vor dem PC und mein grösstes Problem ist aktuell nicht &quot;Was mache ich?&quot;, sondern &quot;Was mache ich nicht?&quot;.</strong> NEIN-Sagen, Weglassen, streichen. <em>Das Schwierigste</em> im Leben überhaupt. GPT gibt mir einen Vorschlag dazu und macht gleich Beispiele. Was fehlt sind noch die Begründungen. Ist das Gestrichene richtig? Das muss weiterhin ich entscheiden, aber nun habe ich eine Grundlage.</p>
+  <p id="p-030"><strong class="hl">Nun sitze ich vor dem PC und mein grösstes Problem ist aktuell nicht &quot;Was mache ich?&quot;, sondern &quot;Was mache ich nicht?&quot;.</strong> NEIN-Sagen, Weglassen, streichen. <em>Das Schwierigste</em> im Leben überhaupt. GPT gibt mir einen Vorschlag dazu und macht gleich Beispiele. Was fehlt sind noch die Begründungen. Ist das Gestrichene richtig? Das muss weiterhin ich entscheiden.</p>
 
   <p id="p-031">Es sind achtzehn Lektionen und vier Themen für die Grundanforderungen. Alles andere - Verschiebungen, Alhambra, Computerarbeit - wird zum optionalen Erweiterungsraum. Tangram-Komplexität? Raus. Detaillierte Drehwinkelbestimmung? Raus. Ich starre auf die Liste, die immer kürzer wird.</p>
 
@@ -1397,7 +1392,7 @@ body:before{
 
   <p id="p-037">Ist es böse Absicht von ihm? Ein Ablenkungsversuch? Eine Falle?</p>
 
-  <p id="p-038">Ich sollte zurück in die Welt ohne KI. - aber nein: Ich gerate in eine Phase, wo ich jedes Materialangebot von GPT annehme. Es wird <em>zum</em><em> Rausch</em>, sich am Dessertbuffet der generativen künstlichen Intelligenz zu bedienen. Er bietet ganze Aufgabensets an - ich greife ohne zu überlegen zu!<br>Brauche ich weitere Checklisten? GPT bietet und liefert diese sofort.</p>
+  <p id="p-038">Ich sollte zurück in die Welt ohne KI. - aber nein: Ich gerate in eine Phase, wo ich jedes Materialangebot von GPT annehme. Es wird <em>zum Rausch</em>, sich am Dessertbuffet der generativen künstlichen Intelligenz zu bedienen. Er bietet ganze Aufgabensets an - ich greife ohne zu überlegen zu!<br>Brauche ich weitere Checklisten? GPT bietet und liefert diese sofort.</p>
 
   <figure id="abb-10" class="evidence scale-ok">
     <span class="stub-tag">Abb. 10</span>
@@ -1407,9 +1402,9 @@ body:before{
 
   <p id="p-039">Eine seiner Checklisten passt mir nicht. Ich wünsche mir eine zum Ankreuzen. Ich hake nach, diese wird verbessert und schon bin ich bereits in einem iterativen Loop ohne es zu merken.<br>Praktische Aufgaben dazu? Aber sicher! ……. Und so weiter und so fort….</p>
 
-  <p id="p-040">Als Lehrer ist man ein Sammler und Jäger; <em>eine Elster</em>, die alles Funkelnde und Glitzernde sofort nimmt und in sein Nest, das Schulzimmer, zurückbringt. GPT ist ein unglaublich guter Erzeuger von funkelnden Perlen, in einer Menge, die man kaum überblicken kann. Er legt sie nacheinander aus, so dass man auf eine Fährte geführt wird und die Orientierung verlieren kann.<strong class="hl1"> Es sind diese Entscheidungen, wie an Wegkreuzungen, die den Verlauf der Zukunft im Chat verändern.</strong> Und es gibt keine Taste &#x27;zurück&#x27;. Nur WEITER.</p>
+  <p id="p-040">Als Lehrer ist man ein Sammler und Jäger; <em>eine Elster</em>, die alles Funkelnde und Glitzernde sofort nimmt und in sein Nest, das Schulzimmer, zurückbringt. GPT ist ein unglaublich guter Erzeuger von funkelnden Perlen, in einer Menge, die man kaum überblicken kann. Er legt sie nacheinander aus, so dass man auf eine Fährte geführt wird und die Orientierung verlieren kann.<strong class="hl"> Es sind diese Entscheidungen, wie an Wegkreuzungen, die dem zukünftigen Chatverlauf die Richtung geben.</strong> Und es gibt keine Taste &#x27;zurück&#x27;. Nur WEITER.</p>
 
-  <p id="p-041">Ob es nur <em>Glasperlen</em> sind, muss ich später in meiner Werkstatt testen.</p>
+  <p id="p-041">Ob es einfach <em>Glasperlen</em> sind, muss ich später in meiner Werkstatt testen.</p>
 
 <div class="kapitel-head" id="k-06">
   <div class="kapitel-nr">06</div>
@@ -1420,16 +1415,16 @@ body:before{
 
   <figure id="abb-11" class="evidence scale-ok">
     <span class="stub-tag">Abb. 11</span>
-    <img src="P2_LAYOUTER/assets/01_21_abb_bloom_taxonomie.png" alt="6-Stufen-Bloom-Taxonomie mit Verben-Beispielen — Referenz-Matrix" loading="lazy">
-    <figcaption class="cap">6-Stufen-Bloom-Taxonomie mit Verben-Beispielen — Referenz-Matrix</figcaption>
+    <img src="P2_LAYOUTER/assets/01_21_abb_bloom_taxonomie.png" alt="6-Stufen-Bloom-Taxonomie mit Verben-Beispielen — Referenz-Matrix von früher" loading="lazy">
+    <figcaption class="cap">6-Stufen-Bloom-Taxonomie mit Verben-Beispielen — Referenz-Matrix von früher</figcaption>
   </figure>
 
   <p id="p-043">Ich habe in der neu erstellten Fassung vier Kapitel und pro Kapitel will ich fünf abgestufte Lernziele nach Bloom:</p>
 
   <figure id="abb-12" class="evidence scale-ok">
     <span class="stub-tag">Abb. 12</span>
-    <img src="P2_LAYOUTER/assets/01_22_abb_bloom_lernziele.png" alt="Mapping Kapitel-Lernziele vs. Bloom-Stufe (konkrete Anwendung" loading="lazy">
-    <figcaption class="cap">Mapping Kapitel-Lernziele vs. Bloom-Stufe (konkrete Anwendung</figcaption>
+    <img src="P2_LAYOUTER/assets/01_22_abb_bloom_lernziele.png" alt="Mapping Kapitel-Lernziele vs. Bloom-Stufe" loading="lazy">
+    <figcaption class="cap">Mapping Kapitel-Lernziele vs. Bloom-Stufe</figcaption>
   </figure>
 
   <p id="p-044">Und als nächstes frage ich nach erweiterten Beurteilungsformen. GPT erstellt eine Tabelle mit 3 Spalten und macht daraus eine Übersicht mit 12 Beurteilungsformen.</p>
@@ -1465,19 +1460,7 @@ body:before{
 
   <div id="card-009" class="conv du">
     <div class="composer">
-      <p class="ptext"><strong>DU:</strong><br>ZIEL:</p>
-      <div class="toolbar" aria-hidden="true">
-        <button class="ibtn outline" type="button" tabindex="-1" aria-label="Hinzufügen"><svg class="icn" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
-        <span class="spacer"></span>
-        <button class="ibtn" type="button" tabindex="-1" aria-label="Mikrofon"><svg class="icn" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3M9 21h6"/></svg></button>
-        <button class="ibtn send" type="button" tabindex="-1" aria-label="Senden"><svg class="icn" viewBox="0 0 24 24"><path d="m6 12 6-6 6 6M12 18V6"/></svg></button>
-      </div>
-    </div>
-  </div>
-
-  <div id="card-010" class="conv du">
-    <div class="composer">
-      <p class="ptext"><strong>DU:</strong><br>[Möglichst grosser Lernfortschritt] UND [Auf eine Schlussprüfung verzichten] UND [aber dennoch Informationen für die Zeugnisnote generieren] = FRAGE &quot;Wie mache ich das?&quot;</p>
+      <p class="ptext"><strong>DU:</strong><br>ZIEL:<br>[Möglichst grosser Lernfortschritt] UND [Auf eine Schlussprüfung verzichten] UND [aber dennoch Informationen für die Zeugnisnote generieren] = FRAGE &quot;Wie mache ich das?&quot;</p>
       <div class="toolbar" aria-hidden="true">
         <button class="ibtn outline" type="button" tabindex="-1" aria-label="Hinzufügen"><svg class="icn" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
         <span class="spacer"></span>
@@ -1491,13 +1474,13 @@ body:before{
 
   <p id="p-049">Betreibe ich <em>pädagogische Ketzerei</em>, wenn ich GPT solche Fragen stelle?</p>
 
-  <p id="p-050">Anyway, ich mache weiter und was folgt ist ein Konzept für einen Diagnosetest zu Beginn, individualisiertes Lernen basierend auf den Ergebnissen, regelmässige formative Überprüfung, und am Ende eine Zeugnisnote ohne klassische Schlussprüfung. Die Note entsteht aus kumulierten Daten: Arbeitsqualität, Fortschritt, Mitarbeit, Mini-Checks, Peer-Feedback, Kompetenzraster. Das wars.<br>Aber wenn ich ehrlich bin — das gibt es alles schon; einfach meistens in der Theorie.</p>
+  <p id="p-050">Anyway, ich mache weiter und was folgt ist ein Konzept für einen Diagnosetest zu Beginn, individualisiertes Lernen basierend auf den Ergebnissen, regelmässige formative Überprüfung, und am Ende eine Zeugnisnote ohne klassische Schlussprüfung. Die Note entsteht aus kumulierten Daten: Arbeitsqualität, Fortschritt, Mitarbeit, Mini-Checks, Peer-Feedback, Kompetenzraster. Das wars.<br>Aber wenn ich ehrlich bin — das gibt es alles schon; einfach meistens nur in der Theorie.</p>
 
-  <p id="p-051">Dieser Prompt war nicht geplant. Ich suche kein neues Beurteilungskonzept. Das Ziel dieses Chats war auch nicht die materialtechnische Überschwemmung, sondern: Wie schaffe ich in diesem klitzekleinen Bereich &#x27;Passung&#x27; bessere Voraussetzungen für meine Kids?</p>
+  <p id="p-051">Dieser Prompt war nicht geplant. Ich suche kein neues Beurteilungskonzept. Das Ziel dieses Chats war auch nicht die materialtechnische Überschwemmung, sondern: Wie schaffe ich in diesem klitzekleinen Bereich &#x27;Passung&#x27; bessere Voraussetzungen für meine Jugendlichen?</p>
 
 <div class="kapitel-head" id="k-08">
   <div class="kapitel-nr">08</div>
-  <h2>Ich bin in der anderen Welt angekommen</h2>
+  <h2>Eine andere Welt</h2>
 </div>
 
   <p id="p-052">Es ist Abend geworden. Ich habe eigentlich erreicht, wofür ich den Chat gestartet habe: Eine thematische Vergleichsübersicht mit formulierten Lernzielen und Materialien zu Diagnose.</p>
@@ -1506,7 +1489,7 @@ body:before{
 
   <p id="p-053">Es ist wie auf einer Wanderung, wo man immer etwas Neues, Faszinierendes sieht und weiter geht und weiter geht…</p>
 
-  <div id="card-011" class="conv du">
+  <div id="card-010" class="conv du">
     <div class="composer">
       <p class="ptext"><strong>DU:</strong><br>Wie würde ein zukünftiger moderner Unterricht auch noch aussehen? Wie würdest du den Unterricht vorbereiten?</p>
       <div class="toolbar" aria-hidden="true">
@@ -1526,7 +1509,7 @@ body:before{
 
   <p id="p-057">Na ja. Ich hake nach. Ich will mehr und schreibe…</p>
 
-  <div id="card-012" class="conv du">
+  <div id="card-011" class="conv du">
     <div class="composer">
       <p class="ptext"><strong>DU:</strong><br>Und wenn der Unterricht nicht zeitgemäss, sondern modern, revolutionär, visionär sein soll?</p>
       <div class="toolbar" aria-hidden="true">
@@ -1538,45 +1521,45 @@ body:before{
     </div>
   </div>
 
-  <p id="p-058"><em><strong>&quot;Was soll diese Frage?&quot;</strong></em><br><em><strong>&quot;Diese Frage werde ich mir nie stellen.&quot;</strong></em></p>
+  <p id="hl3-02" class="kernsatz">&quot;Warum stellst du diese Frage?&quot;<br>(Diese Frage werde ich mir nie stellen.)</p>
 
-  <p id="p-059">Und so merke ich auch nicht, wie ich unbewusst eine Grenze überschreite.</p>
+  <p id="p-058">Und so merke ich auch nicht, wie ich unbewusst eine Grenze überschreite.</p>
 
-  <p id="p-060">GPT scheint es auf alle Fälle toll zu finden…</p>
+  <p id="p-059">GPT scheint es auf alle Fälle toll zu finden…</p>
 
   <figure id="abb-14" class="evidence scale-ok">
     <span class="stub-tag">Abb. 14</span>
-    <img src="P2_LAYOUTER/assets/01_33b_abb_response_prompt_beyond_2024.png" alt="dokumentiert wegweisende Prompt-Antwort vom 20. Juli 2025" loading="lazy">
-    <figcaption class="cap">dokumentiert wegweisende Prompt-Antwort vom 20. Juli 2025</figcaption>
+    <img src="P2_LAYOUTER/assets/01_33b_abb_response_prompt_beyond_2024.png" alt="Prompt-Antwort zu revolutionärem Unterricht" loading="lazy">
+    <figcaption class="cap">Prompt-Antwort zu revolutionärem Unterricht</figcaption>
   </figure>
 
-  <p id="hl3-02" class="kernsatz">Es ist der Moment,<br>bei dem ich weitergehe als ich müsste.<br>Vielleicht nicht dürfte und<br>vielleicht nicht sollte.</p>
+  <div id="hl4-01" class="statement"><p>Es ist der Moment,<br>bei dem ich weitergehe als ich müsste.<br>Vielleicht nicht dürfte und<br>vielleicht nicht sollte.</p></div>
 
-  <p id="p-061">Ich überschreite eine unsichtbare Linie. Ich verlasse in Gedanken mein Schulzimmer, und vielleicht auch die Realität, und betrete eine für mich so unbekannte Welt. Und niemand zwingt mich dazu.<br>Kein Berufsauftrag, keine Vollzugsverordnungen und kein Geld auf der Welt.<br>Es sind andere Werte, die mich anziehen: Sinn, eine pädagogische Notwendigkeit und neue Wege, die am Horizont sichtbar werden. Nicht beliebig, sondern getragen von einer professionellen Haltung und dem Anspruch, <em>das Richtige zu tun.</em></p>
+  <p id="p-060">Ich überschreite eine unsichtbare Linie. In Gedanken verlasse ich mein Schulzimmer. Vielleicht auch eine Realität, die mich nicht mehr ganz zufriedenstellt. Ich betrete eine Welt, die mir fremd ist und mich gerade deshalb anzieht. Niemand zwingt mich, diesen Schritt zu machen.<br>Kein Berufsauftrag, keine Vollzugsverordnung, kein finanzieller Anreiz. Es sind andere Werte: ich sehe einen Sinn, ich spüre eine pädagogische Verantwortung und vor mir liegt eine neblige Landschaft, in der erste Sonnenstrahlen sichtbar sind. Ich will diese kennen lernen. Nicht beliebig, sondern mit einer professionellen Haltung und dem Anspruch, <em>das Richtige zu tun.</em></p>
 
-  <p id="p-062">Zurück zum Chat:</p>
+  <p id="p-061">Zurück zum Chat:</p>
 
-  <p id="p-063">Erst jetzt merke ich, dass ich &quot;2024&quot; getippt habe. Ich meinte &quot;2040&quot; und muss schmunzeln. Weiss GPT, dass ich mich vertippt habe? Er liefert zehn Punkte zu Schule Beyond 2024 und die Antwort klingt irgendwie anders. Und dann fängt GPT von alleine an, Visionen zu malen — VR/AR-Stationen, Mobile Learning Kits, dynamische Kompetenzlandschaften. Ich habe gar nicht danach gefragt. Er schiebt nach. Es ist <em>sein Reflex</em>, mehr zu präsentieren, als ich brauche.<br>Ob Mobile Learning Kits oder Kompetenzportfolios je in mein Klassenzimmer kommen, ist heute irrelevant.</p>
+  <p id="p-062">Erst jetzt merke ich, dass ich &quot;2024&quot; getippt habe. Ich meinte &quot;2040&quot; und muss schmunzeln. Weiss GPT, dass ich mich vertippt habe? Er liefert zehn Punkte zu Schule Beyond 2024 und die Antwort klingt irgendwie anders. Und dann fängt GPT von alleine an, Visionen zu malen — VR/AR-Stationen, Mobile Learning Kits, dynamische Kompetenzlandschaften. Ich habe gar nicht danach gefragt. Er schiebt nach. Es ist <em>sein Reflex</em>, mehr zu präsentieren, als ich brauche.<br>Ob Mobile Learning Kits oder Kompetenzportfolios je in mein Klassenzimmer kommen, ist heute irrelevant.</p>
 
-  <p id="p-064">Ich weiss nicht, wie lange ich bereits im Chat bin, aber ich bin überwältigt von den viel zu vielen Eindrücken. Ich werde überschwemmt; nein - richtiger wäre: &quot;ich habe mich überschwemmt&quot;.</p>
+  <p id="p-063">Ich weiss nicht, wie lange ich bereits im Chat bin, aber ich bin überwältigt von den viel zu vielen Eindrücken. Ich werde überschwemmt; nein - richtiger wäre: &quot;ich habe mich überschwemmt&quot;.</p>
 
-  <p id="p-065">Ich stelle den PC ab.</p>
+  <p id="p-064">Ich stelle den PC ab.</p>
 
-  <p id="p-066">Eine Planung wollte ich – <em>ein Blatt Papier</em>.</p>
+  <p id="p-065">Eine Planung wollte ich – <em>ein Blatt Papier</em>.</p>
 
-  <p id="p-067">Erhalten habe ich Materialien, die ich in dieser Form und Menge nicht gekannt habe.</p>
+  <p id="p-066">Erhalten habe ich Materialien, die ich in dieser Form und Menge nicht gekannt habe.</p>
 
-  <p id="p-068">Werden die neu erstellten Dokumente an meinem Unterricht oder im Schulzimmer überhaupt etwas verändern? Das weiss ich heute noch nicht.</p>
+  <p id="p-067">Werden die neu erstellten Dokumente an meinem Unterricht oder im Schulzimmer überhaupt etwas verändern? Das weiss ich heute noch nicht.</p>
 
-  <p id="p-069">Was <em>mich fasziniert</em>, sind nicht die Unterlagen, die ich ausdrucken kann.</p>
+  <p id="p-068">Was <em>mich fasziniert</em>, sind nicht die Unterlagen, die ich ausdrucken kann.</p>
 
-  <p id="p-070">Es ist das, was in meinem Kopf passiert: Gedanken, Vorstellungen, Fragen — <br>und vor allem Ideen. Viele Ideen.</p>
+  <p id="p-069">Es ist das, was in meinem Kopf passiert: Gedanken, Vorstellungen, Fragen — <br>und vor allem Ideen. Viele Ideen.</p>
 
-  <p id="p-071">Warum nicht mit GPT?</p>
+  <p id="p-070">Warum nicht mit GPT?</p>
 
-  <p id="p-072">Warum mit GPT?</p>
+  <p id="p-071">Warum mit GPT?</p>
 
-  <p id="p-073">Es war <em>die Neugierde</em> - und diese scheint gerade grenzenlos.</p>
+  <p id="p-072">Es war <em>die Neugierde</em> - und diese scheint gerade grenzenlos.</p>
 
       <div class="cliff">
         <div class="k">Nächste Field Note</div>
