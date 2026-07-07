@@ -2,14 +2,14 @@
 <!--
    WEB_PREVIEW — P6-Render, in P5 Stage 1 als LIVEVIEW ausgeliehen.
    Design-SSoT: C:\Users\Markus\ClaudeCode\MeineProjekte\FIELD_NOTES_DRAFT\0_W_WORKFLOW\P6_PUBLISH\WEBDESIGN\_CURRENT\NOTE\index.html
-   Content-Source: NEUGIERDE_V6.23_RELEASE_HUMAN_260706.docx
+   Content-Source: UNTERRICHTSENTWURF-VISION_V6.05_DRAFT_AI.docx
 -->
 <html lang="de-CH">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Am Anfang steht die Neugierde · Field Notes Nr. 01</title>
-<meta name="description" content="Field Note Nr. 01 — 20. Juli 2025. Wie aus einer Planungsfrage an GPT ein didaktisches Dessertbuffet entsteht — und am Schluss neue Ideen einen Anfang markieren.">
+<title>Vom Arbeitsblatt zur Unterrichtsidee · Field Notes Nr. 02</title>
+<meta name="description" content="Field Note Nr. 02 — 2. August 2025. Aus der Absicht Übungsblätter zu erstellen, wurde eine Materialschlacht und unbewusst dazu eine Mise en place der eigenen Didaktik — bis ein Déjà-vu alles veränderte.">
 <meta name="author" content="Markus Schwarz">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -46,7 +46,7 @@ body:before{
   padding:84px 26px 56px;
   background:
     linear-gradient(110deg,rgba(20,14,8,.86),rgba(28,20,12,.58) 40%,rgba(38,26,16,.36) 70%,rgba(245,238,224,.18) 100%),
-    url('P2_LAYOUTER/assets/01_33_abb_prompt_revolutionaer_full.png');
+    url('heroes/hero_02_2x1_ai_260707_1536x768.png');
   background-size:cover;background-position:center;
 }
 .hero:after{
@@ -341,7 +341,7 @@ body:before{
   padding:84px 26px 56px;
   background:
     linear-gradient(110deg,rgba(20,14,8,.86),rgba(28,20,12,.58) 40%,rgba(38,26,16,.36) 70%,rgba(245,238,224,.18) 100%),
-    url("P2_LAYOUTER/assets/01_33_abb_prompt_revolutionaer_full.png");
+    url("heroes/hero_02_2x1_ai_260707_1536x768.png");
   background-size:cover;background-position:center;
 }
 .hero:after{
@@ -355,11 +355,11 @@ body:before{
 .eyebrow{font:700 .76rem/1 var(--mono);color:#ffd9a8;text-transform:uppercase;letter-spacing:.18em}
 .hero h1{
   font-size:clamp(2.8rem,8vw,6.8rem);line-height:.9;
-  margin:18px 0 24px;color:#fffaf0;letter-spacing:-.005em;max-width:10ch;
+  margin:18px 0 24px;color:#fffaf0;letter-spacing:-.005em;max-width:900px;
   text-shadow:0 3px 18px rgba(0,0,0,.42);
 }
 .hero .lead{
-  font-size:clamp(1.08rem,1.6vw,1.32rem);max-width:780px;
+  font-size:clamp(1.08rem,1.6vw,1.32rem);max-width:1100px;
   color:#fff5e4;margin:0;line-height:1.45;font-weight:400;
   text-shadow:0 2px 8px rgba(0,0,0,.4);
 }
@@ -450,11 +450,14 @@ body:before{
 .article .hl{
   font-weight:700;color:#9A6A1F;
 }
-/* Stufe 3: Kernsatz Block */
+/* Stufe 3: Kernsatz Block. Breite 260706: volle .article-Breite statt ch-Box,
+   da Text ohnehin zentriert ist und kein Kernsatz sich auf die schmale Box als
+   Auto-Umbruch verlaesst (siehe D_260706_04 Nachtrag 4) -> einzige Quelle,
+   Python-Builder-Duplikat + Final-Polish-Zweitregel entfernt. */
 .article p.kernsatz{
   font-family:'Spectral',Georgia,serif;font-style:italic;font-weight:500;
   font-size:1.5rem;line-height:1.34;color:#15171C;text-align:center;
-  max-width:26ch;margin:36px auto;
+  max-width:none;margin:36px auto;
 }
 .article p.kernsatz + p.kernsatz{margin-top:-22px}
 .article ul.review-list{
@@ -471,7 +474,7 @@ body:before{
    zentriert + symmetrischer Einzug simuliert 2.5cm Word-Einzug. */
 .article .statement{
   margin:48px auto;
-  max-width:520px;
+  max-width:none;
   text-align:center;
 }
 .article .statement .label{
@@ -613,7 +616,7 @@ body:before{
     background:
       linear-gradient(to top,rgba(38,20,10,.85) 0%,rgba(46,26,14,.68) 26%,rgba(54,32,18,.32) 58%,rgba(54,32,18,0) 100%),
       linear-gradient(110deg,rgba(46,26,14,.86),rgba(58,36,20,.58) 40%,rgba(72,46,26,.36) 70%,rgba(245,238,224,.18) 100%),
-      url("P2_LAYOUTER/assets/01_33_abb_prompt_revolutionaer_full.png");
+      url("heroes/hero_02_2x1_ai_260707_1536x768.png");
     background-size: cover; background-position: center;
     min-height: 88vh;
   }
@@ -952,8 +955,9 @@ body:before{
   body.mode-scroll{ background: #fbf5ea; }
   body.mode-scroll .article{ background: transparent; border: 0; box-shadow: none; border-radius: 0; padding: 40px 0 16px; }
 
-  /* Hero-Titel: Kompositum nicht am Bindestrich zerreissen, immer eine Zeile */
-  .hero h1{ hyphens: none; -webkit-hyphens: none; white-space: nowrap; max-width: none; font-size: clamp(1.9rem, 6vw, 5rem); }
+  /* Hero-Titel 260706: nowrap-Einzeiler verworfen (brach bei langen Headlines um max-width:none aus dem Container).
+     Ersetzt durch kontrollierten Balanced-Wrap auf 900px (Container-Breite), synchron zum Python-Builder-Override. */
+  .hero h1{ hyphens: auto; -webkit-hyphens: auto; white-space: normal; max-width: 900px; font-size: clamp(1.9rem, 6vw, 5rem); text-wrap: balance; }
 
   /* Doppelte „Field Note“ aufloesen: Header-Brand erst nach dem Hero zeigen */
   body.mode-scroll .topbar.at-top .brand{ opacity: 0; pointer-events: none; }
@@ -978,9 +982,6 @@ body:before{
     .views .view{ padding: 5px 10px; font-size: .76rem; }
   }
 
-  .article p.kernsatz{
-    max-width: 34ch; margin: 40px auto; text-align: center;
-  }
   .article .cliff{
     margin-top: 46px; padding-top: 18px;
   }
@@ -1040,14 +1041,26 @@ body:before{
     #view-reader-btn { display: none !important; }
   }
 
-  /* Mobile: Hero auf Textspaltenbreite einschränken, 3:2 Seitenverhältnis (1536×1024) */
+  /* Mobile/Preview: Hero bleibt First-View, kein 3:2-Bildkasten. */
+  @media (max-width: 960px){
+    .hero{
+      margin: 0;
+      min-height: clamp(540px, calc(100svh - 54px), 780px);
+      aspect-ratio: auto;
+      padding: 84px 22px 44px;
+      border-radius: 0;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center top;
+    }
+  }
   @media (max-width: 680px){
     .hero{
-      margin: 16px 20px 0;
-      min-height: unset;
-      aspect-ratio: 3 / 2;
-      padding: 20px 20px 22px;
-      border-radius: 4px;
+      margin: 0;
+      min-height: clamp(520px, calc(100svh - 54px), 740px);
+      aspect-ratio: auto;
+      padding: 76px 20px 40px;
+      border-radius: 0;
       overflow: hidden;
     }
     .hero h1{
@@ -1059,9 +1072,6 @@ body:before{
     }
   }
 
-  .article p.kernsatz{
-    max-width: 34ch; margin: 40px auto; text-align: center;
-  }
   .article .cliff{
     margin-top: 46px; padding-top: 18px;
   }
@@ -1097,9 +1107,39 @@ body:before{
     max-height: 70vh;
     object-fit: contain;
   }
+  .article .evidence.custom-scale{
+    width: min(calc(100% * var(--figure-scale)), calc(680px * var(--figure-scale)));
+    max-width: min(calc(100% * var(--figure-scale)), calc(680px * var(--figure-scale)));
+  }
   .article .evidence.no-scale img{
     width: auto !important;
     max-width: 100%;
+  }
+  /* P5C final override 260706: Die aktuelle Webdesign-Schicht brachte eine
+     nowrap-Hero-Regel mit, die nur bei kurzen Headlines auffaellt. VISION zeigt
+     den Fehler; NEUGIERDE kaschiert ihn durch die kurze Headline. */
+  body.mode-scroll .reader,
+  .reader{
+    grid-template-columns: minmax(0, 820px);
+    justify-content: center;
+  }
+  body.mode-scroll .article{
+    max-width: 820px;
+    width: 100%;
+  }
+  .hero h1{
+    white-space: normal !important;
+    max-width: 900px !important;
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: auto;
+    text-wrap: balance;
+    font-size: clamp(2.15rem, 5.2vw, 5.15rem) !important;
+    line-height: .96 !important;
+  }
+  .hero .lead{
+    max-width: 1100px;
+    text-wrap: pretty;
   }
   .article mark.hl2{
     background: transparent !important;
@@ -1143,7 +1183,7 @@ body:before{
     </nav>
     <div class="brand">
       <span class="brand-series">Feldnotizen — KI &amp; Unterricht</span>
-      <span class="brand-nr">Am Anfang steht die Neugierde · Nr. 01 · 20. Juli 2025</span>
+      <span class="brand-nr">Vom Arbeitsblatt zur Unterrichtsidee · Nr. 02 · 2. August 2025</span>
     </div>
   </div>
   <div class="topbar-controls">
@@ -1170,9 +1210,9 @@ body:before{
 <header class="hero">
   <div class="hero-inner">
     <div>
-      <div class="eyebrow">Field Note Nr. 01 · 20. Juli 2025</div>
-      <h1>Am Anfang steht die Neugierde</h1>
-      <p class="lead">Wie aus einer Planungsfrage an GPT ein didaktisches Dessertbuffet entsteht —<br>und am Schluss neue Ideen einen Anfang markieren.</p>
+      <div class="eyebrow">Field Note Nr. 02 · 2. August 2025</div>
+      <h1>Vom Arbeitsblatt zur Unterrichtsidee</h1>
+      <p class="lead">Aus der Absicht Übungsblätter zu erstellen, wurde eine Materialschlacht und unbewusst dazu eine Mise en place der eigenen Didaktik — bis ein Déjà-vu alles veränderte.</p>
     </div>
   </div>
 </header>
@@ -1182,14 +1222,16 @@ body:before{
     <article class="article">
       <div class="kapitel-head" id="k-01">
   <div class="kapitel-nr">01</div>
-  <h2>Warum nicht mit GPT?</h2>
+  <h2>Die Schubkarren-Methode</h2>
 </div>
 
-  <p id="p-001">Es ist der 20. Juli 2025 und in vier Wochen beginnt die Schule. In meinem Kopf geistert seit einigen Wochen eine Idee und ich frage mich: &quot;Warum nicht einmal mit ChatGPT den Unterricht vorbereiten?&quot;<br>Ich denke dabei an ein Thema aus der Mathematik und so öffne ich den Laptop, starte GPT und tippe den ersten Satz:</p>
+  <p id="p-001">Es ist der 2. August 2025 und vor mir liegt das Schülerbuch für das Fach Geografie auf dem Tisch. Ich möchte heute nicht eine Unterrichtsplanung aus verschiedenen Lehrmitteln entwickeln, sondern dieses Mal wirklich konkrete Arbeitsmaterialien erstellen, die ich im realen Unterricht anwenden kann. Dazu möchte ich mit KI ein Arbeitsblatt erstellen. Ich blättere das Kapitel im Schülerbuch durch, öffne meine alte Unterrichtsplanung auf dem PC und überlege mir, wie ich vorgehen will.</p>
+
+  <p id="p-002">Wie bei der Planung für Mathematik lade ich einfach einmal alles aus meiner Planung hoch und schaue was GPT damit macht. Ich nenne dies für mich die Schubkarren-Methode.</p>
 
   <div id="card-001" class="conv du">
     <div class="composer">
-      <p class="ptext"><strong>DU:</strong><br>Ich gebe dir nachher Tabellen mit Lerninhalten und Lernzielen.</p>
+      <p class="ptext"><strong>DU:</strong><br>Unterrichtsvorbereitung. Thema &quot;Unsere Erde&quot; basierend auf dem Lehrmittel des DIERCKE Verlags. Das Buch heisst &quot;Durchblick 1&quot;. Die Jugendlichen sind 13 Jahre alt. Grundanforderungen. Eher schwach. Alle haben einen Laptop zur Bearbeitung von online-Aufgaben. Ich gebe dir eine Übersicht über die einzelnen Kapitel: 12 Titelseite: Unsere Erde - Gestalt und Orientierung 14 Die Erde im Sonnensystem D16 Die Erde: Entstehung, Veränderung, Leben 18 Kontinente und Ozeane 19 Methode: Ein Diagramm auswerten […]</p>
       <div class="toolbar" aria-hidden="true">
         <button class="ibtn outline" type="button" tabindex="-1" aria-label="Hinzufügen"><svg class="icn" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
         <span class="spacer"></span>
@@ -1199,128 +1241,102 @@ body:before{
     </div>
   </div>
 
-  <p id="p-002">Und seine Antwort ist irgendwie positiv, verständnisvoll und ansteckend motivierend.</p>
+  <p id="p-003">Ich formuliere den Prompt etwas anders, indem ich mit einer kurzen Information über Inhalt und Lehrmittel beginne. Danach folgt eine Beschreibung der Zielgruppe: &quot;…meine Schüler sind 13 Jahre alt. Grundanforderungen. Eher schwach.&quot;, sowie der Rahmenbedingungen mit &quot;Laptop vorhanden + Online-Aufgaben genutzt&quot;.</p>
 
-  <div id="card-002" class="conv gpt">
-    <div class="rcard">
-      <button class="copybtn" type="button" tabindex="-1" aria-label="Kopieren"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
-      <p><strong>ChatGPT:</strong><br>Alles klar! Gib mir die Tabellen einfach, sobald du bereit bist. Sag mir auch gerne, was du genau damit machen möchtest – z. B. zusammenfassen, umformulieren, visualisieren, in ein bestimmtes Format bringen (z. B. PDF, Excel, Lernplan etc.) oder etwas anderes.</p>
-    </div>
-  </div>
+  <p id="p-004">Ich habe bis vorgestern gedacht, dass ich einfach etwas hochladen kann und die künstliche Intelligenz dann diesen liest und versteht. Ich habe mich geirrt. Und vorgestern hat mich GPT dafür mit einem <strong class="hl">&quot;Beschreibe deinen Upload&quot;</strong> kritisiert. Gut, jetzt mache ich es anders.<br></p>
 
-  <p id="p-003">Das war er: <em>Unser erster Kontakt</em>.</p>
-
-<div class="kapitel-head" id="k-02">
-  <div class="kapitel-nr">02</div>
-  <h2>Um was geht es?</h2>
-</div>
-
-  <p id="p-004">Es geht um Mathematik. Genauer gesagt um &quot;Kongruenzabbildungen&quot; — Achsensymmetrie, Drehsymmetrie, Achsenspiegelung und Punktspiegelung. Das mache ich für rund 15-20 Jugendliche, die 12 bis 13 Jahre alt sind, im Niveau B zur Schule gehen und dafür fünf Wochen Zeit im Jahresplan vorgesehen sind. Ich möchte ChatGPT nutzen, damit er mir bei einem Teil meiner Unterrichtsplanung hilft.</p>
-
-  <p id="p-005">Um mich zu orientieren, lege ich mir die Planung in drei Ebenen zurecht: Jahr, Wochen, Tage. Das ist kein grosses Modell, sondern eine persönliche Ordnungshilfe und für mein Verständnis genügt sie.</p>
+  <p id="p-005">Der Output nach Runde 1 sieht gut aus.</p>
 
   <figure id="abb-01" class="evidence scale-ok">
     <span class="stub-tag">Abb. 1</span>
-    <img src="P2_LAYOUTER/assets/01_02_abb_planungsrhythmus.png" alt="Drei-Ebenen-Planungsrhythmus als visuelles Konzept" loading="lazy">
-    <figcaption class="cap">Drei-Ebenen-Planungsrhythmus als visuelles Konzept</figcaption>
+    <img src="P2_LAYOUTER/assets/02a_01_abb_ue_unsere_erde_struktur.png" alt="Strukturübersicht zum Thema &quot;Unsere Erde&quot; aus dem ersten GPT-Output" loading="lazy">
+    <figcaption class="cap">Strukturübersicht zum Thema &quot;Unsere Erde&quot; aus dem ersten GPT-Output</figcaption>
   </figure>
 
-  <p id="p-006">Es ist eine typische Top-Down-Planung. Linear. Beziehungsweise hier von links nach rechts. Mehrjahresplanung bestimmt die Jahresplanung und diese bestimmt die Kapitelplanung und diese bestimmt die Lektionsplanung.</p>
+  <p id="p-006">Ich prüfe inhaltlich und lese die Hinweise, die er noch hinschreibt. Mir gefällt die kompakte Darstellung.</p>
 
-  <p id="p-007">Ich will nicht mit ChatGPT eine Jahresplanung erstellen und ich will auch nicht einzelne Unterrichtsmaterialien generieren. Der mittlere Teil im ganzen Planungsprozess ist der Grund, warum ich GPT starte; der thematisch-didaktische Aufbau eines Kapitels wird <em>mein Experimentierfeld sein</em>.</p>
+  <div id="card-002" class="conv output">
+    <div class="ocard">
+      <button class="copybtn" type="button" tabindex="-1" aria-label="Kopieren"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
+      <p><strong>OUTPUT:</strong><br><strong>Didaktische Hinweise:</strong><br><strong>- Weniger ist mehr:</strong> Pro Lektion max. 1 Kernziel.<br><strong>- Sprachlich einfach halten:</strong> Begriffe klären, Visualisierung nutzen.<br><strong>- Wiederholen und verankern:</strong> Am Ende jeder Stunde ein Mini-Quiz oder ein Exit-Ticket.<br><strong>- Methodentraining gezielt einbauen</strong> (siehe S. 19, 25, 31).<br><strong>- Digitale Aufgaben kleinschrittig erklären</strong> (evtl. mit Bildschirmfreigabe).<br><strong>- Partner- oder Gruppenarbeit</strong> zur Entlastung nutzen.<br><strong>- Kartenarbeit</strong> regelmässig üben (z. B. jede Woche 5-Minuten-Aufgabe im Atlas).</p>
+    </div>
+  </div>
 
-  <p id="p-008">Warum? Bei der letzten Durchführung vor drei Jahren habe ich die Erfahrung gemacht, dass es mir nicht gelungen ist, das Lehrmittel genug differenziert einzusetzen. Die Heterogenität in der Klasse war zu gross.</p>
-
-  <p id="p-009">Ich denke an einen Schüler aus der damaligen Klasse. Drei Wochen lang hatte er Probleme mit den verschiedenen Spiegelungen und ich konnte ihn nicht wirklich unterstützen. Und eine andere Schülerin dagegen war nach einer Woche fertig. <em>Diese Spannweite</em> will ich diesmal besser abdecken.<br><strong class="hl">Nicht mit neuen oder mehr Arbeitsblättern, sondern indem ich das ganze Kapitel des Lehrmittels fachdidaktisch analysiere und neu strukturiere.</strong></p>
-
-  <p id="p-010">Könnte ich aus dem gleichen Lehrmittelwerk den Band ein Niveau tiefer dazunehmen und so verheiraten, dass sie zusammen eine neue, gemeinsame Struktur ergeben? Geht das? Ich stelle mir vor, dass ich eine Wohnung mieten will. Und dazu organisiere ich einen Schlüssel für die Wohnung eine Etage darunter; <em>nur so für den Fall</em>.</p>
-
-  <p id="p-011">GPT soll zwei Lehrmittelteile mit unterschiedlichen Strukturen, unterschiedlichen Lernzielformulierungen konsolidieren. Konkret: Lehrmittel A hat fünf Kapitel zu Achsenspiegelung, Punktspiegelung, Verschiebung, Drehung, Symmetrien. Lehrmittel B verteilt die gleichen Inhalte anders: Die Achsenspiegelung kommt erst hinten, dafür sind die Symmetrien als Einstieg vorgesehen. Ich will, dass GPT mir aus diesen zwei Reihenfolgen EINE bauen hilft, die für meine Klasse stimmt — und nicht einfach die Reihenfolge von Lehrmittel A oder von Lehrmittel B übernimmt.</p>
-
-  <figure id="abb-02" class="evidence scale-ok">
-    <span class="stub-tag">Abb. 2</span>
-    <img src="P2_LAYOUTER/assets/01_03_abb_lehrmittel_vereinigung.png" alt="Prozess-Diagramm Lehrmittel-Synthese" loading="lazy">
-    <figcaption class="cap">Prozess-Diagramm Lehrmittel-Synthese</figcaption>
-  </figure>
-
-  <p id="p-012">Und so sieht der Plan aus. Das ist das Ziel. Was wird GPT sagen? Welche Schwerpunkte gibt es in Lehrmittel A, welche in Lehrmittel B? Welche Schwerpunkte wird er wie gewichten? Und welche übernehme ich dann in die neue Fassung, welche lasse ich weg und welche müssen ergänzt werden? Ich erwarte von GPT einen Vorschlag ohne zu wissen, was ich von ihm erwarten kann. Und dazu möchte ich gleich noch, dass er zu den Schwerpunkten Lernziele formuliert und nach der Taxonomie von Bloom darstellt.</p>
-
-<div class="kapitel-head" id="k-03">
-  <div class="kapitel-nr">03</div>
-  <h2>Alles rein damit</h2>
-</div>
-
-  <p id="p-013">Ich sichte, was ich in meiner Planung habe: Lerninhalte aus dem Handbuch, Seitenzahlen, Aufgabennummern, Lernziele. Alles zum Niveau B Grundanforderungen ist vorhanden. Ich suche und ergänze mit Materialien aus dem Niveau C und D und schreibe diese in die Planung ab. Ich überlege mir, welche Auswahl an Materialien ich hochladen und ob ich die Tabellen noch übersichtlicher gestalten soll. Ich lasse es sein. Ist es Bequemlichkeit oder einfach Ungeduld, die mich zum Upload aller vorhandenen Kapitel 1-Materialien drängt?</p>
-
-  <p id="p-014">Ich erwarte, dass mir GPT von alleine eine thematische Lernzielstruktur erstellt. Und tatsächlich: Er nimmt alles entgegen und erstellt tabellarische Listen mit den Aufgaben. Und nun ist es Handwerk. Copy/Paste. Nichts Aufregendes. Ich lade die Informationen aus meiner Planung kapitelweise hoch und gehe davon aus, dass GPT auch weiterhin weiss, was ich will. Ich prüfe nur grob auf Richtigkeit – das ist der Preis für das zügige Vorwärtskommen. In einem Lehrmittelteil verwechselt er die Nummern und macht aus Aufgabennummern Seitenzahlen. Ok, das kann ich später noch ändern.</p>
-
-  <figure id="abb-03" class="evidence scale-ok">
-    <span class="stub-tag">Abb. 3</span>
-    <img src="P2_LAYOUTER/assets/01_06_abb_aufgabenuebersicht.png" alt="Aufgaben-Tabelle Achsensymmetrie mit 2 Differenzierungs-Niveaus" loading="lazy">
-    <figcaption class="cap">Aufgaben-Tabelle Achsensymmetrie mit 2 Differenzierungs-Niveaus</figcaption>
-  </figure>
-
-  <p id="p-015">Nach jedem Upload erhalte ich Vorschläge zu Ergänzungen oder weiteren möglichen nächsten Schritten. Am Anfang überlege ich noch kurz: Möchte ich eine tabellarische PDF-Datei davon? Einen Lernplan oder eine Übersicht zum Ausdrucken? Wären Inhalte für ein digitales Format oder eine didaktische Reduktion für unterschiedliche Lernniveaus nicht etwas für mich? Wow.</p>
-
-  <p id="p-016">Ich sage nein und fahre fort mit dem Schritt um Schritt Hochladen der Dokumente.</p>
-
-  <p id="p-017">Nach 8 Turns gibt er mir eine Übersicht mit den hochgeladenen Dokumenten…</p>
-
-  <figure id="abb-04" class="evidence scale-ok">
-    <span class="stub-tag">Abb. 4</span>
-    <img src="P2_LAYOUTER/assets/01_07_abb_gesamtueberblick.png" alt="Hierarchische Unterkapitel" loading="lazy">
-    <figcaption class="cap">Hierarchische Unterkapitel</figcaption>
-  </figure>
-
-  <p id="p-018">…und weist mich auf fehlende Teile hin. GPT &quot;weiss&quot;, was noch fehlt. Das finde ich super.</p>
-
-  <figure id="abb-05" class="evidence scale-ok">
-    <span class="stub-tag">Abb. 5</span>
-    <img src="P2_LAYOUTER/assets/01_07a_abb_luecken_warnung.png" alt="Lernziel-Lücken-Warnung" loading="lazy">
-    <figcaption class="cap">Lernziel-Lücken-Warnung</figcaption>
-  </figure>
-
-  <p id="p-019">Früher habe ich viel Zeit damit verbracht, Lehrmittel nach Inhalten, Aufgaben und Lernzielen zu durchforsten und relevante Informationen abzuschreiben. Einmal digitalisiert, habe ich diese in selber erstellten Arbeitsplänen, Arbeitsblättern und Lernkontrollen verwendet.</p>
-
-  <p id="p-020">Jedes Lehrmittel ist dabei anders. Es &quot;denkt&quot; anders. Hat einen anderen Aufbau, eine andere Nummerierung, Begrifflichkeit und Layoutstruktur. Das manuelle Anpassen erlaubt mir eine einheitliche Begrifflichkeit und Lernzielformulierung von der Planung bis zur Lösung der Lernkontrolle. Aufwändig, aber dafür stolpert später niemand über unterschiedliche Begriffe. Ich habe mehrmals versucht, verschiedene Lehrmittel zu verheiraten. Thematisch ist das eine Sache, strukturell, lernzieltechnisch scheiterte ich recht zuverlässig daran. Ich will mit GPT diese Herausforderung <em>knacken</em>.</p>
-
-  <p id="p-021">Nach 11 Turns entsteht eine Gesamtübersicht aller vier Teile beider Lehrmittelteile als dürftige, unvollständige Matrix. Aber immerhin eine Zusammenfassung. Mir fällt während dem Tippen eines auf: <strong class="hl">Ich denke nicht mehr, sondern sammle nur noch und GPT liefert immer weiter.</strong> Wir bauen ein Materiallager, zu dem ich noch keinen Plan habe.</p>
-
-  <figure id="abb-06" class="evidence scale-ok">
-    <span class="stub-tag">Abb. 6</span>
-    <img src="P2_LAYOUTER/assets/01_08_abb_inhalte_lernziele.png" alt="Mapping Unterkapitel: Inhalte vs. Lernziele" loading="lazy">
-    <figcaption class="cap">Mapping Unterkapitel: Inhalte vs. Lernziele</figcaption>
-  </figure>
-
-  <p id="p-022">Dann komme ich auf eine weitere Idee: &quot;Warum nicht noch ein weiteres Lehrmittel in die Gegenüberstellung einbauen?&quot; Für GPT scheint alles recht einfach zu sein – bis jetzt auf alle Fälle.</p>
-
-  <p id="p-023">Aufgrund der Vorarbeit ist das in einem Turn erledigt. GPT erstellt eine neue Übersichtsliste der Seiten, teilt diese in thematische Blöcke ein, vergleicht diese mit den vorhandenen Themen und ordnet die Blöcke mit den Seiten den Themen zu.</p>
-
-  <figure id="abb-07" class="evidence scale-ok">
-    <span class="stub-tag">Abb. 7</span>
-    <img src="P2_LAYOUTER/assets/01_10c_abb_lehrmittel_gegenueberstellung_vergleichsmatrix.png" alt="Einbau eines Drittlehrmittels in eine bereits bestehende Gegenüberstellung" loading="lazy">
-    <figcaption class="cap">Einbau eines Drittlehrmittels in eine bereits bestehende Gegenüberstellung</figcaption>
-  </figure>
-
-  <p id="p-024">GPT erstellt mir nicht nur wieder einfach eine thematische Gegenüberstellung, sondern liefert zusätzlich eine kurze Analyse. &quot;Was willst du mehr?&quot;, denke ich.</p>
+  <p id="p-007">Etwas fällt mir wieder auf: GPT produziert immer etwas mehr als verlangt. Wie beim Wein einschenken, wenn man &quot;Danke&quot; sagt, und der Kellner noch ein bisschen mehr Wein einschenkt.</p>
 
   <div id="card-003" class="conv output">
     <div class="ocard">
       <button class="copybtn" type="button" tabindex="-1" aria-label="Kopieren"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
-      <p><strong>OUTPUT:</strong><br>AI-Output · gekürzt<br>Kurze Analyse:<br>• Beide Lehrmittel behandeln Achsensymmetrie, Drehsymmetrie, Achsenspiegelung und Punktspiegelung – mit ähnlichen Schwerpunkten, nur B ergänzt um Computerarbeit.<br>• Lehrmittel B umfasst zusätzlich Verschiebungen (Translationen) und historische Muster (Alhambra), die in Lehrmittel A so nicht explizit vorkommen.<br>• Beide haben Tests (Eintritt, Austritt) zur Kompetenzüberprüfung.</p>
+      <p><strong>OUTPUT:</strong><br><strong>Konkrete Tools für Online-Aufgaben:</strong><br>- LearningApps (Zuordnungsspiele, Kreuzworträtsel, Lückentexte)<br>- GeoGuessr Light / Seterra (Koordinaten und Karten)<br>- H5P (interaktive Lernmodule, z.B. Zeitstrahl)<br>- Mentimeter / Padlet (Brainstorming, Meinungsbilder)<br>- Canva (Poster, Diagramme, Skizzen)<br>- Google Earth / Google Maps (Orientierung)</p>
     </div>
   </div>
+
+  <p id="p-008">Eine solche Gesamtstruktur mit didaktischen Hinweisen durch ein Programm erstellen zu lassen, ist für mich neu. In der Vergangenheit habe ich die Informationen für die Gesamtstruktur aus dem Lehrmittel abgeschrieben und in meiner eigenen Planung als Übersicht integriert. Je nach Umfang und Komplexität dauerte das bei mir gut und gerne 30 Minuten bis 2 Stunden für ein Thema mit drei bis vier Unterrichtseinheiten und Inhalten, Lernzielen und Hinweisen zu Aufgaben. Das war nie eine &quot;Kopier das von einem Kollegen&quot;-Aufgabe, sondern ein ganz bewusster Entscheid, das Lehrmittel besser kennen zulernen und seinen Kopf ein bisschen zu trainieren. Mit der neuen Möglichkeit von GPT muss ich mir überlegen, wie ich das zukünftig handhaben will, damit ich nicht als dummer Konsument einer KI ende.</p>
+
+  <p id="p-009">Im nächsten Schritt gebe ich einen zeitlichen Rahmen von 16 Lektionen vor und wünsche mir eine Übersicht mit Übungen und weiterführenden Aufgaben zu den Texten im Schülerbuch.<br>Ohne zu reklamieren erstellt er eine Gesamtübersicht der 16 Lektionen inklusive eines Vorschlags mit Fokus zur Textarbeit. Eine solche Übersicht „von Hand&quot; zu erstellen ist sehr aufwändig. Und nun kann ich im Chat live mitverfolgen, wie diese Zeile um Zeile wie von Geisterhand entsteht.</p>
+
+  <figure id="abb-02" class="evidence scale-ok">
+    <span class="stub-tag">Abb. 2</span>
+    <img src="P2_LAYOUTER/assets/02a_02_abb_uebersichtsmatrix_thema_textuebung.png" alt="Übersichtsmatrix mit Themen, Textarbeit und Übungsformen" loading="lazy">
+    <figcaption class="cap">Übersichtsmatrix mit Themen, Textarbeit und Übungsformen</figcaption>
+  </figure>
+
+  <p id="p-010">Ich überfliege die verschiedenen Tabellen, mache ein bis zwei Stichprobenkontrollen auf Richtigkeit der Seiten, Titel und Inhalte und prüfe, ob die Vorschläge zu den Themen passen. Fehler – gehören dazu und nehme ich bewusst in Kauf. GPT macht Fehler und die wandern als Tippfehler, Seitenzahlenfehler und schief geratene Aufgabenstellung-Fehler in meine Unterlagen. Ich lasse viel laufen und ich frage mich: &quot;Mache ich weniger Fehler als GPT - oder einfach andere Fehler?&quot;</p>
+
+  <p id="p-011">Letzthin hörte ich im Zug einem Gespräch zu, wo es um die Zusammenarbeit zwischen Mensch und KI ging. Darin spielte der Mensch die Rolle des Guten, alles richtig Machenden und die KI war das Böse, Fehlerhafte. Ich teile diese Ansicht nicht. Ich habe zwar noch keine Strategie im Umgang mit Fehlern von GPT, aber ich habe meinen gesunden Menschenverstand. Und dieser denkt mit, prüft bei Misstrauen und lernt aus jeder Erfahrung dazu. So will ich besser werden. Mein Verständnis erweitern und meine Fehlerquote reduzieren.</p>
+
+  <p id="p-012">Ich kehre zum ursprünglichen Thema Geografie zurück und Übungsformate wie &quot;Lückentext&quot;, &quot;Buchstabensalat&quot; und &quot;Fehlertext&quot; gewinnen mein Interesse. Ich lasse die Liste erweitern:</p>
+
+  <figure id="abb-03" class="evidence scale-ok">
+    <span class="stub-tag">Abb. 3</span>
+    <img src="P2_LAYOUTER/assets/02a_03_abb_gesamtuebersicht_uebungsformate.png" alt="Gesamtübersicht verschiedener Übungsformate zum Lehrmittelkapitel" loading="lazy">
+    <figcaption class="cap">Gesamtübersicht verschiedener Übungsformate zum Lehrmittelkapitel</figcaption>
+  </figure>
+
+  <p id="p-013">Was machen solche von GPT erstellten Listen interessant? Ist es die Schnelligkeit, mit der diese erstellt werden? Oder ist es die innere Stimmigkeit in Kombination mit einer äusseren Geschlossenheit, die sich von den Patchwork-Arbeiten aus unterschiedlichen Google-Quellen unterscheidet?</p>
+
+<div class="kapitel-head" id="k-02">
+  <div class="kapitel-nr">02</div>
+  <h2>Boxkampf mit GPT</h2>
+</div>
+
+  <p id="p-014">Während der Arbeit mit GPT bin ich in den letzten Wochen immer wieder Begriffen und Wendungen begegnet, die ich nicht kenne. Wie zum Beispiel &quot;H5P&quot;. Was ist das?<br>Nun – die Frage ist vielmehr, <em>wie gehe </em><em>ich</em> mit diesen Fragen um? Soll ich diese ignorieren und stur mein Ziel weiter verfolgen oder soll ich anhalten und diese Fragen jemandem stellen? Wem? GPT? Ich bin ein neugieriger Mensch und habe bereits entdeckt, dass man ihn auch fragen kann, wie man eine Frage stellen muss. Nicht für mich, sondern für ihn. Aber die Antworten sind dann für mich und nach 15 Minuten weiss ich genug, um weiterzumachen. Ich muss fragen und dazu lernen. Nicht für eine Prüfung, sondern damit ich entscheiden kann: für eine nächste Aufgabe, für einen nächsten Schritt.</p>
+
+  <p id="hl3-01" class="kernsatz">Ich arbeite und lerne gleichzeitig.<br>Ich arbeite mit KI und ich lerne von KI.</p>
+
+  <p id="p-015">Und das Arbeiten mit KI kann anstrengend sein. Manchmal fühlt es sich an wie das Hinaufklettern an einer Felswand: Ich sehe den nächsten Felsvorsprung, aber nicht den ganzen Berg. Und manchmal kippt eine Diskussion in einen <em>kognitiven Boxkampf</em> zwischen mir und GPT. Das ist so neu für mich.</p>
+
+<div class="kapitel-head" id="k-03">
+  <div class="kapitel-nr">03</div>
+  <h2>Fliessbandarbeit</h2>
+</div>
+
+  <p id="p-016">Früher habe ich Texte aus den Schülerbuchseiten in Word abgeschrieben und selber Aufgaben dazu erfunden. Jetzt lade ich diese Doppelseite um Doppelseite hoch. Und, basierend auf dem bereits erstellten Aufgabenmix, erstellt er mir passende Aufgaben zu den Schülerbuchseiten in allen Variante.</p>
+
+  <figure id="abb-04" class="evidence scale-ok">
+    <span class="stub-tag">Abb. 4</span>
+    <img src="P2_LAYOUTER/assets/02a_04_abb_aufgabenformate_mix.png" alt="Mix aus Aufgabenformaten für individuelle und kooperative Arbeitsphasen" loading="lazy">
+    <figcaption class="cap">Mix aus Aufgabenformaten für individuelle und kooperative Arbeitsphasen</figcaption>
+  </figure>
+
+  <p id="p-017">Nach ungefähr der sechsten Doppelseite fällt mir auf, dass immer die gleichen Aufgabentypen zusammenstellt werden. Es ist mir nicht in den Sinn gekommen, ihn anzuweisen, die Aufgabenformate zu variieren. Das wird man später so im Arbeitsdossier sehen, aber ich habe keine Zeit mehr, den Fehler zu korrigieren. Ich werde das im nächsten Schuljahr machen und erstelle eine Notiz dazu.</p>
+
+  <p id="p-018">Am Schluss habe ich einen vollständigen Satz an zusätzlichen Aufgaben, die ich ohne grossen Formatierungsaufwand zu einem Arbeitsdossier zusammenstellen und ausdrucken kann.</p>
+
+  <p id="p-019">Ich lasse abschliessend noch eine Übersicht über die Unterrichtseinheit erstellen und die Phase ist eigentlich abgeschlossen. Ich kann in zwei Wochen das Schülerbuch aufschlagen und die Dossiers mit den Arbeitsaufgaben lösen lassen; als eine mögliche Unterrichtsform unter vielen. Doch ich habe noch etwas im Kopf und es ist erst fünf Uhr nachmittags.</p>
 
 <div class="kapitel-head" id="k-04">
   <div class="kapitel-nr">04</div>
-  <h2>Was brauchen meine Kids?</h2>
+  <h2>Zu viele Lernziele</h2>
 </div>
 
-  <p id="p-025">Mein nächster Prompt beginnt mit:</p>
+  <p id="p-020">In meinem Unterricht mag ich es, wenn Lernziele und Aufgaben zueinander passen und nicht jedes Lehrmittel liefert das. Ich lege meistens die Taxonomie von Bloom/ Krathwohl als Schablone unter meine Lernziele. So habe ich verschiedene Lernziele in verschiedenen &quot;Schwierigkeitsgraden&quot; und diese verknüpfe ich mit den Aufgaben: &quot;Diese Aufgabe gehört zu diesem Lernziel und hat Anforderungsstufe Mittel, Nr. 5 gehört zu Lernziel 1 und ist leicht, usw.&quot; Ein 5er-System mit zwei einfachen Lernzielen, zwei mittleren und einem anspruchsvollen Lernziel beschreiben mein System am besten.</p>
+
+  <p id="p-021">Ein Lernziel ist nicht einfach ein Satz an der Wandtafel. Es ist auch nicht ein Leuchtfeuer für mich. <strong class="hl">Es sind viele verschiedene Wegpunkte</strong>, die wie <em>GPS-Signale zur Orientierung</em> genutzt werden können.<br>Kann GPT mir einen solchen Satz an Lernzielen erstellen?<br>Und könnte er mir zu diesen Lernzielen spezifische Diagnosetools generieren? Ich habe viele Ideen. Ich will nicht ein Beurteilungskonzept bauen, das die aktuellen politisch-administrativen Konzepte in den Schatten stellt. Ich will zuerst …..</p>
 
   <div id="card-004" class="conv du">
     <div class="composer">
-      <p class="ptext"><strong>DU:</strong><br>Daraus bauen wir ein neues Lehrmittel…</p>
+      <p class="ptext"><strong>DU:</strong><br>[…] einfach ein paar Lernziele zu meinem Geografie-Thema sehen.</p>
       <div class="toolbar" aria-hidden="true">
         <button class="ibtn outline" type="button" tabindex="-1" aria-label="Hinzufügen"><svg class="icn" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
         <span class="spacer"></span>
@@ -1330,123 +1346,87 @@ body:before{
     </div>
   </div>
 
-  <p id="p-026">Warum schreibe ich das? Weil ich das wirklich denke. Enthusiasmus begegnet Realismus. Natürlich meine ich eine Neustrukturierung des Kapitels. Aber GPT verzeiht einem solche Ungenauigkeiten. Durch das Hochladen der Materialien habe ich nach ein paar Runden alles vor mir: Ein &quot;mise-en-place&quot; der Lehrmittel. Und jetzt kommt die eigentliche Frage: Meine Kids sind 13 jährig und ich habe 18 Lektionen. Was lassen wir weg? Wie ist der Aufbau? Entscheiden muss schlussendlich ich, aber ich will zuerst den Vorschlag von GPT sehen.</p>
+  <p id="p-022">Ich weiss nicht warum ich so prompte, aber es funktioniert:<br>Er generiert mir ein Lernzielpaket mit fünf Lernzielen und vermerkt am Schluss Aufgabe, Buchseite und Stufe der Bloom-Taxonomie (z.B. &quot;Bloom 3&quot;). Ich entscheide, dass die Kids sich nicht für Bloom interessieren, und lasse stattdessen nur Buchseite und Aufgabennummer in der Übersicht. Die Schüler wissen nun welche Aufgabe auf welcher Seite welches Lernziel ansteuert.</p>
 
-  <p id="p-027">Jetzt wird es <em>interessant</em>: Nicht mehr nur sammeln und auslegen, sondern ich lasse KI auswählen und vorschlagen. Was brauchen meine Schüler wirklich? Das kann GPT eigentlich nicht wissen, aber ich versuche es trotzdem einmal. Vier Kernthemen aus dem Lehrmittel kristallisieren sich heraus: Achsensymmetrie, Achsenspiegelung, Punktspiegelung, Drehsymmetrie. In dieser Reihenfolge: Erkennen, dann Spiegeln, dann Konstruieren. Ich denke: &quot;ok, sportlich, aber go for it. ENTER&quot;</p>
+  <p id="p-023">Ich lese die Lernziele und bemerke, dass ich bei einigen Mühe habe, diese zu verstehen. Ich gebe mich nicht mit diesem erstbesten Vorschlag von GPT zufrieden, sondern hake nach:</p>
 
-  <p id="p-028">GPT erstellt mir nicht nur einen möglichen Ablauf, …</p>
-
-  <figure id="abb-08" class="evidence scale-ok">
-    <span class="stub-tag">Abb. 8</span>
-    <img src="P2_LAYOUTER/assets/01_11_abb_empfohlener_ablauf.png" alt="Lektions-zu-Themen-Mapping für 18 Lektionen" loading="lazy">
-    <figcaption class="cap">Lektions-zu-Themen-Mapping für 18 Lektionen</figcaption>
-  </figure>
-
-  <p id="p-029">…sondern schlägt auch gleich vor, was Grund- und erweiterte Anforderungen sind:</p>
-
-  <figure id="abb-09" class="evidence scale-ok">
-    <span class="stub-tag">Abb. 9</span>
-    <img src="P2_LAYOUTER/assets/01_12a_abb_anforderungen_kombiniert.png" alt="Differenzierungstabelle mit Grundanforderungen und Erweiterten Anforderungen" loading="lazy">
-    <figcaption class="cap">Differenzierungstabelle mit Grundanforderungen und Erweiterten Anforderungen</figcaption>
-  </figure>
-
-  <p id="p-030"><strong class="hl">Nun sitze ich vor dem PC und mein grösstes Problem ist aktuell nicht &quot;Was mache ich?&quot;, sondern &quot;Was mache ich nicht?&quot;.</strong> NEIN-Sagen, Weglassen, streichen. <em>Das Schwierigste</em> im Leben überhaupt. GPT gibt mir einen Vorschlag dazu und macht gleich Beispiele. Was fehlt sind noch die Begründungen. Ist das Gestrichene richtig? Das muss weiterhin ich entscheiden.</p>
-
-  <p id="p-031">Es sind achtzehn Lektionen und vier Themen für die Grundanforderungen. Alles andere - Verschiebungen, Alhambra, Computerarbeit - wird zum optionalen Erweiterungsraum. Tangram-Komplexität? Raus. Detaillierte Drehwinkelbestimmung? Raus. Ich starre auf die Liste, die immer kürzer wird.</p>
-
-  <p id="p-032">Nach ein paar Runden habe ich meinen Planungsentscheid: Nicht &quot;was steht im Buch&quot;, sondern &quot;was könnte bei meinen Kids funktionieren&quot;. Das klingt vielleicht trivial. Für mich ist es nicht.</p>
-
-  <div id="card-005" class="conv output">
-    <div class="ocard">
-      <button class="copybtn" type="button" tabindex="-1" aria-label="Kopieren"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
-      <p><strong>OUTPUT:</strong><br>AI-Output · gekürzt<br>Was kannst du weglassen oder stark reduzieren?<br>• Tangram- und Geobrett-Komplexität (für Grundanforderungen evtl. nur sehr vereinfacht oder weglassen).<br>• Detaillierte Bestimmung kleinster Drehwinkel oder exakte Konstruktionsverfahren (z.B. Winkelhalbierende, Mittelsenkrechte als Grundkonstruktionen nur anreissen).<br>• Komplexe Vielecke und komplexe Ergänzungsaufgaben.</p>
+  <div id="card-005" class="conv du">
+    <div class="composer">
+      <p class="ptext"><strong>DU:</strong><br>Formulierung noch einmal überprüfen. Es sind 13 jährige Jugendliche Niveau B.</p>
+      <div class="toolbar" aria-hidden="true">
+        <button class="ibtn outline" type="button" tabindex="-1" aria-label="Hinzufügen"><svg class="icn" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+        <span class="spacer"></span>
+        <button class="ibtn" type="button" tabindex="-1" aria-label="Mikrofon"><svg class="icn" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3M9 21h6"/></svg></button>
+        <button class="ibtn send" type="button" tabindex="-1" aria-label="Senden"><svg class="icn" viewBox="0 0 24 24"><path d="m6 12 6-6 6 6M12 18V6"/></svg></button>
+      </div>
     </div>
   </div>
 
-  <div id="card-006" class="conv output">
-    <div class="ocard">
-      <button class="copybtn" type="button" tabindex="-1" aria-label="Kopieren"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
-      <p><strong>OUTPUT:</strong><br>AI-Output · gekürzt<br>Didaktische Tipps<br>• Nutze viele visuelle und praktische Übungen (z.B. Spiegeln mit Papierfalten, einfache Zeichnungen).<br>• Setze einfache Sprache und klare Schritt-für-Schritt-Anleitungen ein.<br>• Wiederhole zentrale Begriffe (Symmetrieachse, Spiegelzentrum, Drehpunkt) regelmässig.<br>• Fördere eigenes Entdecken durch Musterbeispiele und kurze Partnerübungen.</p>
-    </div>
-  </div>
+  <p id="p-024">Es dauert ein paar Runden, bis wir uns gefunden haben. Und am Schluss habe ich nicht einen Lernzielsatz von 5 Lernzielen wie zu Beginn, sondern bin durch die ständigen Umformulierungen auf mittlerweile 30 angelangt. Jede Runde fügte Varianten hinzu, statt die alten zu ersetzen — und ich habe es nicht gestoppt. Ich frage mich, ob diese inflationäre Lernzielweiterentwicklung wirklich zielführend ist. Beim nächsten Mal heisst die Grenze: maximal 5, jede neue ersetzt eine alte. Sonst verliere ich die Übersicht und mache unendlich weiter. Anhalten ist nötig. Ich kopiere den Lernzielsatz in meine Planung und kreuze den Punkt &quot;Lernziele&quot; auf meiner To-do-Liste ab.</p>
 
-  <p id="p-033">DER CHAT IST BEENDET.</p>
-
-  <p id="p-034">Ich habe die thematische Gegenüberstellung und kann damit zurück in meine &quot;analoge Planung&quot;, von wo ich hergekommen bin. Aber ich schaffe den Absprung nicht.</p>
-
-  <p id="p-035">Per Zufall komme ich noch auf die Idee, dass es im einen Lehrmittel zu den Kapiteln jeweils Eintrittstest und Austrittstests gibt. Die Lernziele dazu lade ich in GPT einfach hoch, ohne vorher oder nachher zu bearbeiten. Es ist ein Upload auf Reserve. Ich schaue zu, wie er seine Antwort Buchstaben um Buchstaben – Zeile um Zeile erstellt.</p>
+  <p id="p-025">Und der Punkt &quot;Beurteilung&quot; ist nicht vergessen, aber wird einmal verschoben.</p>
 
 <div class="kapitel-head" id="k-05">
   <div class="kapitel-nr">05</div>
-  <h2>Ich beginne zu konsumieren</h2>
+  <h2>Von verschiedenen Ideen zu Unterricht</h2>
 </div>
 
-  <p id="p-036">Ich lese den untersten Satz:</p>
+  <p id="p-026">Ich erinnere mich an den letzten Chat, in dem es über visionären Unterricht und Beurteilung gegangen ist. Gedanklich mache ich einen Schritt zurück und suche nach alternativen Ansätzen. Vielleicht finde ich eine neue Spur.</p>
 
-  <div id="card-007" class="conv gpt">
-    <div class="rcard">
-      <button class="copybtn" type="button" tabindex="-1" aria-label="Kopieren"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
-      <p><strong>ChatGPT:</strong><br>Wenn du magst, kann ich dir auch differenzierte Einstiegsaufgaben oder Checklisten erstellen, mit denen du das Vorwissen gezielt abfragen kannst. Wäre das hilfreich?</p>
+  <div id="card-006" class="conv du">
+    <div class="composer">
+      <p class="ptext"><strong>DU:</strong><br>Noch einmal stopp. Ich muss einen Schritt zurück gehen. Ich brauche zuerst ein Konzept für einen neuen, modernen visionären Unterricht. Bis dahin galt: 1. Information über Thema, Zeit und Abgabe der Lernziele (5 Stk) auf einem kleinen Blatt, dann Erarbeitung mittels Schülerbuch und Arbeitsdossier und dann die Prüfung am Schluss. Diesen linearen Ablauf will ich aufbrechen. Wie könnte ein Konzept aussehen. Welche Tools, Instrumente brauche ich dafür? Ich könnte mir sogar vorstellen die Schlussprüfung durch etwas anderes zu ersetzen, z.B. etwas, das im Laufe des Lernprozesses sich entwickelt.</p>
+      <div class="toolbar" aria-hidden="true">
+        <button class="ibtn outline" type="button" tabindex="-1" aria-label="Hinzufügen"><svg class="icn" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+        <span class="spacer"></span>
+        <button class="ibtn" type="button" tabindex="-1" aria-label="Mikrofon"><svg class="icn" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3M9 21h6"/></svg></button>
+        <button class="ibtn send" type="button" tabindex="-1" aria-label="Senden"><svg class="icn" viewBox="0 0 24 24"><path d="m6 12 6-6 6 6M12 18V6"/></svg></button>
+      </div>
     </div>
   </div>
 
-  <p id="p-037">Ist es böse Absicht von ihm? Ein Ablenkungsversuch? Eine Falle?</p>
+  <p id="p-027"><strong class="hl">Ich will weg vom klassischen &quot;Input – Üben – Prüfung&quot;-Modell zu einem dynamischeren Unterrichtskonzept.</strong> Dynamischer heisst für mich: mehrere Lernwege, Diagnose während des Lernens, sichtbare Zwischenprodukte, Wahlmöglichkeiten und Feedbackschleifen. Und ich frage mich: Was wird GPT für ein Konzept und welche Tools und Instrumente vorschlagen? Was wird er zu meinem alten, sehr alten Beurteilungskonzept sagen, das die Prüfung nicht als Endpunkt, sondern als ständig wiederkehrenden Teil des Lernprozesses versteht? Das lasse ich im Raum stehen und beobachte zuerst nur, wie sein Vorschlag zum Thema &quot;Unsere Erde – Entstehung, Leben, Kontinente&quot; am Bildschirm entsteht.</p>
 
-  <p id="p-038">Ich sollte zurück in die Welt ohne KI. - aber nein: Ich gerate in eine Phase, wo ich jedes Materialangebot von GPT annehme. Es wird <em>zum Rausch</em>, sich am Dessertbuffet der generativen künstlichen Intelligenz zu bedienen. Er bietet ganze Aufgabensets an - ich greife ohne zu überlegen zu!<br>Brauche ich weitere Checklisten? GPT bietet und liefert diese sofort.</p>
+  <p id="p-028">Trotz der Aufforderung, etwas Neues zu bauen, erstellt er ein Konzept mit einem linearen, thematischen Aufbau. Start – Ziel:</p>
 
-  <figure id="abb-10" class="evidence scale-ok">
-    <span class="stub-tag">Abb. 10</span>
-    <img src="P2_LAYOUTER/assets/01_18_abb_checklisten.png" alt="4 gestapelte Vorwissens-Checklisten als Self-Check-Karten" loading="lazy">
-    <figcaption class="cap">4 gestapelte Vorwissens-Checklisten als Self-Check-Karten</figcaption>
+  <figure id="abb-05" class="evidence scale-ok">
+    <span class="stub-tag">Abb. 5</span>
+    <img src="P2_LAYOUTER/assets/02a_05_abb_linearer_unterrichtsaufbau.png" alt="Linearer Unterrichtsaufbau als Ausgangsmodell vor dem Bruch" loading="lazy">
+    <figcaption class="cap">Linearer Unterrichtsaufbau als Ausgangsmodell vor dem Bruch</figcaption>
   </figure>
 
-  <p id="p-039">Eine seiner Checklisten passt mir nicht. Ich wünsche mir eine zum Ankreuzen. Ich hake nach, diese wird verbessert und schon bin ich bereits in einem iterativen Loop ohne es zu merken.<br>Praktische Aufgaben dazu? Aber sicher! ……. Und so weiter und so fort….</p>
+  <p id="p-029">Für mich ist dies nicht wirklich visionär, aber für GPT ist das ein &quot;dynamischer, schülerzentrierter Lernprozess, bei dem die Prüfung im Portfolio und der Präsentation steckt – einem Produkt, das den Lernweg sichtbar macht.&quot; Ich lese zwischen diesen Zeilen Hattie, denke an sichtbares Lernen und muss schmunzeln.</p>
 
-  <p id="p-040">Als Lehrer ist man ein Sammler und Jäger; <em>eine Elster</em>, die alles Funkelnde und Glitzernde sofort nimmt und in sein Nest, das Schulzimmer, zurückbringt. GPT ist ein unglaublich guter Erzeuger von funkelnden Perlen, in einer Menge, die man kaum überblicken kann. Er legt sie nacheinander aus, so dass man auf eine Fährte geführt wird und die Orientierung verlieren kann.<strong class="hl"> Es sind diese Entscheidungen, wie an Wegkreuzungen, die dem zukünftigen Chatverlauf die Richtung geben.</strong> Und es gibt keine Taste &#x27;zurück&#x27;. Nur WEITER.</p>
+  <p id="p-030">Ich merke nicht, wie ich mich von der Unterrichtsvorbereitung verabschiede und die Ebene der Unterrichtskonzeption betrete. Der Wechsel von &quot;Ich erstelle ein Aufgabenblatt&quot; zu &quot;Ich überlege mir, wie mein Unterricht aussehen muss&quot; <em>ist fliessend</em>. Ich suche nach einem neuen Konzept für modernen Unterricht. Aber ist das schon ein neues Unterrichtskonzept? Vielleicht ist genau diese Unschärfe der Punkt: Ich suche noch nicht die fertige Theorie, sondern die Instrumente, an denen ich meinen Unterricht neu denken kann.</p>
 
-  <p id="p-041">Ob es einfach <em>Glasperlen</em> sind, muss ich später in meiner Werkstatt testen.</p>
+  <p id="p-031">Dürfte ich das überhaupt? Eine einfache Lehrperson, die für sich ein Konzept &quot;erfindet&quot;, obwohl Hochschulen, Fachstellen und Behörden ganze Regale mit solchen Konzepten gefüllt haben?</p>
+
+  <p id="p-032">Ich stelle mir diese Frage nicht und fahre einfach weiter. Denn ich will gar kein Konzept erfinden. Ich bin nicht in der Architekturphase, sondern mitten in der Entdeckerphase.<br>Und eine Entdeckung muss nicht immer etwas völlig Unbekanntes sein, sondern kann auch etwas Bekanntes sein, das man noch nicht richtig kennengelernt hat. Eine Unterrichtsmethode, eine Organisationsform.</p>
 
 <div class="kapitel-head" id="k-06">
   <div class="kapitel-nr">06</div>
-  <h2>Von Bloom zu etwas Anderem</h2>
+  <h2>Geburtsstunde Werkstatt</h2>
 </div>
 
-  <p id="p-042">Ich merke, dass ich <em>mich verloren habe</em> und komme zurück auf die Eintritts- und Austrittstests. Ich will die Lernziele prüfen und anpassen. Bei den kognitiven Prozessdimensionen nutze ich seit langem die Taxonomie von Bloom und/oder Krathwohl. Deshalb ist es auch bei der Arbeit mit GPT klar, dass ich diese Taxonomie einbaue. Das ist eine uralte Tabelle, die ich einmal für mich erstellt habe und die ich bei der Unterrichtsplanung nutze und nun hochlade.</p>
+  <p id="p-033">Gerade weil GPT zunächst wieder linear bleibt, verschiebe ich den Fokus: weg vom Ablauf, hin zu Instrumenten. Als Teil dieses &quot;innovativen Unterrichtskonzeptes&quot; schlägt er die Portfolioarbeit vor. Nichts Unbekanntes und für mich alles andere als innovativ und neu; trotzdem steige ich darauf ein. Auf der einen Seite ist die Portfolio-Arbeit für mich eine &quot;Too big to practice&quot; Sache, die zeitlich einfach keinen Sinn macht. Sie ist in der gleichen Kategorie wie das Erstellen eines Kreuzworträtsels oder das Bauen einer Werkstatt. Das mache ich einmal…in 10 Jahren, vielleicht. Die eigentliche Innovation könnte nicht in der Methode selbst, sondern in der KI-gestützten Generierung liegen.<br>Und jetzt schlägt mir GPT als erstes Portfolio-Aufgaben vor?! Ich steige ein.</p>
 
-  <figure id="abb-11" class="evidence scale-ok">
-    <span class="stub-tag">Abb. 11</span>
-    <img src="P2_LAYOUTER/assets/01_21_abb_bloom_taxonomie.png" alt="6-Stufen-Bloom-Taxonomie mit Verben-Beispielen — Referenz-Matrix von früher" loading="lazy">
-    <figcaption class="cap">6-Stufen-Bloom-Taxonomie mit Verben-Beispielen — Referenz-Matrix von früher</figcaption>
-  </figure>
+  <div id="card-007" class="conv du">
+    <div class="composer">
+      <p class="ptext"><strong>DU:</strong><br>Ja, ein Beispiel für Portfolioaufgaben und den Bewertungsraster.</p>
+      <div class="toolbar" aria-hidden="true">
+        <button class="ibtn outline" type="button" tabindex="-1" aria-label="Hinzufügen"><svg class="icn" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+        <span class="spacer"></span>
+        <button class="ibtn" type="button" tabindex="-1" aria-label="Mikrofon"><svg class="icn" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3M9 21h6"/></svg></button>
+        <button class="ibtn send" type="button" tabindex="-1" aria-label="Senden"><svg class="icn" viewBox="0 0 24 24"><path d="m6 12 6-6 6 6M12 18V6"/></svg></button>
+      </div>
+    </div>
+  </div>
 
-  <p id="p-043">Ich habe in der neu erstellten Fassung vier Kapitel und pro Kapitel will ich fünf abgestufte Lernziele nach Bloom:</p>
-
-  <figure id="abb-12" class="evidence scale-ok">
-    <span class="stub-tag">Abb. 12</span>
-    <img src="P2_LAYOUTER/assets/01_22_abb_bloom_lernziele.png" alt="Mapping Kapitel-Lernziele vs. Bloom-Stufe" loading="lazy">
-    <figcaption class="cap">Mapping Kapitel-Lernziele vs. Bloom-Stufe</figcaption>
-  </figure>
-
-  <p id="p-044">Und als nächstes frage ich nach erweiterten Beurteilungsformen. GPT erstellt eine Tabelle mit 3 Spalten und macht daraus eine Übersicht mit 12 Beurteilungsformen.</p>
-
-  <figure id="abb-13" class="evidence scale-ok">
-    <span class="stub-tag">Abb. 13</span>
-    <img src="P2_LAYOUTER/assets/01_28_abb_beurteilungsformen_erweitert.png" alt="4 alternative Beurteilungsformen mit konkreten Beispielen" loading="lazy">
-    <figcaption class="cap">4 alternative Beurteilungsformen mit konkreten Beispielen</figcaption>
-  </figure>
-
-  <p id="p-045">Das Thema vertiefe ich nicht weiter, denn ich merke, dass ich langsam im Meer der Beurteilung <em>versunken</em> bin. Ich muss schleunigst wieder an die Wasseroberfläche zurückkommen. Ich kann es aber nicht lassen und studiere nun trotzdem an verschiedenen Beurteilungsprozessen herum - mir kommt eine letzte Frage in den Sinn.</p>
-
-<div class="kapitel-head" id="k-07">
-  <div class="kapitel-nr">07</div>
-  <h2>Eine alte Idee kommt auf Besuch</h2>
-</div>
-
-  <p id="p-046">Ohne gross zu überlegen schreibe ich einfach ins Promptfenster:</p>
+  <p id="p-034">Ich habe noch keine Ahnung, wohin dieser Chat mich führen wird, aber ich stelle mir vor, wie viel Papier ich bis jetzt produziere. Ich brauche eine Struktur für die Jugendlichen.</p>
 
   <div id="card-008" class="conv du">
     <div class="composer">
-      <p class="ptext"><strong>DU:</strong><br>Ich will einen Diagnosetest zu Beginn der Unterrichtseinheit machen, nachher die Kids individuell arbeiten lassen (entweder an dem nicht vorhandenen Vorwissen oder an den Grundanforderungen), regelmässig den Kompetenzstand überprüfen. Ziel: möglichst grosser Lernfortschritt. Evtl. auf eine Schlussprüfung verzichten, aber dennoch Informationen für die Zeugnisnote generieren. Wie mache ich das?</p>
+      <p class="ptext"><strong>DU:</strong><br>Coole Idee mit den Portfolio-Aufgaben. Jetzt brauche ich für mich noch eine Struktur. Ich kann den Kids nicht ein Blatt mit den Lernzielen, ein Arbeitsdossier, ein Auftragsblatt fürs Portfolio, usw. abgeben. Welche &quot;Blätter&quot; braucht es? Wie könnten diese heissen und was beinhalten? Für die diagnostische Begleitung finde ich &quot;Kurztest&quot; Blätter mit den oben genannten Lernzielen und 5 Anforderungsniveaus cool. Diese kann ich einfach auflegen und die Kids können sich bedienen. Was sonst noch. Brauche noch neue Namen für diese Instrumente.</p>
       <div class="toolbar" aria-hidden="true">
         <button class="ibtn outline" type="button" tabindex="-1" aria-label="Hinzufügen"><svg class="icn" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
         <span class="spacer"></span>
@@ -1456,42 +1436,51 @@ body:before{
     </div>
   </div>
 
-  <p id="p-047">Ich schreibe es noch einmal auseinander:</p>
+  <p id="p-035">Ich will nichts Festes, nichts für die Ewigkeit Gebautes und schon gar nicht will ich ein &quot;BEST PRACTICE&quot; erstellen. Ich will nur ein schlankes, flexibles, aber durchdachtes Strukturkonzept mit wiederkehrenden Formaten und klaren Namen, das nicht nur mir, sondern hauptsächlich meinen Kids Orientierung gibt. Es soll leicht verständlich und motivierend sein.</p>
 
-  <div id="card-009" class="conv du">
-    <div class="composer">
-      <p class="ptext"><strong>DU:</strong><br>ZIEL:<br>[Möglichst grosser Lernfortschritt] UND [Auf eine Schlussprüfung verzichten] UND [aber dennoch Informationen für die Zeugnisnote generieren] = FRAGE &quot;Wie mache ich das?&quot;</p>
-      <div class="toolbar" aria-hidden="true">
-        <button class="ibtn outline" type="button" tabindex="-1" aria-label="Hinzufügen"><svg class="icn" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
-        <span class="spacer"></span>
-        <button class="ibtn" type="button" tabindex="-1" aria-label="Mikrofon"><svg class="icn" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3M9 21h6"/></svg></button>
-        <button class="ibtn send" type="button" tabindex="-1" aria-label="Senden"><svg class="icn" viewBox="0 0 24 24"><path d="m6 12 6-6 6 6M12 18V6"/></svg></button>
-      </div>
-    </div>
-  </div>
+  <p id="p-036">In den folgenden Stunden und Tagen gerate ich in eine Diskussionsspirale mit GPT. Er nennt dies &quot;iterativen Entwicklungsprozess&quot;. Wir bauen nicht nur erste Konstruktionen zur Portfolio-Idee, die ich später Lernwerkstatt nenne, sondern auch einen Block zu Reflexion im Unterricht. Am Ende heissen sie Lernblick und Gedankencheck.</p>
 
-  <p id="p-048">Seit Jahren studiere an diesem Hauptproblem herum: Solange die summative Prüfung am Ende mehr zählt als der gesamte Lernprozess davor, bleibt das Lernen nur <em>Mittel zum Zweck</em>. Es ist nicht die Schlussbeurteilung an sich, die stört. Es ist, dass Beobachtungen und Feedbacks während der Lernphase  kaum Einfluss auf das Zeugnis haben — am Schluss zählt nur, was die Kids an der summativen Prüfung aufschreiben können, auch wenn am Folgetag schon alles vergessen ist.</p>
+  <p id="p-037">Und was ist der meist verwendete Prompt, den ich in dieser Woche verwende?</p>
 
-  <p id="p-049">Betreibe ich <em>pädagogische Ketzerei</em>, wenn ich GPT solche Fragen stelle?</p>
+  <figure id="abb-06" class="evidence scale-ok">
+    <span class="stub-tag">Abb. 6</span>
+    <img src="P2_LAYOUTER/assets/02a_06_abb_prompt_weitere.png" alt="Maximal reduzierter Prompt zur Fortsetzung einer Aufgabe" loading="lazy">
+    <figcaption class="cap">Maximal reduzierter Prompt zur Fortsetzung einer Aufgabe</figcaption>
+  </figure>
 
-  <p id="p-050">Anyway, ich mache weiter und was folgt ist ein Konzept für einen Diagnosetest zu Beginn, individualisiertes Lernen basierend auf den Ergebnissen, regelmässige formative Überprüfung, und am Ende eine Zeugnisnote ohne klassische Schlussprüfung. Die Note entsteht aus kumulierten Daten: Arbeitsqualität, Fortschritt, Mitarbeit, Mini-Checks, Peer-Feedback, Kompetenzraster. Das wars.<br>Aber wenn ich ehrlich bin — das gibt es alles schon; einfach meistens nur in der Theorie.</p>
+  <p id="p-038"><strong class="hl">Und andere Wörter wie &quot;Bitte&quot;, &quot;Danke&quot;, &quot;Könnest du…?&quot; verschwinden aus meinem PROMPT-Vokabular vollständig.</strong></p>
 
-  <p id="p-051">Dieser Prompt war nicht geplant. Ich suche kein neues Beurteilungskonzept. Das Ziel dieses Chats war auch nicht die materialtechnische Überschwemmung, sondern: Wie schaffe ich in diesem klitzekleinen Bereich &#x27;Passung&#x27; bessere Voraussetzungen für meine Jugendlichen?</p>
+<div class="kapitel-head" id="k-07">
+  <div class="kapitel-nr">07</div>
+  <h2>Habe ich einen Ablauf oder eine Übersicht gebaut?</h2>
+</div>
+
+  <p id="p-039">Und irgendeinmal steht er – der Ablauf.</p>
+
+  <p id="p-040">Es ist kein Ablauf im engeren Sinn, sondern eine Elementübersicht: Lernziele, Diagnosetests, Portfolio, Reflexion, Aufgabenformate. Eher Werkzeugkasten als Prozessplan. Ich habe die Auswahl für mich getroffen; fürs erste.</p>
+
+  <figure id="abb-07" class="evidence scale-ok">
+    <span class="stub-tag">Abb. 7</span>
+    <img src="P2_LAYOUTER/assets/02a_07_abb_decision_ablauf.png" alt="Übersicht der Elemente der Unterrichtsidee" loading="lazy">
+    <figcaption class="cap">Übersicht der Elemente der Unterrichtsidee</figcaption>
+  </figure>
+
+  <p id="p-041">Dieser Entscheid ist weniger für mich als viel mehr für KI, damit sie endlich aufhört, weitere Vorschläge zu generieren. GPT fasst meinen Entscheid zusammen und speichert diesen. Jetzt muss ich die Elemente bauen.</p>
+
+  <p id="p-042">Rückblickend merke ich: Zwei Wochen habe ich daran gearbeitet. Gestartet hat alles mit dem linearen Unterrichtskonzept zum Thema Erde und jetzt ist daraus etwas anderes entstanden:</p>
+
+  <p id="p-043">Es ist eine Mischung aus persönlicher To-do-Liste für die Unterrichtsvorbereitung, einem neuen Entwicklungsschwerpunkt &quot;4. Portfolio&quot; für meinen Unterricht und mit dem Element &quot;3. Diagnosetests&quot; ist eine alte Erinnerung wieder zum Leben erweckt worden.</p>
 
 <div class="kapitel-head" id="k-08">
   <div class="kapitel-nr">08</div>
-  <h2>Eine andere Welt</h2>
+  <h2>So sehen also Prompts aus</h2>
 </div>
 
-  <p id="p-052">Es ist Abend geworden. Ich habe eigentlich erreicht, wofür ich den Chat gestartet habe: Eine thematische Vergleichsübersicht mit formulierten Lernzielen und Materialien zu Diagnose.</p>
+  <p id="p-044">Ich komme zurück zu den Aufgabensets der Schülerbuchseiten: Ich möchte nicht nur verschiedene spielerische Aufgabenformate, sondern auch kooperative Formen, so dass ich eine Mischung aus individuellen, Partner- und Gruppenformaten habe.<br>Und - ich möchte aus einer Auswahl auswählen können.</p>
 
-  <p id="hl3-01" class="kernsatz">Ich könnte aufhören. -<br>Aber ich höre nicht auf.<br>Es hat gerade erst angefangen.</p>
-
-  <p id="p-053">Es ist wie auf einer Wanderung, wo man immer etwas Neues, Faszinierendes sieht und weiter geht und weiter geht…</p>
-
-  <div id="card-010" class="conv du">
+  <div id="card-009" class="conv du">
     <div class="composer">
-      <p class="ptext"><strong>DU:</strong><br>Wie würde ein zukünftiger moderner Unterricht auch noch aussehen? Wie würdest du den Unterricht vorbereiten?</p>
+      <p class="ptext"><strong>DU:</strong><br>Das waren jetzt hauptsächlich kooperative Übungsformate. Ich will einen GPT-Prompt erstellen, der es mir beim nächsten Hochladen einer Buchseite ermöglicht, aus einer Auswahl von 16 Aufgabenformate (12 einzelarbeit + 4 kooperativ) z.B. 5 auszuwählen. Bei den Aufgabenformaten darf ich nicht noch gross Vorbereitungsarbeit haben. Ist das möglich?</p>
       <div class="toolbar" aria-hidden="true">
         <button class="ibtn outline" type="button" tabindex="-1" aria-label="Hinzufügen"><svg class="icn" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
         <span class="spacer"></span>
@@ -1501,75 +1490,48 @@ body:before{
     </div>
   </div>
 
-  <p id="p-054">Und wie immer ist es aus Sicht von GPT eine super spannende Frage von mir. Das <em>nervt langsam</em> und ich muss noch rausfinden, wie ich diese Buchstabenverschwendung abstellen kann.<br>Es ist ein zweiteiliger Frageprompt, den ich unbewusst ins Promptfenster tippe.</p>
+  <p id="p-045">Ich will also nicht mehr einfach ins Prompt-Fenster schreiben, sondern <em>einen vorbereiteten Text ins Prompt-Fenster kopieren</em>. Ich weiss nicht, ob das so funktioniert, aber GPT meint &quot;Absolut möglich&quot; und er schiebt gleich ein Beispiel nach, wie so ein Prompt aussehen könnte.</p>
 
-  <p id="p-055">Neun Punkte kommen zurück: Darunter Lernziele, Diagnostik, Blended Learning, Methodenvielfalt; alle nicht neu.</p>
-
-  <p id="p-056">Auch der Vorschlag für eine Unterrichtsvorbereitung von GPT ist nicht wirklich umwerfend. Klare Ziele setzen, Technik vorab prüfen, Aufgaben für verschiedene Niveaus variieren und den Raum für Gruppen- und Einzelarbeit planen. Sein Beispielablauf einer Unterrichtseinheit: Einstieg – Erarbeitung – Vertiefung – Feedback/Reflexion – Abschluss. Graue-traditionelle Linearität mit einem farbigen Post-It namens &quot;Feedback&quot;.</p>
-
-  <p id="p-057">Na ja. Ich hake nach. Ich will mehr und schreibe…</p>
-
-  <div id="card-011" class="conv du">
-    <div class="composer">
-      <p class="ptext"><strong>DU:</strong><br>Und wenn der Unterricht nicht zeitgemäss, sondern modern, revolutionär, visionär sein soll?</p>
-      <div class="toolbar" aria-hidden="true">
-        <button class="ibtn outline" type="button" tabindex="-1" aria-label="Hinzufügen"><svg class="icn" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
-        <span class="spacer"></span>
-        <button class="ibtn" type="button" tabindex="-1" aria-label="Mikrofon"><svg class="icn" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3M9 21h6"/></svg></button>
-        <button class="ibtn send" type="button" tabindex="-1" aria-label="Senden"><svg class="icn" viewBox="0 0 24 24"><path d="m6 12 6-6 6 6M12 18V6"/></svg></button>
-      </div>
-    </div>
-  </div>
-
-  <p id="hl3-02" class="kernsatz">&quot;Warum stellst du diese Frage?&quot;<br>(Diese Frage werde ich mir nie stellen.)</p>
-
-  <p id="p-058">Und so merke ich auch nicht, wie ich unbewusst eine Grenze überschreite.</p>
-
-  <p id="p-059">GPT scheint es auf alle Fälle toll zu finden…</p>
-
-  <figure id="abb-14" class="evidence scale-ok">
-    <span class="stub-tag">Abb. 14</span>
-    <img src="P2_LAYOUTER/assets/01_33b_abb_response_prompt_beyond_2024.png" alt="Prompt-Antwort zu revolutionärem Unterricht" loading="lazy">
-    <figcaption class="cap">Prompt-Antwort zu revolutionärem Unterricht</figcaption>
+  <figure id="abb-08" class="evidence scale-ok">
+    <span class="stub-tag">Abb. 8</span>
+    <img src="P2_LAYOUTER/assets/02a_08_abb_aufgabenformate_b.png" alt="Prompt von GPT zur Erstellung eines Aufgabenblattes" loading="lazy">
+    <figcaption class="cap">Prompt von GPT zur Erstellung eines Aufgabenblattes</figcaption>
   </figure>
 
-  <div id="hl4-01" class="statement"><p>Es ist der Moment,<br>bei dem ich weitergehe als ich müsste.<br>Vielleicht nicht dürfte und<br>vielleicht nicht sollte.</p></div>
+  <p id="hl3-02" class="kernsatz">Es ist das erste Mal, dass ich einen von KI erstellten Prompt sehe.<br>Ich habe gedacht, die seien komplizierter.<br>So sehen also Prompts aus.</p>
 
-  <p id="p-060">Ich überschreite eine unsichtbare Linie. In Gedanken verlasse ich mein Schulzimmer. Vielleicht auch eine Realität, die mich nicht mehr ganz zufriedenstellt. Ich betrete eine Welt, die mir fremd ist und mich gerade deshalb anzieht. Niemand zwingt mich, diesen Schritt zu machen.<br>Kein Berufsauftrag, keine Vollzugsverordnung, kein finanzieller Anreiz. Es sind andere Werte: ich sehe einen Sinn, ich spüre eine pädagogische Verantwortung und vor mir liegt eine neblige Landschaft, in der erste Sonnenstrahlen sichtbar sind. Ich will diese kennen lernen. Nicht beliebig, sondern mit einer professionellen Haltung und dem Anspruch, <em>das Richtige zu tun.</em></p>
+<div class="kapitel-head" id="k-09">
+  <div class="kapitel-nr">09</div>
+  <h2>Aufgabenformate aus dem Kleiderschrank</h2>
+</div>
 
-  <p id="p-061">Zurück zum Chat:</p>
+  <p id="p-046">Die <strong class="hl">Liste mit den Aufgabenformaten</strong> packt mich und ich schaue sie am Bildschirm noch einmal an. Ich scrolle nach oben, schaue, scrolle nach unten … und lese die Begriffe &quot;einzeln&quot;, &quot;kooperativ&quot;, &quot;erweitert&quot;, &quot;Buchstabenrätsel&quot;, &quot;Quiz-Aufgabe&quot;, &quot;Sortieraufgabe&quot;, ….<br>Ich weiss nicht warum, aber die Liste mit den Aufgabenformaten erinnert mich an etwas.</p>
 
-  <p id="p-062">Erst jetzt merke ich, dass ich &quot;2024&quot; getippt habe. Ich meinte &quot;2040&quot; und muss schmunzeln. Weiss GPT, dass ich mich vertippt habe? Er liefert zehn Punkte zu Schule Beyond 2024 und die Antwort klingt irgendwie anders. Und dann fängt GPT von alleine an, Visionen zu malen — VR/AR-Stationen, Mobile Learning Kits, dynamische Kompetenzlandschaften. Ich habe gar nicht danach gefragt. Er schiebt nach. Es ist <em>sein Reflex</em>, mehr zu präsentieren, als ich brauche.<br>Ob Mobile Learning Kits oder Kompetenzportfolios je in mein Klassenzimmer kommen, ist heute irrelevant.</p>
+  <p id="p-047">Und - es hat überhaupt nichts mit Schule zu tun:</p>
 
-  <p id="p-063">Ich weiss nicht, wie lange ich bereits im Chat bin, aber ich bin überwältigt von den viel zu vielen Eindrücken. Ich werde überschwemmt; nein - richtiger wäre: &quot;ich habe mich überschwemmt&quot;.</p>
+  <figure id="abb-09" class="evidence scale-ok custom-scale" style="--figure-scale:1.05">
+    <span class="stub-tag">Abb. 9</span>
+    <img src="P2_LAYOUTER/assets/02a_09_abb_esp_yaml_docx_crop_260707.png" alt="YAML aus meinem ESPHome für die Lichtsteuerung in einem Kleiderschrank" loading="lazy">
+    <figcaption class="cap">YAML aus meinem ESPHome für die Lichtsteuerung in einem Kleiderschrank</figcaption>
+  </figure>
 
-  <p id="p-064">Ich stelle den PC ab.</p>
+  <p id="p-048">Das sind meine Bewegungsmelder in meinem Kleiderschrank. Ich musste vorgestern die Zeiten anpassen. Ich programmiere diese gerade in ESPHome als YAML, einem strukturierten Datenformat. Zuerst habe ich eine Idee, dann habe ich eine Frage und dann noch mehr Ideen mit noch mehr Fragen.<br>Da macht es klick: Die Aufgabenformate sind nicht nur eine Liste. Sie sind eine kleine Bibliothek, aus der ich auswählen kann. Vielleicht kann ich sie <strong class="hl">wie eine Konfiguration</strong> behandeln: Bausteine, Parameter, Auswahlregeln.</p>
 
-  <p id="p-065">Eine Planung wollte ich – <em>ein Blatt Papier</em>.</p>
+  <p id="hl3-03" class="kernsatz">Aus dem Wunsch nach einem Arbeitsblatt<br>ist ein Strukturkonzept geworden:<br>Lernziele, Diagnosetests, Portfolio,<br>Reflexion und Aufgabenformate. </p>
 
-  <p id="p-066">Erhalten habe ich Materialien, die ich in dieser Form und Menge nicht gekannt habe.</p>
+  <p id="p-049">Noch ist es roh. Aber es ist nicht mehr nur Vorbereitung.<br><em>Wa</em><em>s passiert, wenn ich YAML zum prompten einsetze?</em><br>Wenn ich Aufgabenformate als YAML und einem geschriebenen Auftrag in einem Prompt in GPT hochlade? Es ist ein Experiment. Heute Nacht versuche ich das nicht mehr. Es ist zu spät.</p>
 
-  <p id="p-067">Werden die neu erstellten Dokumente an meinem Unterricht oder im Schulzimmer überhaupt etwas verändern? Das weiss ich heute noch nicht.</p>
-
-  <p id="p-068">Was <em>mich fasziniert</em>, sind nicht die Unterlagen, die ich ausdrucken kann.</p>
-
-  <p id="p-069">Es ist das, was in meinem Kopf passiert: Gedanken, Vorstellungen, Fragen — <br>und vor allem Ideen. Viele Ideen.</p>
-
-  <p id="p-070">Warum nicht mit GPT?</p>
-
-  <p id="p-071">Warum mit GPT?</p>
-
-  <p id="p-072">Es war <em>die Neugierde</em> - und diese scheint gerade grenzenlos.</p>
+  <p id="p-050">Aber morgen probiere ich das gleich aus. Es wird der Donnerstag, 14. August 2025 sein.</p>
 
       <div class="cliff">
         <div class="k">Nächste Field Note</div>
-        <div class="next-meta">02_2025_08_UNTERRICHTSENTWURF-VISION</div>
-        <h2></h2>
+        <div class="next-meta">03_2025_08_UNTERRICHTSENTWURF-WERKZEUGE</div>
+        <h2>„Am naechsten Morgen, um 09:05, lud ich zum ersten Mal einen Pseudo-YAML hoch.&quot; Verweis auf C4.61 / 14. August</h2>
       </div>
 
       <div class="note-footer-meta">
-        <span class="empty">← —</span>
-        <a class="nav-next" href="../unterrichtsentwurf-vision/index.html">02_2025_08_UNTERRICHTSENTWURF-VISION →</a>
+        <a class="nav-prev" href="../neugierde/index.html">← 01_2025_07_NEUGIERDE</a>
+        <span class="empty">03_2025_08_UNTERRICHTSENTWURF-WERKZEUGE →</span>
       </div>
     </article>
   </div>
@@ -1580,7 +1542,7 @@ body:before{
 </div>
 
 <div class="colophon">
-  Field Note Nr. 01 · Serie „Feldnotizen — KI und Unterricht" · CC BY-NC-SA 4.0 · <span class="sig">— Markus</span>
+  Field Note Nr. 02 · Serie „Feldnotizen — KI und Unterricht" · CC BY-NC-SA 4.0 · <span class="sig">— Markus</span>
 </div>
 
 <div class="bookstage" id="bookstage" aria-hidden="true">
