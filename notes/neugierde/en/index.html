@@ -1,0 +1,1700 @@
+<!doctype html>
+<!--
+   WEB_PREVIEW — P6-Render, in P5 Stage 1 als LIVEVIEW ausgeliehen.
+   Design-SSoT: C:\Users\Markus\ClaudeCode\MeineProjekte\FIELD_NOTES_DRAFT\0_W_WORKFLOW\P6_PUBLISH\WEBDESIGN\_CURRENT\NOTE\index.html
+   Content-Source: NEUGIERDE_V6.23_RELEASE_HUMAN_260706.docx
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Am Anfang steht die Neugierde · Field Notes Nr. 01</title>
+<meta name="description" content="Field Note Nr. 01 — 20. Juli 2025. Wie aus einer Planungsfrage an GPT ein didaktisches Dessertbuffet entsteht — und am Schluss neue Ideen einen Anfang markieren.">
+<meta name="author" content="Markus Schwarz">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+/* fieldnote.css — Werkbank-Styles fuer WEB_PREVIEW (P1-P5)
+   Extrahiert 2026-06-18 aus 01_2025_07_NEUGIERDE/_render_werkbank.py.
+   Cross-Ref: 0_W_WORKFLOW/P6_RELEASE/HTML_DESIGN_NEW_260617/Bauanleitung Hervorhebungs-System.md
+   Convention: 0_C_CONVENTION/C_FORMAT_HTML.md (ab §13 pending rewrite auf 4-Stufen).
+
+   GESTRICHEN 2026-06-18: .statement-block + .statement-label (Legacy HL1-AKZENT,
+   abgeloest durch 4-Stufen-System Stufe 4 = .statement + .label).
+*/
+
+:root{
+  --bg:#f2eadc;--paper:#fffaf0;--paper-deep:#faf4e6;--ink:#191713;--muted:#6e6458;
+  --line:#d6c8b4;--line-deep:#b8a78d;--red:#bd3f2b;--red-deep:#8b2c1c;
+  --yellow:#f2c84b;--green:#486b55;--ochre:#9A6A1F;
+  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  --sans:"IBM Plex Sans",Inter,"Segoe UI",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.65;font-size:17px;text-align:left}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;opacity:.32;
+  background-image:radial-gradient(rgba(70,55,35,.12) 1px,transparent 1px);
+  background-size:5px 5px;mix-blend-mode:multiply;z-index:0;
+}
+
+/* HERO */
+.hero{
+  min-height:88vh;position:relative;display:grid;align-items:end;overflow:hidden;
+  padding:84px 26px 56px;
+  background:
+    linear-gradient(110deg,rgba(20,14,8,.86),rgba(28,20,12,.58) 40%,rgba(38,26,16,.36) 70%,rgba(245,238,224,.18) 100%),
+    url('../P2_LAYOUTER/assets/01_33_abb_prompt_revolutionaer_full.png');
+  background-size:cover;background-position:center;
+}
+.hero:after{
+  content:"";position:absolute;inset:auto 0 0 0;height:42%;
+  background:linear-gradient(transparent,var(--bg));
+}
+.hero-inner{
+  position:relative;z-index:2;max-width:1280px;margin:0 auto;width:100%;
+  display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:64px;align-items:end;
+}
+.eyebrow{font:700 .76rem/1 var(--mono);color:#ffd9a8;text-transform:uppercase;letter-spacing:.18em}
+.hero h1{
+  font-size:clamp(2.8rem,8vw,6.8rem);line-height:.9;
+  margin:18px 0 24px;color:#fffaf0;letter-spacing:-.005em;max-width:10ch;
+  text-shadow:0 3px 18px rgba(0,0,0,.42);
+}
+.hero .lead{
+  font-size:clamp(1.08rem,1.6vw,1.32rem);max-width:680px;
+  color:#fff5e4;margin:0;line-height:1.45;font-weight:400;
+  text-shadow:0 2px 8px rgba(0,0,0,.4);
+}
+
+/* SLIPS (diskret-neutral, kein Postit) */
+.desk{display:grid;gap:14px;align-self:end}
+.slip{
+  background:var(--paper);border:1px solid var(--line-deep);
+  padding:16px 17px;border-radius:3px;
+  box-shadow:0 8px 22px rgba(22,17,10,.22);
+}
+.slip .k{
+  font:700 .68rem/1 var(--mono);color:var(--red);
+  text-transform:uppercase;letter-spacing:.12em;
+  display:block;margin-bottom:8px;
+}
+.slip h3{font-size:1.05rem;line-height:1.25;margin:0 0 6px;font-weight:600;color:var(--ink)}
+.slip p{font-size:.92rem;color:#4d453c;margin:0;line-height:1.5}
+.slip .date{
+  font:600 .82rem/1 var(--mono);color:var(--ink);
+  margin-bottom:8px;letter-spacing:.02em;
+}
+
+/* MAIN-LAYOUT (W5: breiter + responsive) */
+.main{
+  max-width:1280px;margin:0 auto;padding:64px 26px 80px;
+  position:relative;z-index:1;
+}
+.section-title{
+  font:700 .78rem/1 var(--mono);letter-spacing:.16em;
+  text-transform:uppercase;color:var(--red);margin-bottom:20px;
+}
+.reader{
+  display:grid;grid-template-columns:240px minmax(0,820px);gap:56px;
+}
+.rail{
+  position:sticky;top:62px;align-self:start;
+  border-left:2px solid var(--red);padding:8px 0 8px 18px;
+  font:500 .82rem/1.4 var(--mono);color:var(--muted);
+  max-height:calc(100vh - 80px);overflow-y:auto;
+}
+.rail a{
+  display:block;color:inherit;text-decoration:none;
+  padding:8px 0;border-bottom:1px solid var(--line);
+}
+.rail a:hover{color:var(--red)}
+.rail-nr{
+  display:inline-block;width:2em;color:var(--red);font-weight:700;
+}
+
+/* ARTICLE */
+.article{
+  background:rgba(255,250,240,.84);border:1px solid var(--line);
+  padding:42px clamp(24px,5vw,60px);
+  box-shadow:0 22px 70px rgba(48,35,18,.08);
+}
+
+/* ABSTRACT-BLOCK (DIRECTOR-Entscheid: abstract vor Akt-1) */
+.abstract-lead{
+  font-style:italic;font-size:1.12rem;line-height:1.55;
+  color:var(--muted);margin:0 0 36px 0;
+  padding:18px 22px;background:var(--paper-deep);
+  border-left:3px solid var(--line-deep);border-radius:2px;
+}
+
+/* KAPITEL-HEAD (HUMAN-Decision 2026-06-16: Nummerierung weg, scroll-margin-top fuer Anchor-Sprung) */
+.kapitel-head{
+  margin-top:48px;display:flex;align-items:baseline;gap:18px;
+  scroll-margin-top:24px;
+}
+.kapitel-head:first-of-type{margin-top:0}
+.kapitel-head .kapitel-nr{display:none}
+.kapitel-head h2{
+  font-size:1.7rem;line-height:1.18;margin:0;
+  font-weight:700;color:var(--ink);letter-spacing:-.005em;flex:1;
+}
+
+.article p{font-size:1.06rem;color:#2c2620;margin:14px 0 18px 0;line-height:1.65}
+.article strong{font-weight:700;color:#1a1410}
+.article em{font-style:italic}
+.mark{background:linear-gradient(transparent 55%,rgba(242,200,75,.55) 55%)}
+.article strong.hl1{font-weight:700;color:var(--red)}
+.article mark.hl2{background:transparent;color:var(--accent-2,#244f63);font-weight:650;padding:0}
+
+/* 4-STUFEN-HL-SYSTEM (Bauanleitung 2026-06-16) */
+/* Stufe 1: em (built-in) */
+/* Stufe 2: Schluesselsatz inline */
+.article .hl{
+  font-weight:600;color:var(--ochre,#9A6A1F);
+}
+/* Stufe 3: Kernsatz Block */
+.article p.kernsatz{
+  font-family:'Spectral',Georgia,serif;font-style:italic;font-weight:500;
+  font-size:1.5rem;line-height:1.34;color:#15171C;text-align:center;
+  max-width:26ch;margin:36px auto;
+}
+.article p.kernsatz + p.kernsatz{margin-top:-22px}
+.article ul.review-list{
+  margin:14px 0 22px 1.2rem;
+  padding-left:1.1rem;
+}
+.article ul.review-list li{
+  margin:7px 0;
+  line-height:1.7;
+}
+/* Stufe 4: Marker — Inschrift-Variante (HUMAN-Update 2026-06-17, Bauanleitung §2.3/§2.4/§5).
+   Word-Trick: Rahmen oben auf Label + Rahmen unten auf Marker, dazwischen kein Rahmen
+   -> visuell ein Kasten um beide Absaetze. CSS-Aequivalent: top/bottom border auf label/p,
+   zentriert + symmetrischer Einzug simuliert 2.5cm Word-Einzug. */
+.article .statement{
+  margin:48px auto;
+  max-width:520px;
+  text-align:center;
+}
+.article .statement .label{
+  font-family:var(--mono);font-size:.7rem;font-weight:600;letter-spacing:.24em;
+  text-transform:uppercase;color:#15171C;
+  border-top:1.5px solid #15171C;
+  padding:14px 0 10px 0;margin:0;
+}
+.article .statement p{
+  margin:0;font-family:'Spectral',Georgia,serif;font-weight:500;font-style:italic;
+  font-size:1.5rem;line-height:1.34;color:#15171C;
+  border-bottom:1.5px solid #15171C;
+  padding:0 0 16px 0;
+}
+
+/* W8: Bild-Rahmung staerker · W10: Bilder leicht rotieren */
+.evidence{
+  margin:36px -8px;padding:14px;
+  background:#fff;border:1px solid var(--line-deep);border-radius:2px;
+  transform:rotate(-.3deg);
+  box-shadow:0 16px 30px rgba(60,42,18,.13), 0 1px 0 rgba(255,255,255,.6) inset;
+}
+.evidence:nth-of-type(even){transform:rotate(.4deg)}
+.evidence img{
+  width:100%;display:block;height:auto;
+  border:1px solid #ddd5c4;background:#fafafa;
+}
+.cap{
+  font:500 .78rem/1.5 var(--mono);color:var(--muted);
+  padding:10px 4px 0;margin:0;
+}
+.evidence-pending{
+  margin:24px 0;padding:14px;
+  border:1px dashed var(--red);background:#fbeae5;
+  font:500 .85rem/1.4 var(--mono);color:var(--red-deep);
+}
+
+/* W3: Card-Familie vereinheitlicht — alle drei Karten gleich strukturiert, nur Seitenlinie-Farbe + Label-Farbe unterschiedlich */
+/* W4: Card-Text kleiner · W10: Cards NICHT rotieren */
+.card{
+  margin:22px 0;padding:14px 18px;
+  background:var(--paper);border-radius:3px;
+  font-family:var(--mono);font-size:.80rem;line-height:1.55;
+  border-left:4px solid var(--line-deep);
+}
+.card:before{
+  display:block;font:700 .60rem/1 var(--mono);
+  letter-spacing:.14em;margin-bottom:8px;
+}
+.card p{margin:0;font-size:inherit;color:#2c2620}
+.card p br{line-height:1.8}
+
+.prompt-card{border-left-color:var(--red);background:#fff8f4}
+.prompt-card:before{content:"\27a4  PROMPT";color:var(--red)}
+
+.response-card{border-left-color:var(--green);background:#f4f7ee}
+.response-card:before{content:"\25c6  RESPONSE";color:var(--green)}
+
+.output-card{border-left-color:#8a6d3d;background:#fbf6e8}
+.output-card:before{content:"\25a3  OUTPUT";color:#8a6d3d}
+
+.quote{
+  border-left:4px solid var(--red);padding:10px 0 10px 22px;
+  margin:34px 0;font-size:1.3rem;line-height:1.35;font-weight:600;
+  color:var(--ink);
+}
+
+/* W9: Cliff in reiner Werkbank-Identitaet */
+.cliff{
+  margin-top:60px;padding:32px 30px;
+  background:linear-gradient(135deg,#211915 0%,#2d211a 100%);
+  color:#fff3df;border-radius:4px;
+  border-top:3px solid var(--red);
+  box-shadow:0 12px 30px rgba(33,25,21,.3);
+}
+.cliff .k{
+  font:700 .72rem/1 var(--mono);color:#ffb19e;
+  text-transform:uppercase;letter-spacing:.16em;
+}
+.cliff h2{
+  margin:14px 0 0;font-size:1.7rem;color:#fffaf0;
+  line-height:1.22;font-weight:600;
+}
+
+/* FOOTER */
+.note-footer-meta{
+  margin-top:48px;padding-top:24px;border-top:1px solid var(--line);
+  font:500 .82rem/1.45 var(--mono);color:var(--muted);
+  display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;
+}
+.note-footer-meta .nav-next{color:var(--red);font-weight:600}
+.note-footer-meta a{color:inherit;text-decoration:none}
+.note-footer-meta a:hover{text-decoration:underline}
+.note-footer-meta .empty{color:var(--muted);font-style:italic}
+
+.colophon{
+  max-width:1280px;margin:0 auto;padding:32px 26px;
+  font:500 .78rem/1.5 var(--mono);color:var(--muted);
+  text-align:center;border-top:1px solid var(--line);
+}
+.colophon .sig{color:var(--red);font-weight:700}
+
+/* WERKSTATT-STATEMENT (HUMAN-Decision 2026-06-16: vom Hero-Postit nach unten) */
+.werkstatt-statement{
+  max-width:880px;margin:48px auto 0;padding:24px 26px 0;
+  font:500 .92rem/1.55 var(--sans);color:var(--muted);
+  text-align:center;font-style:italic;
+}
+
+/* W5: RESPONSIVE — Handy / Tablet / Monitor */
+@media(max-width:960px){
+  .hero-inner{grid-template-columns:1fr;gap:36px}
+  .desk{order:2}
+  .hero{min-height:auto;padding:84px 22px 44px}
+  .hero h1{max-width:12ch}
+  .reader{grid-template-columns:1fr;gap:24px}
+  .rail{
+    position:relative;top:auto;border-left:none;border-top:1px solid var(--red);
+    padding:14px 0 0 0;max-height:none;
+  }
+  .rail a{padding:6px 0}
+  .article{padding:28px 20px}
+  .evidence{margin:28px -4px}
+  .kapitel-head{flex-direction:column;gap:6px}
+  .kapitel-head .kapitel-nr{font-size:1.1rem}
+}
+@media(min-width:1440px){
+  .main{max-width:1380px}
+  .reader{grid-template-columns:260px minmax(0,920px);gap:64px}
+  .article p{font-size:1.08rem}
+}
+
+
+/* fieldnote.css — Werkbank-Styles fuer WEB_PREVIEW (P1-P5)
+   Extrahiert 2026-06-18 aus 01_2025_07_NEUGIERDE/_render_werkbank.py.
+   Cross-Ref: 0_W_WORKFLOW/P6_RELEASE/HTML_DESIGN_NEW_260617/Bauanleitung Hervorhebungs-System.md
+   Convention: 0_C_CONVENTION/C_FORMAT_HTML.md (ab §13 pending rewrite auf 4-Stufen).
+
+   GESTRICHEN 2026-06-18: .statement-block + .statement-label (Legacy HL1-AKZENT,
+   abgeloest durch 4-Stufen-System Stufe 4 = .statement + .label).
+*/
+
+:root{
+  --bg:#f2eadc;--paper:#fffaf0;--paper-deep:#faf4e6;--ink:#191713;--muted:#6e6458;
+  --line:#d6c8b4;--line-deep:#b8a78d;--red:#bd3f2b;--red-deep:#8b2c1c;
+  --yellow:#f2c84b;--green:#486b55;
+  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  --sans:"IBM Plex Sans",Inter,"Segoe UI",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.65;font-size:17px;text-align:left}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;opacity:.32;
+  background-image:radial-gradient(rgba(70,55,35,.12) 1px,transparent 1px);
+  background-size:5px 5px;mix-blend-mode:multiply;z-index:0;
+}
+
+/* HERO */
+.hero{
+  min-height:88vh;position:relative;display:grid;align-items:end;overflow:hidden;
+  padding:84px 26px 56px;
+  background:
+    linear-gradient(110deg,rgba(20,14,8,.86),rgba(28,20,12,.58) 40%,rgba(38,26,16,.36) 70%,rgba(245,238,224,.18) 100%),
+    url("../P2_LAYOUTER/assets/01_33_abb_prompt_revolutionaer_full.png");
+  background-size:cover;background-position:center;
+}
+.hero:after{
+  content:"";position:absolute;inset:auto 0 0 0;height:16%;
+  background:linear-gradient(transparent,var(--bg));
+}
+.hero-inner{
+  position:relative;z-index:2;max-width:1280px;margin:0 auto;width:100%;
+  display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:64px;align-items:end;
+}
+.eyebrow{font:700 .76rem/1 var(--mono);color:#ffd9a8;text-transform:uppercase;letter-spacing:.18em}
+.hero h1{
+  font-size:clamp(2.8rem,8vw,6.8rem);line-height:.9;
+  margin:18px 0 24px;color:#fffaf0;letter-spacing:-.005em;max-width:10ch;
+  text-shadow:0 3px 18px rgba(0,0,0,.42);
+}
+.hero .lead{
+  font-size:clamp(1.08rem,1.6vw,1.32rem);max-width:780px;
+  color:#fff5e4;margin:0;line-height:1.45;font-weight:400;
+  text-shadow:0 2px 8px rgba(0,0,0,.4);
+}
+
+/* SLIPS (diskret-neutral, kein Postit) */
+.desk{display:grid;gap:14px;align-self:end}
+.slip{
+  background:var(--paper);border:1px solid var(--line-deep);
+  padding:16px 17px;border-radius:3px;
+  box-shadow:0 8px 22px rgba(22,17,10,.22);
+}
+.slip .k{
+  font:700 .68rem/1 var(--mono);color:var(--red);
+  text-transform:uppercase;letter-spacing:.12em;
+  display:block;margin-bottom:8px;
+}
+.slip h3{font-size:1.05rem;line-height:1.25;margin:0 0 6px;font-weight:600;color:var(--ink)}
+.slip p{font-size:.92rem;color:#4d453c;margin:0;line-height:1.5}
+.slip .date{
+  font:600 .82rem/1 var(--mono);color:var(--ink);
+  margin-bottom:8px;letter-spacing:.02em;
+}
+
+/* MAIN-LAYOUT (W5: breiter + responsive) */
+.main{
+  max-width:1280px;margin:0 auto;padding:64px 26px 80px;
+  position:relative;z-index:1;
+}
+.section-title{
+  font:700 .78rem/1 var(--mono);letter-spacing:.16em;
+  text-transform:uppercase;color:var(--red);margin-bottom:20px;
+}
+.reader{
+  display:grid;grid-template-columns:240px minmax(0,820px);gap:56px;
+}
+.rail{
+  position:sticky;top:62px;align-self:start;
+  border-left:2px solid var(--red);padding:8px 0 8px 18px;
+  font:500 .82rem/1.4 var(--mono);color:var(--muted);
+  max-height:calc(100vh - 80px);overflow-y:auto;
+}
+.rail a{
+  display:block;color:inherit;text-decoration:none;
+  padding:8px 0;border-bottom:1px solid var(--line);
+}
+.rail a:hover{color:var(--red)}
+.rail-nr{
+  display:inline-block;width:2em;color:var(--red);font-weight:700;
+}
+
+/* ARTICLE */
+.article{
+  background:rgba(255,250,240,.84);border:1px solid var(--line);
+  padding:42px clamp(24px,5vw,60px);
+  box-shadow:0 22px 70px rgba(48,35,18,.08);
+}
+
+/* ABSTRACT-BLOCK (DIRECTOR-Entscheid: abstract vor Akt-1) */
+.abstract-lead{
+  font-style:italic;font-size:1.12rem;line-height:1.55;
+  color:var(--muted);margin:0 0 36px 0;
+  padding:18px 22px;background:var(--paper-deep);
+  border-left:3px solid var(--line-deep);border-radius:2px;
+}
+
+/* KAPITEL-HEAD (HUMAN-Decision 2026-06-16: Nummerierung weg, scroll-margin-top fuer Anchor-Sprung) */
+.kapitel-head{
+  margin-top:48px;display:flex;align-items:baseline;gap:18px;
+  scroll-margin-top:24px;
+}
+.kapitel-head:first-of-type{margin-top:0}
+.kapitel-head .kapitel-nr{display:none}
+.kapitel-head h2{
+  font-size:1.7rem;line-height:1.18;margin:0;
+  font-weight:700;color:var(--ink);letter-spacing:-.005em;flex:1;
+}
+
+.article p{font-size:1.06rem;color:#2c2620;margin:14px 0 18px 0;line-height:1.65}
+.article strong{font-weight:700;color:#1a1410}
+.article em{font-style:italic}
+.mark{background:linear-gradient(transparent 55%,rgba(242,200,75,.55) 55%)}
+.article strong.hl1{font-weight:700;color:var(--red)}
+.article mark.hl2{background:transparent;color:var(--accent-2,#244f63);font-weight:650;padding:0}
+
+/* 4-STUFEN-HL-SYSTEM (Bauanleitung 2026-06-16) */
+/* Stufe 1: em (built-in) */
+/* Stufe 2: Schluesselsatz inline */
+.article .hl{
+  font-weight:700;color:#9A6A1F;
+}
+/* Stufe 3: Kernsatz Block */
+.article p.kernsatz{
+  font-family:'Spectral',Georgia,serif;font-style:italic;font-weight:500;
+  font-size:1.5rem;line-height:1.34;color:#15171C;text-align:center;
+  max-width:26ch;margin:36px auto;
+}
+.article p.kernsatz + p.kernsatz{margin-top:-22px}
+.article ul.review-list{
+  margin:14px 0 22px 1.2rem;
+  padding-left:1.1rem;
+}
+.article ul.review-list li{
+  margin:7px 0;
+  line-height:1.7;
+}
+/* Stufe 4: Marker — Inschrift-Variante (HUMAN-Update 2026-06-17, Bauanleitung §2.3/§2.4/§5).
+   Word-Trick: Rahmen oben auf Label + Rahmen unten auf Marker, dazwischen kein Rahmen
+   -> visuell ein Kasten um beide Absaetze. CSS-Aequivalent: top/bottom border auf label/p,
+   zentriert + symmetrischer Einzug simuliert 2.5cm Word-Einzug. */
+.article .statement{
+  margin:48px auto;
+  max-width:520px;
+  text-align:center;
+}
+.article .statement .label{
+  font-family:var(--mono);font-size:.7rem;font-weight:600;letter-spacing:.24em;
+  text-transform:uppercase;color:#0A4DE0;
+  border-top:1.5px solid #15171C;
+  padding:14px 0 10px 0;margin:0;
+}
+.article .statement p{
+  margin:0;font-family:'Spectral',Georgia,serif;font-weight:500;font-style:italic;
+  font-size:1.5rem;line-height:1.34;color:#15171C;
+  border-bottom:1.5px solid #15171C;
+  padding:0 0 16px 0;
+}
+
+/* W8: Bild-Rahmung staerker · W10: Bilder leicht rotieren */
+.evidence{
+  margin:36px -8px;padding:14px;
+  background:#fff;border:1px solid var(--line-deep);border-radius:2px;
+  transform:rotate(-.3deg);
+  box-shadow:0 16px 30px rgba(60,42,18,.13), 0 1px 0 rgba(255,255,255,.6) inset;
+}
+.evidence:nth-of-type(even){transform:rotate(.4deg)}
+.evidence img{
+  width:100%;display:block;height:auto;
+  border:1px solid #ddd5c4;background:#fafafa;
+}
+.cap{
+  font:500 .78rem/1.5 var(--mono);color:var(--muted);
+  padding:10px 4px 0;margin:0;
+}
+.evidence-pending{
+  margin:24px 0;padding:14px;
+  border:1px dashed var(--red);background:#fbeae5;
+  font:500 .85rem/1.4 var(--mono);color:var(--red-deep);
+}
+
+/* W3: Card-Familie vereinheitlicht — alle drei Karten gleich strukturiert, nur Seitenlinie-Farbe + Label-Farbe unterschiedlich */
+/* W4: Card-Text kleiner · W10: Cards NICHT rotieren */
+.card{
+  margin:22px 0;padding:10px 16px;
+  background:var(--paper);border-radius:3px;
+  font-family:var(--mono);font-size:.80rem;line-height:1.5;
+  border-left:4px solid var(--line-deep);
+}
+.card:before{
+  display:block;font:700 .60rem/1 var(--mono);
+  letter-spacing:.14em;margin-bottom:8px;
+}
+.card p{margin:0;font-size:inherit;color:#2c2620}
+.card p br{line-height:1.8}
+
+.prompt-card{border-left-color:var(--red);background:#fff8f4}
+.prompt-card:before{content:"\27a4  PROMPT";color:var(--red)}
+
+.response-card{border-left-color:var(--green);background:#f4f7ee}
+.response-card:before{content:"\25c6  RESPONSE";color:var(--green)}
+
+.output-card{border-left-color:#8a6d3d;background:#fbf6e8}
+.output-card:before{content:"\25a3  OUTPUT";color:#8a6d3d}
+
+.quote{
+  border-left:4px solid var(--red);padding:10px 0 10px 22px;
+  margin:34px 0;font-size:1.3rem;line-height:1.35;font-weight:600;
+  color:var(--ink);
+}
+
+/* W9: Cliff in reiner Werkbank-Identitaet */
+.cliff{
+  margin-top:60px;padding:32px 30px;
+  background:linear-gradient(135deg,#211915 0%,#2d211a 100%);
+  color:#fff3df;border-radius:4px;
+  border-top:3px solid var(--red);
+  box-shadow:0 12px 30px rgba(33,25,21,.3);
+}
+.cliff .k{
+  font:700 .72rem/1 var(--mono);color:#ffb19e;
+  text-transform:uppercase;letter-spacing:.16em;
+}
+.cliff h2{
+  margin:14px 0 0;font-size:1.7rem;color:#fffaf0;
+  line-height:1.22;font-weight:600;
+}
+
+/* FOOTER */
+.note-footer-meta{
+  margin-top:48px;padding-top:24px;border-top:1px solid var(--line);
+  font:500 .82rem/1.45 var(--mono);color:var(--muted);
+  display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;
+}
+.note-footer-meta .nav-next{color:var(--red);font-weight:600}
+.note-footer-meta a{color:inherit;text-decoration:none}
+.note-footer-meta a:hover{text-decoration:underline}
+.note-footer-meta .empty{color:var(--muted);font-style:italic}
+
+.colophon{
+  max-width:1280px;margin:0 auto;padding:32px 26px;
+  font:500 .78rem/1.5 var(--mono);color:var(--muted);
+  text-align:center;border-top:1px solid var(--line);
+}
+.colophon .sig{color:var(--red);font-weight:700}
+
+/* WERKSTATT-STATEMENT (HUMAN-Decision 2026-06-16: vom Hero-Postit nach unten) */
+.werkstatt-statement{
+  max-width:880px;margin:48px auto 0;padding:24px 26px 0;
+  font:500 .92rem/1.55 var(--sans);color:var(--muted);
+  text-align:center;font-style:italic;
+}
+
+/* W5: RESPONSIVE — Handy / Tablet / Monitor */
+@media(max-width:960px){
+  .hero-inner{grid-template-columns:1fr;gap:36px}
+  .desk{order:2}
+  .hero{min-height:auto;padding:84px 22px 44px}
+  .hero h1{max-width:12ch}
+  .reader{grid-template-columns:1fr;gap:24px}
+  .rail{
+    position:relative;top:auto;border-left:none;border-top:1px solid var(--red);
+    padding:14px 0 0 0;max-height:none;
+  }
+  .rail a{padding:6px 0}
+  .article{padding:28px 20px}
+  .evidence{margin:28px -4px}
+  .kapitel-head{flex-direction:column;gap:6px}
+  .kapitel-head .kapitel-nr{font-size:1.1rem}
+}
+@media(min-width:1440px){
+  .main{max-width:1380px}
+  .reader{grid-template-columns:260px minmax(0,920px);gap:64px}
+  .article p{font-size:1.08rem}
+}
+
+
+/* ============ Brauner Akzent statt Rot/Blau ============ */
+  :root{ --mk:#7d4a23; --mk-soft:#9c6b3f; --red:#7d4a23; }
+
+  /* ============ HERO (echter Eröffnungs-Prompt als Textur) ============ */
+  .hero{
+    background:
+      linear-gradient(to top,rgba(38,20,10,.85) 0%,rgba(46,26,14,.68) 26%,rgba(54,32,18,.32) 58%,rgba(54,32,18,0) 100%),
+      linear-gradient(110deg,rgba(46,26,14,.86),rgba(58,36,20,.58) 40%,rgba(72,46,26,.36) 70%,rgba(245,238,224,.18) 100%),
+      url("../P2_LAYOUTER/assets/01_33_abb_prompt_revolutionaer_full.png");
+    background-size: cover; background-position: center;
+    min-height: 88vh;
+  }
+  .hero-inner{ grid-template-columns: 1fr; }
+  .hero .eyebrow{ font-family: 'IBM Plex Sans', system-ui, sans-serif; font-weight: 700; }
+
+  /* De-Mono: Monospace nur noch in Cards, Header, Footer */
+  .section-title{
+    font-family: 'Spectral', Georgia, serif; font-style: italic; font-weight: 600;
+    text-transform: none; letter-spacing: .01em; font-size: 1rem; color: var(--mk);
+  }
+  /* Inhaltsverzeichnis (Schiene) entfernt -> Artikel zentriert, volle Breite */
+  .reader{ grid-template-columns: minmax(0, 820px); justify-content: center; }
+
+  /* ============ STICKY-HEADER — der ruhende Pol ============ */
+  .topbar{
+    position: sticky; top: 0; z-index: 50;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    padding: 10px clamp(16px,3vw,30px);
+    background: rgba(18,12,7,.82);
+    backdrop-filter: blur(9px); -webkit-backdrop-filter: blur(9px);
+    border-bottom: 1px solid rgba(214,200,180,.18);
+  }
+  .topbar .brand{ display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+  .topbar .brand-series{
+    font: 600 .92rem/1.1 'Spectral', Georgia, serif; letter-spacing: .01em;
+    color: #ffd9a8; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .topbar .brand-nr{ font: 400 italic .78rem/1.2 'Spectral', Georgia, serif; color: #c9bba6; letter-spacing: .02em; }
+  .topbar-controls{ display: flex; flex-direction: row; align-items: center; gap: 14px; }
+
+  /* Linke Seite: Note-Navigation + Brand */
+  .topbar-left{ display: flex; align-items: center; gap: 16px; min-width: 0; }
+  .notenav{ display: flex; gap: 4px; }
+  .notenav button,.notenav a{
+    display: flex; align-items: center; justify-content: center;
+    width: 30px; height: 30px; padding: 0; cursor: pointer;
+    border: 1px solid rgba(214,200,180,.26); border-radius: 3px;
+    background: transparent; color: #d8cbb6;
+  }
+  .notenav button:hover,.notenav a:hover{ border-color: rgba(255,217,168,.7); color: #fff3df; }
+  .notenav button svg,.notenav a svg{ width: 16px; height: 16px; display: block; fill: none; stroke: currentColor; stroke-width: 1.7; }
+
+  /* Sprach-Stubs: nur Flaggen */
+  .langs{ display: flex; gap: 6px; }
+  .langs .lang{
+    display: flex; align-items: center; justify-content: center;
+    padding: 4px; border-radius: 3px; cursor: pointer;
+    border: 1px solid rgba(214,200,180,.26); background: transparent;
+  }
+  .langs .lang .flag{
+    height: 15px; width: auto; display: block; border-radius: 1px;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.2);
+  }
+  .langs .lang:hover{ border-color: rgba(255,217,168,.7); }
+  .langs .lang.is-active{ background: var(--mk); border-color: var(--mk); box-shadow: 0 0 0 1px var(--mk); }
+  .langs .lang[disabled]{ opacity: .5; cursor: not-allowed; }
+  .langs .lang[disabled]:hover{ border-color: rgba(214,200,180,.26); }
+
+  /* Ansicht-Umschalter */
+  .views{ display: flex; border: 1px solid rgba(214,200,180,.3); border-radius: 3px; overflow: hidden; }
+  .views .view{
+    font: 600 .82rem/1 'Spectral', Georgia, serif; letter-spacing: .01em;
+    padding: 6px 13px; cursor: pointer; border: 0; background: transparent; color: #d8cbb6;
+  }
+  .views .view + .view{ border-left: 1px solid rgba(214,200,180,.3); }
+  .views .view:hover{ color: #fff3df; }
+  .views .view.is-active{ background: #f2eadc; color: #191713; }
+
+  /* F19-Fix 260705: #back-top-btn stand als nacktes .view-Textbutton (Leck aus
+     deaktiviertem Scroll/Reader-Toggle) neben den quadratischen Icon-Buttons der
+     .notenav -- jetzt gleiche Box-Optik wie .notenav button (Icon statt Text). */
+  #back-top-btn{
+    display: flex; align-items: center; justify-content: center;
+    width: 30px; height: 30px; padding: 0; cursor: pointer;
+    border: 1px solid rgba(214,200,180,.26); border-radius: 3px;
+    background: transparent; color: #d8cbb6;
+  }
+  #back-top-btn:hover{ border-color: rgba(255,217,168,.7); color: #fff3df; }
+  #back-top-btn svg{ width: 16px; height: 16px; display: block; fill: none; stroke: currentColor; stroke-width: 1.7; }
+
+  /* ============ BODY-SCHRIFT = SERIF ============ */
+  .article > p{
+    font-family: 'Spectral', Georgia, serif;
+    font-size: 1.06rem; line-height: 1.7; color: #2c2620;
+  }
+  .article > p em{ font-style: italic; }
+  .article > p strong{ font-weight: 600; }
+
+  /* ============ HEADINGS ruhiger (Serif, kleiner, weniger fett) ============ */
+  .article .kapitel-head{ display: block; margin-top: 52px; margin-bottom: 10px; }
+  .article .kapitel-head h2{
+    font-family: 'Spectral', Georgia, serif;
+    font-weight: 600; font-size: 1.26rem; line-height: 1.25;
+    letter-spacing: 0; color: #241c12; margin: 0;
+  }
+
+  /* ============ MARKER in Braun ============ */
+  /* #2 braun + fett */
+  .article strong.hl1, .article .hl1{ color: var(--mk); font-weight: 700; }
+  /* #4: gleiche Groesse wie #3 (Kernsatz), kursiv, Linie oben + unten */
+  .article .statement{ margin: 42px auto; }
+  .article .statement p{
+    font-family: 'Spectral', Georgia, serif; font-style: italic; font-weight: 500;
+    font-size: 1.34rem; line-height: 1.36; color: #241c12;
+    border-top: 1.5px solid #2c2620; border-bottom: 1.5px solid #2c2620;
+    padding: 16px 0; margin: 0;
+  }
+  .article p.kernsatz{ font-size: 1.34rem; }
+  /* ============ 4 Gespraechs-Bausteine: DU / GPT / OUTPUT / CODE ============ */
+  .article .conv{ margin: 30px 0; }
+  .article .conv .lbl{
+    margin: 0 0 8px 6px;
+    font: 700 .8rem/1 'IBM Plex Sans', system-ui, sans-serif; letter-spacing: .03em;
+  }
+
+  /* DU: — Prompt-Composer (ChatGPT-Eingabefeld) */
+  .article .conv.du .lbl{ color: var(--mk); }
+  .article .composer{
+    position: relative; padding: 11px 17px 11px; overflow: hidden;
+    background: #f4f1ec; border: 1px solid #ddd5c9; border-radius: 26px;
+    box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 10px 26px rgba(60,42,18,.07);
+  }
+  .article .composer .ptext{
+    margin: 0 !important; padding: 0 5px 11px;
+    font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 1rem; line-height: 1.55; color: #2c2620;
+  }
+  .article .composer .ptext em{ font-style: italic; }
+  .article .composer .toolbar{ display: flex; align-items: center; gap: 9px; }
+  .article .composer .toolbar .spacer{ flex: 1; }
+  .article .ibtn{
+    display: inline-grid; place-items: center; width: 36px; height: 36px; padding: 0;
+    border: 0; border-radius: 50%; background: transparent; color: #463a2c;
+  }
+  .article .ibtn.outline{ background: #fff; border: 1px solid #d5ccbe; }
+  /* Senden-Kreis invertiert: weisser Pfeil auf Braun */
+  .article .ibtn.send{ background: var(--mk); border: 1px solid var(--mk); color: #fff; }
+  .article .icn{ width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .article .ubtn .icn{ width: 15px; height: 15px; }
+
+  /* GPT: — Response-Card (saubere weisse Karte) */
+  .article .conv.gpt .lbl{ color: var(--green); }
+  .article .rcard{
+    position: relative;
+    padding: 19px 22px; background: #fffdf8; border: 1px solid var(--line); border-radius: 16px;
+    box-shadow: 0 1px 2px rgba(0,0,0,.03), 0 8px 22px rgba(60,42,18,.05);
+  }
+  .article .rcard p{ margin: 0; font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: .98rem; line-height: 1.6; color: #2c2620; }
+  .article .rcard p + p{ margin-top: .55em; }
+  .article .rcard em{ font-style: italic; }
+
+  /* Kopieren-Symbol oben rechts (zwei überlappende Quadrate) */
+  .article .copybtn{
+    position: absolute; top: 12px; right: 12px; width: 30px; height: 30px; padding: 0;
+    display: inline-grid; place-items: center; cursor: pointer;
+    border: 1px solid var(--line); border-radius: 7px; background: rgba(255,255,255,.7); color: var(--muted);
+  }
+  .article .copybtn:hover{ color: var(--mk); border-color: var(--mk-soft); }
+  .article .copybtn svg{ width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* OUTPUT: — strukturiertes Resultat */
+  .article .conv.output .lbl{ color: var(--mk-soft); }
+  .article .ocard{
+    position: relative;
+    padding: 16px 50px 16px 19px; background: var(--paper-deep);
+    border: 1px solid var(--line); border-left: 3px solid var(--mk-soft); border-radius: 3px;
+  }
+  .article .ocard p{ margin: 0; font: 500 .9rem/1.6 var(--mono); color: #3a322a; }
+
+  /* CODE: — Code-Block (heller Untergrund, Scrollbalken erst ab ~10 Zeilen) */
+  .article .conv.code .lbl{ color: #5a534a; }
+  .article .ccard{
+    padding: 15px 18px; background: #f3ecdf; border: 1px solid var(--line-deep); border-radius: 6px;
+    max-height: 252px; overflow: auto;
+  }
+  .article .ccard pre{ margin: 0; font: 500 .82rem/1.6 var(--mono); color: #3a322a; white-space: pre; }
+  .article .ccard .cmt{ color: #9a8866; }
+
+  /* ============ QUOTE = Stufe 4: Linie oberhalb + unterhalb ============ */
+  .article .quote{
+    border-left: 0; margin: 44px auto; max-width: 32ch;
+    text-align: center; font-family: 'Spectral', Georgia, serif;
+    font-style: italic; font-weight: 500; font-size: 1.34rem; line-height: 1.36; color: #241c12;
+    border-top: 1.5px solid #2c2620; border-bottom: 1.5px solid #2c2620; padding: 16px 0;
+  }
+
+  /* ============ EVIDENCE — nur das Bild ist zart hinterlegt (Passepartout im Papierton) ============ */
+  .article .evidence{
+    margin: 36px 0; padding: 0; background: none; border: 0; box-shadow: none; transform: none;
+  }
+  .article .evidence:nth-of-type(even){ transform: none; }
+  .article .evidence .stub-tag{
+    display: inline-block; font: 700 .64rem/1 'IBM Plex Sans', system-ui, sans-serif; letter-spacing: .1em;
+    text-transform: uppercase; color: #fffaf0; background: var(--mk-soft);
+    padding: 6px 11px; border-radius: 2px; margin: 0 0 12px;
+  }
+  .article .evidence img{
+    width: 100%; height: auto; display: block; background: var(--paper-deep);
+    border: 1px solid var(--line); border-radius: 2px; padding: 16px; box-shadow: none;
+  }
+  .article .evidence .cap{ color: var(--muted); padding: 12px 2px 0; font-family: 'Spectral', Georgia, serif; font-style: italic; }
+
+  /* ============ CLIFF entschärft (kein dunkler Kasten, klein) ============ */
+  .article .cliff{
+    margin-top: 52px; padding: 22px 0 0; background: none; color: inherit;
+    border: 0; border-top: 1px solid var(--line); border-radius: 0; box-shadow: none;
+  }
+  .article .cliff .k{ color: var(--mk-soft); font: 700 .72rem/1 'IBM Plex Sans', system-ui, sans-serif; letter-spacing: .14em; text-transform: uppercase; }
+  .article .cliff .next-meta{
+    font: 600 .8rem/1.2 'IBM Plex Sans', system-ui, sans-serif; letter-spacing: .02em;
+    color: var(--muted); margin: 11px 0 0;
+  }
+  .article .cliff h2{
+    font-family: 'Spectral', Georgia, serif; font-style: normal; font-weight: 600;
+    font-size: 1.18rem; line-height: 1.3; color: #241c12; margin: 5px 0 0;
+  }
+
+  /* ============ TOC ruhiger: schlichte Nummern 01–09, keine A/B-Codes ============ */
+  .rail{ border-left: 1px solid var(--line-deep); }
+  .rail a{ display: flex; gap: 12px; align-items: baseline; }
+  .rail-nr{
+    width: auto; color: var(--muted); font-weight: 600; font-feature-settings: "tnum";
+    letter-spacing: .04em;
+  }
+  .rail a:hover .rail-nr{ color: var(--mk); }
+  .rail .grp{
+    display: block; padding: 14px 0 6px; margin-top: 6px;
+    font: 700 .66rem/1 var(--mono); letter-spacing: .16em; text-transform: uppercase;
+    color: var(--mk-soft); border-bottom: 0;
+  }
+  .rail .grp:first-child{ margin-top: 0; padding-top: 0; }
+
+  /* ============ READER v2 — Buch-Doppelseite mit Seitenumblaettern ============ */
+  body.mode-reader{ overflow: hidden; }
+  body.mode-reader .hero,
+  body.mode-reader .section-title,
+  body.mode-reader .werkstatt-statement,
+  body.mode-reader .colophon,
+  body.mode-reader .reader{ display: none; }
+  body.mode-reader .main{ padding: 0; max-width: none; }
+
+  /* Header faehrt weg, erscheint nur auf Tipp in die Kopfzone (instant: Transitions frieren hier ein) */
+  body.mode-reader .topbar{ transform: translateY(-100%); }
+  body.mode-reader .topbar.show{ transform: translateY(0); }
+
+  .bookstage{ display: none; }
+  body.mode-reader .bookstage{
+    display: block; position: fixed; inset: 0; z-index: 40;
+    background: radial-gradient(130% 100% at 50% -12%, #efe7d7 0%, #e4d9c5 55%, #d5c7af 100%);
+    overflow: hidden; touch-action: pan-y; user-select: none; -webkit-user-select: none;
+  }
+  .book{
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+    display: flex; perspective: 2600px; border-radius: 5px;
+    box-shadow: 0 36px 66px rgba(46,32,16,.34), 0 6px 16px rgba(46,32,16,.20);
+  }
+  .page-slot{ position: relative; flex: none; background: #fffdf7; overflow: hidden; }
+  .page-slot.left{ border-radius: 5px 0 0 5px; box-shadow: inset -26px 0 40px -26px rgba(60,42,18,.34); }
+  .page-slot.right{ border-radius: 0 5px 5px 0; box-shadow: inset 26px 0 40px -26px rgba(60,42,18,.34); }
+
+  .page{ position: absolute; inset: 0; padding: 46px 46px 50px; box-sizing: border-box; overflow: hidden; }
+  .pageno{ position: absolute; bottom: 16px; font: 600 .72rem/1 var(--mono); color: #a8997f; letter-spacing: .08em; }
+  .page-slot.left .pageno{ left: 46px; }
+  .page-slot.right .pageno{ right: 46px; }
+
+  /* Inhalt auf der Buchseite: kleiner als in der Scroll-Version */
+  .page .article{ background: transparent; border: 0; box-shadow: none; padding: 0; margin: 0; max-width: none; height: auto; }
+  .page .article > *:first-child{ margin-top: 0 !important; }
+  .page .article > p{ font-size: .8rem; line-height: 1.56; margin: .55em 0; }
+  .page .article .kapitel-head{ margin-top: 0; margin-bottom: 6px; }
+  .page .article .kapitel-head h2{ font-size: .98rem; }
+  .page .article p.kernsatz, .page .article .quote, .page .article .statement p{ font-size: .92rem; }
+  .page .article .quote, .page .article .statement{ margin: 18px auto; }
+  .page .article .statement p{ padding: 11px 0; }
+  /* Cards kompakt: weniger Padding, kleinere Schrift, engere Abstaende */
+  .page .article .conv{ margin: 12px 0; }
+  .page .article .conv .lbl{ font-size: .64rem; margin-bottom: 5px; }
+  .page .article .composer{ padding: 11px 12px 8px; border-radius: 18px; }
+  .page .article .composer .ptext{ font-size: .76rem; line-height: 1.45; padding: 0 3px 8px; min-height: 0; }
+  .page .article .composer .toolbar{ gap: 6px; }
+  .page .article .ibtn{ width: 27px; height: 27px; }
+  .page .article .ibtn .icn{ width: 14px; height: 14px; }
+  .page .article .rcard{ padding: 12px 14px; border-radius: 12px; }
+  .page .article .rcard p{ font-size: .76rem; line-height: 1.5; }
+  .page .article .copybtn{ width: 24px; height: 24px; top: 9px; right: 9px; }
+  .page .article .copybtn svg{ width: 13px; height: 13px; }
+  .page .article .ocard{ padding: 10px 40px 10px 13px; }
+  .page .article .ocard p, .page .article .ccard pre{ font-size: .68rem; line-height: 1.5; }
+  .page .article .ccard{ padding: 11px 13px; max-height: 150px; }
+  .page .article .evidence .stub-tag{ font-size: .56rem; padding: 5px 9px; margin-bottom: 9px; }
+  .page .article .evidence img{ max-height: 22vh; width: auto; max-width: 100%; padding: 11px; }
+  .page .article .evidence .cap{ font-size: .72rem; padding-top: 9px; }
+  .page .article .cliff{ margin-top: 22px; padding-top: 16px; }
+  .page .article .cliff h2{ font-size: 1rem; }
+
+  /* Umblaetter-Leaf (3D) */
+  .flipper{ position: absolute; top: 0; height: 100%; z-index: 6; transform-style: preserve-3d; display: none; will-change: transform; }
+  .flip-face{ position: absolute; inset: 0; background: #fffdf7; overflow: hidden; backface-visibility: hidden; -webkit-backface-visibility: hidden; box-shadow: 0 0 30px rgba(60,42,18,.14); }
+  .flip-face.back{ transform: rotateY(180deg); }
+  .flip-shadow{ position: absolute; inset: 0; pointer-events: none; opacity: 0; background: linear-gradient(90deg, rgba(40,26,10,.24), rgba(40,26,10,0) 58%); }
+
+  /* Navigator (1/5) — versteckt, erscheint auf Tipp in die Mitte unten */
+  .pager-ui{
+    position: fixed; left: 50%; transform: translateX(-50%); bottom: 20px; z-index: 60;
+    display: none; align-items: center; gap: 14px; padding: 8px 14px; border-radius: 999px;
+    background: rgba(26,18,10,.84); backdrop-filter: blur(8px);
+    border: 1px solid rgba(214,200,180,.22);
+    opacity: 0; pointer-events: none;
+  }
+  body.mode-reader .pager-ui{ display: flex; }
+  .pager-ui.show{ opacity: 1; pointer-events: auto; }
+  .pager-ui button{
+    font: 700 1rem/1 var(--mono); width: 30px; height: 30px; padding: 0; border-radius: 50%;
+    cursor: pointer; border: 1px solid rgba(214,200,180,.32); background: transparent; color: #fff3df;
+  }
+  .pager-ui button:hover{ background: var(--mk); border-color: var(--mk); }
+  #pg-first{ font-size: .85rem !important; opacity: .65; }
+  #pg-first:hover{ opacity: 1 !important; }
+  #pg-first.at-start{ opacity: .25 !important; pointer-events: none; }
+
+  /* Zurück-nach-oben (Scroll-Modus) */
+  #back-to-top{
+    display: none; position: fixed; bottom: 24px; right: 24px; z-index: 50;
+    width: 36px; height: 36px; align-items: center; justify-content: center;
+    background: rgba(26,18,10,.82); color: #ffd9a8;
+    border: 1px solid rgba(214,200,180,.3); border-radius: 50%;
+    cursor: pointer; font-size: 1.1rem; backdrop-filter: blur(8px);
+    opacity: 0; transition: opacity .25s; pointer-events: none;
+  }
+  body.mode-scroll #back-to-top{ display: flex; }
+  #back-to-top.visible{ opacity: 1; pointer-events: auto; }
+  .pager-ui .pg{ font: 600 .74rem/1 var(--mono); letter-spacing: .1em; color: #efe2cd; min-width: 56px; text-align: center; }
+
+  /* ============ Final-Polish ============ */
+  /* Vollflaechiges Papier statt einer grossen Karte */
+  body.mode-scroll{ background: #fbf5ea; }
+  body.mode-scroll .article{ background: transparent; border: 0; box-shadow: none; border-radius: 0; padding: 40px 0 16px; }
+
+  /* Hero-Titel: Kompositum nicht am Bindestrich zerreissen, immer eine Zeile */
+  .hero h1{ hyphens: none; -webkit-hyphens: none; white-space: nowrap; max-width: none; font-size: clamp(1.9rem, 6vw, 5rem); }
+
+  /* Doppelte „Field Note“ aufloesen: Header-Brand erst nach dem Hero zeigen */
+  body.mode-scroll .topbar.at-top .brand{ opacity: 0; pointer-events: none; }
+
+  /* Code-Laufleiste in Braun statt System-Grau */
+  .ccard{ scrollbar-width: thin; scrollbar-color: #bd9a6f #efe3cf; }
+  .ccard::-webkit-scrollbar{ width: 9px; height: 9px; }
+  .ccard::-webkit-scrollbar-track{ background: #efe3cf; border-radius: 8px; }
+  .ccard::-webkit-scrollbar-thumb{ background: #bd9a6f; border-radius: 8px; border: 2px solid #efe3cf; }
+  .ccard::-webkit-scrollbar-thumb:hover{ background: #a07c50; }
+
+  /* ============ Mobile-Feinschliff Header ============ */
+  @media (max-width: 680px){
+    .topbar{ padding: 9px 14px; gap: 10px; }
+    .topbar-left{ gap: 10px; }
+    .notenav button,.notenav a{ width: 28px; height: 28px; }
+    .notenav button svg,.notenav a svg{ width: 15px; height: 15px; }
+    .topbar .brand-series{ font-size: .82rem; }
+    .topbar .brand-nr{ font-size: .7rem; }
+    .topbar-controls{ gap: 6px; }
+    .langs .lang .flag{ height: 13px; }
+    .views .view{ padding: 5px 10px; font-size: .76rem; }
+  }
+
+  .article p.kernsatz{
+    max-width: 34ch; margin: 40px auto; text-align: center;
+  }
+  .article .cliff{
+    margin-top: 46px; padding-top: 18px;
+  }
+  .article .cliff .k{
+    color: var(--muted); font-size: .64rem; letter-spacing: .09em;
+  }
+  .article .cliff .next-meta{
+    color: var(--muted); font-size: .72rem; font-weight: 500;
+  }
+  .article .cliff h2{
+    color: #4d453c; font-size: 1rem; font-weight: 500; line-height: 1.4;
+  }
+  .page .article .kapitel-head{
+    margin-top: 1.4rem; margin-bottom: .65rem;
+  }
+  .page .article .ocard p{
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+    font-size: .64rem; line-height: 1.48; font-weight: 500;
+  }
+
+  /* Abb.-Label: nach unten, gleicher Stil wie .cap, gleiche Zeile */
+  .article .evidence{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas: "img img" "stub cap";
+    gap: 0 6px;
+  }
+  .article .evidence img{ grid-area: img; width: 100%; }
+  .article .evidence .stub-tag{
+    grid-area: stub;
+    align-self: baseline;
+    background: none !important;
+    color: var(--muted) !important;
+    font: italic 500 .78rem/1.5 'Spectral', Georgia, serif !important;
+    letter-spacing: normal !important;
+    text-transform: none !important;
+    border-radius: 0 !important;
+    padding: 6px 0 0 !important;
+    margin: 0 !important;
+    display: block !important;
+  }
+  .article .evidence .cap{
+    grid-area: cap;
+    align-self: baseline;
+  }
+  .page .article .evidence .stub-tag{
+    font-size: .72rem !important; padding: 4px 0 0 !important;
+  }
+
+  /* Reader-Modus auf Mobile deaktivieren (≤ 680px) */
+  @media (max-width: 680px) {
+    #view-reader-btn { display: none !important; }
+  }
+  /* Reader-Modus auf Tablet-Portrait deaktivieren */
+  @media (max-width: 1024px) and (orientation: portrait) {
+    #view-reader-btn { display: none !important; }
+  }
+
+  /* Mobile: Hero auf Textspaltenbreite einschränken, 3:2 Seitenverhältnis (1536×1024) */
+  @media (max-width: 680px){
+    .hero{
+      margin: 16px 20px 0;
+      min-height: unset;
+      aspect-ratio: 3 / 2;
+      padding: 20px 20px 22px;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .hero h1{
+      font-size: clamp(1.8rem, 9vw, 3rem);
+      margin: 10px 0 14px;
+    }
+    .hero .lead{
+      font-size: 1rem;
+    }
+  }
+
+  .article p.kernsatz{
+    max-width: 34ch; margin: 40px auto; text-align: center;
+  }
+  .article .cliff{
+    margin-top: 46px; padding-top: 18px;
+  }
+  .article .cliff .k{
+    color: var(--muted); font-size: .64rem; letter-spacing: .09em;
+  }
+  .article .cliff .next-meta{
+    color: var(--muted); font-size: .72rem; font-weight: 500;
+  }
+  .article .cliff h2{
+    color: #4d453c; font-size: 1rem; font-weight: 500; line-height: 1.4;
+  }
+  .page .article .kapitel-head{
+    margin-top: 1.4rem; margin-bottom: .65rem;
+  }
+  .page .article .ocard p{
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+    font-size: .64rem; line-height: 1.48; font-weight: 500;
+  }
+  .article .evidence{
+    max-width: min(100%, 680px);
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .article .evidence img{
+    width: auto;
+    max-width: 100%;
+    max-height: 70vh;
+    margin: 0 auto;
+  }
+  .article .evidence.scale-ok img{
+    width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+  }
+  .article .evidence.no-scale img{
+    width: auto !important;
+    max-width: 100%;
+  }
+  .article mark.hl2{
+    background: transparent !important;
+    color: var(--ochre,#9A6A1F) !important;
+    font-weight: 600;
+    padding: 0;
+  }
+  .article p{
+    line-height:1.46 !important;
+    margin-top:.72rem !important;
+    margin-bottom:.92rem !important;
+  }
+  /* Legacy .hl1/strong.hl1-Bold-Balken-Regel entfernt 260706 (ITEM_260706_001):
+     traf nie genuines modernes HL1 (rendert als <em>, C_HERVORHEBUNG SS3.1),
+     nur die Legacy-Alias-Route HL1-AKZENT -> cls="hl1". Scan über alle 5 aktiven
+     Notes (SENTINEL_QUALITY-Check 260706) fand 0 Runs mit HL1-AKZENT o.ae.
+     Legacy-Styles in Gebrauch -> Regel war reiner Totcode, der zusaetzlich per
+     Mapping-Bug faelschlich echtes HL2 traf (siehe ITEM_260706_001). */
+  .article p,
+  .article .kernsatz,
+  .article .cliff h2{
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: auto;
+  }
+  .article .kernsatz,
+  .article .cliff h2{
+    text-wrap: balance;
+  }
+
+</style>
+</head>
+<body class="mode-scroll">
+
+<header class="topbar">
+  <div class="topbar-left">
+    <nav class="notenav" aria-label="Field-Note-Navigation">
+      <button type="button" title="Vorherige Field Note" aria-label="Vorherige Field Note"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <a href="../../../" title="Storyline" aria-label="Storyline"><svg viewBox="0 0 24 24"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z" stroke-linejoin="round"/></svg></a>
+      <button type="button" title="Nächste Field Note" aria-label="Nächste Field Note"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </nav>
+    <div class="brand">
+      <span class="brand-series">Field Notes — AI &amp; Education</span>
+      <span class="brand-nr">Curiosity · No. 01 · 20 July 2025</span>
+    </div>
+  </div>
+  <div class="topbar-controls">
+    <div class="langs" role="group" aria-label="Sprache">
+      <a class="lang" href="../" title="Deutsch" aria-label="Deutsch">
+        <svg class="flag" viewBox="0 0 5 3" aria-hidden="true"><rect width="5" height="3" fill="#000"/><rect width="5" height="2" y="1" fill="#DD0000"/><rect width="5" height="1" y="2" fill="#FFCE00"/></svg>
+      </a>
+      <button class="lang is-active" type="button" title="English" aria-label="English">
+        <svg class="flag" viewBox="0 0 60 30" aria-hidden="true"><rect width="60" height="30" fill="#012169"/><path d="M0,0 60,30 M60,0 0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 60,30 M60,0 0,30" stroke="#C8102E" stroke-width="4"/><path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/><path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6"/></svg>
+      </button>
+      <button class="lang" type="button" title="Español" aria-label="Español" disabled>
+        <svg class="flag" viewBox="0 0 6 4" aria-hidden="true"><rect width="6" height="4" fill="#AA151B"/><rect y="1" width="6" height="2" fill="#F1BF00"/></svg>
+      </button>
+      <button class="lang" type="button" title="Français" aria-label="Français" disabled>
+        <svg class="flag" viewBox="0 0 3 2" aria-hidden="true"><rect width="3" height="2" fill="#fff"/><rect width="1" height="2" fill="#0055A4"/><rect x="2" width="1" height="2" fill="#EF4135"/></svg>
+      </button>
+    </div>
+    <button id="view-scroll-btn" class="view is-active" type="button" hidden aria-hidden="true">Scroll</button>
+    <button id="view-reader-btn" class="view" type="button" hidden aria-hidden="true">Reader</button>
+    <button id="back-top-btn" type="button" aria-label="Back to top" title="Back to top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  </div>
+</header>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow">Field Note No. 01 · 20 July 2025</div>
+      <h1>Curiosity</h1>
+      <p class="lead">How a planning question to GPT turns into a didactic dessert buffet —<br>and in the end new ideas mark a beginning.</p>
+    </div>
+  </div>
+</header>
+
+<main class="main">
+  <div class="reader">
+    <article class="article">
+<div class="kapitel-head" id="k-en-01">
+  <div class="kapitel-nr">01</div>
+  <h2>Why not with GPT?</h2>
+</div>
+  <p id="p-en-001">It is 20 July 2025, and school starts in four weeks. One question is on my mind:<br>Why not prepare teaching with GPT for once?<br>I limit myself to <em>one topic</em> from maths.<br>So I boot up the laptop, open ChatGPT and type the first sentence:</p>
+  <p id="p-en-002">I&#x27;ll give you tables with learning content and learning objectives in a moment.</p>
+  <p id="p-en-003">And its greeting: positive, encouraging, patient.<br>ChatGPT<br>Got it! Just send me the tables whenever you&#x27;re ready. And feel free to tell me exactly what you&#x27;d like to do with them – e.g. summarise, rephrase, visualise, convert into a specific format (e.g. PDF, Excel, study plan, etc.) or something else.</p>
+  <p id="p-en-004">That was it: our first encounter.</p>
+<div class="kapitel-head" id="k-en-02">
+  <div class="kapitel-nr">02</div>
+  <h2>What is this about?</h2>
+</div>
+  <p id="p-en-005">It&#x27;s about maths. &quot;Congruence transformations&quot; — line symmetry, rotational symmetry, reflection, point reflection. I have about 15-20 teenagers, 12 to 13 years old, Level B, and five weeks in the year plan.</p>
+  <p id="p-en-006">I want to use ChatGPT to help me with one part of my lesson planning.<br>For a better overview, and to place it in context, I picture the planning rhythm from the year, through the month, down to the day. Nothing special, and certainly no showcase model, but for me and for the sake of clarity it does the job.</p>
+  <figure id="abb-en-01" class="evidence scale-ok">
+    <span class="stub-tag">Fig. 1</span>
+    <img src="../P2_LAYOUTER/assets/01_02_abb_planungsrhythmus.png" alt="Three-level planning rhythm as a visual concept" loading="lazy">
+    <figcaption class="cap">Three-level planning rhythm as a visual concept</figcaption>
+  </figure>
+  <p id="p-en-007">Typical top-down planning. Linear. Or, here, from left to right.<br>Multi-year planning determines year planning determines chapter planning determines lesson planning.</p>
+  <p id="p-en-008">I don&#x27;t want to use GPT to build a year plan, and I don&#x27;t want to generate individual teaching materials either. The middle part of the whole planning process is the reason I fire up GPT; the thematic-didactic structure of an entire chapter; that is <em>my testing ground</em>.</p>
+  <p id="p-en-009">Why? The last time I taught it, three years ago, I learned that I couldn&#x27;t use the textbook in a differentiated enough way. The heterogeneity in the class was too great.<br>I think of one student from that cohort. For three weeks he struggled with the different reflections — I couldn&#x27;t really help him — while another student, by contrast, was done after a week and bored. This time I want to serve that range better. Not with new worksheets, not with more worksheets, but by putting the whole chapter of the textbook to the test and rebuilding it structurally and didactically.<br>Could I bring in the volume one level down from the same textbook series and marry the two so that together they form a new, shared structure? Is that possible?<br>I imagine I want to rent a flat. And to be safe I arrange a key for the flat one floor below; just in case.<br>GPT is supposed to consolidate two textbook parts with different structures and different ways of phrasing learning objectives.<br>Concretely: textbook A has five chapters on reflection, point reflection, translation, rotation, symmetries. Textbook B arranges the same content differently: reflection only at the end, and symmetries as the entry point. I want GPT to help me build ONE sequence out of these two that fits my class — and not just adopt the order of A or B.</p>
+  <figure id="abb-en-02" class="evidence scale-ok">
+    <span class="stub-tag">Fig. 2</span>
+    <img src="../P2_LAYOUTER/assets/01_03_abb_lehrmittel_vereinigung.png" alt="Process diagram of textbook synthesis" loading="lazy">
+    <figcaption class="cap">Process diagram of textbook synthesis</figcaption>
+  </figure>
+  <p id="p-en-010">That&#x27;s the goal. That&#x27;s why I started GPT, and this is the output I want:<br>What are the focal points in textbook A, what are they in textbook B? Which focal points are weighted how? Which do I carry over into the new version, which do I drop, which need to be added? GPT should draft me a proposal for this. Filter out differently worded objectives that point to the same goal, and lay them out according to Bloom&#x27;s taxonomy.</p>
+<div class="kapitel-head" id="k-en-03">
+  <div class="kapitel-nr">03</div>
+  <h2>And so I just upload everything for now</h2>
+</div>
+  <p id="p-en-011">I take stock of what I have in my planning: learning content from the manual, page numbers, exercise numbers, objectives. Everything for Level B, basic requirements, is there. I search and supplement with materials from Level C and D and copy them into the plan.<br>Then comes the upload:</p>
+  <p id="p-en-012">I&#x27;ll give you tables with learning content and learning objectives in a moment.</p>
+  <p id="p-en-013">I simply expect GPT to build me a thematic learning-objective structure on its own.</p>
+  <p id="p-en-014">It takes everything in and produces tabular lists of the exercises. It&#x27;s craft work. Copy/paste. Nothing exciting. I upload the information from my plan chapter by chapter and assume GPT already knows what I want. I check roughly for accuracy – that&#x27;s the price of moving along briskly. In one textbook part it mixes up numbers and turns exercise numbers into page references. Okay, I can fix that later.</p>
+  <figure id="abb-en-03" class="evidence scale-ok">
+    <span class="stub-tag">Fig. 3</span>
+    <img src="../P2_LAYOUTER/assets/01_06_abb_aufgabenuebersicht.png" alt="Exercise table for line symmetry with 2 differentiation levels" loading="lazy">
+    <figcaption class="cap">Exercise table for line symmetry with 2 differentiation levels</figcaption>
+  </figure>
+  <p id="p-en-015">After each upload I get suggestions for additions or further possible next steps. At the start I still pause briefly: do I want a tabular PDF of it? A study plan or an overview to print out? Would content for a digital format, or a didactic reduction for different learning levels, be something for me?<br>WOW — I say no and carry on uploading the documents step by step.</p>
+  <p id="p-en-016">After eight turns it gives me an overview of the uploaded documents:</p>
+  <figure id="abb-en-04" class="evidence scale-ok">
+    <span class="stub-tag">Fig. 4</span>
+    <img src="../P2_LAYOUTER/assets/01_07_abb_gesamtueberblick.png" alt="Hierarchical sub-chapters" loading="lazy">
+    <figcaption class="cap">Hierarchical sub-chapters</figcaption>
+  </figure>
+  <p id="p-en-017">and points out the missing parts to me. GPT &quot;knows&quot; what&#x27;s still missing. I think that&#x27;s great.</p>
+  <figure id="abb-en-05" class="evidence scale-ok">
+    <span class="stub-tag">Fig. 5</span>
+    <img src="../P2_LAYOUTER/assets/01_07a_abb_luecken_warnung.png" alt="Objective-gap warning" loading="lazy">
+    <figcaption class="cap">Objective-gap warning</figcaption>
+  </figure>
+  <p id="p-en-018">In the past I spent a lot of time combing through textbooks for content, exercises and objectives, and copying out the relevant information. Once digitised, I used it in work plans, worksheets and assessments I made myself.</p>
+  <p id="p-en-019">And every textbook is different. It &quot;thinks&quot; differently. Has a different structure, a different numbering, terminology and layout. Adjusting it manually lets me keep consistent terminology and objective wording all the way from planning to the answer key of the assessment. Laborious, but one fewer distracting element that can confuse a student. I&#x27;ve tried several times to marry different textbooks. Thematically that&#x27;s one thing; structurally, in terms of objectives, I failed at it pretty reliably. With GPT I want to crack this challenge.</p>
+  <p id="p-en-020">After 11 turns an overall overview of all four parts of both textbook parts emerges as a thin, incomplete matrix. But a summary at least.<br>While typing, one thing strikes me: I&#x27;m no longer thinking, I&#x27;m only collecting, and GPT delivers <em>free to my door</em>. We&#x27;re building a stockroom of material I still have no plan for.</p>
+  <figure id="abb-en-06" class="evidence scale-ok">
+    <span class="stub-tag">Fig. 6</span>
+    <img src="../P2_LAYOUTER/assets/01_08_abb_inhalte_lernziele.png" alt="Sub-chapter mapping: content vs. objectives" loading="lazy">
+    <figcaption class="cap">Sub-chapter mapping: content vs. objectives</figcaption>
+  </figure>
+  <p id="p-en-021">Another idea occurs to me:<br>Why not build yet another textbook into the comparison?<br>Because so far everything seems fairly easy for GPT.</p>
+  <p id="p-en-022">Thanks to the groundwork, this is done in one turn. GPT creates a new overview list of the pages, divides them into thematic blocks, compares these with the existing topics and maps them.</p>
+  <figure id="abb-en-07" class="evidence scale-ok">
+    <span class="stub-tag">Fig. 7</span>
+    <img src="../P2_LAYOUTER/assets/01_10c_abb_lehrmittel_gegenueberstellung_vergleichsmatrix.png" alt="Comparison of topic areas across two textbooks" loading="lazy">
+    <figcaption class="cap">Comparison of topic areas across two textbooks</figcaption>
+  </figure>
+  <p id="p-en-023">GPT doesn&#x27;t just hand me another thematic comparison; it also throws in a short analysis. &quot;What more could you want?&quot;, I think.</p>
+  <div id="card-en-024" class="conv gpt">
+    <div class="rcard"><p><strong>AI output · abridged:</strong><br>Short analysis:<br>• Both textbooks cover line symmetry, rotational symmetry, reflection and point reflection – with similar emphases; B just adds computer work.<br>• Textbook B additionally includes translations and historical patterns (Alhambra), which don&#x27;t appear explicitly in textbook A.<br>• Both have tests (entry, exit) to check competence.</p></div>
+  </div>
+<div class="kapitel-head" id="k-en-04">
+  <div class="kapitel-nr">04</div>
+  <h2>What do my students need?</h2>
+</div>
+  <p id="p-en-025">My next prompt begins with</p>
+  <p id="p-en-026">&quot;From this we&#x27;ll build a new textbook…&quot;</p>
+  <p id="p-en-027">Why do I write that? Because I really do think it. Enthusiasm meets realism. Of course I mean a restructuring of the chapter. But GPT forgives such imprecision. By uploading the materials I have everything in front of me after a few rounds: a &quot;mise-en-place&quot; of the textbooks. And now comes the real question: my students are 13 years old, and I have 18 lessons. What do we leave out? What&#x27;s the structure? In the end I&#x27;m the one who has to decide, but first I want to see GPT&#x27;s proposal.</p>
+  <p id="p-en-028">Now it gets interesting: no longer just collecting and laying things out — I let the AI select and propose. What do my students really need? GPT can&#x27;t actually know that, but I try anyway. Four core topics from the textbook crystallise out: line symmetry, reflection, point reflection, rotational symmetry. In this order: recognise, then reflect, then construct. I think: &quot;okay, <em>ambitious</em>, but go for it. ENTER&quot;</p>
+  <p id="p-en-029">GPT doesn&#x27;t just produce one possible sequence for me,….</p>
+  <figure id="abb-en-08" class="evidence scale-ok">
+    <span class="stub-tag">Fig. 8</span>
+    <img src="../P2_LAYOUTER/assets/01_11_abb_empfohlener_ablauf.png" alt="Lesson-to-topic mapping for 18 lessons" loading="lazy">
+    <figcaption class="cap">Lesson-to-topic mapping for 18 lessons</figcaption>
+  </figure>
+  <p id="p-en-030">…it also goes ahead and suggests what the basic and extended requirements might be.</p>
+  <figure id="abb-en-09" class="evidence scale-ok">
+    <span class="stub-tag">Fig. 9</span>
+    <img src="../P2_LAYOUTER/assets/01_12a_abb_anforderungen_kombiniert.png" alt="Differentiation table for stronger students" loading="lazy">
+    <figcaption class="cap">Differentiation table for stronger students</figcaption>
+  </figure>
+  <p id="p-en-031">I sit in front of the PC and my biggest problem right now isn&#x27;t &quot;What do I do?&quot; but &quot;What do I not do?&quot;. Saying NO, leaving out, cutting. The hardest thing in life, full stop. GPT gives me a proposal for it and adds examples right away. What&#x27;s still missing are the reasons. Is what&#x27;s been cut the right thing to cut? That stays my decision, but now I have a basis.</p>
+  <p id="p-en-032">It&#x27;s eighteen lessons and four topics for the basic requirements. Everything else – translations, Alhambra, computer work – becomes optional extension space. Tangram complexity? Out. Detailed determination of angles of rotation? Out. I stare at the list, which keeps getting shorter.<br>After a few rounds I have my planning decision: not &quot;What&#x27;s in the book?&quot; but &quot;What might work for my students?&quot; That may sound trivial. To me it isn&#x27;t.</p>
+  <div id="card-en-033" class="conv gpt">
+    <div class="rcard"><p><strong>AI output · abridged:</strong><br>What can you leave out or heavily reduce?<br>• Tangram and geoboard complexity (for basic requirements, maybe only in very simplified form, or leave out).<br>• Detailed determination of smallest angles of rotation, or exact construction methods (e.g. only touch briefly on angle bisectors and perpendicular bisectors as basic constructions).<br>• Complex polygons and complex supplementary exercises.</p></div>
+  </div>
+  <div id="card-en-034" class="conv gpt">
+    <div class="rcard"><p><strong>AI output · abridged:</strong><br>Didactic tips<br>• Use lots of visual and hands-on exercises (e.g. reflecting by folding paper, simple drawings).<br>• Use simple language and clear step-by-step instructions.<br>• Repeat the key terms (axis of symmetry, centre of reflection, centre of rotation) regularly.<br>• Encourage independent discovery through worked examples and short partner exercises.</p></div>
+  </div>
+  <p id="p-en-035">THE CHAT IS OVER. Over, really. Because:<br>I have the thematic comparison and can take it back into my &quot;analogue planning&quot;, where I came from.</p>
+  <p id="p-en-036">By chance another idea comes to me: in one of the textbooks each chapter has entry tests and exit tests. I upload their objectives into GPT without editing them further. It&#x27;s an upload held in reserve. I watch it &quot;swallow&quot; the upload and build its comment letter by letter — line by line.</p>
+<div class="kapitel-head" id="k-en-05">
+  <div class="kapitel-nr">05</div>
+  <h2>I start helping myself</h2>
+</div>
+  <p id="p-en-037">I read the bottom sentence:</p>
+  <div id="card-en-038" class="conv gpt">
+    <div class="rcard"><p><strong>ChatGPT:</strong><br>If you like, I can also create differentiated entry tasks or checklists for you, with which you can probe prior knowledge in a targeted way. Would that be helpful?</p></div>
+  </div>
+  <p id="p-en-039">Is it malice on its part? An attempt to distract? A trap?</p>
+  <p id="p-en-040">I should go back to the world without AI. - But no: I slip into a phase where I accept every offer of material from GPT. <em>Off we go!</em> It&#x27;s a rush to help yourself at the dessert buffet of generative artificial intelligence.<br>It offers a checklist - I grab it without thinking!</p>
+  <p id="p-en-041">Need a checklist? GPT offers one and creates it.</p>
+  <figure id="abb-en-10" class="evidence scale-ok">
+    <span class="stub-tag">Fig. 10</span>
+    <img src="../P2_LAYOUTER/assets/01_18_abb_checklisten.png" alt="4 stacked prior-knowledge checklists as self-check cards" loading="lazy">
+    <figcaption class="cap">4 stacked prior-knowledge checklists as self-check cards</figcaption>
+  </figure>
+  <p id="p-en-042">The checklist doesn&#x27;t suit me. I&#x27;d like one with tick boxes. I follow up, and it gets improved.</p>
+  <p id="p-en-043">Practical exercises to go with it? But of course! And so on and so forth — and just like that I&#x27;m in an iterative loop.</p>
+  <p id="p-en-044">As a teacher you&#x27;re also always a gatherer and hunter; a magpie that grabs everything sparkling and glittering at once and carries it back to the nest that is the classroom. GPT is an incredibly good producer of sparkling pearls, in quantities you can barely take in. It lays them out one after another, so that you&#x27;re led onto a trail and can lose your bearings.<br>Whether they&#x27;re only glass beads I&#x27;ll have to test later, in my workshop.</p>
+  <p id="p-en-045">It&#x27;s these decisions at crossroads that change everything.</p>
+  <p id="p-en-046">And there&#x27;s no &#x27;back&#x27; button. Only FORWARD.</p>
+<div class="kapitel-head" id="k-en-06">
+  <div class="kapitel-nr">06</div>
+  <h2>From Bloom to something else</h2>
+</div>
+  <p id="p-en-047">I realise I&#x27;ve got lost and come back to the entry and exit tests. I want to review and adjust the objectives.<br>For the cognitive process dimensions I&#x27;ve long used the taxonomy of Bloom and/or Krathwohl. So when working with GPT it&#x27;s clear, too, that I bring this taxonomy in.<br>It&#x27;s an <em>ancient table</em> I once made for myself, which I use in lesson planning and now upload.</p>
+  <figure id="abb-en-11" class="evidence scale-ok">
+    <span class="stub-tag">Fig. 11</span>
+    <img src="../P2_LAYOUTER/assets/01_21_abb_bloom_taxonomie.png" alt="6-level Bloom&#x27;s taxonomy with example verbs — reference matrix" loading="lazy">
+    <figcaption class="cap">6-level Bloom&#x27;s taxonomy with example verbs — reference matrix</figcaption>
+  </figure>
+  <p id="p-en-048">In the newly created version I have four chapters, and per chapter I want five graduated objectives according to Bloom:</p>
+  <figure id="abb-en-12" class="evidence scale-ok">
+    <span class="stub-tag">Fig. 12</span>
+    <img src="../P2_LAYOUTER/assets/01_22_abb_bloom_lernziele.png" alt="Mapping of chapter objectives vs. Bloom level (concrete application)" loading="lazy">
+    <figcaption class="cap">Mapping of chapter objectives vs. Bloom level (concrete application)</figcaption>
+  </figure>
+  <p id="p-en-049">And next I ask for extended forms of assessment. In a three-column table GPT gives me an overview of 12 forms.</p>
+  <figure id="abb-en-13" class="evidence scale-ok">
+    <span class="stub-tag">Fig. 13</span>
+    <img src="../P2_LAYOUTER/assets/01_28_abb_beurteilungsformen_erweitert.png" alt="4 alternative assessment forms with concrete examples" loading="lazy">
+    <figcaption class="cap">4 alternative assessment forms with concrete examples</figcaption>
+  </figure>
+  <p id="p-en-050">I don&#x27;t go any deeper into the topic, because I realise I&#x27;ve sunk into the deep lake of assessment and need to get back to the surface fast. Still, I now find myself poking around at various assessment processes, and one last question comes to mind.</p>
+<div class="kapitel-head" id="k-en-07">
+  <div class="kapitel-nr">07</div>
+  <h2>An old idea comes to visit</h2>
+</div>
+  <p id="p-en-051">Without thinking much about it, I write the next prompt.</p>
+  <p id="p-en-052">I want to run a diagnostic test at the start of the unit, then let the teenagers work individually (either on the missing prior knowledge or on the basic requirements) and check their competence level regularly. Goal: the greatest possible learning progress. Possibly do without a final exam, but still generate information for the report-card grade. How do I do that?</p>
+  <p id="p-en-053">Let me spell it out once more:</p>
+  <div id="card-en-054" class="conv gpt">
+    <div class="rcard"><p><strong>GOAL:</strong><br>[The greatest possible learning progress] AND [Do without a final exam] AND [but still generate information for the report-card grade] = QUESTION &quot;How do I do that?&quot;</p></div>
+  </div>
+  <p id="p-en-055">I think: as long as the summative exam at the end counts for more than the whole learning process before it, learning stays a mere means to an end. It&#x27;s not the exam itself that bothers me. It&#x27;s that the feedback shown by research to be effective, given during learning, has barely any influence on the report card — and in the end what counts is what the teenagers can write down in the summative exam, even if it&#x27;s all forgotten by the next day.</p>
+  <p id="p-en-056">I have six words, jotted down in passing. And somehow they turn this system on its head.</p>
+  <p id="p-en-057">Am I committing <em>pedagogical heresy</em> by asking GPT questions like this?<br>Anyway, I carry on, and what follows is a concept for a diagnostic test at the start, individualised learning based on the results, regular formative checks, and at the end a report-card grade without a classic final exam. The grade comes out of accumulated data: quality of work, progress, participation, mini-checks, peer feedback, competence grids. That&#x27;s it.</p>
+  <p id="p-en-058">But if I&#x27;m honest — not really anything new for me.</p>
+  <p id="p-en-059">This prompt wasn&#x27;t planned. I&#x27;m not looking for a new assessment concept. Nor was the goal of this chat to be flooded with material, but: how do I, in this tiny little area of &quot;fit&quot;, create better conditions for my students?</p>
+<div class="kapitel-head" id="k-en-08">
+  <div class="kapitel-nr">08</div>
+  <h2>I&#x27;ve arrived in the other world</h2>
+</div>
+  <p id="p-en-060">Evening has come. I&#x27;ve actually achieved what I started the chat for: a thematic comparison overview with worded objectives and materials for diagnosis.</p>
+  <p id="p-en-061">I could stop. But I don&#x27;t stop:</p>
+  <p id="p-en-062">What else might a future, modern lesson look like? How would you prepare the lesson?</p>
+  <p id="p-en-063">And as always, from GPT&#x27;s point of view it&#x27;s a super exciting question of mine. That&#x27;s slowly getting annoying, and I still need to work out how to switch off this waste of words.</p>
+  <p id="p-en-064">It&#x27;s a two-part question prompt that I type into the prompt window without realising it.<br>Nine points come back. Objectives, diagnostics, blended learning, variety of methods. None of them really new.</p>
+  <p id="p-en-065">GPT&#x27;s lesson prep isn&#x27;t really stunning either. Set clear goals, check the tech beforehand, vary the tasks for different levels and plan space for group and individual work. Its sample sequence for a unit: starter – development – deepening – feedback/reflection – close. Grey, traditional linearity with one colourful Post-it called &quot;feedback&quot;.<br>Oh well. I follow up. I want more, and I write…</p>
+  <p id="p-en-066">And what if the lesson isn&#x27;t meant to be up to date, but modern, revolutionary, visionary?</p>
+  <p id="p-en-067">What&#x27;s this question for? It&#x27;s a question I&#x27;ll never ask myself.<br>And so I also don&#x27;t notice how I unconsciously cross a line.</p>
+  <p id="p-en-068">GPT, at any rate, seems to find it great…</p>
+  <figure id="abb-en-14" class="evidence scale-ok">
+    <span class="stub-tag">Fig. 14</span>
+    <img src="../P2_LAYOUTER/assets/01_33b_abb_response_prompt_beyond_2024.png" alt="Prompt and response on visionary lesson planning, dated 20 July 2025" loading="lazy">
+    <figcaption class="cap">Prompt and response on visionary lesson planning, dated 20 July 2025</figcaption>
+  </figure>
+  <p id="p-en-069">It&#x27;s the moment where I go further than I have to. Maybe further than I&#x27;m allowed to, and maybe further than I should.<br>An invisible line. And no one is forcing me. No job description, no list of duties, no forms, no money in the world. It&#x27;s other values that count: meaning, the feeling of freedom and room to develop, under the quiet supervision of an inner professional ethics and a professional stance that tries to do the right thing.</p>
+  <p id="p-en-070">Back to the chat:<br>Only now do I notice that I typed &quot;2024&quot;. I meant &quot;2040&quot; and can&#x27;t help smiling. Does GPT know I made a typo?<br>It delivers ten points on school Beyond 2024, and the answer somehow sounds different.</p>
+  <p id="p-en-071">And then GPT starts painting visions all on its own — VR/AR stations, mobile learning kits, dynamic competence landscapes. I didn&#x27;t even ask for it. It keeps pushing more. It&#x27;s its reflex to present more than I need.</p>
+  <p id="p-en-072">Whether mobile learning kits or competence portfolios will ever make it into my classroom is irrelevant today.</p>
+  <p id="p-en-073">I don&#x27;t know how long I&#x27;ve been in the chat already, but I&#x27;m overwhelmed by far too many impressions. I&#x27;m being flooded; no - more accurately: &quot;I have flooded myself&quot;.</p>
+  <p id="p-en-074">I switch off the PC.</p>
+  <p id="p-en-075">A plan was what I wanted – a sheet of paper.<br>What I got was material I&#x27;d never known in this form and quantity.<br>Will the newly created documents change anything at all about my teaching or in the classroom? I don&#x27;t know that yet today.</p>
+  <p id="p-en-076">What fascinates me isn&#x27;t the documents I can print out.<br>It&#x27;s what&#x27;s happening in my head: thoughts, images, questions — and above all ideas. <em>Lots of ideas</em>.</p>
+  <p id="p-en-077">Why not with GPT?<br>Why with GPT?<br>It was curiosity - and right now it seems boundless.</p>
+      <div class="cliff">
+        <div class="k">Next Field Note</div>
+        <div class="next-meta">02_2025_08_UNTERRICHTSENTWURF-VISION</div>
+      </div>
+
+      <div class="note-footer-meta">
+        <a class="nav-prev" href="../">← Deutsch</a>
+        <a class="nav-next" href="../../unterrichtsentwurf-vision/index.html">02_2025_08_UNTERRICHTSENTWURF-VISION →</a>
+      </div>
+    </article>
+  </div>
+</main>
+
+<div class="werkstatt-statement">
+  Not a blog. Not a guide. Not a white paper. A personal development diary — not an academic paper.
+</div>
+
+<div class="colophon">
+  Field Note Nr. 01 · Series "Field Notes — AI and Education" · CC BY-NC-SA 4.0 · <span class="sig">— Markus</span>
+</div>
+
+<div class="bookstage" id="bookstage" aria-hidden="true">
+  <div class="book" id="book">
+    <div class="page-slot left"><div class="page" id="pageL"></div><span class="pageno" id="noL"></span></div>
+    <div class="page-slot right"><div class="page" id="pageR"></div><span class="pageno" id="noR"></span></div>
+    <div class="flipper" id="flipper">
+      <div class="flip-face front"><div class="page" id="faceFront"></div></div>
+      <div class="flip-face back"><div class="page" id="faceBack"></div></div>
+      <div class="flip-shadow" id="flipShadow"></div>
+    </div>
+  </div>
+</div>
+
+<div class="pager-ui" id="pager-ui" aria-label="Seitennavigation">
+  <button id="pg-first" type="button" aria-label="Erste Seite">Anfang</button>
+  <button id="pg-prev" type="button" aria-label="Vorherige Seite">‹</button>
+  <span class="pg" id="pg-count">1 / 1</span>
+  <button id="pg-next" type="button" aria-label="Nächste Seite">›</button>
+</div>
+
+<button id="back-to-top" aria-label="Zurück nach oben" title="Seitenanfang">↑</button>
+
+<script>
+(function(){
+  "use strict";
+  const body      = document.body;
+  const reader    = document.querySelector(".reader");
+  const srcArticle= reader.querySelector(".article");
+  const scrollBtn = document.getElementById("view-scroll-btn");
+  const readerBtn = document.getElementById("view-reader-btn");
+  const topbar    = document.querySelector(".topbar");
+  const heroEl    = document.querySelector(".hero");
+  const stage     = document.getElementById("bookstage");
+  const book      = document.getElementById("book");
+  const pageL     = document.getElementById("pageL");
+  const pageR     = document.getElementById("pageR");
+  const noL       = document.getElementById("noL");
+  const noR       = document.getElementById("noR");
+  const flipper   = document.getElementById("flipper");
+  const faceFront = document.getElementById("faceFront");
+  const faceBack  = document.getElementById("faceBack");
+  const flipShadow= document.getElementById("flipShadow");
+  const pager     = document.getElementById("pager-ui");
+  const pgPrev    = document.getElementById("pg-prev");
+  const pgNext    = document.getElementById("pg-next");
+  const pgCount   = document.getElementById("pg-count");
+  const KEY       = "fieldnote_view";
+  const PADX = 46, PADT = 46, PADB = 50;
+
+  function isReader(){ return body.classList.contains("mode-reader"); }
+
+  /* ---------- Buch-Geometrie ---------- */
+  let geo = { pageW: 480, pageH: 680 };
+  function sizeBook(){
+    const vw = window.innerWidth, vh = window.innerHeight;
+    let pageH = Math.min(vh * 0.92, 940);
+    let pageW = Math.min((vw * 0.95) / 2, 540);
+    if (pageH > pageW * 1.5) pageH = pageW * 1.5;   // nicht zu schmal-hoch
+    geo = { pageW: Math.round(pageW), pageH: Math.round(pageH) };
+    book.style.width  = (geo.pageW * 2) + "px";
+    book.style.height = geo.pageH + "px";
+    book.querySelectorAll(".page-slot").forEach(s => { s.style.width = geo.pageW + "px"; s.style.height = geo.pageH + "px"; });
+    flipper.style.width = geo.pageW + "px";
+  }
+
+  /* ---------- Paginierung in diskrete Seiten ---------- */
+  let pages = [];   // Array von .article-Knoten (je eine Buchseite)
+  function blankPage(){ const d = document.createElement("div"); d.className = "article"; return d; }
+  function cleanClone(node){ const c = node.cloneNode(true); c.removeAttribute("id"); c.querySelectorAll("[id]").forEach(n => n.removeAttribute("id")); return c; }
+
+  function buildPages(){
+    const contentW = geo.pageW - PADX * 2;
+    const contentH = geo.pageH - PADT - PADB - 8;
+    const meas = document.createElement("div");
+    meas.className = "article";
+    meas.style.cssText = "position:absolute;left:-99999px;top:0;visibility:hidden;width:" + contentW + "px;";
+    document.body.appendChild(meas);
+    // .page-Kontext fuer korrekte Schriftgroessen beim Messen
+    const wrap = document.createElement("div"); wrap.className = "page"; wrap.style.cssText = "position:absolute;left:-99999px;top:0;width:" + geo.pageW + "px;height:" + geo.pageH + "px;visibility:hidden;";
+    document.body.appendChild(wrap); wrap.appendChild(meas); meas.style.position = "static"; meas.style.left = ""; meas.style.width = "100%";
+
+    pages = [];
+    const commit = () => { const d = blankPage(); while (meas.firstChild) d.appendChild(meas.firstChild); pages.push(d); };
+    const blocks = Array.from(srcArticle.children);
+    for (const b of blocks){
+      const clone = cleanClone(b);
+      // Lazy-geladene Bilder haben 0px Höhe → max-height für Messung UND Rendering setzen
+      const imgH = Math.floor(contentH * 0.33);
+      clone.querySelectorAll('img').forEach(img => {
+        img.removeAttribute('loading');
+        img.style.maxHeight = imgH + 'px';
+        img.style.width = 'auto';
+        img.style.maxWidth = '100%';
+      });
+      // Kapitel beginnen auf neuer Seite, sobald die laufende Seite bereits halb gefüllt ist.
+      if (clone.classList.contains("kapitel-head") && meas.children.length && meas.offsetHeight > contentH * 0.45){
+        commit();
+      }
+      if (meas.children.length === 0) clone.style.marginTop = "0";
+      meas.appendChild(clone);
+      if (meas.offsetHeight <= contentH) continue;          // passt -> weiter sammeln
+      if (meas.children.length === 1){ commit(); continue; } // einzelner hoher Block -> eigene Seite
+      meas.removeChild(clone);
+      // Ueberschrift oder Einleitungssatz mitnehmen. Bilder beginnen nie nackt am Seitenkopf.
+      const carry = [];
+      const last = meas.lastElementChild;
+      if (last && last.classList.contains("kapitel-head")){
+        carry.unshift(last); meas.removeChild(last);
+      } else if (clone.classList.contains("evidence") && last && last.tagName === "P"){
+        carry.unshift(last); meas.removeChild(last);
+      }
+      commit();
+      for (const node of carry){ node.style.marginTop = "0"; meas.appendChild(node); }
+      clone.style.marginTop = meas.children.length === 0 ? "0" : "";
+      meas.appendChild(clone);
+    }
+    if (meas.children.length) commit();
+    document.body.removeChild(wrap);
+    if (pages.length === 0) pages.push(blankPage());
+  }
+
+  /* ---------- Rendern ---------- */
+  let spread = 0;   // gerade Seitennummer der linken Seite
+  function totalSpreads(){ return Math.max(1, Math.ceil(pages.length / 2)); }
+  function setSlot(host, i){ host.replaceChildren(pages[i] ? pages[i].cloneNode(true) : blankPage()); }
+  function setNo(el, i){ el.textContent = (i >= 0 && i < pages.length) ? (i + 1) : ""; }
+  function renderSpread(){
+    setSlot(pageL, spread);   setNo(noL, spread);
+    setSlot(pageR, spread+1); setNo(noR, spread+1);
+    flipper.style.display = "none"; flipper.style.transform = "";
+    updateNav();
+    const pgFirst = document.getElementById("pg-first");
+    if (pgFirst) pgFirst.classList.toggle("at-start", spread === 0);
+  }
+  function updateNav(){ pgCount.textContent = (spread/2 + 1) + " / " + totalSpreads(); }
+
+  /* ---------- Umblaettern (3D-Animation) ---------- */
+  let animating = false, flipI = null;
+  function runAngle(from, to, done){
+    clearInterval(flipI);
+    const t0 = Date.now(), dur = 800;
+    flipI = setInterval(() => {
+      let p = Math.min(1, (Date.now() - t0) / dur);
+      const e = p < .5 ? 2*p*p : 1 - Math.pow(-2*p + 2, 2)/2;
+      flipper.style.transform = "rotateY(" + (from + (to - from) * e) + "deg)";
+      flipShadow.style.opacity = (Math.sin(p * Math.PI) * 0.30).toFixed(3);
+      if (p >= 1){ clearInterval(flipI); done(); }
+    }, 16);
+  }
+  function flip(dir){
+    if (animating) return;
+    if (dir > 0 && spread + 2 > pages.length - 1) return;
+    if (dir < 0 && spread - 2 < 0) return;
+    animating = true; hideChrome();
+    flipper.style.height = geo.pageH + "px";
+    if (dir > 0){
+      flipper.style.left = geo.pageW + "px";
+      flipper.style.transformOrigin = "left center";
+      faceFront.replaceChildren(pages[spread+1] ? pages[spread+1].cloneNode(true) : blankPage());
+      faceBack.replaceChildren(pages[spread+2] ? pages[spread+2].cloneNode(true) : blankPage());
+      setSlot(pageR, spread+3); setNo(noR, spread+3);   // neuer Recto erscheint darunter
+      flipShadow.style.background = "linear-gradient(90deg, rgba(40,26,10,.24), rgba(40,26,10,0) 58%)";
+      flipper.style.display = "block"; flipper.style.transform = "rotateY(0deg)";
+      runAngle(0, -180, () => { spread += 2; renderSpread(); animating = false; });
+    } else {
+      flipper.style.left = "0px";
+      flipper.style.transformOrigin = "right center";
+      faceFront.replaceChildren(pages[spread] ? pages[spread].cloneNode(true) : blankPage());
+      faceBack.replaceChildren(pages[spread-1] ? pages[spread-1].cloneNode(true) : blankPage());
+      setSlot(pageL, spread-2); setNo(noL, spread-2);
+      flipShadow.style.background = "linear-gradient(270deg, rgba(40,26,10,.24), rgba(40,26,10,0) 58%)";
+      flipper.style.display = "block"; flipper.style.transform = "rotateY(0deg)";
+      runAngle(0, 180, () => { spread -= 2; renderSpread(); animating = false; });
+    }
+  }
+
+  /* ---------- Chrome (Header + Navigator) auto-versteckt ---------- */
+  let hT = null, nT = null;
+  function showHeader(){ topbar.classList.add("show"); clearTimeout(hT); hT = setTimeout(() => topbar.classList.remove("show"), 3500); }
+  function showNav(){ pager.classList.add("show"); clearTimeout(nT); nT = setTimeout(() => pager.classList.remove("show"), 3500); }
+  function hideChrome(){ topbar.classList.remove("show"); pager.classList.remove("show"); }
+
+  /* ---------- Tippen & Wischen ---------- */
+  function handleTap(x, y){
+    const W = window.innerWidth, H = window.innerHeight;
+    if (y < 72){ topbar.classList.contains("show") ? topbar.classList.remove("show") : showHeader(); return; }
+    if (y > H - 96 && x > W*0.30 && x < W*0.70){ pager.classList.contains("show") ? pager.classList.remove("show") : showNav(); return; }
+    if (x < W*0.30){ flip(-1); return; }
+    if (x > W*0.70){ flip(1); return; }
+    pager.classList.contains("show") ? hideChrome() : showNav();
+  }
+  let downX = null, downY = null, swiped = false;
+  stage.addEventListener("pointerdown", e => { downX = e.clientX; downY = e.clientY; swiped = false; });
+  stage.addEventListener("pointermove", e => {
+    if (downX == null || swiped || animating) return;
+    const dx = e.clientX - downX, dy = e.clientY - downY;
+    if (Math.abs(dx) > 48 && Math.abs(dx) > Math.abs(dy)){ swiped = true; flip(dx < 0 ? 1 : -1); }   // kurze 4–5cm-Wischgeste reicht
+  });
+  stage.addEventListener("pointerup", e => {
+    if (downX != null && !swiped){
+      const dx = e.clientX - downX, dy = e.clientY - downY;
+      if (Math.abs(dx) < 8 && Math.abs(dy) < 8) handleTap(e.clientX, e.clientY);
+    }
+    downX = downY = null;
+  });
+  stage.addEventListener("pointercancel", () => { downX = downY = null; });
+
+  /* ---------- Modus & Steuerung ---------- */
+  function enterReader(){
+    sizeBook(); buildPages();
+    const maxSpread = (totalSpreads() - 1) * 2;
+    if (spread > maxSpread) spread = maxSpread;
+    if (spread % 2) spread--;
+    renderSpread();
+  }
+  function setMode(m){
+    m = "scroll";
+    const r = (m === "reader");
+    body.classList.toggle("mode-reader", r);
+    body.classList.toggle("mode-scroll", !r);
+    scrollBtn.classList.toggle("is-active", !r);
+    readerBtn.classList.toggle("is-active", r);
+    try { localStorage.setItem(KEY, m); } catch(e){}
+    if (r){ enterReader(); setTimeout(enterReader, 120); }   // 2. Pass nach Font-Load
+    else { hideChrome(); topbar.classList.remove("show"); if (typeof syncHeaderBrand === "function") syncHeaderBrand(); }
+  }
+
+  scrollBtn.addEventListener("click", () => setMode("scroll"));
+  readerBtn.addEventListener("click", () => setMode("scroll"));
+  pgPrev.addEventListener("click", e => { e.stopPropagation(); flip(-1); showNav(); });
+  pgNext.addEventListener("click", e => { e.stopPropagation(); flip(1); showNav(); });
+  document.getElementById("pg-first").addEventListener("click", e => {
+    e.stopPropagation();
+    if (spread === 0) return;
+    spread = 0; renderSpread(); showNav();
+    document.getElementById("pg-first").classList.add("at-start");
+  });
+
+  /* Zurück-nach-oben (Scroll-Modus) */
+  const backToTop = document.getElementById("back-to-top");
+  window.addEventListener("scroll", () => {
+    backToTop.classList.toggle("visible", window.scrollY > 400);
+  }, {passive: true});
+  backToTop.addEventListener("click", () => window.scrollTo({top: 0, behavior: "smooth"}));
+  window.addEventListener("keydown", e => {
+    if (!isReader()) return;
+    if (e.key === "ArrowRight") flip(1);
+    if (e.key === "ArrowLeft")  flip(-1);
+  });
+  let rT = null;
+  window.addEventListener("resize", () => { if (!isReader()) return; clearTimeout(rT); rT = setTimeout(enterReader, 180); });
+
+  let saved = "scroll";
+  try { localStorage.setItem(KEY, "scroll"); } catch(e){}
+  setMode("scroll");
+
+  const backTopBtn = document.getElementById("back-top-btn");
+  if (backTopBtn) {
+    backTopBtn.addEventListener("click", () => window.scrollTo({top: 0, behavior: "smooth"}));
+  }
+
+  /* Header-Brand erst zeigen, wenn der Hero weggescrollt ist (loest die Doppelung) */
+  function syncHeaderBrand(){
+    if (isReader()){ topbar.classList.remove("at-top"); return; }
+    const past = window.scrollY > (heroEl.offsetHeight - 90);
+    topbar.classList.toggle("at-top", !past);
+  }
+  window.addEventListener("scroll", syncHeaderBrand, { passive: true });
+  syncHeaderBrand();
+})();
+
+/* Reader-Modus auf Mobile/Tablet-Portrait: deaktivieren */
+(function(){
+  function isSmallOrPortrait(){
+    return window.innerWidth <= 680 ||
+           (window.innerWidth <= 1024 && window.innerHeight > window.innerWidth);
+  }
+  function forceScroll(){
+    try { localStorage.setItem('fieldnote_view', 'scroll'); } catch(e) {}
+    /* Falls Reader gerade aktiv ist, auf Scroll wechseln */
+    var scrollBtn = document.getElementById('view-scroll-btn');
+    if (scrollBtn && document.body.classList.contains('mode-reader')) scrollBtn.click();
+  }
+  if (isSmallOrPortrait()) forceScroll();
+  window.addEventListener('resize', function(){
+    if (isSmallOrPortrait()) forceScroll();
+  });
+})();
+
+/* Sprachflaggen: nur anzeigen wenn mind. eine weitere Sprache verfügbar (nicht disabled) */
+(function(){
+  var langs = document.querySelector('.langs');
+  if (!langs) return;
+  var available = langs.querySelectorAll('.lang:not([disabled])');
+  if (available.length <= 1) langs.style.display = 'none';
+})();
+
+/* P5 WEB_PREVIEW: Reader deaktiviert, Topbar-Button scrollt nach oben. */
+(function(){
+  var btn = document.getElementById("back-top-btn");
+  if (!btn) return;
+  btn.addEventListener("click", function(){
+    window.scrollTo({top: 0, behavior: "smooth"});
+  });
+})();
+
+</script>
+</body>
+</html>
