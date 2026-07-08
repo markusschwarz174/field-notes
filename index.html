@@ -170,7 +170,7 @@ var NOTES = [
     abstract:'Aus der Absicht Übungsblätter zu erstellen, wurde eine Materialschlacht und unbewusst dazu eine Mise en place der eigenen Didaktik — bis ein Déjà-vu alles veränderte.',
     status:'LIVE', url:'notes/unterrichtsentwurf-vision/index.html',
     hero:'heroes/hero_02_2x1_ai_260707_1536x768.png', heroAnchor:'tl',
-    geht_nach:[{ref:'03',typ:'Zweig'},{ref:'04',typ:'Zweig'},{ref:'05',typ:'Zweig'}]
+    geht_nach:[{ref:'03',typ:'direkt'}]
   },
   {
     id:'03', kurztitel:'WERKZEUGE',
@@ -178,29 +178,22 @@ var NOTES = [
     datum:'2025-08-12', datum_publish:null,
     abstract:'Was in der Vision als Idee aufblitzt, wird zur Werkstatt: Die ersten Werkzeuge werden gebaut.',
     status:'ANNOUNCED', url:null, hero:null,
-    geht_nach:[]
+    geht_nach:[{ref:'04',typ:'direkt'}]
   },
   {
     id:'04', kurztitel:'LETS YAML',
-    titel:'LETS YAML',
-    datum:'2025-08-18', datum_publish:null,
-    abstract:'Warum eine schlichte Textstruktur zum Rückgrat des entstehenden Systems wird. Der YAML-Strang führt später zur Baumhaus-Architektur zurück.',
-    status:'ANNOUNCED', url:null, hero:null,
-    geht_nach:[{ref:'06',typ:'Zweig'}]
+    titel:'YAML für den Unterricht',
+    datum:'2025-08-14', datum_publish:'2026-07-08',
+    abstract:'Vier Tage vor Schulbeginn wird aus einem hochgeladenen Pseudo-YAML ein Unterrichtsbaukasten: für Aufgaben, sprachsensitiven Unterricht, interdisziplinäre Lernkontrollen und einen Kollegen.',
+    status:'LIVE', url:'notes/lets-yaml/index.html',
+    hero:'heroes/hero_04.png', heroAnchor:'tl',
+    geht_nach:[{ref:'05',typ:'direkt'}]
   },
   {
     id:'05', kurztitel:'LETS PLAY',
-    titel:'LETS PLAY — GAMIFICATION',
+    titel:'LETS PLAY',
     datum:'2025-08-25', datum_publish:null,
     abstract:'Offener Seitenzweig: Gamification-Konzepte treffen auf den Unterrichtsalltag. Der Konflikt zwischen Spiel und Ernst bleibt unaufgelöst.',
-    status:'ANNOUNCED', url:null, hero:null,
-    geht_nach:[]
-  },
-  {
-    id:'06', kurztitel:'KI LERNT',
-    titel:'DIE KI LERNT EINE SPRACHE',
-    datum:'2025-09-15', datum_publish:null,
-    abstract:'Der Sprach-, Prompt- und YAML-Strang: Wie die KI eine eigene Sprache für den Unterrichtsdialog entwickelt.',
     status:'ANNOUNCED', url:null, hero:null,
     geht_nach:[]
   }
