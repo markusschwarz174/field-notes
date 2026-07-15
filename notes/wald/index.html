@@ -1,0 +1,1890 @@
+<!doctype html>
+<!--
+   WEB_PREVIEW — P6-Render, in P5 Stage 1 als LIVEVIEW ausgeliehen.
+   Design-SSoT: C:\Users\Markus\ClaudeCode\MeineProjekte\FIELD_NOTES_DRAFT\0_W_WORKFLOW\P6_PUBLISH\WEBDESIGN\_CURRENT\NOTE\index.html
+   Content-Source: 38EBENEN_01-WALD_V5.50_DRAFT_HUMAN.docx
+-->
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Von der Frage zum didaktischen Wald · Field Notes Nr. 08</title>
+<meta name="description" content="Field Note Nr. 08 — 2. September 2025. Aus einer einfachen Liste wächst eine grosse Sammlung aus didaktischen Ebenen, Clustern und Ordnungen - und sie wird zu gross für den Unterricht.">
+<meta name="author" content="Markus Schwarz">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+/* fieldnote.css — Werkbank-Styles fuer WEB_PREVIEW (P1-P5)
+   Extrahiert 2026-06-18 aus 01_2025_07_NEUGIERDE/_render_werkbank.py.
+   Cross-Ref: 0_W_WORKFLOW/P6_RELEASE/HTML_DESIGN_NEW_260617/Bauanleitung Hervorhebungs-System.md
+   Convention: 0_C_CONVENTION/C_FORMAT_HTML.md (ab §13 pending rewrite auf 4-Stufen).
+
+   GESTRICHEN 2026-06-18: .statement-block + .statement-label (Legacy HL1-AKZENT,
+   abgeloest durch 4-Stufen-System Stufe 4 = .statement + .label).
+*/
+
+:root{
+  --bg:#f2eadc;--paper:#fffaf0;--paper-deep:#faf4e6;--ink:#191713;--muted:#6e6458;
+  --line:#d6c8b4;--line-deep:#b8a78d;--red:#bd3f2b;--red-deep:#8b2c1c;
+  --yellow:#f2c84b;--green:#486b55;--ochre:#9A6A1F;
+  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  --sans:"IBM Plex Sans",Inter,"Segoe UI",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.65;font-size:17px;text-align:left}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;opacity:.32;
+  background-image:radial-gradient(rgba(70,55,35,.12) 1px,transparent 1px);
+  background-size:5px 5px;mix-blend-mode:multiply;z-index:0;
+}
+
+/* HERO */
+.hero{
+  min-height:88vh;position:relative;display:grid;align-items:end;overflow:hidden;
+  padding:84px 26px 56px;
+  background:
+    linear-gradient(110deg,rgba(20,14,8,.86),rgba(28,20,12,.58) 40%,rgba(38,26,16,.36) 70%,rgba(245,238,224,.18) 100%),
+    url('heroes/hero_08.png');
+  background-size:cover;background-position:center;
+}
+.hero:after{
+  content:"";position:absolute;inset:auto 0 0 0;height:42%;
+  background:linear-gradient(transparent,var(--bg));
+}
+.hero-inner{
+  position:relative;z-index:2;max-width:1280px;margin:0 auto;width:100%;
+  display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:64px;align-items:end;
+}
+.eyebrow{font:700 .76rem/1 var(--mono);color:#ffd9a8;text-transform:uppercase;letter-spacing:.18em}
+.hero h1{
+  font-size:clamp(2.8rem,8vw,6.8rem);line-height:.9;
+  margin:18px 0 24px;color:#fffaf0;letter-spacing:-.005em;max-width:10ch;
+  text-shadow:0 3px 18px rgba(0,0,0,.42);
+}
+.hero .lead{
+  font-size:clamp(1.08rem,1.6vw,1.32rem);max-width:680px;
+  color:#fff5e4;margin:0;line-height:1.45;font-weight:400;
+  text-shadow:0 2px 8px rgba(0,0,0,.4);
+}
+
+/* SLIPS (diskret-neutral, kein Postit) */
+.desk{display:grid;gap:14px;align-self:end}
+.slip{
+  background:var(--paper);border:1px solid var(--line-deep);
+  padding:16px 17px;border-radius:3px;
+  box-shadow:0 8px 22px rgba(22,17,10,.22);
+}
+.slip .k{
+  font:700 .68rem/1 var(--mono);color:var(--red);
+  text-transform:uppercase;letter-spacing:.12em;
+  display:block;margin-bottom:8px;
+}
+.slip h3{font-size:1.05rem;line-height:1.25;margin:0 0 6px;font-weight:600;color:var(--ink)}
+.slip p{font-size:.92rem;color:#4d453c;margin:0;line-height:1.5}
+.slip .date{
+  font:600 .82rem/1 var(--mono);color:var(--ink);
+  margin-bottom:8px;letter-spacing:.02em;
+}
+
+/* MAIN-LAYOUT (W5: breiter + responsive) */
+.main{
+  max-width:1280px;margin:0 auto;padding:64px 26px 80px;
+  position:relative;z-index:1;
+}
+.section-title{
+  font:700 .78rem/1 var(--mono);letter-spacing:.16em;
+  text-transform:uppercase;color:var(--red);margin-bottom:20px;
+}
+.reader{
+  display:grid;grid-template-columns:240px minmax(0,820px);gap:56px;
+}
+.rail{
+  position:sticky;top:62px;align-self:start;
+  border-left:2px solid var(--red);padding:8px 0 8px 18px;
+  font:500 .82rem/1.4 var(--mono);color:var(--muted);
+  max-height:calc(100vh - 80px);overflow-y:auto;
+}
+.rail a{
+  display:block;color:inherit;text-decoration:none;
+  padding:8px 0;border-bottom:1px solid var(--line);
+}
+.rail a:hover{color:var(--red)}
+.rail-nr{
+  display:inline-block;width:2em;color:var(--red);font-weight:700;
+}
+
+/* ARTICLE */
+.article{
+  background:rgba(255,250,240,.84);border:1px solid var(--line);
+  padding:42px clamp(24px,5vw,60px);
+  box-shadow:0 22px 70px rgba(48,35,18,.08);
+}
+
+/* ABSTRACT-BLOCK (DIRECTOR-Entscheid: abstract vor Akt-1) */
+.abstract-lead{
+  font-style:italic;font-size:1.12rem;line-height:1.55;
+  color:var(--muted);margin:0 0 36px 0;
+  padding:18px 22px;background:var(--paper-deep);
+  border-left:3px solid var(--line-deep);border-radius:2px;
+}
+
+/* KAPITEL-HEAD (HUMAN-Decision 2026-06-16: Nummerierung weg, scroll-margin-top fuer Anchor-Sprung) */
+.kapitel-head{
+  margin-top:48px;display:flex;align-items:baseline;gap:18px;
+  scroll-margin-top:24px;
+}
+.kapitel-head:first-of-type{margin-top:0}
+.kapitel-head .kapitel-nr{display:none}
+.kapitel-head h2{
+  font-size:1.7rem;line-height:1.18;margin:0;
+  font-weight:700;color:var(--ink);letter-spacing:-.005em;flex:1;
+}
+
+.article p{font-size:1.06rem;color:#2c2620;margin:14px 0 18px 0;line-height:1.65}
+.article strong{font-weight:700;color:#1a1410}
+.article em{font-style:italic}
+.mark{background:linear-gradient(transparent 55%,rgba(242,200,75,.55) 55%)}
+.article strong.hl1{font-weight:700;color:var(--red)}
+.article mark.hl2{background:transparent;color:var(--accent-2,#244f63);font-weight:650;padding:0}
+
+/* 4-STUFEN-HL-SYSTEM (Bauanleitung 2026-06-16) */
+/* Stufe 1: em (built-in) */
+/* Stufe 2: Schluesselsatz inline */
+.article .hl{
+  font-weight:600;color:var(--ochre,#9A6A1F);
+}
+/* Stufe 3: Kernsatz Block */
+.article p.kernsatz{
+  font-family:'Spectral',Georgia,serif;font-style:italic;font-weight:500;
+  font-size:1.5rem;line-height:1.34;color:#15171C;text-align:center;
+  max-width:26ch;margin:36px auto;
+}
+.article p.kernsatz + p.kernsatz{margin-top:-22px}
+.article ul.review-list{
+  margin:14px 0 22px 1.2rem;
+  padding-left:1.1rem;
+}
+.article ul.review-list li{
+  margin:7px 0;
+  line-height:1.7;
+}
+/* Stufe 4: Marker — Inschrift-Variante (HUMAN-Update 2026-06-17, Bauanleitung §2.3/§2.4/§5).
+   Word-Trick: Rahmen oben auf Label + Rahmen unten auf Marker, dazwischen kein Rahmen
+   -> visuell ein Kasten um beide Absaetze. CSS-Aequivalent: top/bottom border auf label/p,
+   zentriert + symmetrischer Einzug simuliert 2.5cm Word-Einzug. */
+.article .statement{
+  margin:48px auto;
+  max-width:520px;
+  text-align:center;
+}
+.article .statement .label{
+  font-family:var(--mono);font-size:.7rem;font-weight:600;letter-spacing:.24em;
+  text-transform:uppercase;color:#15171C;
+  border-top:1.5px solid #15171C;
+  padding:14px 0 10px 0;margin:0;
+}
+.article .statement p{
+  margin:0;font-family:'Spectral',Georgia,serif;font-weight:500;font-style:italic;
+  font-size:1.5rem;line-height:1.34;color:#15171C;
+  border-bottom:1.5px solid #15171C;
+  padding:0 0 16px 0;
+}
+
+/* W8: Bild-Rahmung staerker · W10: Bilder leicht rotieren */
+.evidence{
+  margin:36px -8px;padding:14px;
+  background:#fff;border:1px solid var(--line-deep);border-radius:2px;
+  transform:rotate(-.3deg);
+  box-shadow:0 16px 30px rgba(60,42,18,.13), 0 1px 0 rgba(255,255,255,.6) inset;
+}
+.evidence:nth-of-type(even){transform:rotate(.4deg)}
+.evidence img{
+  width:100%;display:block;height:auto;
+  border:1px solid #ddd5c4;background:#fafafa;
+}
+.cap{
+  font:500 .78rem/1.5 var(--mono);color:var(--muted);
+  padding:10px 4px 0;margin:0;
+}
+.evidence-pending{
+  margin:24px 0;padding:14px;
+  border:1px dashed var(--red);background:#fbeae5;
+  font:500 .85rem/1.4 var(--mono);color:var(--red-deep);
+}
+
+/* W3: Card-Familie vereinheitlicht — alle drei Karten gleich strukturiert, nur Seitenlinie-Farbe + Label-Farbe unterschiedlich */
+/* W4: Card-Text kleiner · W10: Cards NICHT rotieren */
+.card{
+  margin:22px 0;padding:14px 18px;
+  background:var(--paper);border-radius:3px;
+  font-family:var(--mono);font-size:.80rem;line-height:1.55;
+  border-left:4px solid var(--line-deep);
+}
+.card:before{
+  display:block;font:700 .60rem/1 var(--mono);
+  letter-spacing:.14em;margin-bottom:8px;
+}
+.card p{margin:0;font-size:inherit;color:#2c2620}
+.card p br{line-height:1.8}
+
+.prompt-card{border-left-color:var(--red);background:#fff8f4}
+.prompt-card:before{content:"\27a4  PROMPT";color:var(--red)}
+
+.response-card{border-left-color:var(--green);background:#f4f7ee}
+.response-card:before{content:"\25c6  RESPONSE";color:var(--green)}
+
+.output-card{border-left-color:#8a6d3d;background:#fbf6e8}
+.output-card:before{content:"\25a3  OUTPUT";color:#8a6d3d}
+
+.quote{
+  border-left:4px solid var(--red);padding:10px 0 10px 22px;
+  margin:34px 0;font-size:1.3rem;line-height:1.35;font-weight:600;
+  color:var(--ink);
+}
+
+/* W9: Cliff in reiner Werkbank-Identitaet */
+.cliff{
+  margin-top:60px;padding:32px 30px;
+  background:linear-gradient(135deg,#211915 0%,#2d211a 100%);
+  color:#fff3df;border-radius:4px;
+  border-top:3px solid var(--red);
+  box-shadow:0 12px 30px rgba(33,25,21,.3);
+}
+.cliff .k{
+  font:700 .72rem/1 var(--mono);color:#ffb19e;
+  text-transform:uppercase;letter-spacing:.16em;
+}
+.cliff h2{
+  margin:14px 0 0;font-size:1.7rem;color:#fffaf0;
+  line-height:1.22;font-weight:600;
+}
+
+/* FOOTER */
+.note-footer-meta{
+  margin-top:48px;padding-top:24px;border-top:1px solid var(--line);
+  font:500 .82rem/1.45 var(--mono);color:var(--muted);
+  display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;
+}
+.note-footer-meta .nav-next{color:var(--red);font-weight:600}
+.note-footer-meta a{color:inherit;text-decoration:none}
+.note-footer-meta a:hover{text-decoration:underline}
+.note-footer-meta .empty{color:var(--muted);font-style:italic}
+
+.colophon{
+  max-width:1280px;margin:0 auto;padding:32px 26px;
+  font:500 .78rem/1.5 var(--mono);color:var(--muted);
+  text-align:center;border-top:1px solid var(--line);
+}
+.colophon .sig{color:var(--red);font-weight:700}
+
+/* WERKSTATT-STATEMENT (HUMAN-Decision 2026-06-16: vom Hero-Postit nach unten) */
+.werkstatt-statement{
+  max-width:880px;margin:48px auto 0;padding:24px 26px 0;
+  font:500 .92rem/1.55 var(--sans);color:var(--muted);
+  text-align:center;font-style:italic;
+}
+
+/* W5: RESPONSIVE — Handy / Tablet / Monitor */
+@media(max-width:960px){
+  .hero-inner{grid-template-columns:1fr;gap:36px}
+  .desk{order:2}
+  .hero{min-height:auto;padding:84px 22px 44px}
+  .hero h1{max-width:12ch}
+  .reader{grid-template-columns:1fr;gap:24px}
+  .rail{
+    position:relative;top:auto;border-left:none;border-top:1px solid var(--red);
+    padding:14px 0 0 0;max-height:none;
+  }
+  .rail a{padding:6px 0}
+  .article{padding:28px 20px}
+  .evidence{margin:28px -4px}
+  .kapitel-head{flex-direction:column;gap:6px}
+  .kapitel-head .kapitel-nr{font-size:1.1rem}
+}
+@media(min-width:1440px){
+  .main{max-width:1380px}
+  .reader{grid-template-columns:260px minmax(0,920px);gap:64px}
+  .article p{font-size:1.08rem}
+}
+
+
+/* fieldnote.css — Werkbank-Styles fuer WEB_PREVIEW (P1-P5)
+   Extrahiert 2026-06-18 aus 01_2025_07_NEUGIERDE/_render_werkbank.py.
+   Cross-Ref: 0_W_WORKFLOW/P6_RELEASE/HTML_DESIGN_NEW_260617/Bauanleitung Hervorhebungs-System.md
+   Convention: 0_C_CONVENTION/C_FORMAT_HTML.md (ab §13 pending rewrite auf 4-Stufen).
+
+   GESTRICHEN 2026-06-18: .statement-block + .statement-label (Legacy HL1-AKZENT,
+   abgeloest durch 4-Stufen-System Stufe 4 = .statement + .label).
+*/
+
+:root{
+  --bg:#f2eadc;--paper:#fffaf0;--paper-deep:#faf4e6;--ink:#191713;--muted:#6e6458;
+  --line:#d6c8b4;--line-deep:#b8a78d;--red:#bd3f2b;--red-deep:#8b2c1c;
+  --yellow:#f2c84b;--green:#486b55;
+  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  --sans:"IBM Plex Sans",Inter,"Segoe UI",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.65;font-size:17px;text-align:left}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;opacity:.32;
+  background-image:radial-gradient(rgba(70,55,35,.12) 1px,transparent 1px);
+  background-size:5px 5px;mix-blend-mode:multiply;z-index:0;
+}
+
+/* HERO */
+.hero{
+  min-height:88vh;position:relative;display:grid;align-items:end;overflow:hidden;
+  padding:84px 26px 56px;
+  background:
+    linear-gradient(110deg,rgba(20,14,8,.86),rgba(28,20,12,.58) 40%,rgba(38,26,16,.36) 70%,rgba(245,238,224,.18) 100%),
+    url("heroes/hero_08.png");
+  background-size:cover;background-position:center;
+}
+.hero:after{
+  content:"";position:absolute;inset:auto 0 0 0;height:16%;
+  background:linear-gradient(transparent,var(--bg));
+}
+.hero-inner{
+  position:relative;z-index:2;max-width:1280px;margin:0 auto;width:100%;
+  display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:64px;align-items:end;
+}
+.eyebrow{font:700 .76rem/1 var(--mono);color:#ffd9a8;text-transform:uppercase;letter-spacing:.18em}
+.hero h1{
+  font-size:clamp(2.8rem,8vw,6.8rem);line-height:.9;
+  margin:18px 0 24px;color:#fffaf0;letter-spacing:-.005em;max-width:900px;
+  text-shadow:0 3px 18px rgba(0,0,0,.42);
+}
+.hero .lead{
+  font-size:clamp(1.08rem,1.6vw,1.32rem);max-width:1100px;
+  color:#fff5e4;margin:0;line-height:1.45;font-weight:400;
+  text-shadow:0 2px 8px rgba(0,0,0,.4);
+}
+
+/* SLIPS (diskret-neutral, kein Postit) */
+.desk{display:grid;gap:14px;align-self:end}
+.slip{
+  background:var(--paper);border:1px solid var(--line-deep);
+  padding:16px 17px;border-radius:3px;
+  box-shadow:0 8px 22px rgba(22,17,10,.22);
+}
+.slip .k{
+  font:700 .68rem/1 var(--mono);color:var(--red);
+  text-transform:uppercase;letter-spacing:.12em;
+  display:block;margin-bottom:8px;
+}
+.slip h3{font-size:1.05rem;line-height:1.25;margin:0 0 6px;font-weight:600;color:var(--ink)}
+.slip p{font-size:.92rem;color:#4d453c;margin:0;line-height:1.5}
+.slip .date{
+  font:600 .82rem/1 var(--mono);color:var(--ink);
+  margin-bottom:8px;letter-spacing:.02em;
+}
+
+/* MAIN-LAYOUT (W5: breiter + responsive) */
+.main{
+  max-width:1280px;margin:0 auto;padding:64px 26px 80px;
+  position:relative;z-index:1;
+}
+.section-title{
+  font:700 .78rem/1 var(--mono);letter-spacing:.16em;
+  text-transform:uppercase;color:var(--red);margin-bottom:20px;
+}
+.reader{
+  display:grid;grid-template-columns:240px minmax(0,820px);gap:56px;
+}
+.rail{
+  position:sticky;top:62px;align-self:start;
+  border-left:2px solid var(--red);padding:8px 0 8px 18px;
+  font:500 .82rem/1.4 var(--mono);color:var(--muted);
+  max-height:calc(100vh - 80px);overflow-y:auto;
+}
+.rail a{
+  display:block;color:inherit;text-decoration:none;
+  padding:8px 0;border-bottom:1px solid var(--line);
+}
+.rail a:hover{color:var(--red)}
+.rail-nr{
+  display:inline-block;width:2em;color:var(--red);font-weight:700;
+}
+
+/* ARTICLE */
+.article{
+  background:rgba(255,250,240,.84);border:1px solid var(--line);
+  padding:42px clamp(24px,5vw,60px);
+  box-shadow:0 22px 70px rgba(48,35,18,.08);
+}
+
+/* ABSTRACT-BLOCK (DIRECTOR-Entscheid: abstract vor Akt-1) */
+.abstract-lead{
+  font-style:italic;font-size:1.12rem;line-height:1.55;
+  color:var(--muted);margin:0 0 36px 0;
+  padding:18px 22px;background:var(--paper-deep);
+  border-left:3px solid var(--line-deep);border-radius:2px;
+}
+
+/* KAPITEL-HEAD (HUMAN-Decision 2026-06-16: Nummerierung weg, scroll-margin-top fuer Anchor-Sprung) */
+.kapitel-head{
+  margin-top:48px;display:flex;align-items:baseline;gap:18px;
+  scroll-margin-top:24px;
+}
+.kapitel-head:first-of-type{margin-top:0}
+.kapitel-head .kapitel-nr{display:none}
+.kapitel-head h2{
+  font-size:1.7rem;line-height:1.18;margin:0;
+  font-weight:700;color:var(--ink);letter-spacing:-.005em;flex:1;
+}
+
+.article p{font-size:1.06rem;color:#2c2620;margin:14px 0 18px 0;line-height:1.65}
+.article strong{font-weight:700;color:#1a1410}
+.article em{font-style:italic}
+.mark{background:linear-gradient(transparent 55%,rgba(242,200,75,.55) 55%)}
+.article strong.hl1{font-weight:700;color:var(--red)}
+.article mark.hl2{background:transparent;color:var(--accent-2,#244f63);font-weight:650;padding:0}
+
+/* 4-STUFEN-HL-SYSTEM (Bauanleitung 2026-06-16) */
+/* Stufe 1: em (built-in) */
+/* Stufe 2: Schluesselsatz inline */
+.article .hl{
+  font-weight:700;color:#9A6A1F;
+}
+/* Stufe 3: Kernsatz Block. Breite 260706: volle .article-Breite statt ch-Box,
+   da Text ohnehin zentriert ist und kein Kernsatz sich auf die schmale Box als
+   Auto-Umbruch verlaesst (siehe D_260706_04 Nachtrag 4) -> einzige Quelle,
+   Python-Builder-Duplikat + Final-Polish-Zweitregel entfernt. */
+.article p.kernsatz{
+  font-family:'Spectral',Georgia,serif;font-style:italic;font-weight:500;
+  font-size:1.5rem;line-height:1.34;color:#15171C;text-align:center;
+  max-width:none;margin:36px auto;
+}
+.article p.kernsatz + p.kernsatz{margin-top:-22px}
+.article ul.review-list{
+  margin:14px 0 22px 1.2rem;
+  padding-left:1.1rem;
+}
+.article ul.review-list li{
+  margin:7px 0;
+  line-height:1.7;
+}
+/* Stufe 4: Marker — Inschrift-Variante (HUMAN-Update 2026-06-17, Bauanleitung §2.3/§2.4/§5).
+   Word-Trick: Rahmen oben auf Label + Rahmen unten auf Marker, dazwischen kein Rahmen
+   -> visuell ein Kasten um beide Absaetze. CSS-Aequivalent: top/bottom border auf label/p,
+   zentriert + symmetrischer Einzug simuliert 2.5cm Word-Einzug. */
+.article .statement{
+  margin:48px auto;
+  max-width:none;
+  text-align:center;
+}
+.article .statement .label{
+  font-family:var(--mono);font-size:.7rem;font-weight:600;letter-spacing:.24em;
+  text-transform:uppercase;color:#0A4DE0;
+  border-top:1.5px solid #15171C;
+  padding:14px 0 10px 0;margin:0;
+}
+.article .statement p{
+  margin:0;font-family:'Spectral',Georgia,serif;font-weight:500;font-style:italic;
+  font-size:1.5rem;line-height:1.34;color:#15171C;
+  border-bottom:1.5px solid #15171C;
+  padding:0 0 16px 0;
+}
+
+/* W8: Bild-Rahmung staerker · W10: Bilder leicht rotieren */
+.evidence{
+  margin:36px -8px;padding:14px;
+  background:#fff;border:1px solid var(--line-deep);border-radius:2px;
+  transform:rotate(-.3deg);
+  box-shadow:0 16px 30px rgba(60,42,18,.13), 0 1px 0 rgba(255,255,255,.6) inset;
+}
+.evidence:nth-of-type(even){transform:rotate(.4deg)}
+.evidence img{
+  width:100%;display:block;height:auto;
+  border:1px solid #ddd5c4;background:#fafafa;
+}
+.cap{
+  font:500 .78rem/1.5 var(--mono);color:var(--muted);
+  padding:10px 4px 0;margin:0;
+}
+.evidence-pending{
+  margin:24px 0;padding:14px;
+  border:1px dashed var(--red);background:#fbeae5;
+  font:500 .85rem/1.4 var(--mono);color:var(--red-deep);
+}
+
+/* W3: Card-Familie vereinheitlicht — alle drei Karten gleich strukturiert, nur Seitenlinie-Farbe + Label-Farbe unterschiedlich */
+/* W4: Card-Text kleiner · W10: Cards NICHT rotieren */
+.card{
+  margin:22px 0;padding:10px 16px;
+  background:var(--paper);border-radius:3px;
+  font-family:var(--mono);font-size:.80rem;line-height:1.5;
+  border-left:4px solid var(--line-deep);
+}
+.card:before{
+  display:block;font:700 .60rem/1 var(--mono);
+  letter-spacing:.14em;margin-bottom:8px;
+}
+.card p{margin:0;font-size:inherit;color:#2c2620}
+.card p br{line-height:1.8}
+
+.prompt-card{border-left-color:var(--red);background:#fff8f4}
+.prompt-card:before{content:"\27a4  PROMPT";color:var(--red)}
+
+.response-card{border-left-color:var(--green);background:#f4f7ee}
+.response-card:before{content:"\25c6  RESPONSE";color:var(--green)}
+
+.output-card{border-left-color:#8a6d3d;background:#fbf6e8}
+.output-card:before{content:"\25a3  OUTPUT";color:#8a6d3d}
+
+.quote{
+  border-left:4px solid var(--red);padding:10px 0 10px 22px;
+  margin:34px 0;font-size:1.3rem;line-height:1.35;font-weight:600;
+  color:var(--ink);
+}
+
+/* W9: Cliff in reiner Werkbank-Identitaet */
+.cliff{
+  margin-top:60px;padding:32px 30px;
+  background:linear-gradient(135deg,#211915 0%,#2d211a 100%);
+  color:#fff3df;border-radius:4px;
+  border-top:3px solid var(--red);
+  box-shadow:0 12px 30px rgba(33,25,21,.3);
+}
+.cliff .k{
+  font:700 .72rem/1 var(--mono);color:#ffb19e;
+  text-transform:uppercase;letter-spacing:.16em;
+}
+.cliff h2{
+  margin:14px 0 0;font-size:1.7rem;color:#fffaf0;
+  line-height:1.22;font-weight:600;
+}
+
+/* FOOTER */
+.note-footer-meta{
+  margin-top:48px;padding-top:24px;border-top:1px solid var(--line);
+  font:500 .82rem/1.45 var(--mono);color:var(--muted);
+  display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;
+}
+.note-footer-meta .nav-next{color:var(--red);font-weight:600}
+.note-footer-meta a{color:inherit;text-decoration:none}
+.note-footer-meta a:hover{text-decoration:underline}
+.note-footer-meta .empty{color:var(--muted);font-style:italic}
+
+.colophon{
+  max-width:1280px;margin:0 auto;padding:32px 26px;
+  font:500 .78rem/1.5 var(--mono);color:var(--muted);
+  text-align:center;border-top:1px solid var(--line);
+}
+.colophon .sig{color:var(--red);font-weight:700}
+
+/* WERKSTATT-STATEMENT (HUMAN-Decision 2026-06-16: vom Hero-Postit nach unten) */
+.werkstatt-statement{
+  max-width:880px;margin:48px auto 0;padding:24px 26px 0;
+  font:500 .92rem/1.55 var(--sans);color:var(--muted);
+  text-align:center;font-style:italic;
+}
+
+/* W5: RESPONSIVE — Handy / Tablet / Monitor */
+@media(max-width:960px){
+  .hero-inner{grid-template-columns:1fr;gap:36px}
+  .desk{order:2}
+  .hero{min-height:auto;padding:84px 22px 44px}
+  .hero h1{max-width:12ch}
+  .reader{grid-template-columns:1fr;gap:24px}
+  .rail{
+    position:relative;top:auto;border-left:none;border-top:1px solid var(--red);
+    padding:14px 0 0 0;max-height:none;
+  }
+  .rail a{padding:6px 0}
+  .article{padding:28px 20px}
+  .evidence{margin:28px -4px}
+  .kapitel-head{flex-direction:column;gap:6px}
+  .kapitel-head .kapitel-nr{font-size:1.1rem}
+}
+@media(min-width:1440px){
+  .main{max-width:1380px}
+  .reader{grid-template-columns:260px minmax(0,920px);gap:64px}
+  .article p{font-size:1.08rem}
+}
+
+
+/* ============ Brauner Akzent statt Rot/Blau ============ */
+  :root{ --mk:#7d4a23; --mk-soft:#9c6b3f; --red:#7d4a23; }
+
+  /* ============ HERO (echter Eröffnungs-Prompt als Textur) ============ */
+  .hero{
+    background:
+      linear-gradient(to top,rgba(38,20,10,.85) 0%,rgba(46,26,14,.68) 26%,rgba(54,32,18,.32) 58%,rgba(54,32,18,0) 100%),
+      linear-gradient(110deg,rgba(46,26,14,.86),rgba(58,36,20,.58) 40%,rgba(72,46,26,.36) 70%,rgba(245,238,224,.18) 100%),
+      url("heroes/hero_08.png");
+    background-size: cover; background-position: center;
+    min-height: 88vh;
+  }
+  .hero-inner{ grid-template-columns: 1fr; }
+  .hero .eyebrow{ font-family: 'IBM Plex Sans', system-ui, sans-serif; font-weight: 700; }
+
+  /* De-Mono: Monospace nur noch in Cards, Header, Footer */
+  .section-title{
+    font-family: 'Spectral', Georgia, serif; font-style: italic; font-weight: 600;
+    text-transform: none; letter-spacing: .01em; font-size: 1rem; color: var(--mk);
+  }
+  /* Inhaltsverzeichnis (Schiene) entfernt -> Artikel zentriert, volle Breite */
+  .reader{ grid-template-columns: minmax(0, 820px); justify-content: center; }
+
+  /* ============ STICKY-HEADER — der ruhende Pol ============ */
+  .topbar{
+    position: sticky; top: 0; z-index: 50;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    padding: 10px clamp(16px,3vw,30px);
+    background: rgba(18,12,7,.82);
+    backdrop-filter: blur(9px); -webkit-backdrop-filter: blur(9px);
+    border-bottom: 1px solid rgba(214,200,180,.18);
+  }
+  .topbar .brand{ display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+  .topbar .brand-series{
+    font: 600 .92rem/1.1 'Spectral', Georgia, serif; letter-spacing: .01em;
+    color: #ffd9a8; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .topbar .brand-nr{ font: 400 italic .78rem/1.2 'Spectral', Georgia, serif; color: #c9bba6; letter-spacing: .02em; }
+  .topbar-controls{ display: flex; flex-direction: row; align-items: center; gap: 14px; }
+
+  /* Linke Seite: Note-Navigation + Brand */
+  .topbar-left{ display: flex; align-items: center; gap: 16px; min-width: 0; }
+  .notenav{ display: flex; gap: 4px; }
+  .notenav button,.notenav a{
+    display: flex; align-items: center; justify-content: center;
+    width: 30px; height: 30px; padding: 0; cursor: pointer;
+    border: 1px solid rgba(214,200,180,.26); border-radius: 3px;
+    background: transparent; color: #d8cbb6;
+  }
+  .notenav button:hover,.notenav a:hover{ border-color: rgba(255,217,168,.7); color: #fff3df; }
+  .notenav button svg,.notenav a svg{ width: 16px; height: 16px; display: block; fill: none; stroke: currentColor; stroke-width: 1.7; }
+
+  /* Sprach-Stubs: nur Flaggen */
+  .langs{ display: flex; gap: 6px; }
+  .langs .lang{
+    display: flex; align-items: center; justify-content: center;
+    padding: 4px; border-radius: 3px; cursor: pointer;
+    border: 1px solid rgba(214,200,180,.26); background: transparent;
+  }
+  .langs .lang .flag{
+    height: 15px; width: auto; display: block; border-radius: 1px;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.2);
+  }
+  .langs .lang:hover{ border-color: rgba(255,217,168,.7); }
+  .langs .lang.is-active{ background: var(--mk); border-color: var(--mk); box-shadow: 0 0 0 1px var(--mk); }
+  .langs .lang[disabled]{ opacity: .5; cursor: not-allowed; }
+  .langs .lang[disabled]:hover{ border-color: rgba(214,200,180,.26); }
+
+  /* Ansicht-Umschalter */
+  .views{ display: flex; border: 1px solid rgba(214,200,180,.3); border-radius: 3px; overflow: hidden; }
+  .views .view{
+    font: 600 .82rem/1 'Spectral', Georgia, serif; letter-spacing: .01em;
+    padding: 6px 13px; cursor: pointer; border: 0; background: transparent; color: #d8cbb6;
+  }
+  .views .view + .view{ border-left: 1px solid rgba(214,200,180,.3); }
+  .views .view:hover{ color: #fff3df; }
+  .views .view.is-active{ background: #f2eadc; color: #191713; }
+
+  /* F19-Fix 260705: #back-top-btn stand als nacktes .view-Textbutton (Leck aus
+     deaktiviertem Scroll/Reader-Toggle) neben den quadratischen Icon-Buttons der
+     .notenav -- jetzt gleiche Box-Optik wie .notenav button (Icon statt Text). */
+  #back-top-btn{
+    display: flex; align-items: center; justify-content: center;
+    width: 30px; height: 30px; padding: 0; cursor: pointer;
+    border: 1px solid rgba(214,200,180,.26); border-radius: 3px;
+    background: transparent; color: #d8cbb6;
+  }
+  #back-top-btn:hover{ border-color: rgba(255,217,168,.7); color: #fff3df; }
+  #back-top-btn svg{ width: 16px; height: 16px; display: block; fill: none; stroke: currentColor; stroke-width: 1.7; }
+
+  /* ============ BODY-SCHRIFT = SERIF ============ */
+  .article > p{
+    font-family: 'Spectral', Georgia, serif;
+    font-size: 1.06rem; line-height: 1.7; color: #2c2620;
+  }
+  .article > p em{ font-style: italic; }
+  .article > p strong{ font-weight: 600; }
+
+  /* ============ HEADINGS ruhiger (Serif, kleiner, weniger fett) ============ */
+  .article .kapitel-head{ display: block; margin-top: 52px; margin-bottom: 10px; }
+  .article .kapitel-head h2{
+    font-family: 'Spectral', Georgia, serif;
+    font-weight: 600; font-size: 1.26rem; line-height: 1.25;
+    letter-spacing: 0; color: #241c12; margin: 0;
+  }
+
+  /* ============ MARKER in Braun ============ */
+  /* #2 braun + fett */
+  .article strong.hl1, .article .hl1{ color: var(--mk); font-weight: 700; }
+  /* #4: gleiche Groesse wie #3 (Kernsatz), kursiv, Linie oben + unten */
+  .article .statement{ margin: 42px auto; }
+  .article .statement p{
+    font-family: 'Spectral', Georgia, serif; font-style: italic; font-weight: 500;
+    font-size: 1.34rem; line-height: 1.36; color: #241c12;
+    border-top: 1.5px solid #2c2620; border-bottom: 1.5px solid #2c2620;
+    padding: 16px 0; margin: 0;
+  }
+  .article p.kernsatz{ font-size: 1.34rem; }
+  /* ============ 4 Gespraechs-Bausteine: DU / GPT / OUTPUT / CODE ============ */
+  .article .conv{ margin: 30px 0; }
+  .article .conv .lbl{
+    margin: 0 0 8px 6px;
+    font: 700 .8rem/1 'IBM Plex Sans', system-ui, sans-serif; letter-spacing: .03em;
+  }
+
+  /* DU: — Prompt-Composer (ChatGPT-Eingabefeld) */
+  .article .conv.du .lbl{ color: var(--mk); }
+  .article .composer{
+    position: relative; padding: 11px 17px 11px; overflow: hidden;
+    background: #f4f1ec; border: 1px solid #ddd5c9; border-radius: 26px;
+    box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 10px 26px rgba(60,42,18,.07);
+  }
+  .article .composer .ptext{
+    margin: 0 !important; padding: 0 5px 11px;
+    font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 1rem; line-height: 1.55; color: #2c2620;
+  }
+  .article .composer .ptext em{ font-style: italic; }
+  .article .composer .toolbar{ display: flex; align-items: center; gap: 9px; }
+  .article .composer .toolbar .spacer{ flex: 1; }
+  .article .ibtn{
+    display: inline-grid; place-items: center; width: 36px; height: 36px; padding: 0;
+    border: 0; border-radius: 50%; background: transparent; color: #463a2c;
+  }
+  .article .ibtn.outline{ background: #fff; border: 1px solid #d5ccbe; }
+  /* Senden-Kreis invertiert: weisser Pfeil auf Braun */
+  .article .ibtn.send{ background: var(--mk); border: 1px solid var(--mk); color: #fff; }
+  .article .icn{ width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .article .ubtn .icn{ width: 15px; height: 15px; }
+
+  /* GPT: — Response-Card (saubere weisse Karte) */
+  .article .conv.gpt .lbl{ color: var(--green); }
+  .article .rcard{
+    position: relative;
+    padding: 19px 22px; background: #fffdf8; border: 1px solid var(--line); border-radius: 16px;
+    box-shadow: 0 1px 2px rgba(0,0,0,.03), 0 8px 22px rgba(60,42,18,.05);
+  }
+  .article .rcard p{ margin: 0; font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: .98rem; line-height: 1.6; color: #2c2620; }
+  .article .rcard p + p{ margin-top: .55em; }
+  .article .rcard em{ font-style: italic; }
+
+  /* Kopieren-Symbol oben rechts (zwei überlappende Quadrate) */
+  .article .copybtn{
+    position: absolute; top: 12px; right: 12px; width: 30px; height: 30px; padding: 0;
+    display: inline-grid; place-items: center; cursor: pointer;
+    border: 1px solid var(--line); border-radius: 7px; background: rgba(255,255,255,.7); color: var(--muted);
+  }
+  .article .copybtn:hover{ color: var(--mk); border-color: var(--mk-soft); }
+  .article .copybtn svg{ width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* OUTPUT: — strukturiertes Resultat */
+  .article .conv.output .lbl{ color: var(--mk-soft); }
+  .article .ocard{
+    position: relative;
+    padding: 16px 50px 16px 19px; background: var(--paper-deep);
+    border: 1px solid var(--line); border-left: 3px solid var(--mk-soft); border-radius: 3px;
+  }
+  .article .ocard p{ margin: 0; font: 500 .9rem/1.6 var(--mono); color: #3a322a; }
+
+  /* CODE: — Code-Block (heller Untergrund, Scrollbalken erst ab ~10 Zeilen) */
+  .article .conv.code .lbl{ color: #5a534a; }
+  .article .ccard{
+    padding: 15px 18px; background: #f3ecdf; border: 1px solid var(--line-deep); border-radius: 6px;
+    max-height: 252px; overflow: auto;
+  }
+  .article .ccard pre{ margin: 0; font: 500 .82rem/1.6 var(--mono); color: #3a322a; white-space: pre; }
+  .article .ccard .cmt{ color: #9a8866; }
+
+  /* ============ QUOTE = Stufe 4: Linie oberhalb + unterhalb ============ */
+  .article .quote{
+    border-left: 0; margin: 44px auto; max-width: 32ch;
+    text-align: center; font-family: 'Spectral', Georgia, serif;
+    font-style: italic; font-weight: 500; font-size: 1.34rem; line-height: 1.36; color: #241c12;
+    border-top: 1.5px solid #2c2620; border-bottom: 1.5px solid #2c2620; padding: 16px 0;
+  }
+
+  /* ============ EVIDENCE — nur das Bild ist zart hinterlegt (Passepartout im Papierton) ============ */
+  .article .evidence{
+    margin: 36px 0; padding: 0; background: none; border: 0; box-shadow: none; transform: none;
+  }
+  .article .evidence:nth-of-type(even){ transform: none; }
+  .article .evidence .stub-tag{
+    display: inline-block; font: 700 .64rem/1 'IBM Plex Sans', system-ui, sans-serif; letter-spacing: .1em;
+    text-transform: uppercase; color: #fffaf0; background: var(--mk-soft);
+    padding: 6px 11px; border-radius: 2px; margin: 0 0 12px;
+  }
+  .article .evidence img{
+    width: 100%; height: auto; display: block; background: var(--paper-deep);
+    border: 1px solid var(--line); border-radius: 2px; padding: 16px; box-shadow: none;
+  }
+  .article .evidence .cap{ color: var(--muted); padding: 12px 2px 0; font-family: 'Spectral', Georgia, serif; font-style: italic; }
+
+  /* ============ CLIFF entschärft (kein dunkler Kasten, klein) ============ */
+  .article .cliff{
+    margin-top: 52px; padding: 22px 0 0; background: none; color: inherit;
+    border: 0; border-top: 1px solid var(--line); border-radius: 0; box-shadow: none;
+  }
+  .article .cliff .k{ color: var(--mk-soft); font: 700 .72rem/1 'IBM Plex Sans', system-ui, sans-serif; letter-spacing: .14em; text-transform: uppercase; }
+  .article .cliff .next-meta{
+    font: 600 .8rem/1.2 'IBM Plex Sans', system-ui, sans-serif; letter-spacing: .02em;
+    color: var(--muted); margin: 11px 0 0;
+  }
+  .article .cliff h2{
+    font-family: 'Spectral', Georgia, serif; font-style: normal; font-weight: 600;
+    font-size: 1.18rem; line-height: 1.3; color: #241c12; margin: 5px 0 0;
+  }
+
+  /* ============ TOC ruhiger: schlichte Nummern 01–09, keine A/B-Codes ============ */
+  .rail{ border-left: 1px solid var(--line-deep); }
+  .rail a{ display: flex; gap: 12px; align-items: baseline; }
+  .rail-nr{
+    width: auto; color: var(--muted); font-weight: 600; font-feature-settings: "tnum";
+    letter-spacing: .04em;
+  }
+  .rail a:hover .rail-nr{ color: var(--mk); }
+  .rail .grp{
+    display: block; padding: 14px 0 6px; margin-top: 6px;
+    font: 700 .66rem/1 var(--mono); letter-spacing: .16em; text-transform: uppercase;
+    color: var(--mk-soft); border-bottom: 0;
+  }
+  .rail .grp:first-child{ margin-top: 0; padding-top: 0; }
+
+  /* ============ READER v2 — Buch-Doppelseite mit Seitenumblaettern ============ */
+  body.mode-reader{ overflow: hidden; }
+  body.mode-reader .hero,
+  body.mode-reader .section-title,
+  body.mode-reader .werkstatt-statement,
+  body.mode-reader .colophon,
+  body.mode-reader .reader{ display: none; }
+  body.mode-reader .main{ padding: 0; max-width: none; }
+
+  /* Header faehrt weg, erscheint nur auf Tipp in die Kopfzone (instant: Transitions frieren hier ein) */
+  body.mode-reader .topbar{ transform: translateY(-100%); }
+  body.mode-reader .topbar.show{ transform: translateY(0); }
+
+  .bookstage{ display: none; }
+  body.mode-reader .bookstage{
+    display: block; position: fixed; inset: 0; z-index: 40;
+    background: radial-gradient(130% 100% at 50% -12%, #efe7d7 0%, #e4d9c5 55%, #d5c7af 100%);
+    overflow: hidden; touch-action: pan-y; user-select: none; -webkit-user-select: none;
+  }
+  .book{
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+    display: flex; perspective: 2600px; border-radius: 5px;
+    box-shadow: 0 36px 66px rgba(46,32,16,.34), 0 6px 16px rgba(46,32,16,.20);
+  }
+  .page-slot{ position: relative; flex: none; background: #fffdf7; overflow: hidden; }
+  .page-slot.left{ border-radius: 5px 0 0 5px; box-shadow: inset -26px 0 40px -26px rgba(60,42,18,.34); }
+  .page-slot.right{ border-radius: 0 5px 5px 0; box-shadow: inset 26px 0 40px -26px rgba(60,42,18,.34); }
+
+  .page{ position: absolute; inset: 0; padding: 46px 46px 50px; box-sizing: border-box; overflow: hidden; }
+  .pageno{ position: absolute; bottom: 16px; font: 600 .72rem/1 var(--mono); color: #a8997f; letter-spacing: .08em; }
+  .page-slot.left .pageno{ left: 46px; }
+  .page-slot.right .pageno{ right: 46px; }
+
+  /* Inhalt auf der Buchseite: kleiner als in der Scroll-Version */
+  .page .article{ background: transparent; border: 0; box-shadow: none; padding: 0; margin: 0; max-width: none; height: auto; }
+  .page .article > *:first-child{ margin-top: 0 !important; }
+  .page .article > p{ font-size: .8rem; line-height: 1.56; margin: .55em 0; }
+  .page .article .kapitel-head{ margin-top: 0; margin-bottom: 6px; }
+  .page .article .kapitel-head h2{ font-size: .98rem; }
+  .page .article p.kernsatz, .page .article .quote, .page .article .statement p{ font-size: .92rem; }
+  .page .article .quote, .page .article .statement{ margin: 18px auto; }
+  .page .article .statement p{ padding: 11px 0; }
+  /* Cards kompakt: weniger Padding, kleinere Schrift, engere Abstaende */
+  .page .article .conv{ margin: 12px 0; }
+  .page .article .conv .lbl{ font-size: .64rem; margin-bottom: 5px; }
+  .page .article .composer{ padding: 11px 12px 8px; border-radius: 18px; }
+  .page .article .composer .ptext{ font-size: .76rem; line-height: 1.45; padding: 0 3px 8px; min-height: 0; }
+  .page .article .composer .toolbar{ gap: 6px; }
+  .page .article .ibtn{ width: 27px; height: 27px; }
+  .page .article .ibtn .icn{ width: 14px; height: 14px; }
+  .page .article .rcard{ padding: 12px 14px; border-radius: 12px; }
+  .page .article .rcard p{ font-size: .76rem; line-height: 1.5; }
+  .page .article .copybtn{ width: 24px; height: 24px; top: 9px; right: 9px; }
+  .page .article .copybtn svg{ width: 13px; height: 13px; }
+  .page .article .ocard{ padding: 10px 40px 10px 13px; }
+  .page .article .ocard p, .page .article .ccard pre{ font-size: .68rem; line-height: 1.5; }
+  .page .article .ccard{ padding: 11px 13px; max-height: 150px; }
+  .page .article .evidence .stub-tag{ font-size: .56rem; padding: 5px 9px; margin-bottom: 9px; }
+  .page .article .evidence img{ max-height: 22vh; width: auto; max-width: 100%; padding: 11px; }
+  .page .article .evidence .cap{ font-size: .72rem; padding-top: 9px; }
+  .page .article .cliff{ margin-top: 22px; padding-top: 16px; }
+  .page .article .cliff h2{ font-size: 1rem; }
+
+  /* Umblaetter-Leaf (3D) */
+  .flipper{ position: absolute; top: 0; height: 100%; z-index: 6; transform-style: preserve-3d; display: none; will-change: transform; }
+  .flip-face{ position: absolute; inset: 0; background: #fffdf7; overflow: hidden; backface-visibility: hidden; -webkit-backface-visibility: hidden; box-shadow: 0 0 30px rgba(60,42,18,.14); }
+  .flip-face.back{ transform: rotateY(180deg); }
+  .flip-shadow{ position: absolute; inset: 0; pointer-events: none; opacity: 0; background: linear-gradient(90deg, rgba(40,26,10,.24), rgba(40,26,10,0) 58%); }
+
+  /* Navigator (1/5) — versteckt, erscheint auf Tipp in die Mitte unten */
+  .pager-ui{
+    position: fixed; left: 50%; transform: translateX(-50%); bottom: 20px; z-index: 60;
+    display: none; align-items: center; gap: 14px; padding: 8px 14px; border-radius: 999px;
+    background: rgba(26,18,10,.84); backdrop-filter: blur(8px);
+    border: 1px solid rgba(214,200,180,.22);
+    opacity: 0; pointer-events: none;
+  }
+  body.mode-reader .pager-ui{ display: flex; }
+  .pager-ui.show{ opacity: 1; pointer-events: auto; }
+  .pager-ui button{
+    font: 700 1rem/1 var(--mono); width: 30px; height: 30px; padding: 0; border-radius: 50%;
+    cursor: pointer; border: 1px solid rgba(214,200,180,.32); background: transparent; color: #fff3df;
+  }
+  .pager-ui button:hover{ background: var(--mk); border-color: var(--mk); }
+  #pg-first{ font-size: .85rem !important; opacity: .65; }
+  #pg-first:hover{ opacity: 1 !important; }
+  #pg-first.at-start{ opacity: .25 !important; pointer-events: none; }
+
+  /* Zurück-nach-oben (Scroll-Modus) */
+  #back-to-top{
+    display: none; position: fixed; bottom: 24px; right: 24px; z-index: 50;
+    width: 36px; height: 36px; align-items: center; justify-content: center;
+    background: rgba(26,18,10,.82); color: #ffd9a8;
+    border: 1px solid rgba(214,200,180,.3); border-radius: 50%;
+    cursor: pointer; font-size: 1.1rem; backdrop-filter: blur(8px);
+    opacity: 0; transition: opacity .25s; pointer-events: none;
+  }
+  body.mode-scroll #back-to-top{ display: flex; }
+  #back-to-top.visible{ opacity: 1; pointer-events: auto; }
+  .pager-ui .pg{ font: 600 .74rem/1 var(--mono); letter-spacing: .1em; color: #efe2cd; min-width: 56px; text-align: center; }
+
+  /* ============ Final-Polish ============ */
+  /* Vollflaechiges Papier statt einer grossen Karte */
+  body.mode-scroll{ background: #fbf5ea; }
+  body.mode-scroll .article{ background: transparent; border: 0; box-shadow: none; border-radius: 0; padding: 40px 0 16px; }
+
+  /* Hero-Titel 260706: nowrap-Einzeiler verworfen (brach bei langen Headlines um max-width:none aus dem Container).
+     Ersetzt durch kontrollierten Balanced-Wrap auf 900px (Container-Breite), synchron zum Python-Builder-Override. */
+  .hero h1{ hyphens: auto; -webkit-hyphens: auto; white-space: normal; max-width: 900px; font-size: clamp(1.9rem, 6vw, 5rem); text-wrap: balance; }
+
+  /* Doppelte „Field Note“ aufloesen: Header-Brand erst nach dem Hero zeigen */
+  body.mode-scroll .topbar.at-top .brand{ opacity: 0; pointer-events: none; }
+
+  /* Code-Laufleiste in Braun statt System-Grau */
+  .ccard{ scrollbar-width: thin; scrollbar-color: #bd9a6f #efe3cf; }
+  .ccard::-webkit-scrollbar{ width: 9px; height: 9px; }
+  .ccard::-webkit-scrollbar-track{ background: #efe3cf; border-radius: 8px; }
+  .ccard::-webkit-scrollbar-thumb{ background: #bd9a6f; border-radius: 8px; border: 2px solid #efe3cf; }
+  .ccard::-webkit-scrollbar-thumb:hover{ background: #a07c50; }
+
+  /* ============ Mobile-Feinschliff Header ============ */
+  @media (max-width: 680px){
+    .topbar{ padding: 9px 14px; gap: 10px; }
+    .topbar-left{ gap: 10px; }
+    .notenav button,.notenav a{ width: 28px; height: 28px; }
+    .notenav button svg,.notenav a svg{ width: 15px; height: 15px; }
+    .topbar .brand-series{ font-size: .82rem; }
+    .topbar .brand-nr{ font-size: .7rem; }
+    .topbar-controls{ gap: 6px; }
+    .langs .lang .flag{ height: 13px; }
+    .views .view{ padding: 5px 10px; font-size: .76rem; }
+  }
+
+  .article .cliff{
+    margin-top: 46px; padding-top: 18px;
+  }
+  .article .cliff .k{
+    color: var(--muted); font-size: .64rem; letter-spacing: .09em;
+  }
+  .article .cliff .next-meta{
+    color: var(--muted); font-size: .72rem; font-weight: 500;
+  }
+  .article .cliff h2{
+    color: #4d453c; font-size: 1rem; font-weight: 500; line-height: 1.4;
+  }
+  .page .article .kapitel-head{
+    margin-top: 1.4rem; margin-bottom: .65rem;
+  }
+  .page .article .ocard p{
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+    font-size: .64rem; line-height: 1.48; font-weight: 500;
+  }
+
+  /* Abb.-Label: nach unten, gleicher Stil wie .cap, gleiche Zeile */
+  .article .evidence{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas: "img img" "stub cap";
+    gap: 0 6px;
+  }
+  .article .evidence img{ grid-area: img; width: 100%; }
+  .article .evidence .stub-tag{
+    grid-area: stub;
+    align-self: baseline;
+    background: none !important;
+    color: var(--muted) !important;
+    font: italic 500 .78rem/1.5 'Spectral', Georgia, serif !important;
+    letter-spacing: normal !important;
+    text-transform: none !important;
+    border-radius: 0 !important;
+    padding: 6px 0 0 !important;
+    margin: 0 !important;
+    display: block !important;
+  }
+  .article .evidence .cap{
+    grid-area: cap;
+    align-self: baseline;
+  }
+  .page .article .evidence .stub-tag{
+    font-size: .72rem !important; padding: 4px 0 0 !important;
+  }
+
+  /* Reader-Modus auf Mobile deaktivieren (≤ 680px) */
+  @media (max-width: 680px) {
+    #view-reader-btn { display: none !important; }
+  }
+  /* Reader-Modus auf Tablet-Portrait deaktivieren */
+  @media (max-width: 1024px) and (orientation: portrait) {
+    #view-reader-btn { display: none !important; }
+  }
+
+  /* Mobile/Preview: Hero bleibt First-View, kein 3:2-Bildkasten. */
+  @media (max-width: 960px){
+    .hero{
+      margin: 0;
+      min-height: clamp(540px, calc(100svh - 54px), 780px);
+      aspect-ratio: auto;
+      padding: 84px 22px 44px;
+      border-radius: 0;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center top;
+    }
+  }
+  @media (max-width: 680px){
+    .hero{
+      margin: 0;
+      min-height: clamp(520px, calc(100svh - 54px), 740px);
+      aspect-ratio: auto;
+      padding: 76px 20px 40px;
+      border-radius: 0;
+      overflow: hidden;
+    }
+    .hero h1{
+      font-size: clamp(1.8rem, 9vw, 3rem);
+      margin: 10px 0 14px;
+    }
+    .hero .lead{
+      font-size: 1rem;
+    }
+  }
+
+  .article .cliff{
+    margin-top: 46px; padding-top: 18px;
+  }
+  .article .cliff .k{
+    color: var(--muted); font-size: .64rem; letter-spacing: .09em;
+  }
+  .article .cliff .next-meta{
+    color: var(--muted); font-size: .72rem; font-weight: 500;
+  }
+  .article .cliff h2{
+    color: #4d453c; font-size: 1rem; font-weight: 500; line-height: 1.4;
+  }
+  .page .article .kapitel-head{
+    margin-top: 1.4rem; margin-bottom: .65rem;
+  }
+  .page .article .ocard p{
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+    font-size: .64rem; line-height: 1.48; font-weight: 500;
+  }
+  .article .evidence{
+    max-width: min(100%, 680px);
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .article .evidence img{
+    width: auto;
+    max-width: 100%;
+    max-height: 70vh;
+    margin: 0 auto;
+  }
+  .article .evidence.scale-ok img{
+    width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+  }
+  .article .evidence.custom-scale{
+    width: min(calc(100% * var(--figure-scale)), calc(680px * var(--figure-scale)));
+    max-width: min(calc(100% * var(--figure-scale)), calc(680px * var(--figure-scale)));
+  }
+  .article .evidence.no-scale img{
+    width: auto !important;
+    max-width: 100%;
+  }
+  /* P5C final override 260706: Die aktuelle Webdesign-Schicht brachte eine
+     nowrap-Hero-Regel mit, die nur bei kurzen Headlines auffaellt. VISION zeigt
+     den Fehler; NEUGIERDE kaschiert ihn durch die kurze Headline. */
+  body.mode-scroll .reader,
+  .reader{
+    grid-template-columns: minmax(0, 820px);
+    justify-content: center;
+  }
+  body.mode-scroll .article{
+    max-width: 820px;
+    width: 100%;
+  }
+  .hero h1{
+    white-space: normal !important;
+    max-width: 900px !important;
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: auto;
+    text-wrap: balance;
+    font-size: clamp(2.15rem, 5.2vw, 5.15rem) !important;
+    line-height: .96 !important;
+  }
+  .hero .lead{
+    max-width: 1100px;
+    text-wrap: pretty;
+  }
+  .article mark.hl2{
+    background: transparent !important;
+    color: var(--ochre,#9A6A1F) !important;
+    font-weight: 600;
+    padding: 0;
+  }
+  .article p{
+    line-height:1.46 !important;
+    margin-top:.72rem !important;
+    margin-bottom:.92rem !important;
+  }
+  /* Legacy .hl1/strong.hl1-Bold-Balken-Regel entfernt 260706 (ITEM_260706_001):
+     traf nie genuines modernes HL1 (rendert als <em>, C_HERVORHEBUNG SS3.1),
+     nur die Legacy-Alias-Route HL1-AKZENT -> cls="hl1". Scan über alle 5 aktiven
+     Notes (SENTINEL_QUALITY-Check 260706) fand 0 Runs mit HL1-AKZENT o.ae.
+     Legacy-Styles in Gebrauch -> Regel war reiner Totcode, der zusaetzlich per
+     Mapping-Bug faelschlich echtes HL2 traf (siehe ITEM_260706_001). */
+  .article p,
+  .article .kernsatz,
+  .article .cliff h2{
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: auto;
+  }
+  .article .kernsatz,
+  .article .cliff h2{
+    text-wrap: balance;
+  }
+
+</style>
+</head>
+<body class="mode-scroll">
+
+<header class="topbar">
+  <div class="topbar-left">
+    <nav class="notenav" aria-label="Field-Note-Navigation">
+      <button type="button" title="Vorherige Field Note" aria-label="Vorherige Field Note"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <a href="../../" title="Zur Storyline" aria-label="Zur Storyline"><svg viewBox="0 0 24 24"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z" stroke-linejoin="round"/></svg></a>
+      <button type="button" title="Nächste Field Note" aria-label="Nächste Field Note"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </nav>
+    <div class="brand">
+      <span class="brand-series">Feldnotizen — KI &amp; Unterricht</span>
+      <span class="brand-nr">Von der Frage zum didaktischen Wald · Nr. 08 · 2. September 2025</span>
+    </div>
+  </div>
+  <div class="topbar-controls">
+    <div class="langs" role="group" aria-label="Sprache">
+      <button class="lang is-active" type="button" title="Deutsch" aria-label="Deutsch">
+        <svg class="flag" viewBox="0 0 5 3" aria-hidden="true"><rect width="5" height="3" fill="#000"/><rect width="5" height="2" y="1" fill="#DD0000"/><rect width="5" height="1" y="2" fill="#FFCE00"/></svg>
+      </button>
+      <button class="lang" type="button" title="English" aria-label="English" disabled>
+        <svg class="flag" viewBox="0 0 60 30" aria-hidden="true"><rect width="60" height="30" fill="#012169"/><path d="M0,0 60,30 M60,0 0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 60,30 M60,0 0,30" stroke="#C8102E" stroke-width="4"/><path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/><path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6"/></svg>
+      </button>
+      <button class="lang" type="button" title="Español" aria-label="Español" disabled>
+        <svg class="flag" viewBox="0 0 6 4" aria-hidden="true"><rect width="6" height="4" fill="#AA151B"/><rect y="1" width="6" height="2" fill="#F1BF00"/></svg>
+      </button>
+      <button class="lang" type="button" title="Français" aria-label="Français" disabled>
+        <svg class="flag" viewBox="0 0 3 2" aria-hidden="true"><rect width="3" height="2" fill="#fff"/><rect width="1" height="2" fill="#0055A4"/><rect x="2" width="1" height="2" fill="#EF4135"/></svg>
+      </button>
+    </div>
+    <button id="view-scroll-btn" class="view is-active" type="button" hidden aria-hidden="true">Scroll</button>
+    <button id="view-reader-btn" class="view" type="button" hidden aria-hidden="true">Reader</button>
+    <button id="back-top-btn" type="button" aria-label="Nach oben" title="Nach oben"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  </div>
+</header>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow">Field Note Nr. 08 · 2. September 2025</div>
+      <h1>Von der Frage zum didaktischen Wald</h1>
+      <p class="lead">Aus einer einfachen Liste wächst eine grosse Sammlung aus didaktischen Ebenen, Clustern und Ordnungen - und sie wird zu gross für den Unterricht.</p>
+    </div>
+  </div>
+</header>
+
+<main class="main">
+  <div class="reader">
+    <article class="article">
+      <div class="kapitel-head" id="k-01">
+  <div class="kapitel-nr">01</div>
+  <h2>Wie viele didaktische Ebenen gibt es auf der Welt?</h2>
+</div>
+
+  <p id="p-001">Es ist der 2. September 2025 und ich scheitere seit Tagen an einer <em>automatischen Aufgabennummern-Erkennung</em> durch GPT. Um Abstand zu gewinnen, wende ich mich dem zweiten Teil meines Projekts zu: der didaktischen Analyse von Aufgaben und der Frage, auf welchen Ebenen sie verändert werden können. Mein erster Prompt ist direkt ein Auftrag. Er soll eine Aufgabe aus Geografie «Unsere Erde» nach Niveau differenzieren (was er natürlich kann). Ich schaue mir das Ergebnis an und denke gleichzeitig über die didaktischen Ebenen nach. <strong class="hl">Diese sind die gemeinsame Sprache zwischen den Aufgaben im Schülerbuch und den Unterlagen wie meiner Planung oder dem Startblatt.</strong> Ich lasse die Aufgabe stehen und wende mich diesen zu.</p>
+
+  <p id="p-002">In meiner Lehrerausbildung musste ich grundlegende didaktische Ebenen auswendig lernen. Ich versuche, sie aufzuzählen und fünf von ihnen kommen mir noch in den Sinn. Dann gebe ich GPT zwei didaktische Ebenen und will mehr wissen:</p>
+
+  <div id="card-001" class="conv du">
+    <div class="composer">
+      <p class="ptext"><strong>DU:</strong><br>Wissenschaftlich gesehen haben wir eine Inhaltsebene und eine Handlungsebene. Gibt es eine weitere? Welche Ebenen können wir verändern (spricht adaptives Lernen)?</p>
+      <div class="toolbar" aria-hidden="true">
+        <button class="ibtn outline" type="button" tabindex="-1" aria-label="Hinzufügen"><svg class="icn" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+        <span class="spacer"></span>
+        <button class="ibtn" type="button" tabindex="-1" aria-label="Mikrofon"><svg class="icn" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3M9 21h6"/></svg></button>
+        <button class="ibtn send" type="button" tabindex="-1" aria-label="Senden"><svg class="icn" viewBox="0 0 24 24"><path d="m6 12 6-6 6 6M12 18V6"/></svg></button>
+      </div>
+    </div>
+  </div>
+
+  <p id="p-003">Er gibt mir eine Liste, die sich anfühlt wie die didaktischen Ebenen, die ich vor 30 Jahren auswendig lernen musste. Es sind sieben Ebenen:</p>
+
+  <figure id="abb-01" class="evidence scale-ok">
+    <img src="P2_LAYOUTER/assets/38EBENEN_01-WALD_OPS_05B_260714_232425/originals/Abb_01.jpeg" alt="Abb. 01: Sieben didaktische Ebenen als erste überschaubare Kartenliste" loading="lazy">
+    <figcaption class="cap">Abb. 01: Sieben didaktische Ebenen als erste überschaubare Kartenliste</figcaption>
+  </figure>
+
+  <p id="p-004">«Schon lange nicht mehr gesehen» ist mein erster Gedanke, als ich die Übersicht anschaue. Es sind die klassischen Ebenen aus meiner Ausbildung und ich hätte sie nicht mehr alle aufzählen können. Inhalt, Handlung, Soziales, …. «Da muss es sicher mehr davon geben», denke ich – und schon wieder hat mich <em>meine Neugierde</em> gepackt.</p>
+
+  <p id="p-005">GPT ergänzt nicht nur Motivation, Assessment und Technik, sondern gleich ein halbes Dutzend weiterer Stellschrauben. Ich sammle sie nicht der Sammlung wegen, sondern ich habe eine Idee. Ich will die didaktischen Ebenen nutzen, um meine Planung, meinen Unterricht und meine Aufgaben feiner zu differenzieren. Deshalb beginne ich eine Buchhaltung zu führen: Schon nach zwei Runden ist die Liste gewachsen.</p>
+
+  <figure id="abb-02" class="evidence scale-ok">
+    <img src="P2_LAYOUTER/assets/38EBENEN_01-WALD_OPS_05B_260714_232425/originals/Abb_02.jpeg" alt="Abb. 02: Erweiterung von 7 auf 13 Ebenen" loading="lazy">
+    <figcaption class="cap">Abb. 02: Erweiterung von 7 auf 13 Ebenen</figcaption>
+  </figure>
+
+<div class="kapitel-head" id="k-02">
+  <div class="kapitel-nr">02</div>
+  <h2>Und in Zukunft?</h2>
+</div>
+
+  <p id="p-006">Seit meinem ersten Chat mit GPT frage ich nach zukünftigen Entwicklungen. Es ist die Faszination der Illusion, <em>in die Zukunft schauen</em> zu können. Ich weiss, dass es etwas zwischen Fiktion und Wahrscheinlichkeitsrechnung ist. Trotzdem interessiert es mich, welche weiteren didaktischen Ebenen in der Zukunft wichtig sein könnten. <strong class="hl">Mich interessieren nicht die Ebenen, die ich gleich lesen werde und bereits kenne, sondern diejenigen, auf die ich nie gekommen wäre.</strong></p>
+
+  <div id="card-002" class="conv du">
+    <div class="composer">
+      <p class="ptext"><strong>DU:</strong><br>Hast du noch Ebenen die hinsichtlich Anschlussfähigkeit für die Zukunft von Bedeutung sind?</p>
+      <div class="toolbar" aria-hidden="true">
+        <button class="ibtn outline" type="button" tabindex="-1" aria-label="Hinzufügen"><svg class="icn" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+        <span class="spacer"></span>
+        <button class="ibtn" type="button" tabindex="-1" aria-label="Mikrofon"><svg class="icn" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3M9 21h6"/></svg></button>
+        <button class="ibtn send" type="button" tabindex="-1" aria-label="Senden"><svg class="icn" viewBox="0 0 24 24"><path d="m6 12 6-6 6 6M12 18V6"/></svg></button>
+      </div>
+    </div>
+  </div>
+
+  <p id="p-007">Zehn didaktische Ebenen nennt er, die für die Zukunft relevant sein könnten. Zum Teil sind es traditionelle didaktische Ebenen, die in einem neuen Kleid verpackt sind (z.B. Produkt/Publikum &amp; Portfoliofähigkeit), oder aber neue Ebenen, deren heutige Bezeichnungen und Technik vor 20 Jahren es so noch nicht gab. Es sind technologische Ebenen wie «Daten- &amp; KI-Literacy » oder politische gefärbte Ebenen wie «Ethik, Nachhaltigkeit, Citizenship» und weitere. Meine Buchhaltung wächst weiter.</p>
+
+  <figure id="abb-03" class="evidence scale-ok">
+    <img src="P2_LAYOUTER/assets/38EBENEN_01-WALD_OPS_05B_260714_232425/originals/Abb_03.png" alt="Abb. 03: 13 + 10 = 23 Ebenen: Herleitung der ersten grossen Arbeitsordnung" loading="lazy">
+    <figcaption class="cap">Abb. 03: 13 + 10 = 23 Ebenen: Herleitung der ersten grossen Arbeitsordnung</figcaption>
+  </figure>
+
+  <p id="p-008">Ich merke, dass ich (schon wieder) eine neue Türe geöffnet habe und dass ich mir eine Übersicht über alle didaktischen Ebenen verschaffen will. Nicht als Endprodukt, sondern als Zwischenprodukt für meine spätere Arbeitsliste. Dafür muss ich sammeln, analysieren und konsolidieren. Ich bin mir bewusst, dass das eine grössere Arbeit werden könnte und deshalb nenne ich diese Liste «grosse» Liste oder «globale Liste». Am Schluss wird es die «<em>GLOBAL LIST</em>». Und richtig: diese Mammut-Liste wird mir für den Unterricht rein gar nichts bringen. Ich werde sie reduzieren und mich fragen müssen: Welche didaktischen Ebenen sind für mich im Schulzimmer von Bedeutung? Wie viele von ihnen kann ich überhaupt gleichzeitig handhaben? Vier? Acht? Zwölf? Wo ist die Schmerzgrenze – oder wird es ein Schmerzbereich werden?</p>
+
+  <p id="p-009">Ich will diese didaktischen Ebenen nutzen, um Aufgaben oder ganze Lernumgebungen zu variieren - einfacher oder schwieriger - und ich stelle mir das Bild von «Stellschrauben» vor.A<strong class="hl">ber aktuell liegen 23 Stellschrauben vor mir und das ist zu viel. </strong>Aber dieses Bild von den Stellschrauben male ich weiter aus, wie zum Beispiel bei der Geografie-Einheit «Unsere Erde»: ich nehme eine Aufgabe aus dem Buch nicht als gegeben, sondern verändere in dieser Aufgabe ganz gezielt die «Stellschraube» einer didaktischen Ebene. Bleibt sie eine reine Kartenlese-Aufgabe? Oder verändere ich die Repräsentationsform, arbeite mit Klima- und Bevölkerungsdaten, öffne den Kontext oder verschiebe die Sozialform in eine kooperative Auswertung? Im Moment ist das nicht mehr als eine Idee in meinem Kopf und die Frage, ob Differenzierung in meinem Schulzimmer in ein paar Monaten anders aussehen wird.</p>
+
+<div class="kapitel-head" id="k-03">
+  <div class="kapitel-nr">03</div>
+  <h2>Eine 10er-Liste als Zwischenspeicher</h2>
+</div>
+
+  <p id="p-010">Es ist Mittwochnachmittag. Ich starte einen neuen Chat und lade den Chatverlauf vom gestrigen Abend hoch. Ich lasse ihn aus der 23er-Liste eine gekürzte 10er Liste erstellen. Zusätzlich gebe ich «Veränderbarkeit» und «Zukunftsrelevant» als Kriterien für die Auswahl vor.</p>
+
+  <figure id="abb-04" class="evidence scale-ok">
+    <img src="P2_LAYOUTER/assets/38EBENEN_01-WALD_OPS_05B_260714_232425/originals/Abb_04.png" alt="Abb. 04: Zehn didaktische Ebenen als nächster Zwischenschritt der Ebenenentwicklung" loading="lazy">
+    <figcaption class="cap">Abb. 04: Zehn didaktische Ebenen als nächster Zwischenschritt der Ebenenentwicklung</figcaption>
+  </figure>
+
+  <p id="p-011">Ich schaue mir die 10er Liste an und speichere sie als <em>flüchtigen Zwischenschritt</em> ab. Statt einer echten Reduktion spüre ich jedoch schnell Zweifel: Die Kürzung greift zu kurz und ersetzt die 23er-Sammlung nicht, sondern zeigt nur, welche Ebenen unter den Kriterien Veränderbarkeit und Zukunftsrelevanz vorerst übrig bleiben. Und &quot;10. Netzwerk-/ Systemebene&quot; ist nicht auf der gleichen Stufe wie mein Unterricht. Da muss es mehr geben. Und eine 10er Liste, basierend auf einer unvollständigen 23er Liste, will ich nicht.</p>
+
+  <p id="p-012">Und so fahre ich weiter. Ich öffne die Liste wieder komplett und <em>sammle Runde um Runde</em> alle erdenklichen didaktischen Ebenen und lasse diese ungefiltert in die «grosse Liste» einfliessen.</p>
+
+  <p id="p-013">Nach vier Runden ordne ich die Ebenen in drei Arbeitskategorien. Erstens: klassische Ebenen aus der traditionellen Didaktik (Klafki, Heimann oder Schulz). Zweitens: erweiterte Ebenen aus Kompetenzorientierung und Medienpädagogik. Drittens: zukunftsrelevante didaktische Ebenen, die für mich in einer zunehmend digitalisierten und KI-geprägten Lernwelt an Bedeutung gewinnen könnten.</p>
+
+  <figure id="abb-05" class="evidence scale-ok custom-scale" style="--figure-scale:0.4">
+    <img src="P2_LAYOUTER/assets/38EBENEN_01-WALD_OPS_05B_260714_232425/originals/Abb_05.png" alt="Abb. 05: Übersicht über die didaktischen Ebenen als Arbeitsstand der Verdichtung" loading="lazy">
+    <figcaption class="cap">Abb. 05: Übersicht über die didaktischen Ebenen als Arbeitsstand der Verdichtung</figcaption>
+  </figure>
+
+  <p id="p-014">Ich bin wieder zurück auf der 23er Liste von gestern. Aber dieses Mal fahre ich weiter. Weitere Runden bringen weitere Ebenen zum Vorschein. Es ist wie Gold waschen. Manchmal findet man etwas, manchmal nichts.</p>
+
+<div class="kapitel-head" id="k-04">
+  <div class="kapitel-nr">04</div>
+  <h2>Aus 23 werden 34 Ebenen</h2>
+</div>
+
+  <p id="p-015">Als weitere Ergänzung lade ich in der nächsten Runde eine Reihe Dokumente von meiner Festplatte hoch. Ich lasse GPT diese auf noch nicht bekannte didaktische Ebenen untersuchen und er schlägt die Aufnahme von 11 zusätzlichen Ebenen vor. Er begründet dies auch damit, dass einige «<em>teils quer</em>» zu klassischen Kategorien liegen. Ich verstehe nicht, was er damit meint und nehme diese Kategorie einmal auf.</p>
+
+  <figure id="abb-06" class="evidence scale-ok">
+    <img src="P2_LAYOUTER/assets/38EBENEN_01-WALD_OPS_05B_260714_232425/originals/Abb_06.png" alt="Abb. 06: 34er-Liste didaktischer Ebenen" loading="lazy">
+    <figcaption class="cap">Abb. 06: 34er-Liste didaktischer Ebenen</figcaption>
+  </figure>
+
+  <p id="p-016">Aus den Rohdaten erstelle ich eine deduplizierte Liste und diese sortiere ich wiederum nach «traditionell» (in der Schule heutzutage weit verbreitet) und futuristisch (in der Schule noch nicht weit verbreitet aber für die Zukunft bedeutsam).N<em>euer Zwischenstand </em>meiner Buchhaltung: 34 Ebenen.</p>
+
+  <p id="p-017"><strong class="hl">Die Liste ist keine Taxonomie und kein Modell; sie ist mein persönliches Arbeitsinstrument</strong>, aus der ich später eine handliche Liste von didaktischen Ebenen erstellen und daraus Stellschrauben für den Unterricht bauen will. Ich will die Liste in Word anzeigen lassen und merke, dass ich die Bildschirmansicht auf 60% reduzieren muss.</p>
+
+  <figure id="abb-07" class="evidence scale-ok">
+    <img src="P2_LAYOUTER/assets/38EBENEN_01-WALD_OPS_05B_260714_232425/originals/Abb_07.png" alt="Abb. 07: Wachstum durch Quellenabgleich: 23 Ebenen plus Quellen- und Deduplikationsarbeit" loading="lazy">
+    <figcaption class="cap">Abb. 07: Wachstum durch Quellenabgleich: 23 Ebenen plus Quellen- und Deduplikationsarbeit</figcaption>
+  </figure>
+
+  <p id="p-018">Als Arbeitsliste ist sie nicht mehr brauchbar; wie geplant.</p>
+
+  <div id="hl4-01" class="statement">
+    <div class="label">WALD</div>
+    <p>«Das ist keine Liste mehr — das ist ein Wald.»</p>
+  </div>
+
+<div class="kapitel-head" id="k-05">
+  <div class="kapitel-nr">05</div>
+  <h2>Ist das noch klassische Didaktik?</h2>
+</div>
+
+  <p id="p-019">Was habe ich erstellt? Ist es eine von KI nach Wahrscheinlichkeit erzeugte und anschliessend von mir ausgewählte und geordnete Liste didaktischer Ebenen? Ganz sicher ist diese experimentell und könnte in Fachkreisen kontrovers aufgenommen werden. Deshalb überlege ich mir, mit welchen etablierten didaktischen Referenzmodellen ich meine Liste vergleichen könnte. Dazu wähle ich willkürlich die Merkmale aus Hilbert Meyers Buch «Was ist guter Unterricht?» und dem Kompetenzrahmen der PH Luzern. Ich will meine Liste der didaktische Ebenen mit den Merkmalen aus diesen beiden Quellen vergleichen und schauen was passiert.</p>
+
+  <div id="card-003" class="conv du">
+    <div class="composer">
+      <p class="ptext"><strong>DU:</strong><br>Nimm die 10 Gütekriterien von Hilbert Meyers «Guter Unterricht», nimm Daten zum kompetenzorientierten Unterricht und nimm die Elemente kompetenzorientierten Unterrichts der PH Luzern. Sind diese in den didaktischen Ebenen irgendwie abgebildet?</p>
+      <div class="toolbar" aria-hidden="true">
+        <button class="ibtn outline" type="button" tabindex="-1" aria-label="Hinzufügen"><svg class="icn" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+        <span class="spacer"></span>
+        <button class="ibtn" type="button" tabindex="-1" aria-label="Mikrofon"><svg class="icn" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3M9 21h6"/></svg></button>
+        <button class="ibtn send" type="button" tabindex="-1" aria-label="Senden"><svg class="icn" viewBox="0 0 24 24"><path d="m6 12 6-6 6 6M12 18V6"/></svg></button>
+      </div>
+    </div>
+  </div>
+
+  <p id="p-020">Eigentlich frage ich nichts anderes als: Ist das noch Didaktik nach traditionellem Verständnis? Was passiert, wenn ich GPT die selbst erstellte 34er Liste kontrollieren lasse?</p>
+
+  <p id="p-021">GPT ordnet jede einzelne Ebene meiner Liste einem Gütekriterium zu und erstellt eine kurze Einschätzung. Nachfolgend ein Ausschnitt aus dem Vergleich mit Hilbert Meyers, «10 Merkmale guten Unterrichts»:</p>
+
+  <figure id="abb-08" class="evidence scale-ok">
+    <img src="P2_LAYOUTER/assets/38EBENEN_01-WALD_OPS_05B_260714_232425/originals/Abb_08.png" alt="Abb. 08: Abgleich der Ebenenlogik mit Hilbert Meyers zehn Merkmalen guten Unterrichts" loading="lazy">
+    <figcaption class="cap">Abb. 08: Abgleich der Ebenenlogik mit Hilbert Meyers zehn Merkmalen guten Unterrichts</figcaption>
+  </figure>
+
+  <p id="p-022">Ich erhalte eine Bestätigung, dass die didaktischen Ebenen meiner 34er Liste direkt und oder indirekt anschlussfähig sind. Gleichzeitig merke ich: Das ist nicht wirklich eine Prüfung. GPT bestätigt viel, wenn man es in diese Richtung fragt; ich werde <em>anders überprüfen</em> müssen.</p>
+
+  <p id="p-023">Ich frage nach Optimierungspotential und erhalte eine Liste mit weiteren Elementen, «wo ich nachschärfen» könnte. Zum Beispiel, dass ich das «Intelligente Üben» als didaktische Ebene explizit verankern soll. Ich bin nicht einverstanden und lasse es bewusst weg. <strong class="hl">Nicht, weil intelligentes Üben unwichtig wäre, sondern weil es für diese Liste die falsche Art von Begriff ist.</strong> Üben erinnert mich an eine Unterrichtsphase nach Aebli und «intelligent» beschreibt die Qualität dieser Phase. Für meine Global List suche ich aber didaktische Ebenen, die ich in Aufgaben oder Lernumgebung verändern kann. Üben liegt aber <em>quer zu mehreren Ebenen</em> wie Handlung, Differenzierung, Zeit und Aufgabenformat und bleibt damit wichtig. Sie gehört einfach nicht als eigene Ebene in diese Liste.</p>
+
+  <p id="p-024">Es ist spät geworden; an diesem Abend im September. Ich schliesse den Computer und der Chat mit den «didaktischen Ebenen» gerät in Vergessenheit.</p>
+
+<div class="kapitel-head" id="k-06">
+  <div class="kapitel-nr">06</div>
+  <h2>Clustering: aus Liste wird Wald</h2>
+</div>
+
+  <p id="p-025"><em>Wochen später</em> – es ist Oktober geworden und ich habe gerade Herbstferien – stosse ich auf den Chat im Seitenfenster von GPT. Ich nehme das Projekt wieder auf. Wie soll ich mit den 34 didaktischen Ebenen weiterfahren?</p>
+
+  <p id="p-026">Ich schaue die Liste durch. Mir fällt auf, dass manche didaktische Ebenen zueinander verwandt sein könnten: Inhalt, Repräsentation, Kontext — das ist alles «Stoff», «Inhalt». Kann ich diese 34 didaktische Ebenen vereinfacht darstellen? Zum Beispiel als «Karten»? Zum Beispiel, indem ich diese didaktische Ebenen zu Gruppen zusammenfasse? Ich versuche thematisch ähnliche didaktische Ebenen als «Karten» zusammenzunehmen und es gelingt mir sieben solche Gruppen zu erstellen. Ich nenne von nun an diese Gruppen «<em>Cluster</em>».</p>
+
+  <div id="card-004" class="conv du">
+    <div class="composer">
+      <p class="ptext"><strong>DU:</strong><br>nimmst diese 34 Ebenen und teilst ähnliche zueinander ein. Keine Ebenen/ Informationen löschen.</p>
+      <div class="toolbar" aria-hidden="true">
+        <button class="ibtn outline" type="button" tabindex="-1" aria-label="Hinzufügen"><svg class="icn" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+        <span class="spacer"></span>
+        <button class="ibtn" type="button" tabindex="-1" aria-label="Mikrofon"><svg class="icn" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3M9 21h6"/></svg></button>
+        <button class="ibtn send" type="button" tabindex="-1" aria-label="Senden"><svg class="icn" viewBox="0 0 24 24"><path d="m6 12 6-6 6 6M12 18V6"/></svg></button>
+      </div>
+    </div>
+  </div>
+
+  <div id="card-005" class="conv output">
+    <div class="ocard">
+      <button class="copybtn" type="button" tabindex="-1" aria-label="Kopieren"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
+      <p><strong>OUTPUT:</strong><br><strong>ChatGPT:</strong><br><strong>Zusammenfassung der didaktischen Ebenen zu sieben Cluster:</strong><br>1. Inhalt, Repräsentation &amp; Kontext (6 Ebenen)<br>2. Lernprozesse, Kognition &amp; Metakognition (5 Ebenen)<br>3. Didaktisches Handeln, Sequenz &amp; Unterstützung (5 Ebenen)<br>4. Sozialität &amp; Kultur (4 Ebenen)<br>5. Medien, Technik &amp; Infrastruktur (4 Ebenen)<br>6. Kreativität, Produktion &amp; Öffentlichkeit (4 Ebenen)<br>7. Transformation, Ethik &amp; Zukunft (6 Ebenen)<br><br>Hinweis:<br>Diese 7er-Clusterung ist der erste GPT-Clusterwurf aus 34 Ebenen.<br>Später wird Cluster 7 aufgelöst; danach entstehen sechs Cluster mit Future-Skill- und Digitalitätsmarkierungen.</p>
+    </div>
+  </div>
+
+  <figure id="abb-09" class="evidence scale-ok">
+    <img src="P2_LAYOUTER/assets/38EBENEN_01-WALD_OPS_05B_260714_232425/originals/Abb_09.jpeg" alt="Abb. 09: Von der Liste zum Wald als zentraler Kipppunkt in die Cluster-Logik" loading="lazy">
+    <figcaption class="cap">Abb. 09: Von der Liste zum Wald als zentraler Kipppunkt in die Cluster-Logik</figcaption>
+  </figure>
+
+  <p id="p-027">Ich prüfe seinen Vorschlag und sehe, dass er die «Sozialebene» in Cluster 4 abbildet, aber eine «Digitale Ebene» finde ich nirgends. Er hat die digitalen Elemente auf verschiedene Cluster verteilt. Ich schaue genauer hin und stelle fest, dass manche Cluster nicht stimmig sind. <strong class="hl">Ich fange an, das Modell zu dekonstruieren.</strong> Über viele Runden löse ich Cluster auf und verteile die didaktischen Ebenen auf andere Cluster. Einige Ebenen versehe ich mit Tags: [DIG] für Digitalitätsbezug, [A/D] für analog und digital einsetzbare Ebenen und [FUT] für Zukunfts- und Future-Skills-Bezüge.</p>
+
+  <p id="p-028">Ich verfolge diesen Ansatz weiter und frage mich, welche Cluster sich wie berühren könnten. Wie geht GPT mit didaktischen Ebenen um, die andere didaktische Ebenen berühren? Es sind diese «teils quer» liegenden Ebenen, die mich nun interessieren. Ich nenne diese für mich einmal «Querschnittsdimensionen».</p>
+
+<div class="kapitel-head" id="k-07">
+  <div class="kapitel-nr">07</div>
+  <h2>Was ist Digitalität?</h2>
+</div>
+
+  <p id="p-029">So beginne ich über mehrere Turns einen Rangierprozess, bei dem ich Elemente in andere Cluster verschiebe oder ganze Cluster auflöse oder neu bilde. So löse ich zum Beispiel Cluster «5 Medien &amp; Technik» und Cluster «3 Handeln &amp; Unterstützung» auf und verteile sie auf die anderen Cluster. Ziel sind zu diesem Zeitpunkt inhaltlich und funktional stringente Cluster, die keine Überschneidungen haben und klar voneinander abgegrenzt sind. In Cluster «5 Medien &amp; Technik» teile ich alles ein, was mit Medien, Technik, Digitales zu tun hat. Aber der <em>Teufel steckt im Detail</em>. «Digital» steckt eben auch in Cluster «1 Inhalt &amp; Kontext» und in Cluster «6 Produktion &amp; Öffentlichkeit». Vielleicht ist «Digitalität» gar keine in sich geschlossene, didaktische Ebene, gar kein Cluster, sondern etwas anderes? Vielleicht ist es eine Dimension, die quer durch alle Cluster läuft?</p>
+
+  <div id="card-006" class="conv du">
+    <div class="composer">
+      <p class="ptext"><strong>DU:</strong><br>Haben wir eine «digitale Ebene»?</p>
+      <div class="toolbar" aria-hidden="true">
+        <button class="ibtn outline" type="button" tabindex="-1" aria-label="Hinzufügen"><svg class="icn" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+        <span class="spacer"></span>
+        <button class="ibtn" type="button" tabindex="-1" aria-label="Mikrofon"><svg class="icn" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3M9 21h6"/></svg></button>
+        <button class="ibtn send" type="button" tabindex="-1" aria-label="Senden"><svg class="icn" viewBox="0 0 24 24"><path d="m6 12 6-6 6 6M12 18V6"/></svg></button>
+      </div>
+    </div>
+  </div>
+
+  <p id="p-030">GPT visualisiert meinen Gedankenkonflikt, indem er die Digitalität als isolierten Baustein oder als <em>querliegender Träger</em> anderer Bausteine zeichnet. Ich nutze dazu ein Bild aus der Küche.</p>
+
+  <p id="hl3-01" class="kernsatz">Ist Digitalität ein Gewürz auf der Pizza<br>oder das Mehl im Teig?</p>
+
+  <p id="p-031">Er beantwortet nicht meine Frage aus dem Prompt, sondern zeigt mir drei Optionen auf: einmal als Querschnittsdimension, einmal als eigene Ebene und einmal als eigenes Cluster mit «Technik, Medien, Daten, Ethik» gebündelt. Wie entscheide ich mich?</p>
+
+  <p id="p-032">Es ist einer dieser Momente, wo ich nicht sagen kann «richtig oder falsch», «links oder rechts», «A oder B», weil ich es schlicht (noch) nicht weiss. Ich stelle mir weitere Querschnittsdimensionen parallel neben- oder übereinander liegend vor und merke, dass mein Bild mit den Schichten nicht stimmt. <strong class="hl">Digitalität liegt nicht einfach unten oder oben, sondern läuft quer durch </strong><strong class="hl">mehrere</strong><strong class="hl"> Ebenen</strong><strong class="hl"> hindurch</strong>: Medien und Technik, durch Daten- und KI-Kompetenz, durch adaptive Systeme und durch ethische Technologiereflexion. In der Liste wird sie über Tags sichtbar, im Modell aber bleibt sie querliegend.</p>
+
+  <p id="p-033">Ich bleibe deshalb bei der Querschnittsdimension und ich vermute, dass es noch weitere Querschnittsdimensionen gibt. Zudem gebe ich mein ursprüngliches Vorhaben mit den überschneidungsfreien und trennscharfen Clustern auf.</p>
+
+  <figure id="abb-10" class="evidence scale-ok">
+    <img src="P2_LAYOUTER/assets/38EBENEN_01-WALD_OPS_05B_260714_232425/originals/Abb_10.jpeg" alt="Abb. 10: Digitalität als Querschnitt durch mehrere Ebenen und Cluster" loading="lazy">
+    <figcaption class="cap">Abb. 10: Digitalität als Querschnitt durch mehrere Ebenen und Cluster</figcaption>
+  </figure>
+
+<div class="kapitel-head" id="k-08">
+  <div class="kapitel-nr">08</div>
+  <h2>Ein Schritt zurück zum Überblick</h2>
+</div>
+
+  <p id="p-034">Die Entwicklung geht weiter. Turn um Turn. Runde um Runde. Frage – Antwort. Vorschlag – Pushback. Das ist kein linearer – «nur nach vorne» verlaufender Entwicklungsprozess zwischen einem Menschen und der KI. Und manchmal geht es einen Schritt zurück:</p>
+
+  <div id="card-007" class="conv du">
+    <div class="composer">
+      <p class="ptext"><strong>DU:</strong><br>Die beiden aufgelösten Cluster 5 und 3 wieder herstellen.</p>
+      <div class="toolbar" aria-hidden="true">
+        <button class="ibtn outline" type="button" tabindex="-1" aria-label="Hinzufügen"><svg class="icn" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+        <span class="spacer"></span>
+        <button class="ibtn" type="button" tabindex="-1" aria-label="Mikrofon"><svg class="icn" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3M9 21h6"/></svg></button>
+        <button class="ibtn send" type="button" tabindex="-1" aria-label="Senden"><svg class="icn" viewBox="0 0 24 24"><path d="m6 12 6-6 6 6M12 18V6"/></svg></button>
+      </div>
+    </div>
+  </div>
+
+  <p id="p-035">Ein Mensch würde sich aufregen. GPT ist die Ruhe selbst. Nur selten schreibt er im Thinking: «meinen Vorschlag nun doch übernehmend…».<br>Ich frage mich dann: «wie meint er das?»</p>
+
+  <figure id="abb-11" class="evidence scale-ok">
+    <img src="P2_LAYOUTER/assets/38EBENEN_01-WALD_OPS_05B_260714_232425/originals/Abb_11.jpeg" alt="Abb. 11: Der Entwicklungsprozess als nicht-linearer Rückschritt und Neu-Orientierung" loading="lazy">
+    <figcaption class="cap">Abb. 11: Der Entwicklungsprozess als nicht-linearer Rückschritt und Neu-Orientierung</figcaption>
+  </figure>
+
+  <p id="p-036">Heute komme ich einfach nicht mehr weiter. <strong class="hl">Ich habe die Orientierung verloren, der Faden ist </strong><strong class="hl">w</strong><strong class="hl">eg.</strong> Mitten im Wald und weiss nicht mehr wo vorne und wo hinten ist. Und GPT liefert mir mit jeder Runde weitere Vorschläge und Möglichkeiten, obwohl ich in diesem Moment vor allem <em>Klarheit und Struktur</em> brauche. Dann kommt die temporäre Kapitulation, das Time-Out oder einfach….</p>
+
+  <figure id="abb-12" class="evidence scale-ok">
+    <img src="P2_LAYOUTER/assets/38EBENEN_01-WALD_OPS_05B_260714_232425/originals/Abb_12.png" alt="Abb. 12: Prompt-Screenshot. «Ich kann mich nicht entscheiden» als Realität" loading="lazy">
+    <figcaption class="cap">Abb. 12: Prompt-Screenshot. «Ich kann mich nicht entscheiden» als Realität</figcaption>
+  </figure>
+
+  <p id="p-037">Ich muss einen Schritt zurück machen. Ich brauche einen Überblick. Was gibt es alles? Was ist der aktuelle Stand der Entwicklung? Ich will damit beginnen, mir selber einen Überblick zu verschaffen. Doch sofort kommt mir in den Kopf, dass KI das schneller und vollständiger erledigen kann.</p>
+
+  <figure id="abb-13" class="evidence scale-ok">
+    <img src="P2_LAYOUTER/assets/38EBENEN_01-WALD_OPS_05B_260714_232425/originals/Abb_13.png" alt="Abb. 13: Übersicht über die sechs Cluster als konsolidierter Zwischenstand" loading="lazy">
+    <figcaption class="cap">Abb. 13: Übersicht über die sechs Cluster als konsolidierter Zwischenstand</figcaption>
+  </figure>
+
+  <p id="p-038">Und so lasse ich GPT einen aktuellen Stand der Arbeit erstellen. Ich drucke diesen aus und lege die drei Seiten auf den Küchentisch. Und als ich alles vor mir liegen sehe, <em>verschwindet der Nebel</em> und die Klarheit kommt zurück. Ich nehme einen Kugelschreiber hervor und beginne damit, Notizen auf die Blätter zu machen. Die drei Seiten werden für einige Tage meine Begleiter. Und egal ob zu Hause, im Bus, im Zug oder in der Schule: Wenn ich einen Gedanken habe, eine Idee – gibt es eine kurze Notiz auf dem Blatt und gut ist.</p>
+
+  <figure id="abb-14" class="evidence scale-ok">
+    <img src="P2_LAYOUTER/assets/38EBENEN_01-WALD_OPS_05B_260714_232425/originals/Abb_14.jpeg" alt="Abb. 14: 6 Cluster als neuer Überblick" loading="lazy">
+    <figcaption class="cap">Abb. 14: 6 Cluster als neuer Überblick</figcaption>
+  </figure>
+
+  <p id="p-039">Kurz versuche ich noch, die Cluster mit einer zweiten Nummerierungsebene zu ordnen. Nach wenigen Schritten merke ich: Das System wird zu kompliziert. Ich verschiebe es ins Archiv.</p>
+
+<div class="kapitel-head" id="k-09">
+  <div class="kapitel-nr">09</div>
+  <h2>GPT und Mistral treffen aufeinander</h2>
+</div>
+
+  <p id="p-040">In den letzten Wochen habe ich nicht nur mit GPT, sondern auch mit MISTRAL an diesem Projekt gearbeitet. Zum Teil mit den exakt gleichen Prompts. Heute möchte ich sie vereinigen.</p>
+
+  <p id="p-041">Gleiches Thema, gleiches Ziel und so ist auch in MISTRAL eine Gesamtübersicht von didaktischen Ebenen entstanden. Die Ansicht zeigt die gleiche Frage, aber von einem anderen Modell beantwortet. Und sie trägt eine andere Struktur. Es soll kein Test für ein Modell-Ranking entstehen und mir geht es auch nicht darum, welches Modell recht hat.</p>
+
+  <p id="p-042">Mich interessiert nur: «Was wird mir aus diesen beiden Welten später im Unterricht helfen?» Wenn zwei Modelle auf ähnliche Fragen unterschiedlich ordnen, wird sichtbar, wo die Ordnung noch offen ist. Genau deshalb lege ich die MISTRAL-Variante neben die GPT-Variante. MISTRAL bringt ein Modell mit fünf Clustern, drei Querschnittsdimensionen und mehreren Kategorie-Tags. Für meine eigene Arbeitsfassung übernehme ich nicht alles eins zu eins, sondern kläre die Logik: Die Ebenen bleiben die Arbeitsfelder, die Cluster ordnen diese Ebenen, die Tags markieren besondere Bezüge und die Querschnittsdimensionen laufen über die Ebenen hinweg.</p>
+
+  <figure id="abb-15" class="evidence scale-ok">
+    <img src="P2_LAYOUTER/assets/38EBENEN_01-WALD_OPS_05B_260714_232425/originals/Abb_15.png" alt="Abb. 15: MISTRAL-Variante mit fünf Clustern und Querschnittsdimensionen als Gegenmodell" loading="lazy">
+    <figcaption class="cap">Abb. 15: MISTRAL-Variante mit fünf Clustern und Querschnittsdimensionen als Gegenmodell</figcaption>
+  </figure>
+
+  <figure id="abb-16" class="evidence scale-ok">
+    <img src="P2_LAYOUTER/assets/38EBENEN_01-WALD_OPS_05B_260714_232425/originals/Abb_16.jpeg" alt="Abb. 16: Zwei Entwicklungsstränge, eine Entscheidung" loading="lazy">
+    <figcaption class="cap">Abb. 16: Zwei Entwicklungsstränge, eine Entscheidung</figcaption>
+  </figure>
+
+  <p id="p-043">Nun habe ich mit der MISTRAL-Variante und der GPT-Variante zwei Varianten, die beide gleich gut erscheinen. Es ist mir nicht möglich, zu beurteilen, welche en détail für mich stimmiger ist. Also brauche ich eine <em>fremde Perspektive</em>:</p>
+
+  <div id="card-008" class="conv du">
+    <div class="composer">
+      <p class="ptext"><strong>DU:</strong><br>Ich möchte ein kritisches, schonungsloses Feedback zu dieser Version.</p>
+      <div class="toolbar" aria-hidden="true">
+        <button class="ibtn outline" type="button" tabindex="-1" aria-label="Hinzufügen"><svg class="icn" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+        <span class="spacer"></span>
+        <button class="ibtn" type="button" tabindex="-1" aria-label="Mikrofon"><svg class="icn" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3M9 21h6"/></svg></button>
+        <button class="ibtn send" type="button" tabindex="-1" aria-label="Senden"><svg class="icn" viewBox="0 0 24 24"><path d="m6 12 6-6 6 6M12 18V6"/></svg></button>
+      </div>
+    </div>
+  </div>
+
+  <p id="p-044">Ich erhalte eine Übersicht zu Stärken und zu kritischen Punkten und ich vergleiche diese beiden Versionen. GPT erstellt mir zusätzlich noch eine Vergleichsanalyse der beiden Modelle und gibt eine knappe Empfehlung: «Funktion klären, Cluster 1 entlasten und Querschnitt operationalisieren.» Fertig. <strong class="hl">Solche Aussagen lösen nichts für mich — aber sie zeigen mir, was ich selbst entscheiden muss.</strong> Und ich erinnere mich, wozu diese Liste dient. Sie ist nicht als Theoriegebäude gedacht, sondern als Ideen-Becken für eine spätere Arbeitsliste.</p>
+
+  <p id="hl3-02" class="kernsatz">Damit ist die Richtung gesetzt<br>und meine innere Stimme sagt:<br>«Gehe weiter, nicht tiefer».</p>
+
+  <p id="p-045">Während der kurzen Zeit mit AI habe ich gelernt, dass es immer tiefer gehen kann. Es ist ein Eindringen in einen Wald. Manchmal ist es ein Dickicht, manchmal verfängt man sich im Unterholz und manchmal stösst man auf eine Lichtung, eine Quelle oder auf eine Kreuzung.</p>
+
+  <p id="p-046">Ich lege die beiden Stränge nebeneinander. GPT hat aus seiner Sammlung zuerst 34 didaktische Ebenen übernommen und durch Ordnungen, Digitalitäts- und Future-Skill-Markierungen als neue Struktur sichtbar gemacht. MISTRAL bringt nicht einfach vier neue Ebenen dazu, sondern eine andere Ordnung: fünf Cluster, drei Querschnittsdimensionen und Kategorie-Tags. Für meine Arbeitsfassung entscheide ich mich für sechs Cluster mit 38 didaktischen Ebenen. Dazu kommen Tags und vier Querschnittsdimensionen: Digitalität, Ethik &amp; Verantwortung, Agilität &amp; Experimentierfreude und kritische Reflexion.</p>
+
+<div class="kapitel-head" id="k-10">
+  <div class="kapitel-nr">10</div>
+  <h2>Die Global List ist fertig</h2>
+</div>
+
+  <p id="p-047">Ich suche nicht nach einer fertigen Wahrheit, sondern nach einem <em>Zwischenziel</em>. Sechs Cluster, achtunddreissig didaktische Ebenen, sichtbare Tags und vier Querschnittsdimensionen habe ich nun als meine Gesamtübersicht. Digitalität bleibt dabei nicht als eigenes Cluster stehen, sondern wird als Querschnittsdimension mitgeführt – meine «<em>GLOBAL LIST</em>». Es ist Version 5.3.</p>
+
+  <figure id="abb-17" class="evidence scale-ok">
+    <img src="P2_LAYOUTER/assets/38EBENEN_01-WALD_OPS_05B_260714_232425/originals/Abb_17.png" alt="Abb. 17: Finale 6-Cluster-Übersicht als Anker für den Abschluss der Note" loading="lazy">
+    <figcaption class="cap">Abb. 17: Finale 6-Cluster-Übersicht als Anker für den Abschluss der Note</figcaption>
+  </figure>
+
+  <figure id="abb-18" class="evidence scale-ok">
+    <img src="P2_LAYOUTER/assets/38EBENEN_01-WALD_OPS_05B_260714_232425/originals/Abb_18.jpeg" alt="Abb. 18: Global List V5.3 mit sechs Clustern, 38 Ebenen, Tags und vier Querschnittsdimensionen" loading="lazy">
+    <figcaption class="cap">Abb. 18: Global List V5.3 mit sechs Clustern, 38 Ebenen, Tags und vier Querschnittsdimensionen</figcaption>
+  </figure>
+
+  <p id="p-048"><strong class="hl">Mit der letzten Version steht keine mathematisch fertige Wahrheit vor mir, sondern eine brauchbare Arbeitsfassung.</strong> Sie ist gross genug, um den Wald abzubilden, und trotzdem noch geordnet genug, um daraus eine kleinere Unterrichtsliste zu schneiden. Für mein Klassenzimmer ist sie aber sicher zu gross. Es ist Zeit für etwas Handliches - eine praktische, kurze Liste. Ich nenne sie «kleine Liste», oder ein bisschen technisch, «LOCAL LIST».</p>
+
+  <p id="p-049">Welche der achtunddreissig Ebenen soll ich auf diese kleine Liste setzen?<br>Mit welchen soll ich zukünftig meinen Unterricht differenzieren?</p>
+
+      <div class="cliff">
+        <div class="k">Nächste Field Note</div>
+        <div class="next-meta">10_2025_09_38EBENEN_02-LERNSETS</div>
+        <h2>SCHABLONE</h2>
+      </div>
+
+      <div class="note-footer-meta">
+        <a href="../unterrichtsentwurf-vision/index.html">← 03_2025_08_UNTERRICHTSENTWURF-WERKZEUGE</a>
+        <a class="nav-next" href="../schablonen/index.html">10_2025_09_38EBENEN_02-LERNSETS →</a>
+      </div>
+    </article>
+  </div>
+</main>
+
+<div class="werkstatt-statement">
+  Kein Blog. Kein Ratgeber. Kein Whitepaper. Ein persönliches Entwicklungstagebuch — keine wissenschaftliche Arbeit.
+</div>
+
+<div class="colophon">
+  Field Note Nr. 08 · Serie „Feldnotizen — KI und Unterricht" · CC BY-NC-SA 4.0 · <span class="sig">— Markus</span>
+</div>
+
+<div class="bookstage" id="bookstage" aria-hidden="true">
+  <div class="book" id="book">
+    <div class="page-slot left"><div class="page" id="pageL"></div><span class="pageno" id="noL"></span></div>
+    <div class="page-slot right"><div class="page" id="pageR"></div><span class="pageno" id="noR"></span></div>
+    <div class="flipper" id="flipper">
+      <div class="flip-face front"><div class="page" id="faceFront"></div></div>
+      <div class="flip-face back"><div class="page" id="faceBack"></div></div>
+      <div class="flip-shadow" id="flipShadow"></div>
+    </div>
+  </div>
+</div>
+
+<div class="pager-ui" id="pager-ui" aria-label="Seitennavigation">
+  <button id="pg-first" type="button" aria-label="Erste Seite">Anfang</button>
+  <button id="pg-prev" type="button" aria-label="Vorherige Seite">‹</button>
+  <span class="pg" id="pg-count">1 / 1</span>
+  <button id="pg-next" type="button" aria-label="Nächste Seite">›</button>
+</div>
+
+<button id="back-to-top" aria-label="Zurück nach oben" title="Seitenanfang">↑</button>
+
+<script>
+(function(){
+  "use strict";
+  const body      = document.body;
+  const reader    = document.querySelector(".reader");
+  const srcArticle= reader.querySelector(".article");
+  const scrollBtn = document.getElementById("view-scroll-btn");
+  const readerBtn = document.getElementById("view-reader-btn");
+  const topbar    = document.querySelector(".topbar");
+  const heroEl    = document.querySelector(".hero");
+  const stage     = document.getElementById("bookstage");
+  const book      = document.getElementById("book");
+  const pageL     = document.getElementById("pageL");
+  const pageR     = document.getElementById("pageR");
+  const noL       = document.getElementById("noL");
+  const noR       = document.getElementById("noR");
+  const flipper   = document.getElementById("flipper");
+  const faceFront = document.getElementById("faceFront");
+  const faceBack  = document.getElementById("faceBack");
+  const flipShadow= document.getElementById("flipShadow");
+  const pager     = document.getElementById("pager-ui");
+  const pgPrev    = document.getElementById("pg-prev");
+  const pgNext    = document.getElementById("pg-next");
+  const pgCount   = document.getElementById("pg-count");
+  const KEY       = "fieldnote_view";
+  const PADX = 46, PADT = 46, PADB = 50;
+
+  function isReader(){ return body.classList.contains("mode-reader"); }
+
+  /* ---------- Buch-Geometrie ---------- */
+  let geo = { pageW: 480, pageH: 680 };
+  function sizeBook(){
+    const vw = window.innerWidth, vh = window.innerHeight;
+    let pageH = Math.min(vh * 0.92, 940);
+    let pageW = Math.min((vw * 0.95) / 2, 540);
+    if (pageH > pageW * 1.5) pageH = pageW * 1.5;   // nicht zu schmal-hoch
+    geo = { pageW: Math.round(pageW), pageH: Math.round(pageH) };
+    book.style.width  = (geo.pageW * 2) + "px";
+    book.style.height = geo.pageH + "px";
+    book.querySelectorAll(".page-slot").forEach(s => { s.style.width = geo.pageW + "px"; s.style.height = geo.pageH + "px"; });
+    flipper.style.width = geo.pageW + "px";
+  }
+
+  /* ---------- Paginierung in diskrete Seiten ---------- */
+  let pages = [];   // Array von .article-Knoten (je eine Buchseite)
+  function blankPage(){ const d = document.createElement("div"); d.className = "article"; return d; }
+  function cleanClone(node){ const c = node.cloneNode(true); c.removeAttribute("id"); c.querySelectorAll("[id]").forEach(n => n.removeAttribute("id")); return c; }
+
+  function buildPages(){
+    const contentW = geo.pageW - PADX * 2;
+    const contentH = geo.pageH - PADT - PADB - 8;
+    const meas = document.createElement("div");
+    meas.className = "article";
+    meas.style.cssText = "position:absolute;left:-99999px;top:0;visibility:hidden;width:" + contentW + "px;";
+    document.body.appendChild(meas);
+    // .page-Kontext fuer korrekte Schriftgroessen beim Messen
+    const wrap = document.createElement("div"); wrap.className = "page"; wrap.style.cssText = "position:absolute;left:-99999px;top:0;width:" + geo.pageW + "px;height:" + geo.pageH + "px;visibility:hidden;";
+    document.body.appendChild(wrap); wrap.appendChild(meas); meas.style.position = "static"; meas.style.left = ""; meas.style.width = "100%";
+
+    pages = [];
+    const commit = () => { const d = blankPage(); while (meas.firstChild) d.appendChild(meas.firstChild); pages.push(d); };
+    const blocks = Array.from(srcArticle.children);
+    for (const b of blocks){
+      const clone = cleanClone(b);
+      // Lazy-geladene Bilder haben 0px Höhe → max-height für Messung UND Rendering setzen
+      const imgH = Math.floor(contentH * 0.33);
+      clone.querySelectorAll('img').forEach(img => {
+        img.removeAttribute('loading');
+        img.style.maxHeight = imgH + 'px';
+        img.style.width = 'auto';
+        img.style.maxWidth = '100%';
+      });
+      // Kapitel beginnen auf neuer Seite, sobald die laufende Seite bereits halb gefüllt ist.
+      if (clone.classList.contains("kapitel-head") && meas.children.length && meas.offsetHeight > contentH * 0.45){
+        commit();
+      }
+      if (meas.children.length === 0) clone.style.marginTop = "0";
+      meas.appendChild(clone);
+      if (meas.offsetHeight <= contentH) continue;          // passt -> weiter sammeln
+      if (meas.children.length === 1){ commit(); continue; } // einzelner hoher Block -> eigene Seite
+      meas.removeChild(clone);
+      // Ueberschrift oder Einleitungssatz mitnehmen. Bilder beginnen nie nackt am Seitenkopf.
+      const carry = [];
+      const last = meas.lastElementChild;
+      if (last && last.classList.contains("kapitel-head")){
+        carry.unshift(last); meas.removeChild(last);
+      } else if (clone.classList.contains("evidence") && last && last.tagName === "P"){
+        carry.unshift(last); meas.removeChild(last);
+      }
+      commit();
+      for (const node of carry){ node.style.marginTop = "0"; meas.appendChild(node); }
+      clone.style.marginTop = meas.children.length === 0 ? "0" : "";
+      meas.appendChild(clone);
+    }
+    if (meas.children.length) commit();
+    document.body.removeChild(wrap);
+    if (pages.length === 0) pages.push(blankPage());
+  }
+
+  /* ---------- Rendern ---------- */
+  let spread = 0;   // gerade Seitennummer der linken Seite
+  function totalSpreads(){ return Math.max(1, Math.ceil(pages.length / 2)); }
+  function setSlot(host, i){ host.replaceChildren(pages[i] ? pages[i].cloneNode(true) : blankPage()); }
+  function setNo(el, i){ el.textContent = (i >= 0 && i < pages.length) ? (i + 1) : ""; }
+  function renderSpread(){
+    setSlot(pageL, spread);   setNo(noL, spread);
+    setSlot(pageR, spread+1); setNo(noR, spread+1);
+    flipper.style.display = "none"; flipper.style.transform = "";
+    updateNav();
+    const pgFirst = document.getElementById("pg-first");
+    if (pgFirst) pgFirst.classList.toggle("at-start", spread === 0);
+  }
+  function updateNav(){ pgCount.textContent = (spread/2 + 1) + " / " + totalSpreads(); }
+
+  /* ---------- Umblaettern (3D-Animation) ---------- */
+  let animating = false, flipI = null;
+  function runAngle(from, to, done){
+    clearInterval(flipI);
+    const t0 = Date.now(), dur = 800;
+    flipI = setInterval(() => {
+      let p = Math.min(1, (Date.now() - t0) / dur);
+      const e = p < .5 ? 2*p*p : 1 - Math.pow(-2*p + 2, 2)/2;
+      flipper.style.transform = "rotateY(" + (from + (to - from) * e) + "deg)";
+      flipShadow.style.opacity = (Math.sin(p * Math.PI) * 0.30).toFixed(3);
+      if (p >= 1){ clearInterval(flipI); done(); }
+    }, 16);
+  }
+  function flip(dir){
+    if (animating) return;
+    if (dir > 0 && spread + 2 > pages.length - 1) return;
+    if (dir < 0 && spread - 2 < 0) return;
+    animating = true; hideChrome();
+    flipper.style.height = geo.pageH + "px";
+    if (dir > 0){
+      flipper.style.left = geo.pageW + "px";
+      flipper.style.transformOrigin = "left center";
+      faceFront.replaceChildren(pages[spread+1] ? pages[spread+1].cloneNode(true) : blankPage());
+      faceBack.replaceChildren(pages[spread+2] ? pages[spread+2].cloneNode(true) : blankPage());
+      setSlot(pageR, spread+3); setNo(noR, spread+3);   // neuer Recto erscheint darunter
+      flipShadow.style.background = "linear-gradient(90deg, rgba(40,26,10,.24), rgba(40,26,10,0) 58%)";
+      flipper.style.display = "block"; flipper.style.transform = "rotateY(0deg)";
+      runAngle(0, -180, () => { spread += 2; renderSpread(); animating = false; });
+    } else {
+      flipper.style.left = "0px";
+      flipper.style.transformOrigin = "right center";
+      faceFront.replaceChildren(pages[spread] ? pages[spread].cloneNode(true) : blankPage());
+      faceBack.replaceChildren(pages[spread-1] ? pages[spread-1].cloneNode(true) : blankPage());
+      setSlot(pageL, spread-2); setNo(noL, spread-2);
+      flipShadow.style.background = "linear-gradient(270deg, rgba(40,26,10,.24), rgba(40,26,10,0) 58%)";
+      flipper.style.display = "block"; flipper.style.transform = "rotateY(0deg)";
+      runAngle(0, 180, () => { spread -= 2; renderSpread(); animating = false; });
+    }
+  }
+
+  /* ---------- Chrome (Header + Navigator) auto-versteckt ---------- */
+  let hT = null, nT = null;
+  function showHeader(){ topbar.classList.add("show"); clearTimeout(hT); hT = setTimeout(() => topbar.classList.remove("show"), 3500); }
+  function showNav(){ pager.classList.add("show"); clearTimeout(nT); nT = setTimeout(() => pager.classList.remove("show"), 3500); }
+  function hideChrome(){ topbar.classList.remove("show"); pager.classList.remove("show"); }
+
+  /* ---------- Tippen & Wischen ---------- */
+  function handleTap(x, y){
+    const W = window.innerWidth, H = window.innerHeight;
+    if (y < 72){ topbar.classList.contains("show") ? topbar.classList.remove("show") : showHeader(); return; }
+    if (y > H - 96 && x > W*0.30 && x < W*0.70){ pager.classList.contains("show") ? pager.classList.remove("show") : showNav(); return; }
+    if (x < W*0.30){ flip(-1); return; }
+    if (x > W*0.70){ flip(1); return; }
+    pager.classList.contains("show") ? hideChrome() : showNav();
+  }
+  let downX = null, downY = null, swiped = false;
+  stage.addEventListener("pointerdown", e => { downX = e.clientX; downY = e.clientY; swiped = false; });
+  stage.addEventListener("pointermove", e => {
+    if (downX == null || swiped || animating) return;
+    const dx = e.clientX - downX, dy = e.clientY - downY;
+    if (Math.abs(dx) > 48 && Math.abs(dx) > Math.abs(dy)){ swiped = true; flip(dx < 0 ? 1 : -1); }   // kurze 4–5cm-Wischgeste reicht
+  });
+  stage.addEventListener("pointerup", e => {
+    if (downX != null && !swiped){
+      const dx = e.clientX - downX, dy = e.clientY - downY;
+      if (Math.abs(dx) < 8 && Math.abs(dy) < 8) handleTap(e.clientX, e.clientY);
+    }
+    downX = downY = null;
+  });
+  stage.addEventListener("pointercancel", () => { downX = downY = null; });
+
+  /* ---------- Modus & Steuerung ---------- */
+  function enterReader(){
+    sizeBook(); buildPages();
+    const maxSpread = (totalSpreads() - 1) * 2;
+    if (spread > maxSpread) spread = maxSpread;
+    if (spread % 2) spread--;
+    renderSpread();
+  }
+  function setMode(m){
+    m = "scroll";
+    const r = (m === "reader");
+    body.classList.toggle("mode-reader", r);
+    body.classList.toggle("mode-scroll", !r);
+    scrollBtn.classList.toggle("is-active", !r);
+    readerBtn.classList.toggle("is-active", r);
+    try { localStorage.setItem(KEY, m); } catch(e){}
+    if (r){ enterReader(); setTimeout(enterReader, 120); }   // 2. Pass nach Font-Load
+    else { hideChrome(); topbar.classList.remove("show"); if (typeof syncHeaderBrand === "function") syncHeaderBrand(); }
+  }
+
+  scrollBtn.addEventListener("click", () => setMode("scroll"));
+  readerBtn.addEventListener("click", () => setMode("scroll"));
+  pgPrev.addEventListener("click", e => { e.stopPropagation(); flip(-1); showNav(); });
+  pgNext.addEventListener("click", e => { e.stopPropagation(); flip(1); showNav(); });
+  document.getElementById("pg-first").addEventListener("click", e => {
+    e.stopPropagation();
+    if (spread === 0) return;
+    spread = 0; renderSpread(); showNav();
+    document.getElementById("pg-first").classList.add("at-start");
+  });
+
+  /* Zurück-nach-oben (Scroll-Modus) */
+  const backToTop = document.getElementById("back-to-top");
+  window.addEventListener("scroll", () => {
+    backToTop.classList.toggle("visible", window.scrollY > 400);
+  }, {passive: true});
+  backToTop.addEventListener("click", () => window.scrollTo({top: 0, behavior: "smooth"}));
+  window.addEventListener("keydown", e => {
+    if (!isReader()) return;
+    if (e.key === "ArrowRight") flip(1);
+    if (e.key === "ArrowLeft")  flip(-1);
+  });
+  let rT = null;
+  window.addEventListener("resize", () => { if (!isReader()) return; clearTimeout(rT); rT = setTimeout(enterReader, 180); });
+
+  let saved = "scroll";
+  try { localStorage.setItem(KEY, "scroll"); } catch(e){}
+  setMode("scroll");
+
+  const backTopBtn = document.getElementById("back-top-btn");
+  if (backTopBtn) {
+    backTopBtn.addEventListener("click", () => window.scrollTo({top: 0, behavior: "smooth"}));
+  }
+
+  /* Header-Brand erst zeigen, wenn der Hero weggescrollt ist (loest die Doppelung) */
+  function syncHeaderBrand(){
+    if (isReader()){ topbar.classList.remove("at-top"); return; }
+    const past = window.scrollY > (heroEl.offsetHeight - 90);
+    topbar.classList.toggle("at-top", !past);
+  }
+  window.addEventListener("scroll", syncHeaderBrand, { passive: true });
+  syncHeaderBrand();
+})();
+
+/* Reader-Modus auf Mobile/Tablet-Portrait: deaktivieren */
+(function(){
+  function isSmallOrPortrait(){
+    return window.innerWidth <= 680 ||
+           (window.innerWidth <= 1024 && window.innerHeight > window.innerWidth);
+  }
+  function forceScroll(){
+    try { localStorage.setItem('fieldnote_view', 'scroll'); } catch(e) {}
+    /* Falls Reader gerade aktiv ist, auf Scroll wechseln */
+    var scrollBtn = document.getElementById('view-scroll-btn');
+    if (scrollBtn && document.body.classList.contains('mode-reader')) scrollBtn.click();
+  }
+  if (isSmallOrPortrait()) forceScroll();
+  window.addEventListener('resize', function(){
+    if (isSmallOrPortrait()) forceScroll();
+  });
+})();
+
+/* Sprachflaggen: nur anzeigen wenn mind. eine weitere Sprache verfügbar (nicht disabled) */
+(function(){
+  var langs = document.querySelector('.langs');
+  if (!langs) return;
+  var available = langs.querySelectorAll('.lang:not([disabled])');
+  if (available.length <= 1) langs.style.display = 'none';
+})();
+
+/* P5 WEB_PREVIEW: Reader deaktiviert, Topbar-Button scrollt nach oben. */
+(function(){
+  var btn = document.getElementById("back-top-btn");
+  if (!btn) return;
+  btn.addEventListener("click", function(){
+    window.scrollTo({top: 0, behavior: "smooth"});
+  });
+})();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+{
+  "op": "OPS_05B_REGISTER",
+  "status": "OK",
+  "script_version": "W_OPS05B_EXTRACT_ASSET_260612_v2",
+  "note_id": "2025_11_DATENBANKEN",
+  "version": "V5.50",
+  "source_docx": "DATENBANKEN_V5.50_DRAFT_HUMAN.docx",
+  "input_source": "docx_body_visual_marker",
+  "run_dir": "P2_LAYOUTER\\assets\\2025_11_DATENBANKEN_OPS_05B_260714_221307",
+  "files": [
+    {
+      "path": "P2_LAYOUTER/assets/2025_11_DATENBANKEN_OPS_05B_260714_221307/originals/datenbanken_04_abb_datenbanken_03_abb_matrix_lernhandlungen_204.png",
+      "kind": "asset_original",
+      "sha256": "ae3b25f754f35b5951bafc77e885f551ade0d9e860c1b805257bc5aee546cb73",
+      "bytes": 182310,
+      "position": 1
+    },
+    {
+      "path": "P2_LAYOUTER/assets/2025_11_DATENBANKEN_OPS_05B_260714_221307/originals/datenbanken_06_abb_datenbanken_05_abb_erster_vorschlag_zu_daten.png",
+      "kind": "asset_original",
+      "sha256": "f76232c0634d9f6492056fbc0287d9b5090cba9f237ff7a887db58f2778f87c8",
+      "bytes": 300879,
+      "position": 2
+    },
+    {
+      "path": "P2_LAYOUTER/assets/2025_11_DATENBANKEN_OPS_05B_260714_221307/originals/datenbanken_espresso_c1_1_datenbank_wird_7_datenbanken.png",
+      "kind": "asset_original",
+      "sha256": "fb4e456384bb395dcb1b58e54bd47e1cdd37f18fa2bb04ce74a54383c5637cc3",
+      "bytes": 1561366,
+      "position": 3
+    },
+    {
+      "path": "P2_LAYOUTER/assets/2025_11_DATENBANKEN_OPS_05B_260714_221307/originals/datenbanken_08_abb_datenbanken_06_abb_uebersicht_wie_kann_ki_mi.png",
+      "kind": "asset_original",
+      "sha256": "23ba8043223fdf8ebf967ada6c37db986a6fb5639dccb76259b349203244238c",
+      "bytes": 97761,
+      "position": 4
+    },
+    {
+      "path": "P2_LAYOUTER/assets/2025_11_DATENBANKEN_OPS_05B_260714_221307/originals/datenbanken_09_abb_datenbanken_07_abb_kernstruktur_didaktische.png",
+      "kind": "asset_original",
+      "sha256": "52c57dc4368f3800eaf85ab59f6e2f381842a947e6b763bb09f34c94b9045da0",
+      "bytes": 67011,
+      "position": 5
+    },
+    {
+      "path": "P2_LAYOUTER/assets/2025_11_DATENBANKEN_OPS_05B_260714_221307/originals/datenbanken_espresso_d2_didaktisches_betriebssystem.png",
+      "kind": "asset_original",
+      "sha256": "ff3689b5ccdc3f6e219d036f25e218785427af9eb950bee2783064a6fe6689d6",
+      "bytes": 2662203,
+      "position": 6
+    },
+    {
+      "path": "P2_LAYOUTER/assets/2025_11_DATENBANKEN_OPS_05B_260714_221307/originals/datenbanken_10_abb_datenbanken_08_abb_db_auswahl_liste_png_db_a.png",
+      "kind": "asset_original",
+      "sha256": "b6f1374c43cc28dc0776b4bc4f9a00e3888634ac3701a4fd6f95effc5d5467e5",
+      "bytes": 63111,
+      "position": 7
+    },
+    {
+      "path": "P2_LAYOUTER/assets/2025_11_DATENBANKEN_OPS_05B_260714_221307/originals/datenbanken_13_abb_datenbanken_11_abb_detaillierte_abhaengigkei.png",
+      "kind": "asset_original",
+      "sha256": "22c61462f8610f3ed1e40f0958ecd63baf654b16106848d52ff811e9c5e18b15",
+      "bytes": 107149,
+      "position": 8
+    },
+    {
+      "path": "P2_LAYOUTER/assets/2025_11_DATENBANKEN_OPS_05B_260714_221307/originals/datenbanken_espresso_e2_abhaengigkeiten_bindegewebe.png",
+      "kind": "asset_original",
+      "sha256": "5b997b6e339257bfb876ae63741c0793a22409e9197dfa66b104c1f8c4c9fb7c",
+      "bytes": 2373034,
+      "position": 9
+    },
+    {
+      "path": "P2_LAYOUTER/assets/2025_11_DATENBANKEN_OPS_05B_260714_221307/originals/datenbanken_16_abb_datenbanken_14_abb_level_architektur_von_ana.png",
+      "kind": "asset_original",
+      "sha256": "75dbe1afe7405638cfb922f5f454c44f60ce5a42879e6b2698dc59541030f8d1",
+      "bytes": 108758,
+      "position": 10
+    },
+    {
+      "path": "P2_LAYOUTER/assets/2025_11_DATENBANKEN_OPS_05B_260714_221307/originals/datenbanken_espresso_e3_e7_level_routing_werkzeugkasten.png",
+      "kind": "asset_original",
+      "sha256": "391ee77e43f27c8c5f4c3071756bfc12f6aebc52665fdc4fcd2f17daab7c0923",
+      "bytes": 2345579,
+      "position": 11
+    },
+    {
+      "path": "P2_LAYOUTER/assets/2025_11_DATENBANKEN_OPS_05B_260714_221307/originals/datenbanken_20_abb_datenbanken_18_abb_kernpalten_fuer_datenbank.png",
+      "kind": "asset_original",
+      "sha256": "0fdb56e35c0a96300b753ceb3f3a089c68105754068c43cfa6bf40af36ef790e",
+      "bytes": 89425,
+      "position": 12
+    },
+    {
+      "path": "P2_LAYOUTER/assets/2025_11_DATENBANKEN_OPS_05B_260714_221307/originals/datenbanken_21_abb_datenbanken_19_abb_vorschlag_arduino_zu_db_n.png",
+      "kind": "asset_original",
+      "sha256": "be4fef57988f5fdc93710c8723ce52ac1cf79d044f81c23e21653c0fc915c652",
+      "bytes": 53638,
+      "position": 13
+    },
+    {
+      "path": "P2_LAYOUTER/assets/2025_11_DATENBANKEN_OPS_05B_260714_221307/originals/datenbanken_23_abb_datenbanken_21_abb_sql_portable_png_sql_port.png",
+      "kind": "asset_original",
+      "sha256": "3d97afe5fb6569c6cd6e7e923f5bdfa418aa74dba458812a4cf655479be27022",
+      "bytes": 29951,
+      "position": 14
+    },
+    {
+      "path": "P2_LAYOUTER/assets/2025_11_DATENBANKEN_OPS_05B_260714_221307/originals/datenbanken_24_abb_datenbanken_22_abb_yaml_png_yaml.png",
+      "kind": "asset_original",
+      "sha256": "6ff4dcd2bc603d2c9c3b6017ad046857f533184684b85fe53c1f2088a0a86733",
+      "bytes": 29084,
+      "position": 15
+    },
+    {
+      "path": "P2_LAYOUTER/assets/2025_11_DATENBANKEN_OPS_05B_260714_221307/originals/datenbanken_25_abb_datenbanken_23_abb_query_1_welches_feedback.png",
+      "kind": "asset_original",
+      "sha256": "7a9b4ef2652d0845d33c95c32a18a551bd6b5daba810a659148e433e9eca42e2",
+      "bytes": 71246,
+      "position": 16
+    },
+    {
+      "path": "P2_LAYOUTER/assets/2025_11_DATENBANKEN_OPS_05B_260714_221307/originals/datenbanken_espresso_f1_stop_unterstuetzung_oder_kontrolle.png",
+      "kind": "asset_original",
+      "sha256": "38d169af48c2ab46cac897a53d1bbff366d46fab41780f1a00b50be60e31ecb8",
+      "bytes": 2551178,
+      "position": 17
+    }
+  ],
+  "files_count": 17,
+  "timestamp": "260714_221308"
+}

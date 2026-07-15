@@ -1,0 +1,146 @@
+{
+  "op": "OPS_05B_REGISTER",
+  "status": "OK",
+  "script_version": "W_OPS05B_EXTRACT_ASSET_260612_v2",
+  "note_id": "38EBENEN_01-WALD",
+  "version": "V5.50",
+  "source_docx": "38EBENEN_01-WALD_V5.50_DRAFT_HUMAN.docx",
+  "input_source": "docx_body_visual_marker",
+  "run_dir": "P2_LAYOUTER\\assets\\38EBENEN_01-WALD_OPS_05B_260714_232425",
+  "files": [
+    {
+      "path": "P2_LAYOUTER/assets/38EBENEN_01-WALD_OPS_05B_260714_232425/originals/Abb_01.jpeg",
+      "kind": "asset_original",
+      "sha256": "15c72eb11057d070003897d02d736ab2acd4192b42aa20e3825aef4d1a480445",
+      "bytes": 430979,
+      "position": 1
+    },
+    {
+      "path": "P2_LAYOUTER/assets/38EBENEN_01-WALD_OPS_05B_260714_232425/originals/Abb_02.jpeg",
+      "kind": "asset_original",
+      "sha256": "771135775bacd8100f4fbe64a607132235d5de9c9708978eb92ab275585d3213",
+      "bytes": 519848,
+      "position": 2
+    },
+    {
+      "path": "P2_LAYOUTER/assets/38EBENEN_01-WALD_OPS_05B_260714_232425/originals/Abb_03.png",
+      "kind": "asset_original",
+      "sha256": "9c71536a20ca10597af3c41e3266b18b2ac66704da3321bb6e837026e7ee69e4",
+      "bytes": 2927313,
+      "position": 3
+    },
+    {
+      "path": "P2_LAYOUTER/assets/38EBENEN_01-WALD_OPS_05B_260714_232425/originals/Abb_04.png",
+      "kind": "asset_original",
+      "sha256": "2e0c12892c14ce5038c5799d05df552fa4183df79641a1357e6f9ee3be41406f",
+      "bytes": 298728,
+      "position": 4
+    },
+    {
+      "path": "P2_LAYOUTER/assets/38EBENEN_01-WALD_OPS_05B_260714_232425/originals/Abb_05.png",
+      "kind": "asset_original",
+      "sha256": "55564a077e74455ef0cc4239f7cf00fd2bc135165c3f1db194e54bebb2cc49e0",
+      "bytes": 14438,
+      "position": 5
+    },
+    {
+      "path": "P2_LAYOUTER/assets/38EBENEN_01-WALD_OPS_05B_260714_232425/originals/Abb_06.png",
+      "kind": "asset_original",
+      "sha256": "0e55fb08f8c59d8e34847ae240d3dbf8376d9cebc6b722f3f8d6460df85686e2",
+      "bytes": 83791,
+      "position": 6
+    },
+    {
+      "path": "P2_LAYOUTER/assets/38EBENEN_01-WALD_OPS_05B_260714_232425/originals/Abb_07.png",
+      "kind": "asset_original",
+      "sha256": "5d5edddb34479a7a55442f6f323597cb68b04ba39efa65bfc2961ad04e592a40",
+      "bytes": 3142559,
+      "position": 7
+    },
+    {
+      "path": "P2_LAYOUTER/assets/38EBENEN_01-WALD_OPS_05B_260714_232425/originals/Abb_08.png",
+      "kind": "asset_original",
+      "sha256": "acdeed7bd9e22782917f1bed6b5da7bd3a08da1852c1c96f439541f7b1bd3feb",
+      "bytes": 112016,
+      "position": 8
+    },
+    {
+      "path": "P2_LAYOUTER/assets/38EBENEN_01-WALD_OPS_05B_260714_232425/originals/Abb_09.jpeg",
+      "kind": "asset_original",
+      "sha256": "353a02a65391a0b7bb11ddda85248778cb4e1221316f24cf89747690bdbed56a",
+      "bytes": 604104,
+      "position": 9
+    },
+    {
+      "path": "P2_LAYOUTER/assets/38EBENEN_01-WALD_OPS_05B_260714_232425/originals/Abb_10.jpeg",
+      "kind": "asset_original",
+      "sha256": "3fa93868fa798a913b7e8c2b7dc9acf7994b675ea9d345e931550ec14b4c1f12",
+      "bytes": 423246,
+      "position": 10
+    },
+    {
+      "path": "P2_LAYOUTER/assets/38EBENEN_01-WALD_OPS_05B_260714_232425/originals/Abb_11.jpeg",
+      "kind": "asset_original",
+      "sha256": "62430c6ea0d09914149bae9ab45905fd4ed461c51d2d1e05d21f51882dea9bc3",
+      "bytes": 406987,
+      "position": 11
+    },
+    {
+      "path": "P2_LAYOUTER/assets/38EBENEN_01-WALD_OPS_05B_260714_232425/originals/Abb_12.png",
+      "kind": "asset_original",
+      "sha256": "8a779d6acc196c76fb6db2c99af5822feedd3c1432d4ee010ac990f684fb9117",
+      "bytes": 26957,
+      "position": 12
+    },
+    {
+      "path": "P2_LAYOUTER/assets/38EBENEN_01-WALD_OPS_05B_260714_232425/originals/Abb_13.png",
+      "kind": "asset_original",
+      "sha256": "278e2e30fe93a1726f4352f2a7246387984fd3448d82b8baad490f3ff4f5fcc2",
+      "bytes": 416100,
+      "position": 13
+    },
+    {
+      "path": "P2_LAYOUTER/assets/38EBENEN_01-WALD_OPS_05B_260714_232425/originals/Abb_14.jpeg",
+      "kind": "asset_original",
+      "sha256": "b7500351d2497bd731a4dcd02453f722ab0436a54846a310734cb9a678169ca7",
+      "bytes": 629774,
+      "position": 14
+    },
+    {
+      "path": "P2_LAYOUTER/assets/38EBENEN_01-WALD_OPS_05B_260714_232425/originals/Abb_15.png",
+      "kind": "asset_original",
+      "sha256": "e64bc505b184fe4184849ee72f0e318f2c4fbc6cd502773d37b8090551090723",
+      "bytes": 123992,
+      "position": 15
+    },
+    {
+      "path": "P2_LAYOUTER/assets/38EBENEN_01-WALD_OPS_05B_260714_232425/originals/Abb_16.jpeg",
+      "kind": "asset_original",
+      "sha256": "032e3193fbc1d6a72fb012a8da46ccea8c9dbb6acd3ed8361ac9eb44ae1b0be0",
+      "bytes": 535492,
+      "position": 16
+    },
+    {
+      "path": "P2_LAYOUTER/assets/38EBENEN_01-WALD_OPS_05B_260714_232425/originals/Abb_17.png",
+      "kind": "asset_original",
+      "sha256": "4bbd4e68cc0a99791b74b88715a1df0cf63bdeaef7d46c6b7ed45b1819633cc4",
+      "bytes": 129218,
+      "position": 17
+    },
+    {
+      "path": "P2_LAYOUTER/assets/38EBENEN_01-WALD_OPS_05B_260714_232425/originals/Abb_18.jpeg",
+      "kind": "asset_original",
+      "sha256": "da628395db603ed28348bee7a7058a56a6a701129858f472df30dc9f4741d8cd",
+      "bytes": 591926,
+      "position": 18
+    }
+  ],
+  "files_count": 18,
+  "timestamp": "260714_232425",
+  "asset11_sync": {
+    "status": "DONE",
+    "reason": "DOCX caption is Abb. 11; OPS_05B left filename at 11_image11.jpeg.",
+    "canonical": "Abb_11.jpeg",
+    "timestamp": "2026-07-15T01:29:40"
+  }
+}
