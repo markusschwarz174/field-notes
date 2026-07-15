@@ -1,13 +1,23 @@
 # Jekyll Configuration — Field Notes
 # D_260616_02 (FIELD_NOTES_DRAFT)
+# D_260715_SEO_BASISHYGIENE — url/baseurl gesetzt + jekyll-sitemap
 
 title: "Field Notes"
-description: "Markus' Werkstattbericht — AI im Unterricht"
-url: ""
-baseurl: ""
+description: "Markus Schwarz — Werkstattbericht eines Lehrers zu AI im Unterricht"
+url: "https://markusschwarz174.github.io"
+baseurl: "/field-notes"
+lang: "de-CH"
 
 author:
   name: "Markus Schwarz"
+  url: "https://markusschwarz174.github.io/field-notes/"
+
+# jekyll-seo-tag: Social/OG-Defaults
+logo: "/assets/storyline_fieldnotes_bg_260714.png"
+social:
+  name: "Markus Schwarz"
+  links:
+    - "https://github.com/markusschwarz174"
 
 # Build settings
 theme: minima  # placeholder; ggf. ersetzen durch custom layout
@@ -26,10 +36,26 @@ defaults:
       type: "notes"
     values:
       layout: "note"
+  # SEO-Basishygiene (D_260715_SEO_BASISHYGIENE):
+  # Statische Note-HTMLs unter notes/**/index.html + p7-translation/index.html
+  # sind komplett fertige Seiten (P6-Renderer-Output). Sie brauchen KEIN Jekyll-Layout,
+  # aber MUESSEN in die sitemap.xml aufgenommen werden. Front-Matter `--- ---` reicht,
+  # weil Jekyll sie dann als Pages sieht.
+  - scope:
+      path: "notes"
+    values:
+      layout: null
+      sitemap: true
+  - scope:
+      path: "p7-translation"
+    values:
+      layout: null
+      sitemap: true
 
 # Excludes
 exclude:
   - _archive/
+  - _tools/
   - README.md
   - .gitignore
   - Gemfile
@@ -39,3 +65,4 @@ exclude:
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-sitemap

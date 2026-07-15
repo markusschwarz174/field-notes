@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://markusschwarz174.github.io/field-notes/sitemap.xml
