@@ -47,6 +47,16 @@ defaults:
       layout: null
       sitemap: true
   - scope:
+      path: "notes/p7-translation"
+    values:
+      layout: null
+      sitemap: false
+  - scope:
+      path: "notes/unterrichtsentwurf-vision"
+    values:
+      layout: null
+      sitemap: false
+  - scope:
       path: "p7-translation"
     values:
       layout: null
