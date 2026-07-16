@@ -1,26 +1,26 @@
 ---
 ---
 <!DOCTYPE html>
-<html lang="de-CH">
+<html lang="fr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FieldNotes · Übersicht · KI &amp; Unterricht</title>
-<meta name="description" content="FieldNotes — vom ersten ChatGPT-Chat aus Neugier zu YAML, Games, didaktischen Wäldern, Schablonen und Datenbanken.">
+<title>FieldNotes · Vue d'ensemble · IA &amp; Enseignement</title>
+<meta name="description" content="FieldNotes — du premier chat ChatGPT par curiosité jusqu'au YAML, aux games, aux forêts didactiques, aux gabarits et aux bases de données.">
 <meta name="google-site-verification" content="aw0hU6rVXIq2mt3n1Recr6hgd72AgI11lvLNLkuQSFE">
-<link rel="canonical" href="https://markusschwarz174.github.io/field-notes/">
+<link rel="canonical" href="https://markusschwarz174.github.io/field-notes/fr/">
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Field Notes — Markus Schwarz">
-<meta property="og:title" content="FieldNotes · Übersicht · KI & Unterricht">
-<meta property="og:description" content="FieldNotes — vom ersten ChatGPT-Chat aus Neugier zu YAML, Games, didaktischen Wäldern, Schablonen und Datenbanken.">
-<meta property="og:url" content="https://markusschwarz174.github.io/field-notes/">
+<meta property="og:title" content="FieldNotes · Vue d'ensemble · IA & Enseignement">
+<meta property="og:description" content="FieldNotes — du premier chat ChatGPT par curiosité jusqu'au YAML, aux games, aux forêts didactiques, aux gabarits et aux bases de données.">
+<meta property="og:url" content="https://markusschwarz174.github.io/field-notes/fr/">
 <meta property="og:image" content="https://markusschwarz174.github.io/field-notes/assets/storyline_fieldnotes_bg_260714.png">
-<meta property="og:locale" content="de_CH">
+<meta property="og:locale" content="fr_FR">
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="FieldNotes · Übersicht · KI & Unterricht">
-<meta name="twitter:description" content="FieldNotes — vom ersten ChatGPT-Chat aus Neugier zu YAML, Games, didaktischen Wäldern, Schablonen und Datenbanken.">
+<meta name="twitter:title" content="FieldNotes · Vue d'ensemble · IA & Enseignement">
+<meta name="twitter:description" content="FieldNotes — du premier chat ChatGPT par curiosité jusqu'au YAML, aux games, aux forêts didactiques, aux gabarits et aux bases de données.">
 <meta name="twitter:image" content="https://markusschwarz174.github.io/field-notes/assets/storyline_fieldnotes_bg_260714.png">
 <!-- JSON-LD: WebSite + Person -->
 <script type="application/ld+json">
@@ -31,7 +31,7 @@
       "@type": "WebSite",
       "name": "Field Notes — Markus Schwarz",
       "url": "https://markusschwarz174.github.io/field-notes/",
-      "inLanguage": "de-CH",
+      "inLanguage": "fr",
       "author": {
         "@type": "Person",
         "name": "Markus Schwarz",
@@ -45,7 +45,7 @@
       "sameAs": [
         "https://github.com/markusschwarz174"
       ],
-      "description": "Lehrer, Autor der Field-Notes-Reihe zu AI im Unterricht."
+      "description": "Enseignant, auteur de la série Field Notes sur l'IA en classe."
     }
   ]
 }
@@ -92,7 +92,7 @@ body{background:var(--bg);color:#191713;font-family:var(--sans);-webkit-font-smo
 
 #bg-img{
   position:fixed;inset:0;pointer-events:none;z-index:0;
-  background-image:url('assets/storyline_fieldnotes_bg_260714.png');
+  background-image:url('../assets/storyline_fieldnotes_bg_260714.png');
   background-size:cover;background-position:center 30%;opacity:.8;
 }
 #bg-grad{
@@ -268,7 +268,7 @@ body.draft-mode #draft-export-btn{display:block}
     linear-gradient(180deg,rgba(255,241,201,.24) 0 16%,rgba(255,241,201,0) 34%),
     linear-gradient(135deg,rgba(46,26,12,.2),rgba(46,26,12,.72)),
     radial-gradient(rgba(255,242,213,.18) .8px,transparent 1px) 0 0/5px 5px,
-    url('heroes/hero_01.png');
+    url('../heroes/hero_01.png');
   background-size:cover,cover,5px 5px,cover;
   background-position:center,center,0 0,center;
   border-color:rgba(28,20,13,.62);
@@ -283,7 +283,7 @@ body.draft-mode #draft-export-btn{display:block}
   background:
     linear-gradient(180deg,rgba(255,241,201,.22) 0 16%,rgba(255,241,201,0) 34%),
     linear-gradient(135deg,rgba(46,26,12,.18),rgba(46,26,12,.68)),
-    url('heroes/hero_02_2x1_ai_260707_1536x768.png');
+    url('../heroes/hero_02_2x1_ai_260707_1536x768.png');
   background-size:cover,cover,cover;
   background-position:center,center,center;
   border-color:rgba(28,20,13,.62);
@@ -481,29 +481,28 @@ body.draft-mode #draft-export-btn{display:block}
 <div id="map">
 
   <div id="title-block">
-    <div id="title-label">Feldnotizen &middot; KI &amp; Unterricht</div>
+    <div id="title-label">Notes de terrain · IA & Enseignement</div>
     <h1 id="title-h1">FieldNotes</h1>
     <p id="title-tag">
-      Ich öffne ChatGPT wegen einer Unterrichtsidee.<br>
-      Ein Jahr später liegen hier die Spuren: Neugier, YAML, Games, didaktische Wälder, Schablonen, Datenbanken &mdash; und die Frage, was davon Schule wird.
+      J'ouvre ChatGPT pour une idée de cours.<br>Un an plus tard, voilà les traces : curiosité, YAML, games, forêts didactiques, gabarits, bases de données — et la question de ce qui deviendra école.
     </p>
   </div>
 
   <div id="top-actions">
-    <div class="langs storyline-langs" role="group" aria-label="Sprache">
-      <button class="lang is-active" type="button" title="Deutsch" aria-label="Deutsch">DE</button>
-      <a class="lang" href="en/" title="English" aria-label="English">EN</a>
-      <a class="lang" href="es/" title="Español" aria-label="Español">ES</a>
-      <a class="lang" href="fr/" title="Français" aria-label="Français">FR</a>
+    <div class="langs storyline-langs" role="group" aria-label="Langue">
+      <a class="lang" href="../" title="Deutsch" aria-label="Deutsch">DE</a>
+      <a class="lang" href="../en/" title="English" aria-label="English">EN</a>
+      <a class="lang" href="../es/" title="Español" aria-label="Español">ES</a>
+      <button class="lang is-active" type="button" title="Français" aria-label="Français">FR</button>
     </div>
   </div>
 
   <svg id="svg-lines" width="100" height="100"></svg>
   <div id="waypoints-container"></div>
-  <div id="drawer-view" aria-label="FieldNotes im Hochformat">
+  <div id="drawer-view" aria-label="FieldNotes en format portrait">
     <div id="drawer-cabinet" class="drawer-cabinet"></div>
   </div>
-  <button id="draft-export-btn" type="button">Positionen exportieren (Draft-Mode)</button>
+  <button id="draft-export-btn" type="button">Exporter les positions (mode brouillon)</button>
 
   <div id="expanded-overlay"></div>
   <div id="expanded-card">
@@ -512,14 +511,14 @@ body.draft-mode #draft-export-btn{display:block}
         <div id="card-meta"></div>
         <div id="card-title"></div>
         <div id="card-abs"></div>
-        <div id="card-langs" role="group" aria-label="Sprache"></div>
+        <div id="card-langs" role="group" aria-label="Langue"></div>
         <a id="card-link" href="#">Note öffnen →</a>
       </div>
     </div>
   </div>
 
   <div id="footer">
-    <span>Serie &bdquo;Feldnotizen &mdash; KI und Unterricht&ldquo; &middot; CC BY-NC-SA 4.0 &middot; &mdash; Markus Schwarz</span>
+    <span>Série « Notes de terrain — IA et enseignement » · CC BY-NC-SA 4.0 · — Markus Schwarz</span>
   </div>
 
 </div>
@@ -531,89 +530,89 @@ body.draft-mode #draft-export-btn{display:block}
 /* ── DATA ─────────────────────────────────────────────────────────── */
 var NOTES = [
   {
-    id:'01', kurztitel:'NEUGIERDE',
-    titel:'AM ANFANG STEHT DIE NEUGIERDE',
+    id:'01', kurztitel:'CURIOSITÉ',
+    titel:'TOUT COMMENCE PAR LA CURIOSITÉ',
     datum:'2025-07-20', datum_publish:'2026-06-22',
-    abstract:'Wie aus einer Planungsfrage an GPT ein didaktisches Dessertbuffet entsteht — und am Schluss neue Ideen einen Anfang markieren.',
-    status:'LIVE', url:'notes/neugierde/index.html',
-    langs:{de:'notes/neugierde/index.html',en:'notes/neugierde/en/index.html'},
-    hero:'heroes/hero_01.png', heroAnchor:'tl',
+    abstract:'Comment une question de planification posée à GPT donne naissance à un buffet de desserts didactiques — et comment, au bout du compte, de nouvelles idées marquent un commencement.',
+    status:'LIVE', url:'../notes/neugierde/index.html',
+    langs:{de:'../notes/neugierde/index.html',en:'../notes/neugierde/en/index.html'},
+    hero:'../heroes/hero_01.png', heroAnchor:'tl',
     geht_nach:[{ref:'02',typ:'direkt'}]
   },
   {
-    id:'02', kurztitel:'UNTERRICHTSIDEE',
-    titel:'UNTERRICHTSIDEE',
+    id:'02', kurztitel:'IDÉE DE COURS',
+    titel:'IDÉE DE COURS',
     datum:'2025-08-05', datum_publish:null,
-    abstract:'Aus einem Aufgabenblatt wächst im Dialog mit der KI ein Unterrichtskonzept. Note 02 ist der zentrale Knoten — von hier verzweigen sich alle weiteren Stränge.',
-    status:'LIVE', url:'notes/unterrichtsidee/index.html',
-    langs:{de:'notes/unterrichtsidee/index.html',en:'notes/unterrichtsidee/en/index.html'},
-    hero:'heroes/hero_02_2x1_ai_260707_1536x768.png', heroAnchor:'tl',
+    abstract:'Une fiche d\'exercices se transforme en concept pédagogique au fil du dialogue avec l\'IA. La note 02 est le nœud central — c\'est de là que partent tous les autres fils.',
+    status:'LIVE', url:'../notes/unterrichtsidee/index.html',
+    langs:{de:'../notes/unterrichtsidee/index.html',en:'../notes/unterrichtsidee/en/index.html'},
+    hero:'../heroes/hero_02_2x1_ai_260707_1536x768.png', heroAnchor:'tl',
     geht_nach:[{ref:'03',typ:'Zweig'},{ref:'04',typ:'Zweig'},{ref:'05',typ:'Zweig'}]
   },
   {
-    id:'03', kurztitel:'UNTERRICHTSWERKZEUGE',
-    titel:'UNTERRICHTSWERKZEUGE',
+    id:'03', kurztitel:'OUTILS PÉDAGOGIQUES',
+    titel:'OUTILS PÉDAGOGIQUES',
     datum:'2025-08-12', datum_publish:null,
-    abstract:'Was in der Vision als Idee aufblitzt, wird zur Werkstatt: Die ersten Werkzeuge werden gebaut.',
-    status:'ANNOUNCED', url:null, hero:'heroes/hero_03.png', heroAnchor:'tl',
+    abstract:'Ce qui surgit comme idée dans la vision devient atelier : les premiers outils sont construits.',
+    status:'ANNOUNCED', url:null, hero:'../heroes/hero_03.png', heroAnchor:'tl',
     geht_nach:[{ref:'08',typ:'Zweig'}]
   },
   {
     id:'04', kurztitel:'YAML',
     titel:'YAML',
     datum:'2025-08-18', datum_publish:null,
-    abstract:'Warum eine schlichte Textstruktur zum Rückgrat des entstehenden Systems wird. Der YAML-Strang führt später zur Baumhaus-Architektur zurück.',
-    status:'LIVE', url:'notes/lets-yaml/index.html',
-    langs:{de:'notes/lets-yaml/index.html',en:'notes/lets-yaml/en/index.html'},
-    hero:'heroes/hero_04.png', heroAnchor:'tl',
+    abstract:'Pourquoi une structure de texte simple devient l\'épine dorsale du système en construction. Le fil YAML mène plus tard à l\'architecture de la maison dans les arbres.',
+    status:'LIVE', url:'../notes/lets-yaml/index.html',
+    langs:{de:'../notes/lets-yaml/index.html',en:'../notes/lets-yaml/en/index.html'},
+    hero:'../heroes/hero_04.png', heroAnchor:'tl',
     geht_nach:[]
   },
   {
     id:'05', kurztitel:'GAMES',
     titel:'GAMES',
     datum:'2025-08-25', datum_publish:null,
-    abstract:'Offener Seitenzweig: Gamification-Konzepte treffen auf den Unterrichtsalltag. Der Konflikt zwischen Spiel und Ernst bleibt unaufgelöst.',
-    status:'ANNOUNCED', url:null, hero:'heroes/hero_05.png', heroAnchor:'tl',
+    abstract:'Ramification ouverte : des concepts de gamification rencontrent le quotidien de la classe. Le conflit entre le jeu et le sérieux reste sans résolution.',
+    status:'ANNOUNCED', url:null, hero:'../heroes/hero_05.png', heroAnchor:'tl',
     geht_nach:[]
   },
   {
-    id:'08', kurztitel:'DIDAKTISCHER WALD',
-    titel:'VON DER FRAGE ZUM DIDAKTISCHEN WALD',
+    id:'08', kurztitel:'FORÊT DIDACTIQUE',
+    titel:'DE LA QUESTION À LA FORÊT DIDACTIQUE',
     datum:'2025-09-02', datum_publish:'2026-07-15',
-    abstract:'Aus der Frage nach didaktischen Ebenen wächst eine Global List mit 38 Einträgen, sechs Clustern, sichtbaren Tags und vier Querschnittsdimensionen. Der vollständige Wald braucht nun einen Weg ins Klassenzimmer.',
-    status:'LIVE', url:'notes/wald/index.html',
-    langs:{de:'notes/wald/index.html',en:'notes/wald/en/index.html'},
-    hero:'heroes/hero_08.png', heroAnchor:'tl',
+    abstract:'D\'une question sur les niveaux didactiques naît une liste globale de 38 entrées, six clusters, des tags visibles et quatre dimensions transversales. La forêt complète a maintenant besoin d\'un chemin vers la salle de classe.',
+    status:'LIVE', url:'../notes/wald/index.html',
+    langs:{de:'../notes/wald/index.html',en:'../notes/wald/en/index.html'},
+    hero:'../heroes/hero_08.png', heroAnchor:'tl',
     geht_nach:[{ref:'10',typ:'direkt'}]
   },
   {
-    id:'10', kurztitel:'DIDAKTISCHE SCHABLONEN',
-    titel:'VOM WALD ZU DIDAKTISCHEN SCHABLONEN',
+    id:'10', kurztitel:'GABARITS DIDACTIQUES',
+    titel:'DE LA FORÊT AUX GABARITS DIDACTIQUES',
     datum:'2025-10-21', datum_publish:'2026-07-15',
-    abstract:'Die Global List wird zu Lernsets: Ebenen werden bewertet, als Local List operationalisiert und mit Tags sowie vier Querschnittsdimensionen lesbar gehalten.',
-    status:'LIVE', url:'notes/schablonen/index.html',
-    langs:{de:'notes/schablonen/index.html',en:'notes/schablonen/en/index.html'},
-    hero:'heroes/hero_10.png', heroAnchor:'tl',
+    abstract:'La liste globale devient des ensembles d\'apprentissage : les niveaux sont évalués, opérationnalisés en liste locale et rendus lisibles grâce aux tags et aux quatre dimensions transversales.',
+    status:'LIVE', url:'../notes/schablonen/index.html',
+    langs:{de:'../notes/schablonen/index.html',en:'../notes/schablonen/en/index.html'},
+    hero:'../heroes/hero_10.png', heroAnchor:'tl',
     geht_nach:[{ref:'DB',typ:'direkt'}]
   },
   {
-    id:'DB', kurztitel:'DATENBANKEN',
-    titel:'DATENBANKEN',
+    id:'DB', kurztitel:'BASES DE DONNÉES',
+    titel:'BASES DE DONNÉES',
     datum:'2025-10-29', datum_publish:'2026-07-15',
-    abstract:'Aus dem Nachdenken über Unterricht entsteht ein didaktisches Betriebssystem. Die Datenbank verspricht Ordnung, bis sichtbar wird, wie schnell aus Struktur auch Druck werden kann.',
-    status:'LIVE', url:'notes/datenbanken/index.html',
-    langs:{de:'notes/datenbanken/index.html',en:'notes/datenbanken/en/index.html'},
-    hero:'heroes/hero_datenbanken_2x1_variante_01.png', heroAnchor:'tl',
+    abstract:'La réflexion sur l\'enseignement fait émerger un système d\'exploitation didactique. La base de données promet l\'ordre, jusqu\'au moment où il devient visible à quelle vitesse une structure peut aussi devenir pression.',
+    status:'LIVE', url:'../notes/datenbanken/index.html',
+    langs:{de:'../notes/datenbanken/index.html',en:'../notes/datenbanken/en/index.html'},
+    hero:'../heroes/hero_datenbanken_2x1_variante_01.png', heroAnchor:'tl',
     geht_nach:[]
   },
   {
-    id:'P7', kurztitel:'ÜBERSETZUNG',
-    titel:'WIE DIE NOTES ÜBERSETZT WERDEN',
+    id:'P7', kurztitel:'TRADUCTION',
+    titel:'COMMENT LES NOTES SONT TRADUITES',
     datum:'2026-07-13', datum_publish:'2026-07-14',
-    abstract:'Drei Versionen einer Übersetzungsgeschichte: erst Browser-Manual, dann CLI-Zwischenroute, jetzt SDK-Pipeline. P7 zeigt, warum Hochladen nach GPT nicht reicht und warum Übersetzung Spuren braucht.',
-    status:'LIVE', url:'p7-translation/index.html',
-    langs:{de:'p7-translation/index.html'},
-    hero:'p7-translation/hero_p7_translation_260714.png', heroAnchor:'tr',
+    abstract:'Trois versions d\'une histoire de traduction : d\'abord la boucle manuelle dans le navigateur, puis la voie intermédiaire en CLI, maintenant le pipeline SDK. P7 montre pourquoi téléverser le texte vers GPT ne suffit pas et pourquoi une traduction doit laisser des traces.',
+    status:'LIVE', url:'../p7-translation/index.html',
+    langs:{de:'../p7-translation/index.html'},
+    hero:'../p7-translation/hero_p7_translation_260714.png', heroAnchor:'tr',
     geht_nach:[]
   }
 ];
@@ -699,7 +698,6 @@ function rgba(hex,a) {
 }
 
 function labelHtml(note) {
-  if (note.id === '03') return 'UNTERRICHTS-<span class="soft-break"></span>WERKZEUGE';
   return note.kurztitel;
 }
 
@@ -795,7 +793,7 @@ function createDrawer(note) {
   el.type = 'button';
   el.className = 'drawer-row '+(isLive ? 'is-live' : 'is-locked');
   el.setAttribute('data-id', note.id);
-  el.setAttribute('aria-label', isLive ? note.kurztitel+' öffnen' : note.kurztitel+' angekündigt');
+  el.setAttribute('aria-label', isLive ? note.kurztitel+' ouvrir' : note.kurztitel+' annoncée');
   if (!isLive) el.setAttribute('aria-disabled','true');
 
   var thumb = document.createElement('div');
@@ -812,7 +810,7 @@ function createDrawer(note) {
 
   var state = document.createElement('div');
   state.className = 'drawer-state';
-  state.textContent = isLive ? 'ÖFFNEN' : 'BALD';
+  state.textContent = isLive ? 'OUVRIR' : 'BIENTÔT';
   el.appendChild(state);
 
   el.addEventListener('click', function(e) {
@@ -922,7 +920,7 @@ if (draftExportBtn) {
     console.log('STORYLINE Positionen/Kurven (Draft-Mode Export):\n' + json);
     var restore = draftExportBtn.textContent;
     var done = function(ok) {
-      draftExportBtn.textContent = ok ? 'Kopiert! (auch in Konsole)' : 'Siehe Browser-Konsole';
+      draftExportBtn.textContent = ok ? 'Copié ! (aussi dans la console)' : 'Voir la console du navigateur';
       setTimeout(function(){ draftExportBtn.textContent = restore; }, 2000);
     };
     if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -1044,7 +1042,7 @@ function render() {
     el.style.cursor = !DRAFT_MODE ? 'pointer' : (dragging ? 'grabbing' : 'grab');
     el.style.zIndex = DRAFT_MODE ? (dragging ? '90' : hovered ? '85' : '80') : (expanded ? '60' : dragging ? '55' : hovered ? '30' : '10');
     el.style.animation = shaking ? 'wpshake .43s ease' : '';
-    el.setAttribute('aria-label', isLive ? n.kurztitel+' — Note öffnen' : n.kurztitel+' — angekündigt');
+    el.setAttribute('aria-label', isLive ? n.kurztitel+' — ouvrir la note' : n.kurztitel+' — annoncée');
 
     /* Dot */
     if (isPostit) {
@@ -1062,12 +1060,12 @@ function render() {
       info.innerHTML =
         '<div class="wp-meta">'+n.id+' &middot; '+fmt(n.datum)+'</div>'+
         '<div class="wp-title"'+(isPostit ? '' : ' style="color:'+(hovered?accentDeep:'#191713')+';font-size:'+(hovered?'1.02rem':'.94rem')+'"')+'>'+labelHtml(n)+'</div>'+
-        (hovered && !expanded ? '<div class="wp-hint">&ouml;ffnen &rarr;</div>' : '');
+        (hovered && !expanded ? '<div class="wp-hint">ouvrir &rarr;</div>' : '');
     } else {
       info.innerHTML =
         '<div class="wp-ann-meta">'+n.id+' &middot; '+fmt(n.datum)+'</div>'+
         '<div class="wp-ann-title">'+labelHtml(n)+'</div>'+
-        '<div class="wp-ann-pub">'+(n.datum_publish ? 'erscheint '+fmt(n.datum_publish) : 'Termin offen')+'</div>';
+        '<div class="wp-ann-pub">'+(n.datum_publish ? 'paraît le '+fmt(n.datum_publish) : 'Date à confirmer')+'</div>';
     }
 
     var drawerEl = drawerEls[n.id];
@@ -1115,12 +1113,12 @@ function render() {
     }
     cardMeta.textContent = expNote.id+' · '+fmt(expNote.datum);
     cardTitle.textContent = expNote.titel;
-    cardAbs.textContent = expNote.abstract||'Abstract folgt.';
+    cardAbs.textContent = expNote.abstract||'Résumé à venir.';
     renderLangs(expNote);
     if (expNote.url) {
       cardLink.style.display = 'inline-block';
       cardLink.href = expNote.url;
-      cardLink.textContent = expNote.id === 'P7' ? 'Werkstatt öffnen →' : 'Note öffnen →';
+      cardLink.textContent = expNote.id === 'P7' ? 'Ouvrir l'atelier →' : 'Ouvrir la note →';
     } else {
       cardLink.style.display = 'none';
       cardLink.href = '#';

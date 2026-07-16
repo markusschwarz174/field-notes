@@ -56,6 +56,23 @@ defaults:
     values:
       layout: null
       sitemap: true
+  # STORYLINE-Landingpage i18n (260716): en/es/fr sind vollstaendige uebersetzte
+  # Varianten von index.html, gleiche Konvention wie notes/** + p7-translation.
+  - scope:
+      path: "en"
+    values:
+      layout: null
+      sitemap: true
+  - scope:
+      path: "es"
+    values:
+      layout: null
+      sitemap: true
+  - scope:
+      path: "fr"
+    values:
+      layout: null
+      sitemap: true
 
 # Excludes
 exclude:
