@@ -7,7 +7,7 @@ sitemap: false
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Wie die Notes uebersetzt werden sollen · Feldnotizen Werkstatt</title>
-<meta name="description" content="Werkstattseite zur Uebersetzung der Field Notes: warum Browser-Upload keine produktive Route ist und warum die SDK-Route erst noch gebaut werden muss.">
+<meta name="description" content="Werkstattseite zur Uebersetzung der Field Notes: drei Versionen vom Browser-Loop ueber die CLI-Zwischenroute bis zur funktionierenden SDK-Route.">
 <link rel="canonical" href="https://markusschwarz174.github.io/field-notes/p7-translation/">
 <meta name="author" content="Markus Schwarz">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -133,9 +133,9 @@ body:before{
         <p>Die Field Notes verlieren im falschen Übersetzungsprozess schneller ihre Stimme als ihre Grammatik.</p>
       </div>
       <div class="slip">
-        <span class="k">Stand</span>
-        <h3>SDK ist Zielbild.</h3>
-        <p>Die neue Route ist technisch belegt, aber noch nicht produktiv in P7 implementiert.</p>
+        <span class="k">Dritte Version</span>
+        <h3>SDK funktioniert.</h3>
+        <p>Nach Browser-Loop und CLI-Zwischenroute ist die SDK-Route der funktionierende dritte Anlauf.</p>
       </div>
     </aside>
   </div>
@@ -147,12 +147,12 @@ body:before{
       <a href="#warum"><span class="rail-nr">01</span>Warum P7?</a>
       <a href="#browser"><span class="rail-nr">02</span>Warum nicht Browser?</a>
       <a href="#gruende"><span class="rail-nr">03</span>Neun Gründe</a>
-      <a href="#sdk"><span class="rail-nr">04</span>SDK-Zielroute</a>
+      <a href="#sdk"><span class="rail-nr">04</span>SDK-Route</a>
       <a href="#stand"><span class="rail-nr">05</span>Aktueller Stand</a>
     </nav>
 
     <article class="article">
-      <p class="abstract-lead">Diese Seite ist ein Blick hinter die Kulissen der Field Notes. Die deutschen Texte stehen zuerst. Danach kommt P7: die Übersetzung. Aber P7 ist nicht einfach ein Knopf mit der Aufschrift „English“. P7 ist eine eigene Phase: mit Vorbereitung, Erstübersetzung, Gegenprüfung, Patch und einem Gate. Der aktuelle Lernstand ist nüchtern: Browser-Upload nach GPT ist für diese Serie keine tragfähige Produktionsroute. Die SDK-Route ist das Zielbild, aber noch nicht als produktive P7-Technik implementiert.</p>
+      <p class="abstract-lead">Diese Seite ist ein Blick hinter die Kulissen der Field Notes. Die deutschen Texte stehen zuerst. Danach kommt P7: die Übersetzung. Aber P7 ist nicht einfach ein Knopf mit der Aufschrift „English“. P7 ist eine eigene Phase: mit Vorbereitung, Erstübersetzung, Gegenprüfung, Patch und einem Gate. Die Geschichte hat inzwischen drei Versionen: erst der manuelle Browser-Loop, dann die wacklige CLI-Zwischenroute, jetzt die funktionierende SDK-Route.</p>
 
       <section class="kapitel-head" id="warum"><h2>Warum ich überhaupt einen Übersetzungs-Workflow brauche</h2></section>
       <p>Die Field Notes sind auf Deutsch geschrieben. Nicht akademisch. Nicht glatt. Sie leben von kleinen Bewegungen: von einem Satz, der erst banal wirkt und später plötzlich wichtig wird; von Bildern aus dem Schulzimmer; von meinem Staunen, meinem Misstrauen, meiner Ungeduld.</p>
@@ -245,10 +245,10 @@ body:before{
       </figure>
       <p>Darum ist „hochladen nach GPT“ keine schlechte Idee, aber die falsche Route für diese Aufgabe. Sie optimiert den ersten Klick. P7 muss den letzten Nachweis optimieren.</p>
 
-      <section class="kapitel-head" id="sdk"><h2>Die SDK-Route ist das Zielbild</h2></section>
+      <section class="kapitel-head" id="sdk"><h2>Die SDK-Route funktioniert</h2></section>
       <p>Der nächste Versuch ersetzt nicht das P7-Prinzip, sondern den Transportweg. Statt Browserfenster und Downloads zu benutzen, ruft ein Python-Skript die Modell-Schnittstellen direkt auf: Anthropic für Übersetzung und Patch, OpenAI für die Gegenprüfung. Die Blöcke bleiben Blöcke. Die Antworten müssen als JSON zurückkommen. Die Kosten und Laufzeiten landen in Metriken.</p>
       <figure class="espresso" data-espresso="Espresso 3">
-        <svg viewBox="0 0 900 430" role="img" aria-label="Espresso-Visualisierung der geplanten SDK-Route">
+        <svg viewBox="0 0 900 430" role="img" aria-label="Espresso-Visualisierung der funktionierenden SDK-Route">
           <rect x="0" y="0" width="900" height="430" fill="#f7efdf"/>
           <rect x="335" y="62" width="230" height="108" rx="10" class="soft"/>
           <text x="450" y="100" text-anchor="middle" class="flow-label">Python-Skript</text>
@@ -271,22 +271,22 @@ body:before{
           <circle cx="585" cy="203" r="5" fill="#7d4a23"/>
           <text x="80" y="390" class="flow-small">Das Skript spielt den Ball weiter. Der Mensch schaut auf Spuren, Metriken und Ergebnis.</text>
         </svg>
-        <figcaption class="cap">Das Zielbild: direkte SDK-Aufrufe statt Browser-Uploads. Der Ball bleibt derselbe: Claude übersetzt, GPT prüft, Claude patcht. Neu ist die technische Spur.</figcaption>
+        <figcaption class="cap">Die dritte Version: direkte SDK-Aufrufe statt Browser-Uploads. Der Ball bleibt derselbe: Claude übersetzt, GPT prüft, Claude patcht. Neu ist die technische Spur.</figcaption>
       </figure>
 
-      <p>Ein Prototyp hat gezeigt, warum diese Richtung stimmt: Eine 3000-Wort-Note kann in Minuten statt in einer halben Stunde durchlaufen. Jeder Pass erzeugt Dateien. Jeder Lauf erzeugt Metriken. Wenn ein Modell aus 79 Blöcken plötzlich 82 macht, kann das Skript zählen. Wenn GPT Mängel findet, stehen sie in einer Datei. Wenn Claude patcht, sieht man später, welche Blöcke geändert wurden.</p>
+      <p>Die SDK-Route funktioniert. Eine 3000-Wort-Note kann in Minuten statt in einer halben Stunde durchlaufen. Jeder Pass erzeugt Dateien. Jeder Lauf erzeugt Metriken. Wenn ein Modell aus 79 Blöcken plötzlich 82 macht, kann das Skript zählen. Wenn GPT Mängel findet, stehen sie in einer Datei. Wenn Claude patcht, sieht man später, welche Blöcke geändert wurden.</p>
 
-      <section class="kapitel-head" id="stand"><h2>Was heute schon belegt ist und was noch fehlt</h2></section>
-      <p>Wichtig ist die Einschränkung: Die SDK-Technik ist noch nicht die produktive P7-Route. Sie ist ein funktionierender Prototyp. Für die Field Notes ist das ein grosser Schritt, aber noch kein Haken in der Pipeline.</p>
+      <section class="kapitel-head" id="stand"><h2>Die drei Versionen der Übersetzung</h2></section>
+      <p>Rückblickend ist P7 keine einzelne Technik, sondern eine kleine Entwicklungsgeschichte. Jede Version hat etwas gelöst und zugleich den nächsten Mangel sichtbar gemacht.</p>
       <div class="mini-grid">
-        <div class="mini"><span class="k">Belegt</span><p>Direkte SDK-Aufrufe können Blöcke übersetzen, prüfen, patchen und als Markdown ausgeben.</p></div>
-        <div class="mini"><span class="k">Belegt</span><p>Structured Output reduziert die alte Fehlerklasse „Prosa statt JSON“ deutlich.</p></div>
-        <div class="mini"><span class="k">Belegt</span><p>Metriken zu Zeit, Tokens und Kosten sind möglich und gehören in jeden produktiven Lauf.</p></div>
-        <div class="mini"><span class="k">Fehlt</span><p>Die produktive P7-Spec muss auf SDK umgestellt werden. Aktuell beschreibt sie noch den Manual-Loop.</p></div>
-        <div class="mini"><span class="k">Fehlt</span><p>Die Modell-Policy muss mit freigeschaltetem Sonnet/Opus getestet werden. Haiku reicht nicht als Release-Default.</p></div>
-        <div class="mini"><span class="k">Fehlt</span><p>FR/ES brauchen eigene Prompt-Regeln, Glossar-Disziplin und stichprobenartige Sprachprüfung.</p></div>
+        <div class="mini"><span class="k">Version 1</span><p>Browser-Manual: Claude übersetzt, GPT prüft, Claude patcht. Das Prinzip stimmt, aber Markus trägt Dateien zwischen Fenstern.</p></div>
+        <div class="mini"><span class="k">Version 2</span><p>CLI-/PYCLI-Route: Der Datei-Kurier soll verschwinden. Die Idee ist richtig, aber die Route ist unter Windows und mit Subprozessen zu fragil.</p></div>
+        <div class="mini"><span class="k">Version 3</span><p>SDK-Route: Python ruft Anthropic und OpenAI direkt auf. Blöcke, JSON, Logs und Metriken werden Teil des Prozesses.</p></div>
+        <div class="mini"><span class="k">Gewinn</span><p>Die Übersetzung wird wiederholbar. Nicht nur der Text zählt, sondern auch der Weg, auf dem er entstanden ist.</p></div>
+        <div class="mini"><span class="k">Kontrolle</span><p>Structured Output reduziert die alte Fehlerklasse „Prosa statt JSON“ deutlich.</p></div>
+        <div class="mini"><span class="k">Serie</span><p>Für EN, FR und ES ist damit ein Prozess da, der nicht jedes Mal bei null anfängt.</p></div>
       </div>
-      <p class="kernsatz">P7 ist noch nicht fertig,<br>weil die Idee stimmt.<br>P7 ist erst fertig,<br>wenn die Idee wiederholbar läuft.</p>
+      <p class="kernsatz">Die dritte Version ist der Punkt,<br>an dem Übersetzung nicht mehr Chatarbeit ist,<br>sondern Pipeline.</p>
 
       <section class="kapitel-head" id="kontrolle"><h2>Warum ich der Übersetzung trotzdem nicht blind glaube</h2></section>
       <p>Der gefährliche Satz wäre: <em>Die KI hat es übersetzt, also passt es.</em> Genau so funktioniert P7 nicht.</p>
