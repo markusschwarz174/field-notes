@@ -1318,17 +1318,42 @@ body:before{
   <p id="p-fr-012">Ce jeudi 14 août 2025 change ma façon de rédiger des prompts et de communiquer avec GPT. Je m&#x27;acharne encore deux tours à écrire en pseudo-YAML. Puis il me sauve par hasard. Je m&#x27;excuse auprès de lui pour les nombreuses erreurs de syntaxe dans le code YAML. GPT répond : &quot;Pas de problème, je peux aussi l&#x27;écrire pour toi.&quot; Je dois rire, parce que je n&#x27;y aurais jamais pensé.</p>
   <p id="p-fr-013">Et c&#x27;est ainsi que j&#x27;utilise GPT désormais comme mon rédacteur de code personnel. YAML n&#x27;est qu&#x27;un format de données, pas un langage de programmation. Pour moi, ça ressemble quand même à de la programmation.<br>Les règles comme unité de base, la bibliothèque comme collection, et le générateur comme workflow qui en tire des fiches de travail. Je veux créer des bibliothèques pour tout ce que je peux structurer en classe. Et j&#x27;ai déjà une idée claire de ce que je veux représenter en YAML dans mon enseignement.</p>
   <p id="p-fr-014">D&#x27;abord, je crée une structure de base pour les dossiers de travail :</p>
-  <p id="p-fr-015">```<br>Grundstruktur:<br>schema_version: 1<br>dokument_typ: &quot;Arbeitsdossier&quot;<br>fach: &quot;Raum-Zeit-Gesellschaft&quot;<br>niveau: &quot;B&quot;<br>klasse_alter: 13<br>ausgabeformat: &quot;Word-ready&quot;<br>quellen:<br>- name: &quot;Revolution der Erde&quot;<br>seiten: &quot;S. 12–13&quot;<br>- name: &quot;Beleuchtung und Erwaermung der Erde&quot;<br>seiten: &quot;S. 22–23&quot;<br>```</p>
+  <div id="card-001" class="conv code">
+    <div class="ocard">
+      <button class="copybtn" type="button" tabindex="-1" aria-label="Kopieren"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
+      <p><strong>CODE:</strong><br>Grundstruktur:<br>schema_version: 1<br>dokument_typ: &quot;Arbeitsdossier&quot;<br>fach: &quot;Raum-Zeit-Gesellschaft&quot;<br>niveau: &quot;B&quot;<br>klasse_alter: 13<br>ausgabeformat: &quot;Word-ready&quot;<br>quellen:<br>- name: &quot;Revolution der Erde&quot;<br>seiten: &quot;S. 12–13&quot;<br>- name: &quot;Beleuchtung und Erwaermung der Erde&quot;<br>seiten: &quot;S. 22–23&quot;</p>
+    </div>
+  </div>
   <p id="p-fr-016">Ensuite, je définis les règles de format pour les exercices.</p>
-  <p id="p-fr-017">```<br>formatregeln:<br>punkteanzeigen: false<br>platz_fuer_antworten: true<br>starticons: { einfach: &quot;🟡&quot;, mittel: &quot;🟢&quot;, schwer: &quot;🟣&quot; }<br>nummerierung: &quot;A, B, C, D, (E)&quot;<br>ueberschrift_schema: &quot;Lernziel {n}&quot;<br>schwierigkeit:<br>A: [I, II]       # einfach<br>B: [II]          # einfach<br>C: [III, IV]     # mittel<br>D: [III, IV]     # mittel<br>E: [V, VI]       # schwer (Transfer)<br>quellenregel: &quot;keine Mischquellen innerhalb eines Lernziels&quot;<br>offene_vs_geschlossene:<br>einfach_mittel: &quot;geschlossen bevorzugt&quot;<br>schwer: &quot;offen&quot;<br>```</p>
+  <div id="card-002" class="conv code">
+    <div class="ocard">
+      <button class="copybtn" type="button" tabindex="-1" aria-label="Kopieren"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
+      <p><strong>CODE:</strong><br>formatregeln:<br>punkteanzeigen: false<br>platz_fuer_antworten: true<br>starticons: { einfach: &quot;🟡&quot;, mittel: &quot;🟢&quot;, schwer: &quot;🟣&quot; }<br>nummerierung: &quot;A, B, C, D, (E)&quot;<br>ueberschrift_schema: &quot;Lernziel {n}&quot;<br>schwierigkeit:<br>A: [I, II]       # einfach<br>B: [II]          # einfach<br>C: [III, IV]     # mittel<br>D: [III, IV]     # mittel<br>E: [V, VI]       # schwer (Transfer)<br>quellenregel: &quot;keine Mischquellen innerhalb eines Lernziels&quot;<br>offene_vs_geschlossene:<br>einfach_mittel: &quot;geschlossen bevorzugt&quot;<br>schwer: &quot;offen&quot;</p>
+    </div>
+  </div>
   <p id="p-fr-018">Puis un bloc pour les formats d&#x27;exercices (extrait) :</p>
-  <p id="p-fr-019">```<br>aufgabenformate:<br>- code: markieren<br>icon: &quot;🔠&quot;<br>beschr: &quot;Markieren/Unterstreichen&quot;<br>- code: lueckentext<br>icon: &quot;📝&quot;<br>beschr: &quot;Lueckentext mit Wortpool&quot;<br>```</p>
+  <div id="card-003" class="conv code">
+    <div class="ocard">
+      <button class="copybtn" type="button" tabindex="-1" aria-label="Kopieren"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
+      <p><strong>CODE:</strong><br>aufgabenformate:<br>- code: markieren<br>icon: &quot;🔠&quot;<br>beschr: &quot;Markieren/Unterstreichen&quot;<br>- code: lueckentext<br>icon: &quot;📝&quot;<br>beschr: &quot;Lueckentext mit Wortpool&quot;</p>
+    </div>
+  </div>
   <p id="p-fr-020">Et pour les objectifs d&#x27;apprentissage :</p>
-  <p id="p-fr-021">```<br>lernziele:  # Nomen + Verb, 10-15 Woerter, Bloom-gerecht<br>- text: &quot;Wortarten in Saetzen bestimmen und korrekt benennen.&quot;<br>kompetenz: &quot;Sprachgebrauch&quot;<br>quelle: &quot;Revolution der Erde&quot;<br>- text: &quot;Satzbau erkennen und einfache Saetze sicher umformen.&quot;<br>kompetenz: &quot;Grammatik&quot;<br>quelle: &quot;Revolution der Erde&quot;<br>```</p>
+  <div id="card-004" class="conv code">
+    <div class="ocard">
+      <button class="copybtn" type="button" tabindex="-1" aria-label="Kopieren"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
+      <p><strong>CODE:</strong><br>lernziele:  # Nomen + Verb, 10-15 Woerter, Bloom-gerecht<br>- text: &quot;Wortarten in Saetzen bestimmen und korrekt benennen.&quot;<br>kompetenz: &quot;Sprachgebrauch&quot;<br>quelle: &quot;Revolution der Erde&quot;<br>- text: &quot;Satzbau erkennen und einfache Saetze sicher umformen.&quot;<br>kompetenz: &quot;Grammatik&quot;<br>quelle: &quot;Revolution der Erde&quot;</p>
+    </div>
+  </div>
   <p id="p-fr-022">Tout le reste de la journée, je travaille à générer ces lignes de code. <strong>Ce</strong> sont « mes fiches de bibliothèque ». Je change seulement les pages et les objectifs d&#x27;apprentissage. Puis j&#x27;écris dans le prompt : « Génère l&#x27;évaluation d&#x27;après le YAML ci-dessus. » Voilà le bloc des objectifs. Et GPT me crée une évaluation test.&quot;</p>
   <p id="p-fr-023">En milieu d&#x27;après-midi, quelque chose me revient. Je repense à la semaine dernière : &quot;Tu te souviens comment tu créais les fiches de GÉO et elles se ressemblaient toutes, parce que GPT générait les mêmes types d&#x27;exercices toujours dans le même ordre ?&quot;</p>
   <p id="p-fr-024">Je réfléchis à quelque chose et je lui demande de construire une matrice de rotation :</p>
-  <p id="p-fr-025">```<br>rotationsmatrix:<br>A: [markieren, lueckentext, fehlerjagd, zuordnung, diagramm]<br>B: [zuordnung, mehrfach, lueckentext, markieren, regel]<br>```</p>
+  <div id="card-005" class="conv code">
+    <div class="ocard">
+      <button class="copybtn" type="button" tabindex="-1" aria-label="Kopieren"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
+      <p><strong>CODE:</strong><br>rotationsmatrix:<br>A: [markieren, lueckentext, fehlerjagd, zuordnung, diagramm]<br>B: [zuordnung, mehrfach, lueckentext, markieren, regel]</p>
+    </div>
+  </div>
   <p id="p-fr-026">Ça fonctionne. L&#x27;après-midi n&#x27;est interrompu que par un appel téléphonique du chef et un problème de formulaire mal rempli. Les trois appels me distraient brièvement du travail et je me demande si je suis au bon endroit. En fin d&#x27;après-midi, tout mon focus, toute ma concentration est sur le masterprompt « Créer un dossier d&#x27;apprentissage ». C&#x27;est de l&#x27;expérimentation. Quel input produit quel output chez GPT ?</p>
   <p id="p-fr-027">Ce n&#x27;est plus du ping-pong. Ce sont des workflows que je conçois et teste. Et à chaque fois, les petites bibliothèques d&#x27;objectifs d&#x27;apprentissage, de formats d&#x27;exercices, de matrice de rotation sont là — et elles grandissent. Elles grandissent à chaque chat, pas seulement en contenu, mais aussi en nombre.</p>
   <p id="p-fr-028">Le soir, j&#x27;ai au fond construit un générateur de fiches de travail et je me demande : « Pourquoi tu fais ça ? » « Ces outils, il en existe des milliers sur le net. » « C&#x27;est une perte de temps. » « Les générateurs commerciaux sont plus rapides, offrent plus et ont une plus belle interface. » « Ton travail est inutile. »</p>
@@ -1352,7 +1377,12 @@ body:before{
   <h2>L&#x27;évaluation interdisciplinaire</h2>
 </div>
   <p id="p-fr-035">C&#x27;est vendredi après-midi, je travaille encore sur le développement de la fiche de maths sensible à la langue, quand une nouvelle idée m&#x27;arrive : une évaluation interdisciplinaire.<br>Pourquoi toujours faire les tests d&#x27;orthographe ou de grammaire dans un contexte de cours de français – et ne pas créer une évaluation sur les classes de mots à partir des contenus de géographie « Notre Terre » ?<br>Les classes de mots ne sont pas ici exercées comme un îlot grammatical, mais à travers des phrases qui apparaissent de toute façon dans les cours de disciplines. J&#x27;adapte le schéma et crée la première version : « Test de français interdisciplinaire ». Nom affreux – je le changerai.</p>
-  <p id="p-fr-036">```<br>schema_version: 1<br>klasse: &quot;7–8&quot;<br>niveau: &quot;B&quot;<br>thema: &quot;Erde &amp; Sonne – Grundlagen&quot;<br>lernziele:<br>- &quot;Wortarten in kurzen Fachsätzen sicher benennen.&quot;<br>- &quot;Satzglieder erkennen und markieren.&quot;<br>seitenplan:<br>- titel: &quot;Einführung&quot;<br>- titel: &quot;Wortarten – Grundlagen&quot;<br>- titel: &quot;Satzglieder – Anwendung&quot;<br>layout:<br>zeilenabstand: 1.15<br>schrift: &quot;Calibri 11&quot;<br>icons:<br>einfach: &quot;🟡&quot;<br>mittel: &quot;🟢&quot;<br>schwer: &quot;🟣&quot;<br>```</p>
+  <div id="card-006" class="conv code">
+    <div class="ocard">
+      <button class="copybtn" type="button" tabindex="-1" aria-label="Kopieren"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
+      <p><strong>CODE:</strong><br>schema_version: 1<br>klasse: &quot;7–8&quot;<br>niveau: &quot;B&quot;<br>thema: &quot;Erde &amp; Sonne – Grundlagen&quot;<br>lernziele:<br>- &quot;Wortarten in kurzen Fachsätzen sicher benennen.&quot;<br>- &quot;Satzglieder erkennen und markieren.&quot;<br>seitenplan:<br>- titel: &quot;Einführung&quot;<br>- titel: &quot;Wortarten – Grundlagen&quot;<br>- titel: &quot;Satzglieder – Anwendung&quot;<br>layout:<br>zeilenabstand: 1.15<br>schrift: &quot;Calibri 11&quot;<br>icons:<br>einfach: &quot;🟡&quot;<br>mittel: &quot;🟢&quot;<br>schwer: &quot;🟣&quot;</p>
+    </div>
+  </div>
   <p id="p-fr-037">Je regarde le test sur l&#x27;écran et je me demande : « Est-ce un test de géographie sur l&#x27;orthographe, ou un test d&#x27;orthographe sur la géographie ? »</p>
   <p id="p-fr-038">J&#x27;en créerai et ferai passer quatre exemplaires entre août et décembre, et j&#x27;étendrai l&#x27;idée à des situations d&#x27;écriture : par exemple avec le thème « Explorateurs et conquérants » en cours d&#x27;histoire. Un « dialogue dans le port », un « journal de voyage d&#x27;un explorateur », un « article de journal », « La navigation hier et aujourd&#x27;hui ». Ça fonctionne très bien. J&#x27;ai eu le plaisir de lire les textes des élèves.</p>
 <div class="kapitel-head" id="k-fr-06">

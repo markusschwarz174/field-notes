@@ -1348,58 +1348,39 @@ body:before{
 
   <p id="p-en-014">First, I build a base structure for the assignment dossiers:</p>
 
-  <pre><code>Grundstruktur:
-schema_version: 1
-dokument_typ: &quot;Arbeitsdossier&quot;
-fach: &quot;Raum-Zeit-Gesellschaft&quot;
-niveau: &quot;B&quot;
-klasse_alter: 13
-ausgabeformat: &quot;Word-ready&quot;
-quellen:
-  - name: &quot;Revolution der Erde&quot;
-    seiten: &quot;S. 12–13&quot;
-  - name: &quot;Beleuchtung und Erwaermung der Erde&quot;
-    seiten: &quot;S. 22–23&quot;</code></pre>
+  <div id="card-001" class="conv code">
+    <div class="ocard">
+      <button class="copybtn" type="button" tabindex="-1" aria-label="Kopieren"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
+      <p><strong>CODE:</strong><br>Grundstruktur:<br>schema_version: 1<br>dokument_typ: &quot;Arbeitsdossier&quot;<br>fach: &quot;Raum-Zeit-Gesellschaft&quot;<br>niveau: &quot;B&quot;<br>klasse_alter: 13<br>ausgabeformat: &quot;Word-ready&quot;<br>quellen:<br>  - name: &quot;Revolution der Erde&quot;<br>    seiten: &quot;S. 12–13&quot;<br>  - name: &quot;Beleuchtung und Erwaermung der Erde&quot;<br>    seiten: &quot;S. 22–23&quot;</p>
+    </div>
+  </div>
 
   <p id="p-en-015">Then I define the format rules for the tasks.</p>
 
-  <pre><code>formatregeln:
-  punkteanzeigen: false
-  platz_fuer_antworten: true
-  starticons: { einfach: &quot;🟡&quot;, mittel: &quot;🟢&quot;, schwer: &quot;🟣&quot; }
-  nummerierung: &quot;A, B, C, D, (E)&quot;
-  ueberschrift_schema: &quot;Lernziel {n}&quot;
-  schwierigkeit:
-    A: [I, II]       # einfach
-    B: [II]          # einfach
-    C: [III, IV]     # mittel
-    D: [III, IV]     # mittel
-    E: [V, VI]       # schwer (Transfer)
-  quellenregel: &quot;keine Mischquellen innerhalb eines Lernziels&quot;
-  offene_vs_geschlossene:
-    einfach_mittel: &quot;geschlossen bevorzugt&quot;
-    schwer: &quot;offen&quot;</code></pre>
+  <div id="card-002" class="conv code">
+    <div class="ocard">
+      <button class="copybtn" type="button" tabindex="-1" aria-label="Kopieren"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
+      <p><strong>CODE:</strong><br>formatregeln:<br>  punkteanzeigen: false<br>  platz_fuer_antworten: true<br>  starticons: { einfach: &quot;🟡&quot;, mittel: &quot;🟢&quot;, schwer: &quot;🟣&quot; }<br>  nummerierung: &quot;A, B, C, D, (E)&quot;<br>  ueberschrift_schema: &quot;Lernziel {n}&quot;<br>  schwierigkeit:<br>    A: [I, II]       # einfach<br>    B: [II]          # einfach<br>    C: [III, IV]     # mittel<br>    D: [III, IV]     # mittel<br>    E: [V, VI]       # schwer (Transfer)<br>  quellenregel: &quot;keine Mischquellen innerhalb eines Lernziels&quot;<br>  offene_vs_geschlossene:<br>    einfach_mittel: &quot;geschlossen bevorzugt&quot;<br>    schwer: &quot;offen&quot;</p>
+    </div>
+  </div>
 
   <p id="p-en-016">Then a block for the task formats (excerpt):</p>
 
-  <pre><code>aufgabenformate:
-  - code: markieren
-    icon: &quot;🔠&quot;
-    beschr: &quot;Markieren/Unterstreichen&quot;
-  - code: lueckentext
-    icon: &quot;📝&quot;
-    beschr: &quot;Lueckentext mit Wortpool&quot;
-  # ... weitere Formate</code></pre>
+  <div id="card-003" class="conv code">
+    <div class="ocard">
+      <button class="copybtn" type="button" tabindex="-1" aria-label="Kopieren"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
+      <p><strong>CODE:</strong><br>aufgabenformate:<br>  - code: markieren<br>    icon: &quot;🔠&quot;<br>    beschr: &quot;Markieren/Unterstreichen&quot;<br>  - code: lueckentext<br>    icon: &quot;📝&quot;<br>    beschr: &quot;Lueckentext mit Wortpool&quot;<br>  # ... weitere Formate</p>
+    </div>
+  </div>
 
   <p id="p-en-017">And for the learning objectives:</p>
 
-  <pre><code>lernziele:  # Nomen + Verb, 10-15 Woerter, Bloom-gerecht
-  - text: &quot;Wortarten in Saetzen bestimmen und korrekt benennen.&quot;
-    kompetenz: &quot;Sprachgebrauch&quot;
-    quelle: &quot;Revolution der Erde&quot;
-  - text: &quot;Satzbau erkennen und einfache Saetze sicher umformen.&quot;
-    kompetenz: &quot;Grammatik&quot;
-    quelle: &quot;Revolution der Erde&quot;</code></pre>
+  <div id="card-004" class="conv code">
+    <div class="ocard">
+      <button class="copybtn" type="button" tabindex="-1" aria-label="Kopieren"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
+      <p><strong>CODE:</strong><br>lernziele:  # Nomen + Verb, 10-15 Woerter, Bloom-gerecht<br>  - text: &quot;Wortarten in Saetzen bestimmen und korrekt benennen.&quot;<br>    kompetenz: &quot;Sprachgebrauch&quot;<br>    quelle: &quot;Revolution der Erde&quot;<br>  - text: &quot;Satzbau erkennen und einfache Saetze sicher umformen.&quot;<br>    kompetenz: &quot;Grammatik&quot;<br>    quelle: &quot;Revolution der Erde&quot;</p>
+    </div>
+  </div>
 
   <p id="p-en-018">I spend the rest of the day generating lines of code like this. <strong>These</strong> are my "library cards." All I change are the pages and the learning objectives. Then I write in the prompt: "Generate the test based on the YAML above." Here's the learning objectives block. And GPT produces a test for me.</p>
 
@@ -1407,9 +1388,12 @@ quellen:
 
   <p id="p-en-020">I come up with an idea and have it build a rotation matrix:</p>
 
-  <pre><code>rotationsmatrix:
-  A: [markieren, lueckentext, fehlerjagd, zuordnung, diagramm]
-  B: [zuordnung, mehrfach, lueckentext, markieren, regel]</code></pre>
+  <div id="card-005" class="conv code">
+    <div class="ocard">
+      <button class="copybtn" type="button" tabindex="-1" aria-label="Kopieren"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
+      <p><strong>CODE:</strong><br>rotationsmatrix:<br>  A: [markieren, lueckentext, fehlerjagd, zuordnung, diagramm]<br>  B: [zuordnung, mehrfach, lueckentext, markieren, regel]</p>
+    </div>
+  </div>
 
   <p id="p-en-021">It works. The afternoon is only interrupted by a phone call from my boss about a form that wasn't filled out correctly. Three calls in total — they briefly pull me away from the work, and I find myself wondering whether I'm at the right employer. By late afternoon, my focus, my full concentration, is back on the master prompt "Create learning dossier." It's an experiment. What input gets GPT to produce what output?</p>
 
@@ -1447,24 +1431,12 @@ quellen:
 
   <p id="p-en-030">It's Friday afternoon. I'm still working on the language-sensitive math sheet when another idea hits: an interdisciplinary quiz.<br>Why always practice spelling or grammar in a German-class context? Why not build a quiz on parts of speech using content from the geography unit "Our Earth"?<br>Parts of speech aren't practiced here as an isolated grammar island — they're practiced on sentences that come up in subject lessons anyway. I adjust the schema and build the first version: "Interdisciplinary German Test." Horrible name. I'll change it.</p>
 
-  <pre><code>schema_version: 1
-klasse: &quot;7–8&quot;
-niveau: &quot;B&quot;
-thema: &quot;Erde &amp; Sonne – Grundlagen&quot;
-lernziele:
-  - &quot;Wortarten in kurzen Fachsätzen sicher benennen.&quot;
-  - &quot;Satzglieder erkennen und markieren.&quot;
-seitenplan:
-  - titel: &quot;Einführung&quot;
-  - titel: &quot;Wortarten – Grundlagen&quot;
-  - titel: &quot;Satzglieder – Anwendung&quot;
-layout:
-  zeilenabstand: 1.15
-  schrift: &quot;Calibri 11&quot;
-icons:
-  einfach: &quot;🟡&quot;
-  mittel: &quot;🟢&quot;
-  schwer: &quot;🟣&quot;</code></pre>
+  <div id="card-006" class="conv code">
+    <div class="ocard">
+      <button class="copybtn" type="button" tabindex="-1" aria-label="Kopieren"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
+      <p><strong>CODE:</strong><br>schema_version: 1<br>klasse: &quot;7–8&quot;<br>niveau: &quot;B&quot;<br>thema: &quot;Erde &amp; Sonne – Grundlagen&quot;<br>lernziele:<br>  - &quot;Wortarten in kurzen Fachsätzen sicher benennen.&quot;<br>  - &quot;Satzglieder erkennen und markieren.&quot;<br>seitenplan:<br>  - titel: &quot;Einführung&quot;<br>  - titel: &quot;Wortarten – Grundlagen&quot;<br>  - titel: &quot;Satzglieder – Anwendung&quot;<br>layout:<br>  zeilenabstand: 1.15<br>  schrift: &quot;Calibri 11&quot;<br>icons:<br>  einfach: &quot;🟡&quot;<br>  mittel: &quot;🟢&quot;<br>  schwer: &quot;🟣&quot;</p>
+    </div>
+  </div>
 
   <p id="p-en-031">I look at the test on screen and ask myself: "Is this a geography test about spelling, or a spelling test about geography?"</p>
 

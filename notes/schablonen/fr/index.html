@@ -1283,7 +1283,19 @@ body:before{
 </div>
   <p id="p-fr-001">Je reprends exactement là où ma première étape intermédiaire s&#x27;est arrêtée : la «grande liste» est terminée. En plusieurs rounds, j&#x27;ai collecté et consolidé une «Global List» qui comprend au final 38 niveaux didactiques répartis en 6 clusters. S&#x27;y ajoutent des tags et quatre dimensions transversales : numérique, éthique &amp; responsabilité, agilité &amp; goût de l&#x27;expérimentation, et réflexion critique. La liste complète n&#x27;a pas sa place ici. C&#x27;est la forêt. Dans cette note, c&#x27;est la prochaine étape qui m&#x27;intéresse : quels sont les quelques niveaux qui passeront dans la petite liste, et pourquoi ?</p>
   <p id="p-fr-002">Parce que la grande liste est trop volumineuse pour le quotidien scolaire et qu&#x27;elle n&#x27;a jamais été conçue que comme une première étape partielle. Je veux utiliser les niveaux didactiques pour différencier les tâches ou les environnements d&#x27;apprentissage dans mon enseignement. Pour ça, je n&#x27;ai pas besoin d&#x27;une forêt de 38 niveaux didactiques, mais d&#x27;une petite sélection d&#x27;environ six à dix niveaux.</p>
-  <p id="p-fr-003">Et cette réduction, je veux maintenant la mettre en œuvre : je fais une sélection dans la grande liste pour en tirer une «petite liste», la «LOCAL LIST». Elle doit devenir mon outil de travail au quotidien : les niveaux didactiques non pas comme des boutons marche-arrêt rigides, mais comme des curseurs. Je décris brièvement mon objectif à GPT :<br>Toi :<br>Les 6-9 niveaux du haut deviennent la «Local List 1.1». Des curseurs. 1-2 exemples par curseur (pour ancrer l&#x27;attente). Pour chaque niveau sélectionné, une «échelle de réglage» claire. C&#x27;est-à-dire 2-3</p>
+  <p id="p-fr-003">Et cette réduction, je veux maintenant la mettre en œuvre : je fais une sélection dans la grande liste pour en tirer une «petite liste», la «LOCAL LIST». Elle doit devenir mon outil de travail au quotidien : les niveaux didactiques non pas comme des boutons marche-arrêt rigides, mais comme des curseurs. Je décris brièvement mon objectif à GPT :</p>
+
+  <div id="card-003" class="conv du">
+    <div class="composer">
+      <p class="ptext"><strong>Toi:</strong><br>Les 6-9 niveaux du haut deviennent la «Local List 1.1». Des curseurs. 1-2 exemples par curseur (pour ancrer l&#x27;attente). Pour chaque niveau sélectionné, une «échelle de réglage» claire. C&#x27;est-à-dire 2-3</p>
+      <div class="toolbar" aria-hidden="true">
+        <button class="ibtn outline" type="button" tabindex="-1" aria-label="Hinzufügen"><svg class="icn" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+        <span class="spacer"></span>
+        <button class="ibtn" type="button" tabindex="-1" aria-label="Mikrofon"><svg class="icn" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3M9 21h6"/></svg></button>
+        <button class="ibtn send" type="button" tabindex="-1" aria-label="Senden"><svg class="icn" viewBox="0 0 24 24"><path d="m6 12 6-6 6 6M12 18V6"/></svg></button>
+      </div>
+    </div>
+  </div>
   <p id="p-fr-004">Mais peut-on seulement évaluer un niveau didactique ? Je cherche des critères et je ne trouve aucune base scientifique, par exemple sur le fait de pouvoir «prompter» un niveau didactique. Ce sont donc des questions-clés sur la pratique et des recommandations de GPT qui me guident : Quel est le levier d&#x27;effet sur l&#x27;apprentissage ? Dans quelle mesure le niveau est-il observable ou utilisable de façon interdisciplinaire ? Et surtout : dans quelle mesure peut-on le transposer de façon fiable dans des prompts IA ? C&#x27;est la préparation d&#x27;une procédure de scoring que je vais ensuite confier à GPT pour qu&#x27;il l&#x27;exécute. Le plan : GPT construit, exécute et propose – moi je vérifie et valide. Chaque niveau didactique doit être évalué selon ces critères pondérés.</p>
   <p id="p-fr-005"><em>VISUAL: Fig. 01 : Liste des critères pour le scoring.</em></p>
   <p id="p-fr-006">C&#x27;est un tableau réalisé plus ou moins entièrement par GPT, avec six critères, une échelle de 0 à 2 et des pondérations. Il doit évaluer chaque niveau didactique selon ces critères, faire la somme et trier par score. Ce qui m&#x27;importe : seuls les niveaux didactiques sont scorés. Les dimensions transversales ne sont pas sélectionnées ni évaluées. Elles restent intégrées comme grille de vérification. Les 6 à 9 niveaux avec un score élevé, peu de redondance et une large applicabilité doivent former ma petite liste, ma «Local List». Ensuite, je veux 2 à 3 curseurs par niveau sélectionné, avec chacun 1 à 2 exemples d&#x27;ancrage. Je les utiliserai ensuite en classe ou dans des prompts GPT. Voilà le plan.</p>
@@ -1311,7 +1323,19 @@ body:before{
   <div class="kapitel-nr">04</div>
   <h2>Les curseurs de la Local List</h2>
 </div>
-  <p id="p-fr-019">Je regarde les niveaux didactiques «Contenu», «Représentation» et «Différenciation» et je me demande : quels curseurs chaque niveau pourrait-il avoir ? Que se passe-t-il quand je «tourne» dessus ? Vers la gauche – vers la droite. Comment les utiliser avec une IA ? Je signale alors à GPT qu&#x27;on continue…<br>**Toi :<br>**Oui, prochaine étape : tableau avec les curseurs et les exemples.</p>
+  <p id="p-fr-019">Je regarde les niveaux didactiques «Contenu», «Représentation» et «Différenciation» et je me demande : quels curseurs chaque niveau pourrait-il avoir ? Que se passe-t-il quand je «tourne» dessus ? Vers la gauche – vers la droite. Comment les utiliser avec une IA ? Je signale alors à GPT qu&#x27;on continue…</p>
+
+  <div id="card-004" class="conv du">
+    <div class="composer">
+      <p class="ptext"><strong>Toi:</strong><br>Oui, prochaine étape : tableau avec les curseurs et les exemples.</p>
+      <div class="toolbar" aria-hidden="true">
+        <button class="ibtn outline" type="button" tabindex="-1" aria-label="Hinzufügen"><svg class="icn" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+        <span class="spacer"></span>
+        <button class="ibtn" type="button" tabindex="-1" aria-label="Mikrofon"><svg class="icn" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3M9 21h6"/></svg></button>
+        <button class="ibtn send" type="button" tabindex="-1" aria-label="Senden"><svg class="icn" viewBox="0 0 24 24"><path d="m6 12 6-6 6 6M12 18V6"/></svg></button>
+      </div>
+    </div>
+  </div>
   <p id="p-fr-020">Voici les premières lignes de mon tableau de curseurs :</p>
   <p id="p-fr-021"><em>VISUAL: Fig. 05 : Tableau des curseurs.</em></p>
   <p id="p-fr-022">À partir d&#x27;ici, le mot «curseur» devient concret. Un niveau didactique, c&#x27;est pour moi le champ sur lequel je peux agir. Un curseur, c&#x27;est la modification concrète à l&#x27;intérieur de ce champ : plus ou moins de soutien, une autre forme de représentation, un autre produit, une autre forme sociale. Je ne cherche donc pas la tâche parfaite, mais les endroits où je peux modifier une tâche de façon ciblée.</p>
@@ -1320,13 +1344,30 @@ body:before{
   <div class="kapitel-nr">05</div>
   <h2>Premier test d&#x27;application : des curseurs pour un set de tâches</h2>
 </div>
-  <p id="p-fr-024">J&#x27;ai construit un tableau de curseurs pour 11 niveaux didactiques et je veux le tester sur le thème en cours «Notre Terre». Est-ce que je peux modifier une tâche isolée ou un set de tâches ? Je demande à GPT d&#x27;adopter le point de vue d&#x27;un enseignant du secondaire et d&#x27;évaluer quels niveaux et curseurs conviennent pour un prompt de tâche sur le thème RZG «Notre Terre». Et sa réponse me surprend un peu.<br>**ChatGPT :<br>**Je réponds comme si j&#x27;étais réellement enseignant en 2e secondaire (13 ans) en 2024 – avec GPT comme assistant pour créer un set de tâches pour le cours RZG (Espaces, Temps, Sociétés), thème «Notre Terre».</p>
+  <p id="p-fr-024">J&#x27;ai construit un tableau de curseurs pour 11 niveaux didactiques et je veux le tester sur le thème en cours «Notre Terre». Est-ce que je peux modifier une tâche isolée ou un set de tâches ? Je demande à GPT d&#x27;adopter le point de vue d&#x27;un enseignant du secondaire et d&#x27;évaluer quels niveaux et curseurs conviennent pour un prompt de tâche sur le thème RZG «Notre Terre». Et sa réponse me surprend un peu.</p>
+
+  <div id="card-005" class="conv gpt">
+    <div class="rcard">
+      <p><strong>ChatGPT:</strong><br>Je réponds comme si j&#x27;étais réellement enseignant en 2e secondaire (13 ans) en 2024 – avec GPT comme assistant pour créer un set de tâches pour le cours RZG (Espaces, Temps, Sociétés), thème «Notre Terre».</p>
+    </div>
+  </div>
   <p id="p-fr-025">Pas parce qu&#x27;il a fait quelque chose de remarquable, mais parce que ce n&#x27;est qu&#x27;après sa réponse que j&#x27;ai réalisé que je venais de demander à une IA de prendre une IA comme «assistante». Une pensée rapide dans ma tête – rien de bouleversant – et on continue.</p>
-  <p id="p-fr-026">Sa réponse au changement de perspective est courte, nette et claire :<br>**ChatGPT :<br>** Garantir l&#x27;efficacité d&#x27;apprentissage pour des élèves de 13 ans (levier d&#x27;impact élevé),<br>être didactiquement contrôlables et observables,<br>rester traduisibles en prompts GPT.</p>
+  <p id="p-fr-026">Sa réponse au changement de perspective est courte, nette et claire :</p>
+
+  <div id="card-006" class="conv gpt">
+    <div class="rcard">
+      <p><strong>ChatGPT:</strong><br>Garantir l&#x27;efficacité d&#x27;apprentissage pour des élèves de 13 ans (levier d&#x27;impact élevé),<br>être didactiquement contrôlables et observables,<br>rester traduisibles en prompts GPT.</p>
+    </div>
+  </div>
   <p id="p-fr-027">Je lis les trois points et je pense : «Une fois le niveau élève, une fois le niveau enseignant, une fois le niveau technique IA. Malin.» Ce que je trouve moins malin, c&#x27;est son output suivant sur «Niveaux sélectionnés (pack de démarrage top pour les prompts GPT)» avec le symbole 🔝 :</p>
   <p id="p-fr-028"><em>VISUAL: Fig. 06 : «Pack de démarrage top pour les prompts GPT» comme exemple négatif d&#x27;output.</em></p>
   <p id="p-fr-029">Il présente dix niveaux didactiques tirés de la GLOBAL List d&#x27;origine. Certains n&#x27;ont même pas leur place sur la petite liste. S&#x27;y ajoute un prompt de tâche à structure linéaire traditionnelle :</p>
-  <p id="p-fr-030">```<br>ChatGPT:<br>Prompt-Gerüst:<br>Du bist Unterrichtsassistent für eine 2. Sek (13-jährige).<br>Thema: Unsere Erde – Aufbau, Kontinente, Klima, Menschenräume.<br>Erstelle ein Aufgabenset (6–8 Aufgaben) mit folgender Struktur:<br>Einstieg – Motivation &amp; Vorwissen aktivieren (C1-Inhalt + C3-Handlung + Sequenzierung).<br>Erarbeitung – Karten lesen, Daten deuten, Zusammenhänge erklären (kognitiv).<br>…<br>```<br>Und am Schluss folgt eine Begründung seiner Ebenen-Auswahl und einem Fazit:</p>
+
+  <div id="card-007" class="conv gpt">
+    <div class="rcard">
+      <p><strong>ChatGPT:</strong><br>Prompt-Gerüst:<br>Du bist Unterrichtsassistent für eine 2. Sek (13-jährige).<br>Thema: Unsere Erde – Aufbau, Kontinente, Klima, Menschenräume.<br>Erstelle ein Aufgabenset (6–8 Aufgaben) mit folgender Struktur:<br>Einstieg – Motivation &amp; Vorwissen aktivieren (C1-Inhalt + C3-Handlung + Sequenzierung).<br>Erarbeitung – Karten lesen, Daten deuten, Zusammenhänge erklären (kognitiv).<br>…</p>
+    </div>
+  </div>
   <p id="p-fr-031"><em>VISUAL: Fig. 07 : Extrait CONCLUSION du pack de démarrage de GPT.</em></p>
   <p id="p-fr-032">Cet output est un signal d&#x27;alarme. Des formulations génériques comme «je ferais» ou des mots-clés comme «colonne vertébrale didactique» sont pour moi des signes que la conversation touche à sa fin. GPT n&#x27;est plus dans le coup. Je pourrais continuer ou faire confiance à mon intuition : cette conversation est morte. Après de mauvaises réponses, d&#x27;autres mauvaises réponses suivront. Je ne sais pas encore pourquoi ça arrive, ni ce qui en est la cause et ce qui pourrait y remédier. Est-ce que j&#x27;écris quelque chose de faux ?</p>
   <p id="p-fr-033">Je ferme la conversation et j&#x27;en démarre une nouvelle. Ça m&#x27;énerve un peu, parce que ça veut toujours dire reprendre le fil depuis le début dans le nouveau chat.</p>
@@ -1334,7 +1375,19 @@ body:before{
   <div class="kapitel-nr">06</div>
   <h2>Nouvel essai</h2>
 </div>
-  <p id="p-fr-034">Après trois tours, je peux reprendre là où je m&#x27;étais arrêté. Et relancer :<br>**Toi :<br>**Et les formes de collaboration ? La participation ? Le community learning ?</p>
+  <p id="p-fr-034">Après trois tours, je peux reprendre là où je m&#x27;étais arrêté. Et relancer :</p>
+
+  <div id="card-008" class="conv du">
+    <div class="composer">
+      <p class="ptext"><strong>Toi:</strong><br>Et les formes de collaboration ? La participation ? Le community learning ?</p>
+      <div class="toolbar" aria-hidden="true">
+        <button class="ibtn outline" type="button" tabindex="-1" aria-label="Hinzufügen"><svg class="icn" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+        <span class="spacer"></span>
+        <button class="ibtn" type="button" tabindex="-1" aria-label="Mikrofon"><svg class="icn" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3M9 21h6"/></svg></button>
+        <button class="ibtn send" type="button" tabindex="-1" aria-label="Senden"><svg class="icn" viewBox="0 0 24 24"><path d="m6 12 6-6 6 6M12 18V6"/></svg></button>
+      </div>
+    </div>
+  </div>
   <p id="p-fr-035">Évidemment, GPT a produit l&#x27;output plus vite que j&#x27;ai pu écrire le prompt — et ça ne m&#x27;étonne pas non plus qu&#x27;il ait déjà créé un nouveau tableau avec les six niveaux pertinents pour la collaboration et la participation, tirés de la grande liste des 38 niveaux didactiques. Me revoilà sur la voie sûre de l&#x27;overload.</p>
   <p id="p-fr-036"><em>VISUEL : Fig. 08 : Output GPT sur les niveaux coopératifs et participatifs.</em></p>
   <p id="p-fr-037">J&#x27;en ai huit plus trois et voilà que GPT propose six nouveaux «niveaux pertinents». Il me fait de plus en plus penser à une autorité scolaire qui empile encore quelque chose de «pertinent» au début de chaque année. Sauf que, contrairement aux autorités scolaires, les propositions de l&#x27;IA me plaisent parfois mieux — et je dois reconnaître sans jalousie sa supériorité dans ce domaine. GPT peut rapidement ordonner, combiner et vraiment bien présenter des connaissances. Et là encore :</p>
@@ -1372,11 +1425,18 @@ body:before{
   <p id="p-fr-057"><em>VISUAL: Fig. 13 : Exemple de matrice récapitulative : niveaux didactiques et Core-Sets.</em></p>
   <p id="p-fr-058">Je me pose la question de ce qui se passe quand GPT assemble ces sets et à quoi ressemble cette matrice. Par exemple si je dis : «je ne veux pas simplement un Set d&#x27;apprentissage exploratif, mais un qui soit tissé avec le set ‹Collaboration› ou ‹Digital Literacy›». Ce sont des jeux de pensée, une expérimentation autour de la question de ce qui est possible et de ce qui a vraiment du sens. Est-ce un ornement de plus, ou ce mélange de sets ouvre-t-il à nouveau une porte vers le futur ?</p>
   <p id="p-fr-059">Je n&#x27;ai pas oublié YAML. C&#x27;est ma clé de prompt didactique et je charge naturellement GPT de s&#x27;en occuper :</p>
-  <p id="p-fr-060">**Toi :<br>**Crée-moi un fichier YAML à partir de cette matrice, et tu peux aussi intégrer les vis de réglage.</p>
+  <div id="card-001" class="conv du">
+    <div class="composer">
+      <p class="ptext"><strong>Toi:</strong><br>Crée-moi un fichier YAML à partir de cette matrice, et tu peux aussi intégrer les vis de réglage.</p>
+      <div class="toolbar" aria-hidden="true">
+        <button class="ibtn outline" type="button" tabindex="-1" aria-label="Hinzufügen"><svg class="icn" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+        <span class="spacer"></span>
+        <button class="ibtn" type="button" tabindex="-1" aria-label="Mikrofon"><svg class="icn" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3M9 21h6"/></svg></button>
+        <button class="ibtn send" type="button" tabindex="-1" aria-label="Senden"><svg class="icn" viewBox="0 0 24 24"><path d="m6 12 6-6 6 6M12 18V6"/></svg></button>
+      </div>
+    </div>
+  </div>
   <p id="p-fr-061">Je laisse tout y affluer : les niveaux didactiques, les clusters, les Core-Sets et les vis de réglage, comme méta-outil didactique personnel.</p>
-  <p id="p-fr-062">```<br>Code:<br>version: &quot;1.0&quot;<br>generated: &quot;2025-10-21&quot;<br>context: &quot;Didaktische Meta-Ebenen × Core-Sets (kompakt 8 Ebenen)&quot;<br>core_sets:<br>- id: explorativ<br>label: &quot;Explorativ – Entdecken &amp; Verstehen&quot;<br>- id: kollaborativ<br>label: &quot;Kollaborativ – Zusammenarbeit &amp; Partizipation&quot;<br>- id: kompetenz<br>label: &quot;Kompetenzorientiert – Können &amp; Anwenden&quot;<br>- id: future_digital<br>label: &quot;Future &amp; Digital Literacy – Digitalität, Daten &amp; Ethik&quot;</p>
-  <p id="p-fr-063">meta_levels:<br>- id: &quot;C1C2_1-7-8&quot;<br>name: &quot;Inhalt &amp; Denken&quot;<br>clusters: [&quot;C1&quot;, &quot;C2&quot;]<br>levels:<br>- { no: 1,  name: &quot;Inhaltsebene&quot; }<br>- { no: 7,  name: &quot;Kognitive Ebene&quot; }<br>Et ainsi de suite…</p>
-  <p id="p-fr-064">```</p>
   <p id="p-fr-065">Et ce YAML-là est différent. Ce n&#x27;est plus un pseudo-YAML de vingt lignes comme en août, mais un code de 778 mots et 222 lignes. Ce genre de chose ne se fait pas en quelques minutes, mais en quelques soirées — parce que ce fichier fait maintenant partie du développement de quelque chose de plus grand.</p>
   <p id="p-fr-066">La semaine prochaine, je veux tester comment traduire concrètement ce Core-Set en tâche de cours en histoire. Avec «Explorateurs et conquérants», j&#x27;ai un terrain d&#x27;expérimentation possible : les élèves ne se contenteraient pas de lire une source, je pourrais faire varier cette même source en jouant sur le contexte, la perspective, la forme de production ou la forme sociale. Ce qui comptera d&#x27;abord, ce n&#x27;est pas la tâche elle-même, mais la question de savoir si je suis capable de construire ces sets de façon suffisamment stable pour en faire un vrai cours.</p>
   <p id="p-fr-067"><em>VISUAL: Fig. 14 : Matrice/YAML devient test de cours.</em></p>
