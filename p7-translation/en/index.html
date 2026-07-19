@@ -1,0 +1,396 @@
+---
+---
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How the Notes Should Be Translated · Field Notes Workshop</title>
+<meta name="description" content="A workshop page on translating the Field Notes: three versions, from the browser loop through the CLI interim route to the working SDK route.">
+<meta name="author" content="Markus Schwarz">
+<link rel="canonical" href="https://markusschwarz174.github.io/field-notes/p7-translation/en/">
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Field Notes — Markus Schwarz">
+<meta property="og:title" content="How the Notes Should Be Translated · Field Notes Workshop">
+<meta property="og:description" content="A workshop page on translating the Field Notes: three versions, from the browser loop through the CLI interim route to the working SDK route.">
+<meta property="og:url" content="https://markusschwarz174.github.io/field-notes/p7-translation/en/">
+<meta property="og:image" content="https://markusschwarz174.github.io/field-notes/p7-translation/hero_p7_translation_260714.png">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="Markus Schwarz">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How the Notes Should Be Translated · Field Notes Workshop">
+<meta name="twitter:description" content="A workshop page on translating the Field Notes: three versions, from the browser loop through the CLI interim route to the working SDK route.">
+<meta name="twitter:image" content="https://markusschwarz174.github.io/field-notes/p7-translation/hero_p7_translation_260714.png">
+<!-- JSON-LD: Article + Person (Google Knowledge Graph Signal) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "How the Notes Should Be Translated · Field Notes Workshop",
+      "description": "A workshop page on translating the Field Notes: three versions, from the browser loop through the CLI interim route to the working SDK route.",
+      "inLanguage": "en",
+      "url": "https://markusschwarz174.github.io/field-notes/p7-translation/en/",
+      "image": "https://markusschwarz174.github.io/field-notes/p7-translation/hero_p7_translation_260714.png",
+      "author": {
+        "@type": "Person",
+        "name": "Markus Schwarz",
+        "url": "https://markusschwarz174.github.io/field-notes/"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Markus Schwarz",
+        "url": "https://markusschwarz174.github.io/field-notes/"
+      },
+      "isPartOf": {
+        "@type": "CreativeWorkSeries",
+        "name": "Field Notes — KI & Unterricht",
+        "url": "https://markusschwarz174.github.io/field-notes/"
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "Markus Schwarz",
+      "url": "https://markusschwarz174.github.io/field-notes/",
+      "sameAs": [
+        "https://github.com/markusschwarz174"
+      ],
+      "description": "Lehrer, Autor der Field-Notes-Reihe zu AI im Unterricht."
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f2eadc;--paper:#fffaf0;--paper-deep:#faf4e6;--ink:#191713;--muted:#6e6458;
+  --line:#d6c8b4;--line-deep:#b8a78d;--accent:#7d4a23;--accent-deep:#5e3717;
+  --green:#486b55;--ochre:#9a6a1f;--dark:#211915;
+  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  --sans:"IBM Plex Sans",Inter,"Segoe UI",system-ui,sans-serif;
+  --serif:"Spectral",Georgia,serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.65;font-size:17px;text-align:left}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;opacity:.32;
+  background-image:radial-gradient(rgba(70,55,35,.12) 1px,transparent 1px);
+  background-size:5px 5px;mix-blend-mode:multiply;z-index:0;
+}
+.topbar{
+  position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:10px clamp(16px,3vw,30px);background:rgba(18,12,7,.82);
+  backdrop-filter:blur(9px);border-bottom:1px solid rgba(214,200,180,.18);
+}
+.brand{display:flex;flex-direction:column;gap:2px;min-width:0}
+.brand-series{font:600 .92rem/1.1 var(--serif);letter-spacing:.01em;color:#ffd9a8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand-nr{font:400 italic .78rem/1.2 var(--serif);color:#c9bba6;letter-spacing:.02em}
+.toplink{font:600 .72rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#d8cbb6;text-decoration:none;border:1px solid rgba(214,200,180,.26);border-radius:3px;padding:9px 11px}
+.toplink:hover{color:#fff3df;border-color:rgba(255,217,168,.7)}
+.hero{
+  min-height:88vh;position:relative;display:grid;align-items:end;overflow:hidden;padding:84px 26px 56px;
+  background:
+    linear-gradient(to top,rgba(38,20,10,.88) 0%,rgba(46,26,14,.66) 30%,rgba(54,32,18,.22) 62%,rgba(54,32,18,0) 100%),
+    linear-gradient(110deg,rgba(46,26,14,.88),rgba(58,36,20,.62) 40%,rgba(72,46,26,.34) 72%,rgba(245,238,224,.16) 100%),
+    url("../hero_p7_translation_260714.png");
+  background-size:cover;background-position:center 42%;
+}
+.hero:before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(110% 90% at 72% 28%,rgba(255,250,240,.16),transparent 48%);
+}
+.hero:after{content:"";position:absolute;inset:auto 0 0;height:42%;background:linear-gradient(transparent,var(--bg))}
+.hero-inner{position:relative;z-index:2;max-width:1280px;margin:0 auto;width:100%;display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:64px;align-items:end}
+.eyebrow{font:700 .76rem/1 var(--mono);color:#ffd9a8;text-transform:uppercase;letter-spacing:.18em}
+.hero h1{font-size:clamp(2.8rem,8vw,6.8rem);line-height:.9;margin:18px 0 24px;color:#fffaf0;letter-spacing:-.005em;max-width:11ch;text-shadow:0 3px 18px rgba(0,0,0,.42)}
+.hero .lead{font-size:clamp(1.08rem,1.6vw,1.32rem);max-width:760px;color:#fff5e4;margin:0;line-height:1.45;font-weight:400;text-shadow:0 2px 8px rgba(0,0,0,.4)}
+.desk{display:grid;gap:14px;align-self:end}
+.slip{background:var(--paper);border:1px solid var(--line-deep);padding:16px 17px;border-radius:3px;box-shadow:0 8px 22px rgba(22,17,10,.22)}
+.slip .k{font:700 .68rem/1 var(--mono);color:var(--accent);text-transform:uppercase;letter-spacing:.12em;display:block;margin-bottom:8px}
+.slip h3{font-size:1.05rem;line-height:1.25;margin:0 0 6px;font-weight:600;color:var(--ink)}
+.slip p{font-size:.92rem;color:#4d453c;margin:0;line-height:1.5}
+.main{max-width:1280px;margin:0 auto;padding:64px 26px 80px;position:relative;z-index:1}
+.reader{display:grid;grid-template-columns:240px minmax(0,820px);gap:56px}
+.rail{position:sticky;top:62px;align-self:start;border-left:2px solid var(--accent);padding:8px 0 8px 18px;font:500 .82rem/1.4 var(--mono);color:var(--muted);max-height:calc(100vh - 80px);overflow-y:auto}
+.rail a{display:block;color:inherit;text-decoration:none;padding:8px 0;border-bottom:1px solid var(--line)}
+.rail a:hover{color:var(--accent)}
+.rail-nr{display:inline-block;width:2em;color:var(--accent);font-weight:700}
+.article{background:rgba(255,250,240,.84);border:1px solid var(--line);padding:42px clamp(24px,5vw,60px);box-shadow:0 22px 70px rgba(48,35,18,.08)}
+.abstract-lead{font-style:italic;font-size:1.12rem;line-height:1.55;color:var(--muted);margin:0 0 36px;padding:18px 22px;background:var(--paper-deep);border-left:3px solid var(--line-deep);border-radius:2px}
+.kapitel-head{margin-top:52px;margin-bottom:10px;scroll-margin-top:84px}
+.kapitel-head:first-of-type{margin-top:0}
+.kapitel-head h2{font-family:var(--serif);font-weight:600;font-size:1.32rem;line-height:1.25;letter-spacing:0;color:#241c12;margin:0}
+.article p{font-family:var(--serif);font-size:1.07rem;color:#2c2620;margin:14px 0 18px;line-height:1.7}
+.article strong{font-weight:600;color:#1a1410}
+.article em{font-style:italic}
+.hl{font-weight:600;color:var(--ochre)}
+.kernsatz{font-family:var(--serif);font-style:italic;font-weight:500;font-size:1.46rem;line-height:1.34;color:#15171c;text-align:center;max-width:32ch;margin:38px auto}
+.article p.kernsatz{text-align:center;max-width:32ch;margin:38px auto;font-size:1.46rem;line-height:1.34}
+.statement{margin:46px auto;max-width:640px;text-align:center}
+.statement p{margin:0;font-family:var(--serif);font-weight:500;font-style:italic;font-size:1.45rem;line-height:1.34;color:#15171c;border-top:1.5px solid #15171c;border-bottom:1.5px solid #15171c;padding:16px 0}
+.espresso{position:relative;margin:36px -8px;padding:16px;background:#fff;border:1px solid var(--line-deep);border-radius:2px;box-shadow:0 16px 30px rgba(60,42,18,.13),0 1px 0 rgba(255,255,255,.6) inset;transform:rotate(-.25deg)}
+.espresso:before{content:attr(data-espresso);position:absolute;top:10px;left:10px;z-index:2;background:#211915;color:#ffd9a8;border:1px solid rgba(255,217,168,.42);border-radius:2px;padding:5px 8px;font:700 .62rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase}
+.espresso:nth-of-type(even){transform:rotate(.35deg)}
+.espresso svg{width:100%;height:auto;display:block;background:#f7efdf;border:1px solid #ddd5c4}
+.cap{font:500 .78rem/1.5 var(--mono);color:var(--muted);padding:10px 4px 0;margin:0}
+.flow-label{font:700 15px/1 var(--sans);fill:#241c12}
+.flow-small{font:500 12px/1 var(--sans);fill:#6e6458}
+.ink{stroke:#2f241a;stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.soft{fill:#fffaf0;stroke:#b8a78d;stroke-width:2}
+.green{fill:#f4f7ee;stroke:#486b55;stroke-width:2}
+.orange{fill:#fff4e8;stroke:#9a6a1f;stroke-width:2}
+.mini-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:26px 0}
+.mini{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:3px;padding:14px 16px}
+.mini .k{font:700 .6rem/1 var(--mono);letter-spacing:.14em;color:var(--accent);text-transform:uppercase;display:block;margin-bottom:8px}
+.mini p{font-family:var(--sans);font-size:.92rem;line-height:1.55;margin:0;color:#3b3229}
+@media(max-width:960px){
+  .hero-inner{grid-template-columns:1fr;gap:36px}
+  .desk{order:2}
+  .hero{min-height:auto;padding:84px 22px 44px}
+  .hero h1{max-width:12ch}
+  .reader{grid-template-columns:1fr;gap:24px}
+  .rail{position:relative;top:auto;border-left:none;border-top:1px solid var(--accent);padding:14px 0 0;max-height:none}
+  .rail a{padding:6px 0}
+  .article{padding:28px 20px}
+  .espresso{margin:28px -4px}
+  .mini-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-series">Field Notes — AI and Teaching</span>
+    <span class="brand-nr">Workshop Page · P7 Translation</span>
+  </div>
+  <a class="toplink" href="#anfang">Start</a>
+</header>
+
+<section class="hero" id="anfang">
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow">WORKSHOP · P7 TRANSLATION</div>
+      <h1>How the Notes Should Be Translated</h1>
+      <p class="lead">The easy way would be: upload the text to ChatGPT, have it translated, done. For the Field Notes, that's not enough. P7 needs structure, cross-checking, logs, and a route that can do more than a pretty chat window.</p>
+    </div>
+    <aside class="desk" aria-label="Quick Notes">
+      <div class="slip">
+        <span class="k">Workshop Report</span>
+        <h3>No copy-paste.</h3>
+        <p>In the wrong translation process, the Field Notes lose their voice faster than their grammar.</p>
+      </div>
+      <div class="slip">
+        <span class="k">Third Version</span>
+        <h3>SDK works.</h3>
+        <p>After the browser loop and the CLI interim route, the SDK route is the third attempt — and the one that actually works.</p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<main class="main">
+  <div class="reader">
+    <nav class="rail" aria-label="Inhalt">
+      <a href="#warum"><span class="rail-nr">01</span>Why P7?</a>
+      <a href="#browser"><span class="rail-nr">02</span>Why not the browser?</a>
+      <a href="#gruende"><span class="rail-nr">03</span>Nine Reasons</a>
+      <a href="#sdk"><span class="rail-nr">04</span>SDK Route</a>
+      <a href="#stand"><span class="rail-nr">05</span>Current Status</a>
+    </nav>
+
+    <article class="article">
+      <p class="abstract-lead">This page is a look behind the scenes of the Field Notes. The German texts come first. Then comes P7: the translation. But P7 isn't simply a button labeled "English." P7 is its own phase: preparation, first translation, cross-check, patch, and a gate. The story now has three versions: first the manual browser loop, then the shaky CLI detour, now the working SDK route.</p>
+
+      <section class="kapitel-head" id="warum"><h2>Why I need a translation workflow in the first place</h2></section>
+      <p>The Field Notes are written in German. Not academic. Not polished. They live on small movements: a sentence that first seems trivial and then suddenly matters; images from the classroom; my wonder, my suspicion, my impatience.</p>
+      <p>When I have it translated, I can't just ask: <em>Is the English correct?</em> The real question is harder:</p>
+      <p class="kernsatz">Does the text still sound like me,<br>or does it only sound like a very polite AI?</p>
+      <p>That's why P7 works on a simple principle: <span class="hl">One AI translates. Another AI reviews. The first AI patches.</span> The tool running in the background keeps track of everything that happens: files, blocks, reports, versions.</p>
+
+      <section class="kapitel-head" id="browser"><h2>Why "upload to GPT and let it translate" isn't enough</h2></section>
+      <p>The obvious route is tempting: I take a finished German note, upload it to ChatGPT, type "Translate this to English," copy the result back, and publish. For an email, that would probably be enough. For the Field Notes, it isn't.</p>
+      <p>The problem isn't that GPT translates badly. The problem is that a chat window doesn't replace a process. There's no reliable data contract, no block count, no second look from a different model, no clean trail back to the German source.</p>
+
+      <figure class="espresso" data-espresso="Espresso 1">
+        <svg viewBox="0 0 900 430" role="img" aria-label="Espresso visualization of the browser workflow from June 28">
+          <rect x="0" y="0" width="900" height="430" fill="#f7efdf"/>
+          <path d="M80 90 C210 30 330 30 445 90 C565 155 680 145 810 86" class="ink" opacity=".2"/>
+          <rect x="70" y="92" width="160" height="96" rx="8" class="green"/>
+          <text x="150" y="126" text-anchor="middle" class="flow-label">Claude</text>
+          <text x="150" y="151" text-anchor="middle" class="flow-small">übersetzt</text>
+          <rect x="370" y="92" width="160" height="96" rx="8" class="soft"/>
+          <text x="450" y="126" text-anchor="middle" class="flow-label">Markus</text>
+          <text x="450" y="151" text-anchor="middle" class="flow-small">trägt Dateien</text>
+          <rect x="670" y="92" width="160" height="96" rx="8" class="orange"/>
+          <text x="750" y="126" text-anchor="middle" class="flow-label">GPT</text>
+          <text x="750" y="151" text-anchor="middle" class="flow-small">prüft gegen</text>
+          <path d="M230 140 H365" class="ink"/>
+          <path d="M530 140 H665" class="ink"/>
+          <path d="M670 198 C570 265 335 265 230 198" class="ink"/>
+          <path d="M515 307 C560 292 625 294 668 320" class="ink" opacity=".45"/>
+          <rect x="305" y="292" width="290" height="76" rx="8" class="soft"/>
+          <text x="450" y="321" text-anchor="middle" class="flow-label">Upload / Antwort / Kopie</text>
+          <text x="450" y="346" text-anchor="middle" class="flow-small">schnell, aber ohne belastbare Spur</text>
+          <circle cx="265" cy="140" r="5" fill="#7d4a23"/>
+          <circle cx="565" cy="140" r="5" fill="#7d4a23"/>
+          <circle cx="610" cy="227" r="5" fill="#7d4a23"/>
+          <text x="80" y="390" class="flow-small">Ein Chatfenster kann Text liefern. Es garantiert keinen reproduzierbaren Übersetzungsprozess.</text>
+        </svg>
+        <figcaption class="cap">The browser route is useful as a test and a stopgap. As a production route for a series with many notes and multiple languages, it's too loose.</figcaption>
+      </figure>
+
+      <p>The manual browser loop from June 28 still mattered. That's where the data contract took shape: PASS 0 through PASS 4, numbered blocks, separate prompts, downloads, cross-check, patch. But this route turns Markus into a file courier. It shows what P7 needs. It is not the solution for ongoing production.</p>
+      <div class="mini-grid">
+        <div class="mini"><span class="k">PASS 0</span><p>The German source text is prepared: Markdown, blocks, metadata, material for translation.</p></div>
+        <div class="mini"><span class="k">PASS 1</span><p>Claude produces the first English translation. Not as flowing prose, but block by block.</p></div>
+        <div class="mini"><span class="k">PASS 2</span><p>GPT checks the English version against the German original and writes up a list of issues.</p></div>
+        <div class="mini"><span class="k">PASS 3</span><p>Claude gets the issue list back and corrects the affected passages specifically.</p></div>
+        <div class="mini"><span class="k">PASS 4</span><p>The reviewed blocks become the publishable English Markdown file.</p></div>
+      </div>
+      <p>The real gain isn't in the browser. It's in the principle behind it: the translation isn't just a response — it's a chain with verifiable handoffs.</p>
+
+      <section class="kapitel-head" id="gruende"><h2>Nine reasons against the chat-window route</h2></section>
+      <p>The short version: a chat window works fine for a single text. P7 needs a production line. The longer version is nine very practical reasons.</p>
+      <div class="mini-grid">
+        <div class="mini"><span class="k">01 Structure</span><p>The notes consist of sections, images, captions, prompt/response passages, and frontmatter. A free chat can flatten, compress, or quietly rearrange all of that.</p></div>
+        <div class="mini"><span class="k">02 Completeness</span><p>Without block numbers, there's no reliable way to catch whether a paragraph is missing, duplicated, or slipped into the wrong order.</p></div>
+        <div class="mini"><span class="k">03 Voice</span><p>The Field Notes can't sound like international AI-brochure copy. The workshop tone has to be held explicitly — and checked.</p></div>
+        <div class="mini"><span class="k">04 Counter-model</span><p>A single model doesn't review its own translation hard enough. P7 needs cross-model: Claude writes, GPT checks, Claude patches.</p></div>
+        <div class="mini"><span class="k">05 Logs</span><p>After a chat export, it's unclear which version, which prompt, and which response led to the published text.</p></div>
+        <div class="mini"><span class="k">06 Repetition</span><p>When the German source gets updated, the translation has to run again — reproducibly. Copy-paste in a browser is not a re-run.</p></div>
+        <div class="mini"><span class="k">07 Limits</span><p>Long notes push against output limits. A browser can cut off, truncate, or need a "continue" — without the process catching it cleanly.</p></div>
+        <div class="mini"><span class="k">08 Series</span><p>Across many notes and languages, you need consistent folders, consistent names, consistent reports. Otherwise every translation becomes a one-off.</p></div>
+        <div class="mini"><span class="k">09 Terms</span><p>Werkstatt, Passung, didaktische Reduktion, Field Note: terms like these need to stay consistent across the series. A chat prompt forgets that fast.</p></div>
+      </div>
+      <p class="kernsatz">The question isn't:<br>Can GPT translate?<br>The question is:<br>Can I still trust the path that got me there?</p>
+
+      <figure class="espresso" data-espresso="Espresso 2">
+        <svg viewBox="0 0 900 360" role="img" aria-label="Chat window vs. SDK call">
+          <rect x="0" y="0" width="900" height="360" fill="#f7efdf"/>
+          <rect x="72" y="54" width="320" height="208" rx="10" class="soft"/>
+          <rect x="72" y="54" width="320" height="38" rx="10" fill="#efe3d1" stroke="#b8a78d" stroke-width="2"/>
+          <text x="232" y="80" text-anchor="middle" class="flow-small">Chat-Oberfläche</text>
+          <rect x="104" y="126" width="204" height="42" rx="18" fill="#f4f7ee" stroke="#486b55" stroke-width="1.5"/>
+          <text x="206" y="153" text-anchor="middle" class="flow-small">Übersetze diese Note ...</text>
+          <rect x="156" y="186" width="204" height="42" rx="18" fill="#fff4e8" stroke="#9a6a1f" stroke-width="1.5"/>
+          <text x="258" y="213" text-anchor="middle" class="flow-small">Hier ist die Antwort ...</text>
+          <text x="232" y="245" text-anchor="middle" class="flow-small">gut für Einzelarbeit</text>
+
+          <path d="M432 158 H468" class="ink" opacity=".35"/>
+          <text x="450" y="140" text-anchor="middle" class="flow-small">anderer Kanal</text>
+
+          <rect x="508" y="54" width="320" height="208" rx="10" fill="#211915" stroke="#b8a78d" stroke-width="2"/>
+          <rect x="508" y="54" width="320" height="38" rx="10" fill="#33261d"/>
+          <text x="668" y="80" text-anchor="middle" class="flow-small" style="fill:#d8cbb6">Befehlszeile</text>
+          <text x="536" y="132" font-family="IBM Plex Mono, Consolas, monospace" font-size="15" fill="#ffd9a8">&gt; api.messages.create(...)</text>
+          <text x="536" y="168" font-family="IBM Plex Mono, Consolas, monospace" font-size="15" fill="#fffaf0">{ "blocks": [...] }</text>
+          <text x="536" y="218" font-family="IBM Plex Mono, Consolas, monospace" font-size="15" fill="#ffd9a8">&gt; metrics.json</text>
+          <text x="668" y="245" text-anchor="middle" class="flow-small" style="fill:#d8cbb6">gut für Prozesse</text>
+          <text x="82" y="318" class="flow-small">Der Unterschied ist nicht Magie. Der Unterschied ist: Der Prozess kann zählen, loggen und wiederholen.</text>
+        </svg>
+        <figcaption class="cap">Left: the familiar chat interface. Right: the same model work via an API. The key difference isn't the model — it's whether the path can be verified.</figcaption>
+      </figure>
+      <p>That's why "upload to GPT" isn't a bad idea — it's just the wrong route for this job. It optimizes the first click. P7 has to optimize the final audit trail.</p>
+
+      <section class="kapitel-head" id="sdk"><h2>The SDK route works</h2></section>
+      <p>The next attempt doesn't replace the P7 principle — it replaces the transport layer. Instead of browser windows and downloads, a Python script calls the model APIs directly: Anthropic for translation and patch, OpenAI for the review pass. The blocks stay blocks. Responses have to come back as JSON. Costs and run times go into metrics.</p>
+      <figure class="espresso" data-espresso="Espresso 3">
+        <svg viewBox="0 0 900 430" role="img" aria-label="Espresso visualization of the working SDK route">
+          <rect x="0" y="0" width="900" height="430" fill="#f7efdf"/>
+          <rect x="335" y="62" width="230" height="108" rx="10" class="soft"/>
+          <text x="450" y="100" text-anchor="middle" class="flow-label">Python-Skript</text>
+          <text x="450" y="126" text-anchor="middle" class="flow-small">orders, calls APIs, checks, logs</text>
+          <rect x="80" y="220" width="190" height="88" rx="8" class="green"/>
+          <text x="175" y="254" text-anchor="middle" class="flow-label">Anthropic SDK</text>
+          <text x="175" y="279" text-anchor="middle" class="flow-small">Übersetzung + Patch</text>
+          <rect x="630" y="220" width="190" height="88" rx="8" class="orange"/>
+          <text x="725" y="254" text-anchor="middle" class="flow-label">OpenAI SDK</text>
+          <text x="725" y="279" text-anchor="middle" class="flow-small">kritische Gegenprüfung</text>
+          <rect x="335" y="315" width="230" height="62" rx="8" class="soft"/>
+          <text x="450" y="342" text-anchor="middle" class="flow-label">PASS-Ordner</text>
+          <text x="450" y="362" text-anchor="middle" class="flow-small">jede Spur bleibt als Datei</text>
+          <path d="M390 170 C315 205 262 227 270 257" class="ink"/>
+          <path d="M270 275 C345 316 555 316 630 275" class="ink"/>
+          <path d="M630 252 C552 210 506 190 482 170" class="ink"/>
+          <path d="M450 170 V310" class="ink" opacity=".55"/>
+          <circle cx="318" cy="203" r="5" fill="#7d4a23"/>
+          <circle cx="450" cy="240" r="5" fill="#7d4a23"/>
+          <circle cx="585" cy="203" r="5" fill="#7d4a23"/>
+          <text x="80" y="390" class="flow-small">Das Skript spielt den Ball weiter. Der Mensch schaut auf Spuren, Metriken und Ergebnis.</text>
+        </svg>
+        <figcaption class="cap">Version three: direct SDK calls instead of browser uploads. The ball stays the same: Claude translates, GPT reviews, Claude patches. What's new is the technical trail.</figcaption>
+      </figure>
+
+      <p>The SDK route works. A 3,000-word note can run in minutes instead of half an hour. Every pass produces files. Every run produces metrics. If a model turns 79 blocks into 82, the script can count. If GPT finds issues, they sit in a file. If Claude patches, you can see later which blocks were changed.</p>
+
+      <section class="kapitel-head" id="stand"><h2>The three versions of the translation</h2></section>
+      <p>Looking back, P7 isn't a single technique — it's a small development history. Each version solved something and, at the same time, exposed the next gap.</p>
+      <div class="mini-grid">
+        <div class="mini"><span class="k">Version 1</span><p>Browser-manual: Claude translates, GPT reviews, Claude patches. The principle is right, but Markus is carrying files between windows.</p></div>
+        <div class="mini"><span class="k">Version 2</span><p>CLI/PYCLI route: the file courier was supposed to disappear. The idea is right, but the route is too fragile on Windows and with subprocesses.</p></div>
+        <div class="mini"><span class="k">Version 3</span><p>SDK route: Python calls Anthropic and OpenAI directly. Blocks, JSON, logs, and metrics become part of the process.</p></div>
+        <div class="mini"><span class="k">What's gained</span><p>The translation becomes repeatable. Not just the text matters — so does the path it took to get there.</p></div>
+        <div class="mini"><span class="k">Control</span><p>Structured Output significantly reduces the old error class of "prose instead of JSON".</p></div>
+        <div class="mini"><span class="k">Series</span><p>For EN, FR, and ES, there's now a process that doesn't start from scratch every time.</p></div>
+      </div>
+      <p class="kernsatz">The third version is the point<br>where translation stops being chat work<br>and becomes a pipeline.</p>
+
+      <section class="kapitel-head" id="kontrolle"><h2>Why I still don't trust the translation blindly</h2></section>
+      <p>The dangerous sentence would be: <em>The AI translated it, so it must be fine.</em> That's exactly not how P7 works.</p>
+      <p>The translation is broken into blocks. Every block has a number. That sounds dry, but it matters. An AI can be poetic, friendly, confident — and still drop a paragraph or shift a meaning. Numbered blocks turn trust into a counting task.</p>
+
+      <figure class="espresso" data-espresso="Espresso 4">
+        <svg viewBox="0 0 900 430" role="img" aria-label="Two control gates in the P7 workflow">
+          <rect x="0" y="0" width="900" height="430" fill="#f7efdf"/>
+          <rect x="62" y="82" width="142" height="70" rx="8" class="soft"/>
+          <text x="133" y="111" text-anchor="middle" class="flow-label">PASS 0</text>
+          <text x="133" y="133" text-anchor="middle" class="flow-small">Source</text>
+          <rect x="242" y="82" width="142" height="70" rx="8" class="green"/>
+          <text x="313" y="111" text-anchor="middle" class="flow-label">PASS 1</text>
+          <text x="313" y="133" text-anchor="middle" class="flow-small">Translation</text>
+          <rect x="418" y="60" width="86" height="114" rx="8" fill="#fff4e8" stroke="#9a6a1f" stroke-width="2"/>
+          <text x="461" y="101" text-anchor="middle" class="flow-label">TOR 1</text>
+          <text x="461" y="126" text-anchor="middle" class="flow-small">count</text>
+          <rect x="540" y="82" width="142" height="70" rx="8" class="orange"/>
+          <text x="611" y="111" text-anchor="middle" class="flow-label">PASS 2</text>
+          <text x="611" y="133" text-anchor="middle" class="flow-small">Issues list</text>
+          <rect x="716" y="60" width="86" height="114" rx="8" fill="#fff4e8" stroke="#9a6a1f" stroke-width="2"/>
+          <text x="759" y="101" text-anchor="middle" class="flow-label">TOR 2</text>
+          <text x="759" y="126" text-anchor="middle" class="flow-small">review</text>
+
+          <rect x="242" y="260" width="142" height="70" rx="8" class="green"/>
+          <text x="313" y="289" text-anchor="middle" class="flow-label">PASS 3</text>
+          <text x="313" y="311" text-anchor="middle" class="flow-small">Patch</text>
+          <rect x="540" y="260" width="142" height="70" rx="8" class="soft"/>
+          <text x="611" y="289" text-anchor="middle" class="flow-label">PASS 4</text>
+          <text x="611" y="311" text-anchor="middle" class="flow-small">Markdown</text>
+          <rect x="716" y="260" width="112" height="70" rx="8" fill="#f4f7ee" stroke="#486b55" stroke-width="2"/>
+          <text x="772" y="289" text-anchor="middle" class="flow-label">done</text>
+          <text x="772" y="311" text-anchor="middle" class="flow-small">review</text>
+
+          <path d="M204 117 H238" class="ink"/>
+          <path d="M384 117 H414" class="ink"/>
+          <path d="M504 117 H536" class="ink"/>
+          <path d="M682 117 H712" class="ink"/>
+          <path d="M759 174 C735 224 686 250 611 260" class="ink"/>
+          <path d="M540 295 H388" class="ink"/>
+          <path d="M384 295 H536" class="ink" opacity=".22"/>
+          <path d="M682 295 H712" class="ink"/>
+          <text x="82" y="386" class="flow-small">First, count mechanically. Then read for content. Only after that, build.</text>
+        </svg>
+        <figcaption class="cap">Two kinds of checks: <strong>Gate 1</strong> verifies mechanically that all blocks are present. <strong>Gate 2</strong> checks whether meaning, tone, and structure hold. Only when both are cleared does the build happen.</figcaption>
+      </figure>
+      <div class="statement"><p>I don't trust the AI<br>because it sounds convincing.<br>I trust the process only as far<br>as it leaves a trail.</p></div>
+      <p>Then comes the second check: a different model. Claude translates. GPT reads German and English side by side and looks for meaning shifts, loss of tone, broken structure. In the test run, GPT found real problems. Not everything. But enough to make the process better than any single polished answer.</p>
+      <p><strong>This note was written 100% by CODEX.</strong></p>
+    </article>
+  </div>
+</main>
+</body>
+</html>
