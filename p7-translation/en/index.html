@@ -93,6 +93,10 @@ body:before{
 .brand-nr{font:400 italic .78rem/1.2 var(--serif);color:#c9bba6;letter-spacing:.02em}
 .toplink{font:600 .72rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#d8cbb6;text-decoration:none;border:1px solid rgba(214,200,180,.26);border-radius:3px;padding:9px 11px}
 .toplink:hover{color:#fff3df;border-color:rgba(255,217,168,.7)}
+.top-actions{display:flex;align-items:center;gap:10px}
+.lang-links{display:flex;align-items:center;gap:4px}
+.lang-link{font:600 .68rem/1 var(--mono);color:#c9bba6;text-decoration:none;padding:8px 7px;border-radius:3px}
+.lang-link:hover,.lang-link.active{color:#fff3df;background:rgba(255,217,168,.12)}
 .hero{
   min-height:88vh;position:relative;display:grid;align-items:end;overflow:hidden;padding:84px 26px 56px;
   background:
@@ -108,6 +112,7 @@ body:before{
 .hero:after{content:"";position:absolute;inset:auto 0 0;height:42%;background:linear-gradient(transparent,var(--bg))}
 .hero-inner{position:relative;z-index:2;max-width:1280px;margin:0 auto;width:100%;display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:64px;align-items:end}
 .eyebrow{font:700 .76rem/1 var(--mono);color:#ffd9a8;text-transform:uppercase;letter-spacing:.18em}
+.ai-stamp{display:inline-block;margin:14px 0 0;padding:8px 11px;border:1px solid rgba(255,217,168,.78);background:rgba(18,12,7,.68);color:#fff3df;font:700 .7rem/1.2 var(--mono);letter-spacing:.04em;transform:rotate(-1deg)}
 .hero h1{font-size:clamp(2.8rem,8vw,6.8rem);line-height:.9;margin:18px 0 24px;color:#fffaf0;letter-spacing:-.005em;max-width:11ch;text-shadow:0 3px 18px rgba(0,0,0,.42)}
 .hero .lead{font-size:clamp(1.08rem,1.6vw,1.32rem);max-width:760px;color:#fff5e4;margin:0;line-height:1.45;font-weight:400;text-shadow:0 2px 8px rgba(0,0,0,.4)}
 .desk{display:grid;gap:14px;align-self:end}
@@ -150,6 +155,8 @@ body:before{
 .mini .k{font:700 .6rem/1 var(--mono);letter-spacing:.14em;color:var(--accent);text-transform:uppercase;display:block;margin-bottom:8px}
 .mini p{font-family:var(--sans);font-size:.92rem;line-height:1.55;margin:0;color:#3b3229}
 @media(max-width:960px){
+  .topbar{align-items:flex-start}
+  .top-actions{flex-wrap:wrap;justify-content:flex-end}
   .hero-inner{grid-template-columns:1fr;gap:36px}
   .desk{order:2}
   .hero{min-height:auto;padding:84px 22px 44px}
@@ -169,13 +176,22 @@ body:before{
     <span class="brand-series">Field Notes — AI and Teaching</span>
     <span class="brand-nr">Workshop Page · P7 Translation</span>
   </div>
-  <a class="toplink" href="#anfang">Start</a>
+  <div class="top-actions">
+    <nav class="lang-links" aria-label="Language">
+      <a class="lang-link" href="../">DE</a>
+      <a class="lang-link active" aria-current="page" href="../en/">EN</a>
+      <a class="lang-link" href="../es/">ES</a>
+      <a class="lang-link" href="../fr/">FR</a>
+    </nav>
+    <a class="toplink" href="#anfang">Start</a>
+  </div>
 </header>
 
 <section class="hero" id="anfang">
   <div class="hero-inner">
     <div>
       <div class="eyebrow">WORKSHOP · P7 TRANSLATION</div>
+      <div class="ai-stamp">This note was created 100% by AI.</div>
       <h1>How the Notes Should Be Translated</h1>
       <p class="lead">The easy way would be: upload the text to ChatGPT, have it translated, done. For the Field Notes, that's not enough. P7 needs structure, cross-checking, logs, and a route that can do more than a pretty chat window.</p>
     </div>
@@ -305,7 +321,7 @@ body:before{
           <rect x="0" y="0" width="900" height="430" fill="#f7efdf"/>
           <rect x="335" y="62" width="230" height="108" rx="10" class="soft"/>
           <text x="450" y="100" text-anchor="middle" class="flow-label">Python-Skript</text>
-          <text x="450" y="126" text-anchor="middle" class="flow-small">orders, calls APIs, checks, logs</text>
+          <text x="450" y="126" text-anchor="middle" class="flow-small">ordnet, ruft APIs auf, prüft, loggt</text>
           <rect x="80" y="220" width="190" height="88" rx="8" class="green"/>
           <text x="175" y="254" text-anchor="middle" class="flow-label">Anthropic SDK</text>
           <text x="175" y="279" text-anchor="middle" class="flow-small">Übersetzung + Patch</text>
