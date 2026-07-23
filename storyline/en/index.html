@@ -606,6 +606,33 @@ var NOTES = [
     geht_nach:[]
   },
   {
+    id:'TP', kurztitel:'TEST PACKAGE',
+    titel:'THE LEARNING TEST PACKAGE',
+    datum:'2025-12-04', datum_publish:'soon',
+    abstract:'From a paper quiz to an adaptive GPT test package: tasks, evaluation and feedback become one connected system through several iterations.',
+    status:'ANNOUNCED', url:null,
+    hero:'../../heroes/hero_testpaket.png', heroAnchor:'center',
+    geht_nach:[{ref:'TB',typ:'direkt'}]
+  },
+  {
+    id:'TS', kurztitel:'TOSKAT',
+    titel:'TOSKAT',
+    datum:'2026-01-05', datum_publish:'soon',
+    abstract:'A question about making textbook passages readable for different learners becomes a controllable text tool with seven features and a YAML architecture.',
+    status:'ANNOUNCED', url:null,
+    hero:'../../heroes/hero_toskat.png', heroAnchor:'center',
+    geht_nach:[]
+  },
+  {
+    id:'TB', kurztitel:'TEST KIT',
+    titel:'TEST CONSTRUCTION KIT',
+    datum:'2026-01-15', datum_publish:'soon',
+    abstract:'A working test package is dismantled and rebuilt as a subject-independent system: from YAML architecture and a zone model to the pizza model.',
+    status:'ANNOUNCED', url:null,
+    hero:'../../heroes/hero_test_baukasten.png', heroAnchor:'br',
+    geht_nach:[]
+  },
+  {
     id:'P7', kurztitel:'TRANSLATION',
     titel:'HOW THE NOTES ARE TRANSLATED',
     datum:'2026-07-13', datum_publish:'2026-07-14',
@@ -619,14 +646,17 @@ var NOTES = [
 
 var DEFAULTS = {
   '01':{x:0.03666666616996128, y:0.29054785741518624},
-  '02':{x:0.18895833482344945, y:0.4167124081964361},
-  '03':{x:0.21635422031084697, y:0.6984932802801266},
-  '04':{x:0.02, y:0.556986518755351},
-  '05':{x:0.08250001241763434, y:0.8045205813891266},
-  '08':{x:0.3289583492279053, y:0.4899316698884311},
-  '10':{x:0.4054166825612386, y:0.7494519920871681},
-  'DB':{x:0.5305208253860473, y:0.5169864518675086},
-  'P7':{x:0.7928125715255737, y:0.7016438606993792}
+  '02':{x:0.2074579355086984, y:0.4423179234091848},
+  '03':{x:0.2656897882142921, y:0.7393236878682538},
+  '04':{x:0.020625986531262037, y:0.5355332421178348},
+  '05':{x:0.09791797251550124, y:0.7747628803997235},
+  '08':{x:0.38074959469870173, y:0.46086589426464764},
+  '10':{x:0.45226760706046815, y:0.7653689154253223},
+  'DB':{x:0.561356933671631, y:0.47407984579389806},
+  'TP':{x:0.6311922940340909, y:0.7328719617586236},
+  'TS':{x:0.7939714381801329, y:0.6737024010258973},
+  'TB':{x:0.8335613045009149, y:0.3977854776877433},
+  'P7':{x:0.8470691576797532, y:0.13693796250686466}
 };
 
 /* HUM-fixierte Kurven-Griffe aus Draft-Mode-Export 260706 (Bezier-Feintuning).
@@ -642,7 +672,8 @@ var DEFAULT_CPS = {
   '02-05':{x:0.1953309822866501, y:0.7595225458551662},
   '03-08':{x:0.18395833730697633, y:0.6478083111488656},
   '08-10':{x:0.2624218948682149, y:0.689999891307256},
-  '10-DB':{x:0.5086719306310018, y:0.7010959907427224}
+  '10-DB':{x:0.5431961987357784, y:0.7280856206796007},
+  'TP-TB':{x:0.7552653238103081, y:0.7421066401843681}
 };
 
 var LS_POS = 'fn-storyline-v8-postit';

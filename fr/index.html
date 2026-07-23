@@ -606,12 +606,39 @@ var NOTES = [
     geht_nach:[]
   },
   {
+    id:'TP', kurztitel:'KIT DE TESTS',
+    titel:'LE KIT DE TESTS',
+    datum:'2025-12-04', datum_publish:'soon',
+    abstract:'D\'un test papier à un kit adaptatif avec GPT : tâches, évaluation et retour forment un système cohérent après plusieurs itérations.',
+    status:'ANNOUNCED', url:null,
+    hero:'../heroes/hero_testpaket.png', heroAnchor:'center',
+    geht_nach:[{ref:'TB',typ:'direkt'}]
+  },
+  {
+    id:'TS', kurztitel:'TOSKAT',
+    titel:'TOSKAT',
+    datum:'2026-01-05', datum_publish:'soon',
+    abstract:'La question de l\'accessibilité des textes pour différents élèves devient un outil réglable composé de sept caractéristiques et d\'une architecture YAML.',
+    status:'ANNOUNCED', url:null,
+    hero:'../heroes/hero_toskat.png', heroAnchor:'center',
+    geht_nach:[]
+  },
+  {
+    id:'TB', kurztitel:'KIT DE TESTS',
+    titel:'KIT DE CONSTRUCTION DE TESTS',
+    datum:'2026-01-15', datum_publish:'soon',
+    abstract:'Un kit de tests fonctionnel est démonté puis reconstruit comme système indépendant de la discipline : architecture YAML, modèle de zones et modèle de pizza.',
+    status:'ANNOUNCED', url:null,
+    hero:'../heroes/hero_test_baukasten.png', heroAnchor:'br',
+    geht_nach:[]
+  },
+  {
     id:'P7', kurztitel:'TRADUCTION',
     titel:'COMMENT LES NOTES SONT TRADUITES',
     datum:'2026-07-13', datum_publish:'2026-07-14',
     abstract:'Trois versions d\'une histoire de traduction : d\'abord la boucle manuelle dans le navigateur, puis la voie intermédiaire en CLI, maintenant le pipeline SDK. P7 montre pourquoi téléverser le texte vers GPT ne suffit pas et pourquoi une traduction doit laisser des traces.',
     status:'LIVE', url:'../p7-translation/index.html',
-    langs:{de:'../p7-translation/index.html'},
+    langs:{de:'../p7-translation/index.html',en:'../p7-translation/en/index.html',es:'../p7-translation/es/index.html',fr:'../p7-translation/fr/index.html'},
     hero:'../p7-translation/hero_p7_translation_260714.png', heroAnchor:'tr',
     geht_nach:[]
   }
@@ -619,14 +646,17 @@ var NOTES = [
 
 var DEFAULTS = {
   '01':{x:0.03666666616996128, y:0.29054785741518624},
-  '02':{x:0.18895833482344945, y:0.4167124081964361},
-  '03':{x:0.21635422031084697, y:0.6984932802801266},
-  '04':{x:0.02, y:0.556986518755351},
-  '05':{x:0.08250001241763434, y:0.8045205813891266},
-  '08':{x:0.3289583492279053, y:0.4899316698884311},
-  '10':{x:0.4054166825612386, y:0.7494519920871681},
-  'DB':{x:0.5305208253860473, y:0.5169864518675086},
-  'P7':{x:0.7928125715255737, y:0.7016438606993792}
+  '02':{x:0.2074579355086984, y:0.4423179234091848},
+  '03':{x:0.2656897882142921, y:0.7393236878682538},
+  '04':{x:0.020625986531262037, y:0.5355332421178348},
+  '05':{x:0.09791797251550124, y:0.7747628803997235},
+  '08':{x:0.38074959469870173, y:0.46086589426464764},
+  '10':{x:0.45226760706046815, y:0.7653689154253223},
+  'DB':{x:0.561356933671631, y:0.47407984579389806},
+  'TP':{x:0.6311922940340909, y:0.7328719617586236},
+  'TS':{x:0.7939714381801329, y:0.6737024010258973},
+  'TB':{x:0.8335613045009149, y:0.3977854776877433},
+  'P7':{x:0.8470691576797532, y:0.13693796250686466}
 };
 
 /* HUM-fixierte Kurven-Griffe aus Draft-Mode-Export 260706 (Bezier-Feintuning).
@@ -642,7 +672,8 @@ var DEFAULT_CPS = {
   '02-05':{x:0.1953309822866501, y:0.7595225458551662},
   '03-08':{x:0.18395833730697633, y:0.6478083111488656},
   '08-10':{x:0.2624218948682149, y:0.689999891307256},
-  '10-DB':{x:0.5086719306310018, y:0.7010959907427224}
+  '10-DB':{x:0.5431961987357784, y:0.7280856206796007},
+  'TP-TB':{x:0.7552653238103081, y:0.7421066401843681}
 };
 
 var LS_POS = 'fn-storyline-v8-postit';
