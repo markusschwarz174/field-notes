@@ -639,40 +639,40 @@ var NOTES = [
     id:'07', kurztitel:'SECHS BAUSTEINE',
     titel:'SECHS BAUSTEINE, EIN HAUS',
     datum:'2025-08-21', datum_publish:'2026-08-08',
-    abstract:'Aus sechs Werkzeugen werden Ende August fünf Bausteine einer Unterrichtsarchitektur: Portal, Forschungsreise, Werkstatt, Marktplatz und Lagerfeuer fügen sich zu einem Haus, das noch keinen Schutz kennt.',
+    abstract:'Aus verstreuten Unterrichtsideen soll ein Ganzes werden — doch ich frage mich, ob Zusammenbauen reicht, oder ob dazwischen noch mehr existiert.',
     status:'LIVE', url:'notes/baumhaus-system/index.html',
     langs:{de:'notes/baumhaus-system/index.html'},
-    hero:'heroes/hero_07.png', heroAnchor:'tl',
+    hero:'heroes/hero_07.png', heroAnchor:'tl', heroVeil:'off',
     geht_nach:[{ref:'09',typ:'Zweig'},{ref:'13',typ:'Zweig'}]
   },
   {
     id:'09', kurztitel:'SCHULMODELL',
     titel:'DAS BESTE SCHULMODELL DER WELT',
     datum:'2025-09-05', datum_publish:'2026-08-08',
-    abstract:'Ich vergleiche mein Baumhaus-Modell mit immer mehr Referenzmodellen — zwanzig, vierzig, schliesslich siebzig. Aus dem Vergleich wird ein Wettkampf um das beste Schulmodell. Erst als mich die Bestätigung mehr treibt als die Sache selbst, merke ich: Ich habe vergessen, worum es eigentlich geht.',
+    abstract:'Wie aus einem Modellvergleich ein Wettkampf wird, und ich vergesse, worum es eigentlich geht.',
     status:'LIVE', url:'notes/baumhaus-vergleich/index.html',
     langs:{de:'notes/baumhaus-vergleich/index.html'},
-    hero:'heroes/hero_baumhaus_vergleich.png', heroAnchor:'tl',
+    hero:'heroes/hero_baumhaus_vergleich.png', heroAnchor:'tl', heroVeil:'off',
     geht_nach:[{ref:'12',typ:'direkt'}]
   },
   {
     id:'13', kurztitel:'WEGWEISER',
     titel:'WEGWEISER',
     datum:'2025-09-08', datum_publish:'2026-08-08',
-    abstract:'Auf der Suche nach Schutz für sein Baumhaus-Konzept macht der Autor GPT zum härtesten Kritiker und lässt sich von ihm die Schule in Gedanken zerstören.',
+    abstract:'Auf der Suche nach Schutz zerstöre ich die Schule in Gedanken und stosse dadurch auf eine Kraft, die am Ende nicht nur Antworten, sondern auch eine Erkenntnis bringt.',
     status:'LIVE', url:'notes/baumhaus-zweifel/index.html',
     langs:{de:'notes/baumhaus-zweifel/index.html'},
-    hero:'heroes/hero_13.png', heroAnchor:'tr',
+    hero:'heroes/hero_13.png', heroAnchor:'tr', heroVeil:'off',
     geht_nach:[]
   },
   {
     id:'12', kurztitel:'UBUNTUGOGY',
     titel:'UBUNTUGOGY',
     datum:'2025-11-01', datum_publish:'2026-08-08',
-    abstract:'Fortsetzung des Baumhaus-Vergleichs: Aus 20 europäischen Modellen wächst über sieben Sammelrunden (Claude erweitert, GPT prüft) eine Excel-Datenbank mit 1465 Zeilen aus allen Weltregionen. Vollständigkeit bleibt unerreichbar — am Ende zählt der kleiner gewordene eigene Horizont.',
+    abstract:'Was mit 20 Konzepten beginnt, führt zu einer unvollendeten Tabelle, bei der am Schluss nicht die Vollständigkeit wichtig ist, sondern eine Erkenntnis.',
     status:'LIVE', url:'notes/rest-der-welt/index.html',
     langs:{de:'notes/rest-der-welt/index.html'},
-    hero:'heroes/hero_12.png', heroAnchor:'tl',
+    hero:'heroes/hero_12.png', heroAnchor:'tl', heroVeil:'off',
     geht_nach:[]
   },
   {
@@ -1159,7 +1159,12 @@ function render() {
   if (expNote && (expNote.status === 'LIVE' || expNote.id === '02')) {
     var hasHero = !!expNote.hero;
     var hv = '46,26,14'; /* Espresso-Braun 260706, ersetzt alte V6.05-Schwarzbraun-Schattierung */
-    var veil = 'linear-gradient(180deg,rgba(255,241,201,.18) 0 18%,rgba(255,241,201,0) 38%),radial-gradient(140% 140% at 0% 0%,rgba('+hv+',.94) 0%,rgba('+hv+',.78) 34%,rgba('+hv+',.35) 64%,rgba('+hv+',.08) 100%)';
+    /* D_260807_01_HERO_VEIL_OPTOUT: Notes mit hero.veil:"off" im Dossier tragen die Dunkel-
+       zone bereits im Hero-Bild selbst (ESPRESSO-Stil) - zusaetzliche CSS-Abdunkelung waere
+       doppelt. War bisher nur im Note-Page-Renderer verdrahtet, hier fuer die Storyline-Karte
+       nachgezogen (DIRECTOR-Befund 260808, Kacheln SYSTEM/VERGLEICH/ZWEIFEL/REST_DER_WELT). */
+    var veil = (expNote.heroVeil === 'off') ? '' :
+      'linear-gradient(180deg,rgba(255,241,201,.18) 0 18%,rgba(255,241,201,0) 38%),radial-gradient(140% 140% at 0% 0%,rgba('+hv+',.94) 0%,rgba('+hv+',.78) 34%,rgba('+hv+',.35) 64%,rgba('+hv+',.08) 100%),';
     var tsh = hasHero ? '0 1px 8px rgba(20,12,4,.7)' : 'none';
     var sourceP = posOf(expNote.id);
 
@@ -1170,7 +1175,7 @@ function render() {
     expandedCard.style.setProperty('--from-rot', expNote.id === '02' ? '2deg' : '-2deg');
 
     if (hasHero) {
-      cardPhoto.style.backgroundImage = veil+',url("'+expNote.hero+'")';
+      cardPhoto.style.backgroundImage = veil+'url("'+expNote.hero+'")';
       cardPhoto.style.minHeight = '390px';
       cardMeta.style.color = '#ffd9a8';
       cardTitle.style.color = '#fffaf0';
