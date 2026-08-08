@@ -1,33 +1,32 @@
----
----
 <!doctype html>
 <!--
    WEB_PREVIEW — P6-Render, in P5 Stage 1 als LIVEVIEW ausgeliehen.
    Design-SSoT: C:\Users\Markus\ClaudeCode\MeineProjekte\FIELD_NOTES_DRAFT\0_W_WORKFLOW\P6_PUBLISH\WEBDESIGN\_CURRENT\NOTE\index.html
-   Content-Source: 38EBENEN_02-SCHABLONEN_V5.35_DRAFT_AI.docx
+   Content-Source: 38EBENEN_02-SCHABLONEN_V6.05_DRAFT_AI.docx
 -->
 <html lang="fr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>De la forêt aux gabarits didactiques · Field Notes</title>
-<meta name="description" content="Trente-huit niveaux didactiques deviennent une liste de travail. Puis je cherche des leviers de réglage pour l&#x27;enseignement et j&#x27;aboutis à des gabarits didactiques.">
+<title>GABARITS DIDACTIQUES · Field Notes</title>
+<meta name="description" content="38 niveaux didactiques deviennent une liste de travail. Puis je cherche des leviers pour mon enseignement — et j&#x27;arrive aux gabarits didactiques.">
 <meta name="author" content="Markus Schwarz">
-<link rel="canonical" href="https://markusschwarz174.github.io/field-notes/notes/schablonen/en/">
+<link rel="canonical" href="https://markusschwarz174.github.io/field-notes/notes/schablonen/">
 <!-- Open Graph -->
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Field Notes — Markus Schwarz">
-<meta property="og:title" content="From Forest to Didactic Templates · Field Notes">
-<meta property="og:description" content="Field Note No. 10 — 21 October 2025. The global list becomes learning sets and didactic templates.">
-<meta property="og:url" content="https://markusschwarz174.github.io/field-notes/notes/schablonen/en/">
-<meta property="og:image" content="https://markusschwarz174.github.io/field-notes/heroes/hero_10.png">
-<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Vom Wald zu didaktischen Schablonen · Field Notes Nr. 10">
+<meta property="og:description" content="38 niveaux didactiques deviennent une liste de travail. Puis je cherche des leviers pour mon enseignement — et j&#x27;arrive aux gabarits didactiques.">
+<meta property="og:url" content="https://markusschwarz174.github.io/field-notes/notes/schablonen/">
+<meta property="og:image" content="https://markusschwarz174.github.io/field-notes/notes/schablonen/../heroes/hero_10.png">
+<meta property="og:locale" content="de_CH">
 <meta property="article:author" content="Markus Schwarz">
+<meta property="article:published_time" content="2025-10-21">
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="From Forest to Didactic Templates · Field Notes">
-<meta name="twitter:description" content="Field Note No. 10 — 21 October 2025. The global list becomes learning sets and didactic templates.">
-<meta name="twitter:image" content="https://markusschwarz174.github.io/field-notes/heroes/hero_10.png">
+<meta name="twitter:title" content="Vom Wald zu didaktischen Schablonen · Field Notes Nr. 10">
+<meta name="twitter:description" content="38 niveaux didactiques deviennent une liste de travail. Puis je cherche des leviers pour mon enseignement — et j&#x27;arrive aux gabarits didactiques.">
+<meta name="twitter:image" content="https://markusschwarz174.github.io/field-notes/notes/schablonen/../heroes/hero_10.png">
 <!-- JSON-LD: Article + Person (Google Knowledge Graph Signal) -->
 <script type="application/ld+json">
 {
@@ -35,11 +34,12 @@
   "@graph": [
     {
       "@type": "Article",
-      "headline": "Vom Wald zu didaktischen Schablonen · Field Notes Nr. 10",
-      "description": "Field Note Nr. 10 — 21. Oktober 2025. Aus 38 didaktischen Ebenen wird eine Arbeitsliste. Dann suche ich nach Stellschrauben für den Unterricht und lande bei didaktischen Schablonen.",
-      "inLanguage": "en",
+      "headline": "Vom Wald zu didaktischen Schablonen",
+      "description": "Aus 38 didaktischen Ebenen wird eine Arbeitsliste. Dann suche ich nach Stellschrauben f\u00fcr den Unterricht und lande bei didaktischen Schablonen.",
+      "datePublished": "2025-10-21",
+      "inLanguage": "de-CH",
       "url": "https://markusschwarz174.github.io/field-notes/notes/schablonen/",
-      "image": "https://markusschwarz174.github.io/field-notes/heroes/hero_10.png",
+      "image": "https://markusschwarz174.github.io/field-notes/notes/schablonen/../heroes/hero_10.png",
       "author": {
         "@type": "Person",
         "name": "Markus Schwarz",
@@ -790,7 +790,7 @@ body:before{
     font: 700 .8rem/1 'IBM Plex Sans', system-ui, sans-serif; letter-spacing: .03em;
   }
 
-  /* DU: — Prompt-Composer (ChatGPT-Eingabefeld) */
+  /* Du: — Prompt-Composer (ChatGPT-Eingabefeld) */
   .article .conv.du .lbl{ color: var(--mk); }
   .article .composer{
     position: relative; padding: 11px 17px 11px; overflow: hidden;
@@ -1222,6 +1222,12 @@ body:before{
     word-break: normal;
     hyphens: auto;
   }
+  /* SCHABLONEN WEBTEST: MAINLINE und HL3 nicht automatisch trennen. */
+  .article > p,
+  .article .kernsatz{
+    -webkit-hyphens: none !important;
+    hyphens: none !important;
+  }
   .article .kernsatz,
   .article .cliff h2{
     text-wrap: balance;
@@ -1239,8 +1245,8 @@ body:before{
       <button type="button" title="Nächste Field Note" aria-label="Nächste Field Note"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
     </nav>
     <div class="brand">
-      <span class="brand-series">Field Notes — AI &amp; Teaching</span>
-      <span class="brand-nr">De la forêt aux gabarits didactiques · n° 10 · 21 octobre 2025</span>
+      <span class="brand-series">Feldnotizen — KI &amp; Unterricht</span>
+      <span class="brand-nr">Vom Wald zu didaktischen Schablonen · Nr. 10 · 21. Oktober 2025</span>
     </div>
   </div>
   <div class="topbar-controls">
@@ -1267,9 +1273,9 @@ body:before{
 <header class="hero">
   <div class="hero-inner">
     <div>
-      <div class="eyebrow">Field Note n° 10 · 21 octobre 2025</div>
-      <h1>De la forêt aux gabarits didactiques</h1>
-      <p class="lead">Trente-huit niveaux didactiques deviennent une liste de travail. Puis je cherche des leviers de réglage pour l'enseignement et j'aboutis à des gabarits didactiques.</p>
+      <div class="eyebrow">Field Note · Français</div>
+      <h1>GABARITS DIDACTIQUES</h1>
+      <p class="lead">38 niveaux didactiques deviennent une liste de travail. Puis je cherche des leviers pour mon enseignement — et j&#x27;arrive aux gabarits didactiques.</p>
     </div>
   </div>
 </header>
@@ -1281,13 +1287,12 @@ body:before{
   <div class="kapitel-nr">01</div>
   <h2>Scoring de 38 niveaux didactiques – le plan</h2>
 </div>
-  <p id="p-fr-001">Je reprends exactement là où ma première étape intermédiaire s&#x27;est arrêtée : la «grande liste» est terminée. En plusieurs rounds, j&#x27;ai collecté et consolidé une «Global List» qui comprend au final 38 niveaux didactiques répartis en 6 clusters. S&#x27;y ajoutent des tags et quatre dimensions transversales : numérique, éthique &amp; responsabilité, agilité &amp; goût de l&#x27;expérimentation, et réflexion critique. La liste complète n&#x27;a pas sa place ici. C&#x27;est la forêt. Dans cette note, c&#x27;est la prochaine étape qui m&#x27;intéresse : quels sont les quelques niveaux qui passeront dans la petite liste, et pourquoi ?</p>
-  <p id="p-fr-002">Parce que la grande liste est trop volumineuse pour le quotidien scolaire et qu&#x27;elle n&#x27;a jamais été conçue que comme une première étape partielle. Je veux utiliser les niveaux didactiques pour différencier les tâches ou les environnements d&#x27;apprentissage dans mon enseignement. Pour ça, je n&#x27;ai pas besoin d&#x27;une forêt de 38 niveaux didactiques, mais d&#x27;une petite sélection d&#x27;environ six à dix niveaux.</p>
-  <p id="p-fr-003">Et cette réduction, je veux maintenant la mettre en œuvre : je fais une sélection dans la grande liste pour en tirer une «petite liste», la «LOCAL LIST». Elle doit devenir mon outil de travail au quotidien : les niveaux didactiques non pas comme des boutons marche-arrêt rigides, mais comme des curseurs. Je décris brièvement mon objectif à GPT :</p>
-
-  <div id="card-003" class="conv du">
+  <p id="p-fr-001">Je reprends exactement là où ma première étape intermédiaire s&#x27;est arrêtée : la «grande liste» est prête. En plusieurs rounds, j&#x27;ai collecté et consolidé une «Global List» qui comprend finalement 38 niveaux didactiques répartis en 6 clusters. S&#x27;y ajoutent des tags et quatre dimensions transversales : numérique, éthique &amp; responsabilité, agilité &amp; goût de l&#x27;expérimentation, et réflexion critique. La liste complète n&#x27;a pas sa place ici. C&#x27;est la forêt. Dans cette note, ce qui m&#x27;intéresse, c&#x27;est la prochaine étape : quels sont les quelques niveaux qui accèdent à la petite liste, et pourquoi ?</p>
+  <p id="p-fr-002">Parce que la grande liste est trop lourde pour le quotidien scolaire et qu&#x27;elle n&#x27;a toujours été conçue que comme une première sous-étape. Je veux utiliser les niveaux didactiques pour différencier les tâches ou les environnements d&#x27;apprentissage dans mon enseignement. Pour ça, je n&#x27;ai pas besoin d&#x27;une forêt de 38 niveaux didactiques, mais d&#x27;une petite sélection d&#x27;environ six à dix niveaux.</p>
+  <p id="p-fr-003">Et c&#x27;est cette réduction que je veux maintenant mettre en œuvre : je fais une sélection dans la grande liste pour en tirer une «petite liste», la «LOCAL LIST». Elle doit devenir mon outil de travail au quotidien : des niveaux didactiques non pas comme des interrupteurs marche-arrêt rigides, mais comme des curseurs. J&#x27;explique brièvement mon objectif à GPT :</p>
+  <div id="card-fr-001" class="conv du">
     <div class="composer">
-      <p class="ptext"><strong>Toi:</strong><br>Les 6-9 niveaux du haut deviennent la «Local List 1.1». Des curseurs. 1-2 exemples par curseur (pour ancrer l&#x27;attente). Pour chaque niveau sélectionné, une «échelle de réglage» claire. C&#x27;est-à-dire 2-3</p>
+      <p class="ptext"><strong>Toi :</strong><br><strong>Top 6-9 niveaux deviennent la «Local List 1.1». Leviers de réglage. 1-2 exemples par levier (pour ancrer les attentes). Pour chaque niveau sélectionné, une «échelle de réglage» claire. C&#x27;est-à-dire 2-3 […]</strong></p>
       <div class="toolbar" aria-hidden="true">
         <button class="ibtn outline" type="button" tabindex="-1" aria-label="Hinzufügen"><svg class="icn" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
         <span class="spacer"></span>
@@ -1296,54 +1301,53 @@ body:before{
       </div>
     </div>
   </div>
-  <p id="p-fr-004">Mais peut-on seulement évaluer un niveau didactique ? Je cherche des critères et je ne trouve aucune base scientifique, par exemple sur le fait de pouvoir «prompter» un niveau didactique. Ce sont donc des questions-clés sur la pratique et des recommandations de GPT qui me guident : Quel est le levier d&#x27;effet sur l&#x27;apprentissage ? Dans quelle mesure le niveau est-il observable ou utilisable de façon interdisciplinaire ? Et surtout : dans quelle mesure peut-on le transposer de façon fiable dans des prompts IA ? C&#x27;est la préparation d&#x27;une procédure de scoring que je vais ensuite confier à GPT pour qu&#x27;il l&#x27;exécute. Le plan : GPT construit, exécute et propose – moi je vérifie et valide. Chaque niveau didactique doit être évalué selon ces critères pondérés.</p>
+  <p id="p-fr-004">Mais peut-on vraiment évaluer un niveau didactique ? Je cherche des critères et je ne trouve aucune base scientifique, par exemple pour la «promptabilité» des niveaux didactiques. Ce sont donc des questions clés sur la pratique et les recommandations de GPT qui me guident : Quel est le levier d&#x27;effet sur l&#x27;apprentissage ? Dans quelle mesure ce niveau est-il observable ou utilisable de façon interdisciplinaire ? Et surtout : dans quelle mesure peut-on le traduire de façon fiable en prompts IA ? C&#x27;est la préparation d&#x27;une procédure de scoring que je veux ensuite confier à GPT pour qu&#x27;il l&#x27;exécute. Mon plan : GPT construit, il applique et propose — moi je vérifie et valide. Chaque niveau didactique sera évalué selon ces critères pondérés.</p>
   <figure id="abb-fr-01" class="evidence scale-ok">
     <span class="stub-tag">Fig. 1</span>
-    <img src="../P2_LAYOUTER/assets/Abb_01.png" alt="Liste des critères pour le scoring." loading="lazy">
-    <figcaption class="cap">Liste des critères pour le scoring.</figcaption>
+    <img src="../P2_LAYOUTER/assets/Abb_01.png" alt="Liste de critères pour le scoring." loading="lazy">
+    <figcaption class="cap">Liste de critères pour le scoring.</figcaption>
   </figure>
-  <p id="p-fr-006">C&#x27;est un tableau réalisé plus ou moins entièrement par GPT, avec six critères, une échelle de 0 à 2 et des pondérations. Il doit évaluer chaque niveau didactique selon ces critères, faire la somme et trier par score. Ce qui m&#x27;importe : seuls les niveaux didactiques sont scorés. Les dimensions transversales ne sont pas sélectionnées ni évaluées. Elles restent intégrées comme grille de vérification. Les 6 à 9 niveaux avec un score élevé, peu de redondance et une large applicabilité doivent former ma petite liste, ma «Local List». Ensuite, je veux 2 à 3 curseurs par niveau sélectionné, avec chacun 1 à 2 exemples d&#x27;ancrage. Je les utiliserai ensuite en classe ou dans des prompts GPT. Voilà le plan.</p>
+  <p id="p-fr-005">Le tableau est plus ou moins entièrement construit par GPT et fonctionne avec six critères, une échelle 0–2 et des pondérations. Il doit évaluer chaque niveau didactique selon ces critères, calculer le total et trier par score. Un point important pour moi : seuls les niveaux didactiques sont scorés. Les dimensions transversales ne sont pas sélectionnées et ne sont pas évaluées. Elles restent intégrées comme grille de contrôle. Les 6–9 niveaux avec un score élevé, une faible redondance et une large applicabilité doivent former ma petite liste, ma «Local List». Ensuite, je veux 2–3 leviers de réglage pour chaque niveau sélectionné, avec 1–2 exemples d&#x27;ancrage chacun. Ces leviers, je veux les utiliser dans mon enseignement ou dans des prompts GPT. Voilà le plan.</p>
 <div class="kapitel-head" id="k-fr-02">
   <div class="kapitel-nr">02</div>
-  <h2>Scoring-List</h2>
+  <h2>Ce que le scoring produit</h2>
 </div>
-  <p id="p-fr-007">Je laisse GPT évaluer les 38 niveaux didactiques selon les six critères, additionner les valeurs pondérées et présenter le tout sous forme de tableau de synthèse.</p>
+  <p id="p-fr-006">Je laisse GPT évaluer les 38 niveaux didactiques selon les six critères, additionner les valeurs pondérées et présenter le tout sous forme de tableau récapitulatif.</p>
   <figure id="abb-fr-02" class="evidence scale-ok">
     <span class="stub-tag">Fig. 2</span>
     <img src="../P2_LAYOUTER/assets/Abb_02.png" alt="Tableau de scoring – vue d&#x27;ensemble de tous les clusters, extrait." loading="lazy">
-    <figcaption class="cap">Tableau de scoring – vue d'ensemble de tous les clusters, extrait.</figcaption>
+    <figcaption class="cap">Tableau de scoring – vue d&#x27;ensemble de tous les clusters, extrait.</figcaption>
   </figure>
-  <p id="p-fr-009">Les tags restent visibles dans le tableau. [DIG] signale les niveaux liés au numérique, [A/D] signale les niveaux utilisables en analogique et en numérique, et [FUT] signale les références aux compétences d&#x27;avenir et aux Future Skills. Ces tags ne donnent pas de points supplémentaires dans le scoring. Ils m&#x27;aident simplement, à la lecture de la liste, à voir quels niveaux portent des références particulières.</p>
-  <p id="p-fr-010">Encore une fois, il y a un tableau-mammouth illisible que je dois réduire dans Excel pour pouvoir le voir en entier. Je ne prends pas ce tableau comme une vérité mathématique ni comme un classement objectif de la qualité didactique – et il ne s&#x27;agit pas non plus de trouver le «meilleur» niveau didactique. Il s&#x27;agit simplement de trouver, à l&#x27;aide d&#x27;un instrument de travail, les niveaux didactiques potentiellement les mieux adaptés à ma pratique. Je parcours le tableau de scoring et vérifie rapidement les niveaux : aucun no-go. Je continue et trie le tableau par score total.</p>
+  <p id="p-fr-007">Les tags restent visibles dans le tableau. [DIG] marque les niveaux avec une référence au numérique, [A/D] marque les niveaux utilisables en analogique et en numérique, et [FUT] marque les références aux compétences d&#x27;avenir et aux Future Skills. Ces tags ne sont pas des points supplémentaires dans le scoring. Ils me servent uniquement à voir, en lisant la liste, quels niveaux portent des références particulières.</p>
+  <p id="p-fr-008">Là encore, il y a un tableau-mammouth peu lisible que je dois réduire dans Excel pour pouvoir le voir en entier. Je ne prends pas ce tableau pour une vérité mathématique ni pour un classement objectif de la qualité didactique — il ne s&#x27;agit pas non plus de trouver le «meilleur» niveau didactique. Il s&#x27;agit simplement de trouver, à l&#x27;aide d&#x27;un instrument de travail, les niveaux didactiques qui me conviennent le mieux. Je parcours le tableau de scoring et vérifie rapidement les niveaux : aucun no go. Je continue et je trie le tableau par score total.</p>
   <figure id="abb-fr-03" class="evidence scale-ok">
     <span class="stub-tag">Fig. 3</span>
-    <img src="../P2_LAYOUTER/assets/Abb_03.jpg" alt="Le scoring devient Local List." loading="lazy">
-    <figcaption class="cap">Le scoring devient Local List.</figcaption>
+    <img src="../P2_LAYOUTER/assets/Abb_03.jpg" alt="Le scoring devient la Local List." loading="lazy">
+    <figcaption class="cap">Le scoring devient la Local List.</figcaption>
   </figure>
 <div class="kapitel-head" id="k-fr-03">
   <div class="kapitel-nr">03</div>
-  <h2>Local-List</h2>
+  <h2>Onze niveaux pour ma classe</h2>
 </div>
-  <p id="p-fr-012">Je regarde la liste complète et me concentre sur les niveaux en tête de classement. Je retiens les niveaux didactiques avec le score maximum de 18, plus les deux à 17 et 16 points, dans ma «petite liste». Les trois niveaux didactiques à 15 points, je les garde en réserve, sous la main. J&#x27;obtiens ainsi une «liste 8 + 3».</p>
-  <p id="p-fr-013">Je copie les 11 niveaux didactiques dans un nouveau tableau et les observe. C&#x27;est donc ça, me dis-je. Je remarque que les niveaux ne couvrent pas les clusters de façon équilibrée : le cluster 2 est en réserve et le cluster 6 est totalement absent. Je vois aussi «MÉDIAS» et «ESPRIT CRITIQUE DES MÉDIAS» côte à côte. Je me demande brièvement si je dois ajuster quelque chose, mais je continue – je pourrai toujours le faire plus tard.</p>
-  <p id="p-fr-014">J&#x27;ai maintenant ma liste de travail toute personnelle – pour ma salle de classe, mon enseignement, et un seul objectif : mieux soutenir mes élèves.</p>
+  <p id="p-fr-009">Je regarde la liste complète et je me concentre sur les niveaux en tête de classement. J&#x27;intègre ensuite dans ma «petite liste» les niveaux didactiques avec le score maximum de 18, plus les deux à 17 et 16 points. Les trois niveaux didactiques à 15 points, je les garde en réserve. J&#x27;obtiens ainsi une «liste 8 + 3».</p>
+  <p id="p-fr-010">Je copie les 11 niveaux didactiques dans un nouveau tableau et je les regarde. Alors c&#x27;est ça, me dis-je. Je remarque que les niveaux ne couvrent pas les clusters de façon uniforme : le cluster 2 est en réserve et le cluster 6 est totalement absent. Je vois aussi «MÉDIAS» côté à côté avec «ESPRIT CRITIQUE DES MÉDIAS». Je me demande brièvement si je devrais ajuster quelque chose, mais je continue — je pourrai toujours le faire plus tard.</p>
+  <p id="p-fr-011">J&#x27;ai maintenant ma liste de travail toute personnelle — pour ma classe, mon enseignement et un seul objectif : mieux soutenir mes élèves.</p>
   <figure id="abb-fr-04" class="evidence scale-ok">
     <span class="stub-tag">Fig. 4</span>
-    <img src="../P2_LAYOUTER/assets/Abb_04.png" alt="Vue d&#x27;ensemble de la Local List." loading="lazy">
-    <figcaption class="cap">Vue d'ensemble de la Local List.</figcaption>
+    <img src="../P2_LAYOUTER/assets/Abb_04.png" alt="Liste de synthèse — Local List." loading="lazy">
+    <figcaption class="cap">Liste de synthèse — Local List.</figcaption>
   </figure>
-  <p id="p-fr-016">Remarque : ces quatre dimensions transversales ne sont pas scorées. Elles restent présentes comme grille de contrôle, en parallèle de la Local List sélectionnée.</p>
-  <p id="p-fr-017">En parallèle de la Local List, je continue à travailler avec les quatre dimensions transversales : Numérique, Éthique &amp; Responsabilité, Agilité &amp; Goût de l&#x27;expérimentation et Réflexion critique. Elles ne sont pas en concurrence avec la Local List. La Local List montre sur quels niveaux didactiques je peux concrètement travailler. Les dimensions transversales me rappellent quelles questions je ne dois pas oublier quand je travaille sur ces niveaux.</p>
-  <p id="p-fr-018">Je travaille en parallèle de ce chat sur MISTRAL, où je construis une deuxième Local List. Elle est similaire et comprend huit niveaux, mais avec une pondération légèrement différente pour les clusters. Je la laisse de côté : je veux continuer avec la version GPT.</p>
+  <p id="p-fr-012">Note : ces quatre dimensions transversales ne sont pas scorées. Elles restent présentes comme grille de contrôle aux côtés de la Local List sélectionnée.</p>
+  <p id="p-fr-013">En parallèle de la Local List, je garde les quatre dimensions transversales : numérique, éthique &amp; responsabilité, agilité &amp; goût de l&#x27;expérimentation et réflexion critique. Elles ne sont pas en concurrence avec la Local List. La Local List me montre sur quels niveaux didactiques je peux concrètement travailler. Les dimensions transversales me rappellent quelles questions je ne dois pas perdre de vue en travaillant sur ces niveaux.</p>
+  <p id="p-fr-014">Je travaille en parallèle dans MISTRAL sur une deuxième Local List. Elle est similaire, comprend elle aussi huit niveaux, mais pondère les clusters différemment. Je la laisse de côté — je veux continuer avec la version GPT.</p>
 <div class="kapitel-head" id="k-fr-04">
   <div class="kapitel-nr">04</div>
-  <h2>Les curseurs de la Local List</h2>
+  <h2>Les paramètres de réglage pour mon enseignement</h2>
 </div>
-  <p id="p-fr-019">Je regarde les niveaux didactiques «Contenu», «Représentation» et «Différenciation» et je me demande : quels curseurs chaque niveau pourrait-il avoir ? Que se passe-t-il quand je «tourne» dessus ? Vers la gauche – vers la droite. Comment les utiliser avec une IA ? Je signale alors à GPT qu&#x27;on continue…</p>
-
-  <div id="card-004" class="conv du">
+  <p id="p-fr-015">Je regarde les niveaux didactiques «Contenu», «Représentation» et «Différenciation» et je me demande : quels paramètres de réglage chacun de ces niveaux pourrait-il avoir ? Que se passe-t-il quand je «tourne le bouton» ? Vers la gauche — vers la droite. Comment les utiliser avec une IA ? Je signale alors à GPT qu&#x27;on continue.</p>
+  <div id="card-fr-002" class="conv du">
     <div class="composer">
-      <p class="ptext"><strong>Toi:</strong><br>Oui, prochaine étape : tableau avec les curseurs et les exemples.</p>
+      <p class="ptext"><strong>Toi :</strong><br><strong>Du: Oui, prochaine étape : tableau avec les paramètres de réglage et les exemples.</strong></p>
       <div class="toolbar" aria-hidden="true">
         <button class="ibtn outline" type="button" tabindex="-1" aria-label="Hinzufügen"><svg class="icn" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
         <span class="spacer"></span>
@@ -1352,62 +1356,62 @@ body:before{
       </div>
     </div>
   </div>
-  <p id="p-fr-020">Voici les premières lignes de mon tableau de curseurs :</p>
+  <p id="p-fr-016">Voici les premières lignes de mon tableau des paramètres de réglage :</p>
   <figure id="abb-fr-05" class="evidence scale-ok">
     <span class="stub-tag">Fig. 5</span>
-    <img src="../P2_LAYOUTER/assets/Abb_05.png" alt="Tableau des curseurs." loading="lazy">
-    <figcaption class="cap">Tableau des curseurs.</figcaption>
+    <img src="../P2_LAYOUTER/assets/Abb_05.png" alt="Tableau des paramètres de réglage." loading="lazy">
+    <figcaption class="cap">Tableau des paramètres de réglage.</figcaption>
   </figure>
-  <p id="p-fr-022">À partir d&#x27;ici, le mot «curseur» devient concret. Un niveau didactique, c&#x27;est pour moi le champ sur lequel je peux agir. Un curseur, c&#x27;est la modification concrète à l&#x27;intérieur de ce champ : plus ou moins de soutien, une autre forme de représentation, un autre produit, une autre forme sociale. Je ne cherche donc pas la tâche parfaite, mais les endroits où je peux modifier une tâche de façon ciblée.</p>
-  <p id="p-fr-023">Et qu&#x27;est-ce que j&#x27;ai maintenant ? Un outil qui me permet de modifier de façon ciblée une planification, un environnement d&#x27;apprentissage ou une tâche isolée. Je peux agir directement sur un niveau via ses «curseurs». Il me reste à apprendre comment prompter ça efficacement avec GPT – et ensuite j&#x27;veux observer et mesurer l&#x27;effet en classe.</p>
+  <p id="p-fr-017">À partir d&#x27;ici, le mot «paramètre de réglage» devient concret. Un niveau didactique, c&#x27;est pour moi le champ sur lequel je peux agir. Un paramètre de réglage, c&#x27;est la modification concrète à l&#x27;intérieur de ce champ : plus ou moins de soutien, une autre forme de représentation, un autre produit, une autre forme sociale. Je ne cherche donc pas la tâche parfaite, mais les endroits où je peux modifier une tâche de façon ciblée.</p>
+  <p id="p-fr-018">Et qu&#x27;est-ce que j&#x27;ai maintenant ? Un instrument qui me permet de modifier de façon ciblée une planification, un environnement d&#x27;apprentissage ou une tâche isolée. Je peux piloter un niveau directement via les «paramètres de réglage». Il me reste à apprendre comment formuler cela efficacement dans des prompts GPT — et ensuite je veux observer et mesurer l&#x27;effet en classe.</p>
 <div class="kapitel-head" id="k-fr-05">
   <div class="kapitel-nr">05</div>
-  <h2>Premier test d&#x27;application : des curseurs pour un set de tâches</h2>
+  <h2>Premier test d&#x27;application : paramètres de réglage pour un set de tâches</h2>
 </div>
-  <p id="p-fr-024">J&#x27;ai construit un tableau de curseurs pour 11 niveaux didactiques et je veux le tester sur le thème en cours «Notre Terre». Est-ce que je peux modifier une tâche isolée ou un set de tâches ? Je demande à GPT d&#x27;adopter le point de vue d&#x27;un enseignant du secondaire et d&#x27;évaluer quels niveaux et curseurs conviennent pour un prompt de tâche sur le thème RZG «Notre Terre». Et sa réponse me surprend un peu.</p>
-
-  <div id="card-005" class="conv gpt">
+  <p id="p-fr-019">J&#x27;ai créé un tableau de paramètres de réglage pour 11 niveaux didactiques et je veux le tester sur le thème actuel «Notre Terre». Est-ce que je peux modifier une tâche isolée ou un set de tâches ? Je demande à GPT d&#x27;adopter la perspective d&#x27;un·e enseignant·e du secondaire et d&#x27;évaluer quels niveaux et paramètres conviennent pour un prompt de tâche sur le thème RZG «Notre Terre». Et sa réponse me surprend, dans un sens.</p>
+  <div id="card-fr-003" class="conv gpt">
     <div class="rcard">
-      <p><strong>ChatGPT:</strong><br>Je réponds comme si j&#x27;étais réellement enseignant en 2e secondaire (13 ans) en 2024 – avec GPT comme assistant pour créer un set de tâches pour le cours RZG (Espaces, Temps, Sociétés), thème «Notre Terre».</p>
+      <button class="copybtn" type="button" tabindex="-1" aria-label="Kopieren"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
+      <p><strong>AI:</strong><br><strong>ChatGPT: Je réponds comme si j&#x27;étais vraiment enseignant en 2e secondaire (13 ans) en 2024 — avec GPT comme assistant pour créer un set de tâches pour le cours RZG (Espaces, Temps, Sociétés), thème «Notre Terre».</strong></p>
     </div>
   </div>
-  <p id="p-fr-025">Pas parce qu&#x27;il a fait quelque chose de remarquable, mais parce que ce n&#x27;est qu&#x27;après sa réponse que j&#x27;ai réalisé que je venais de demander à une IA de prendre une IA comme «assistante». Une pensée rapide dans ma tête – rien de bouleversant – et on continue.</p>
-  <p id="p-fr-026">Sa réponse au changement de perspective est courte, nette et claire :</p>
-
-  <div id="card-006" class="conv gpt">
-    <div class="rcard">
-      <p><strong>ChatGPT:</strong><br>Garantir l&#x27;efficacité d&#x27;apprentissage pour des élèves de 13 ans (levier d&#x27;impact élevé),<br>être didactiquement contrôlables et observables,<br>rester traduisibles en prompts GPT.</p>
+  <p id="p-fr-020">Pas parce qu&#x27;il a fait quelque chose d&#x27;intéressant, mais parce que j&#x27;ai réalisé seulement après sa réponse que je venais de demander à une IA de prendre une autre IA comme «assistant». Une pensée fugace — rien de bouleversant — et on continue.</p>
+  <p id="p-fr-021">Sa réponse au changement de perspective est courte, concise et claire :</p>
+  <div id="card-fr-004" class="conv output">
+    <div class="ocard">
+      <button class="copybtn" type="button" tabindex="-1" aria-label="Kopieren"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
+      <p><strong>OUTPUT:</strong><br><strong>ChatGPT: Garantir l&#x27;efficacité de l&#x27;apprentissage pour des élèves de 13 ans (fort levier d&#x27;action), rester didactiquement contrôlables et observables, pouvoir être traduits en prompts GPT.</strong></p>
     </div>
   </div>
-  <p id="p-fr-027">Je lis les trois points et je pense : «Une fois le niveau élève, une fois le niveau enseignant, une fois le niveau technique IA. Malin.» Ce que je trouve moins malin, c&#x27;est son output suivant sur «Niveaux sélectionnés (pack de démarrage top pour les prompts GPT)» avec le symbole 🔝 :</p>
+  <p id="p-fr-022">Je lis les trois points et je pense : «Une fois le niveau élève, une fois le niveau enseignant, une fois le niveau technique IA. Malin.» Ce qui m&#x27;enthousiasme moins, c&#x27;est son output suivant sur les «Niveaux sélectionnés (pack d&#x27;entrée Top pour les prompts GPT)» avec le symbole 🔝 :</p>
   <figure id="abb-fr-06" class="evidence scale-ok">
     <span class="stub-tag">Fig. 6</span>
-    <img src="../P2_LAYOUTER/assets/Abb_06.png" alt="«Pack de démarrage top pour les prompts GPT» comme exemple négatif d&#x27;output." loading="lazy">
-    <figcaption class="cap">«Pack de démarrage top pour les prompts GPT» comme exemple négatif d'output.</figcaption>
+    <img src="../P2_LAYOUTER/assets/Abb_06.png" alt="«Top — pack d&#x27;entrée pour les prompts GPT» présenté comme exemple négatif de sortie." loading="lazy">
+    <figcaption class="cap">«Top — pack d&#x27;entrée pour les prompts GPT» présenté comme exemple négatif de sortie.</figcaption>
   </figure>
-  <p id="p-fr-029">Il présente dix niveaux didactiques tirés de la GLOBAL List d&#x27;origine. Certains n&#x27;ont même pas leur place sur la petite liste. S&#x27;y ajoute un prompt de tâche à structure linéaire traditionnelle :</p>
-
-  <div id="card-007" class="conv gpt">
-    <div class="rcard">
-      <p><strong>ChatGPT:</strong><br>Prompt-Gerüst:<br>Du bist Unterrichtsassistent für eine 2. Sek (13-jährige).<br>Thema: Unsere Erde – Aufbau, Kontinente, Klima, Menschenräume.<br>Erstelle ein Aufgabenset (6–8 Aufgaben) mit folgender Struktur:<br>Einstieg – Motivation &amp; Vorwissen aktivieren (C1-Inhalt + C3-Handlung + Sequenzierung).<br>Erarbeitung – Karten lesen, Daten deuten, Zusammenhänge erklären (kognitiv).<br>…</p>
+  <p id="p-fr-023">Il présente dix niveaux didactiques tirés de la GLOBAL List d&#x27;origine. Certains n&#x27;ont même pas leur place sur la petite liste. S&#x27;y ajoute un prompt de tâche à structure traditionnellement linéaire :</p>
+  <div id="card-fr-005" class="conv code">
+    <div class="ocard">
+      <button class="copybtn" type="button" tabindex="-1" aria-label="Kopieren"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
+      <p><strong>CODE:</strong><br><strong>ChatGPT: Structure de prompt : Tu es assistant pédagogique pour une 2e année de cycle (13 ans). Thème : Notre Terre – structure, continents, climat, espaces humains. Crée un set de tâches (6–8 tâches) avec la structure suivante : Entrée en matière – motiver &amp; activer les pré-requis (C1-Contenu + C3-Action + séquençage). Travail d&#x27;élaboration – lire des cartes, interpréter des données, expliquer des liens (cognitif). …</strong></p>
     </div>
   </div>
+  <p id="p-fr-024">Et à la fin vient une justification de son choix de niveaux et une conclusion :</p>
   <figure id="abb-fr-07" class="evidence scale-ok">
     <span class="stub-tag">Fig. 7</span>
-    <img src="../P2_LAYOUTER/assets/Abb_07.png" alt="Extrait CONCLUSION du pack de démarrage de GPT." loading="lazy">
-    <figcaption class="cap">Extrait CONCLUSION du pack de démarrage de GPT.</figcaption>
+    <img src="../P2_LAYOUTER/assets/Abb_07.png" alt="Partie CONCLUSION du package d&#x27;entrée de GPT." loading="lazy">
+    <figcaption class="cap">Partie CONCLUSION du package d&#x27;entrée de GPT.</figcaption>
   </figure>
-  <p id="p-fr-032">Cet output est un signal d&#x27;alarme. Des formulations génériques comme «je ferais» ou des mots-clés comme «colonne vertébrale didactique» sont pour moi des signes que la conversation touche à sa fin. GPT n&#x27;est plus dans le coup. Je pourrais continuer ou faire confiance à mon intuition : cette conversation est morte. Après de mauvaises réponses, d&#x27;autres mauvaises réponses suivront. Je ne sais pas encore pourquoi ça arrive, ni ce qui en est la cause et ce qui pourrait y remédier. Est-ce que j&#x27;écris quelque chose de faux ?</p>
-  <p id="p-fr-033">Je ferme la conversation et j&#x27;en démarre une nouvelle. Ça m&#x27;énerve un peu, parce que ça veut toujours dire reprendre le fil depuis le début dans le nouveau chat.</p>
+  <p id="p-fr-025">Cet output est un signal d&#x27;alarme. Des formulations génériques comme «je ferais» ou des mots-clés comme «colonne vertébrale didactique» sont pour moi des signes que le chat tire à sa fin. GPT n&#x27;est plus dans le coup. À de mauvaises réponses succèdent d&#x27;autres mauvaises réponses. Je ne sais pas encore pourquoi ça arrive ni quelle en est la cause ou la solution possible. Est-ce que j&#x27;écris quelque chose de faux ?</p>
+  <p id="p-fr-026">Je ferme le chat et je lance une nouvelle conversation. Ça m&#x27;énerve un peu, parce que ça signifie chaque fois reprendre le fil depuis le début dans un nouveau chat.</p>
 <div class="kapitel-head" id="k-fr-06">
   <div class="kapitel-nr">06</div>
   <h2>Nouvel essai</h2>
 </div>
-  <p id="p-fr-034">Après trois tours, je peux reprendre là où je m&#x27;étais arrêté. Et relancer :</p>
-
-  <div id="card-008" class="conv du">
+  <p id="p-fr-027">Après trois tours, je peux reprendre là où je m&#x27;étais arrêté. Et creuser un peu :</p>
+  <div id="card-fr-006" class="conv du">
     <div class="composer">
-      <p class="ptext"><strong>Toi:</strong><br>Et les formes de collaboration ? La participation ? Le community learning ?</p>
+      <p class="ptext"><strong>Toi :</strong><br><strong>Du: Et les formes de collaboration ? La participation ? Le Community Learning ?</strong></p>
       <div class="toolbar" aria-hidden="true">
         <button class="ibtn outline" type="button" tabindex="-1" aria-label="Hinzufügen"><svg class="icn" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
         <span class="spacer"></span>
@@ -1416,76 +1420,73 @@ body:before{
       </div>
     </div>
   </div>
-  <p id="p-fr-035">Évidemment, GPT a produit l&#x27;output plus vite que j&#x27;ai pu écrire le prompt — et ça ne m&#x27;étonne pas non plus qu&#x27;il ait déjà créé un nouveau tableau avec les six niveaux pertinents pour la collaboration et la participation, tirés de la grande liste des 38 niveaux didactiques. Me revoilà sur la voie sûre de l&#x27;overload.</p>
+  <p id="p-fr-028">Évidemment, GPT a produit l&#x27;output plus vite que je n&#x27;ai pu écrire le prompt — et ça ne m&#x27;étonne pas non plus qu&#x27;il ait déjà créé un nouveau tableau avec les six niveaux pertinents pour la collaboration et la participation, tirés de la grande liste des 38 niveaux didactiques. Me revoilà sur la voie directe de l&#x27;overload.</p>
   <figure id="abb-fr-08" class="evidence scale-ok">
     <span class="stub-tag">Fig. 8</span>
     <img src="../P2_LAYOUTER/assets/Abb_08.png" alt="Output GPT sur les niveaux coopératifs et participatifs." loading="lazy">
     <figcaption class="cap">Output GPT sur les niveaux coopératifs et participatifs.</figcaption>
   </figure>
-  <p id="p-fr-037">J&#x27;en ai huit plus trois et voilà que GPT propose six nouveaux «niveaux pertinents». Il me fait de plus en plus penser à une autorité scolaire qui empile encore quelque chose de «pertinent» au début de chaque année. Sauf que, contrairement aux autorités scolaires, les propositions de l&#x27;IA me plaisent parfois mieux — et je dois reconnaître sans jalousie sa supériorité dans ce domaine. GPT peut rapidement ordonner, combiner et vraiment bien présenter des connaissances. Et là encore :</p>
+  <p id="p-fr-029">J&#x27;ai huit plus trois niveaux, et voilà que GPT en propose six nouveaux «niveaux pertinents». Il me fait de plus en plus penser à une autorité scolaire qui empile toujours encore quelque chose de «pertinent» à la rentrée. Contrairement aux autorités scolaires, certaines propositions de l&#x27;IA me plaisent* *bien. Et là, GPT montre un vrai point fort : il ordonne et combine les savoirs rapidement, et les présente de façon convaincante.</p>
   <figure id="abb-fr-09" class="evidence scale-ok">
     <span class="stub-tag">Fig. 9</span>
-    <img src="../P2_LAYOUTER/assets/Abb_09.png" alt="Logique didactique de l&#x27;apprentissage individuel au community learning." loading="lazy">
-    <figcaption class="cap">Logique didactique de l'apprentissage individuel au community learning.</figcaption>
+    <img src="../P2_LAYOUTER/assets/Abb_09.png" alt="Logique didactique de l&#x27;apprentissage individuel au Community Learning." loading="lazy">
+    <figcaption class="cap">Logique didactique de l&#x27;apprentissage individuel au Community Learning.</figcaption>
   </figure>
-  <p id="p-fr-039">Le tableau de synthèse est tout simplement beau et cohérent. Je l&#x27;analyse et j&#x27;essaie de deviner quel modèle théorique pourrait se cacher derrière. ICAP de Chi &amp; Wylie ? Peut-être. En tout cas, je m&#x27;imaginerais très bien intégrer cette vue d&#x27;ensemble dans un générateur d&#x27;exercices.</p>
+  <p id="p-fr-030">La vue d&#x27;ensemble est tout simplement belle et cohérente. Je l&#x27;analyse et j&#x27;essaie de deviner mentalement quel modèle théorique pourrait se cacher derrière. L&#x27;ICAP de Chi &amp; Wylie ? Peut-être. En tout cas, j&#x27;imagine très bien intégrer cette vue d&#x27;ensemble dans un générateur de tâches.</p>
 <div class="kapitel-head" id="k-fr-07">
   <div class="kapitel-nr">07</div>
-  <h2>EURÊKA</h2>
+  <h2>Un mot qui déclenche quelque chose</h2>
 </div>
-  <p id="p-fr-040">Et puis arrive la conclusion tout à fait ordinaire d&#x27;un tour de chat : le bilan — et un seul mot suffit à déclencher quelque chose en moi. Ce sont ces moments rares et vraiment beaux.</p>
+  <p id="p-fr-031">Et puis arrive la fin tout à fait ordinaire d&#x27;un tour de chat : la conclusion — et un seul mot suffit à déclencher quelque chose en moi. Ce sont ces moments rares et vraiment beaux.</p>
   <figure id="abb-fr-10" class="evidence scale-ok">
     <span class="stub-tag">Fig. 10</span>
     <img src="../P2_LAYOUTER/assets/Abb_10.png" alt="Exemple d&#x27;un «Collaborative Core Set»." loading="lazy">
-    <figcaption class="cap">Exemple d'un «Collaborative Core Set».</figcaption>
+    <figcaption class="cap">Exemple d&#x27;un «Collaborative Core Set».</figcaption>
   </figure>
-  <p id="p-fr-042">C&#x27;est le dernier mot de la réponse de GPT : «Set». Trois lettres seulement, et je connais très bien le sens du terme. Mais je sens mon cerveau commencer à s&#x27;emballer. Le facteur dans ma tête ne peut pas livrer l&#x27;information. Non pas parce qu&#x27;il ne trouve pas le bon tiroir et que je dois relire la dernière phrase plusieurs fois, mais parce qu&#x27;il n&#x27;existe pas encore de tiroir pour le nouveau sens du terme. EURÊKA est peut-être un grand mot, mais le moment est réel. Pas parce que l&#x27;IA livre une vérité ou une solution toute faite, mais parce qu&#x27;elle m&#x27;ouvre une porte vers un nouveau chemin de pensée.</p>
-
-  <div id="hl4-01" class="statement">
-    <p>EURÊKA<br>Je ne pense pas<br>que GPT en soit conscient.</p>
+  <p id="p-fr-032">C&#x27;est le dernier mot «Set» de la réponse de GPT. Trois lettres seulement, et le sens du terme m&#x27;est parfaitement connu. Mais je sens mon cerveau qui commence à s&#x27;emballer. Le facteur dans ma tête ne peut pas distribuer l&#x27;information. Non pas parce qu&#x27;il ne trouve pas le bon tiroir et que je dois relire la dernière phrase plusieurs fois — mais parce qu&#x27;il n&#x27;existe (encore) aucun tiroir pour ce nouveau sens du terme. EURÊKA est peut-être un trop grand mot, mais le moment est réel. Pas parce que l&#x27;IA livre une vérité ou une solution toute faite, mais parce qu&#x27;elle me montre une porte vers un nouveau chemin de pensée.</p>
+  <div id="hl4-fr-01" class="statement">
+    <p>Je ne pense pas que GPT en soit conscient.<br>Peut-être qu&#x27;une idée similaire existe déjà quelque part dans le monde, et si elle figure dans les données d&#x27;entraînement d&#x27;OpenAI, je ne peux pas le savoir. Le mot «Set» est la suite statistiquement plausible du texte précédent — pour GPT, c&#x27;est simplement la plus évidente. Je lui en suis reconnaissant.</p>
   </div>
-
-  <p id="p-fr-042-after"><br>Peut-être qu&#x27;une idée similaire existe déjà quelque part dans le monde — et si elle figure dans les données d&#x27;entraînement d&#x27;OpenAI, je ne peux pas le savoir. Le mot «Set» est la suite statistiquement plausible du texte précédent et, pour GPT, c&#x27;est tout simplement la continuation la plus évidente. Je lui en suis reconnaissant.</p>
-  <p id="p-fr-043">Je relis la dernière ligne — «→ c&#x27;est ton Collaborative Set» — et chaque fois ça me fait l&#x27;effet d&#x27;un message radio de Major Tom :</p>
+  <p id="p-fr-033">Je relis la dernière ligne avec «→ c&#x27;est ton Collaborative Set» et chaque fois, ça me fait l&#x27;effet d&#x27;un message radio de Major Tom :</p>
   <figure id="abb-fr-11" class="evidence scale-ok">
     <span class="stub-tag">Fig. 11</span>
     <img src="../P2_LAYOUTER/assets/Abb_11.jpg" alt="Exemple de matrice de synthèse : niveaux didactiques et Core-Sets." loading="lazy">
     <figcaption class="cap">Exemple de matrice de synthèse : niveaux didactiques et Core-Sets.</figcaption>
   </figure>
-  <p id="p-fr-045">Cela fait aussi évoluer ma compréhension des Core-Sets. Un Core-Set n&#x27;est pas seulement une sélection de plusieurs niveaux. Il doit rester lisible à travers les dimensions transversales. Si je construis par exemple un Core-Set pour la collaboration, le travail sur des productions ou l&#x27;apprentissage exploratoire, je ne me demande pas seulement : quels niveaux est-ce que je combine ? Je me demande aussi : où se loge le numérique ? Où surgissent des questions éthiques ? Quelle part d&#x27;agilité j&#x27;autorise ? Et où faut-il de la réflexion critique ?</p>
+  <p id="p-fr-034">Cela change aussi ma façon de comprendre les Core-Sets. Un Core-Set ne se compose pas seulement de plusieurs niveaux sélectionnés. Il doit en plus rester lisible à travers les dimensions transversales. Quand je construis par exemple un Core-Set pour la collaboration, le travail sur des productions ou l&#x27;apprentissage exploratoire, je ne me demande pas seulement : quels niveaux est-ce que je combine ? Je me demande aussi : où se loge la numérité ? Où surgissent les questions éthiques ? Quelle part d&#x27;agilité est-ce que j&#x27;autorise ? Et où faut-il une réflexion critique ?</p>
 <div class="kapitel-head" id="k-fr-08">
   <div class="kapitel-nr">08</div>
   <h2>Les Core-Sets comme mélanges didactiques</h2>
 </div>
-  <p id="p-fr-046">Avec le terme «Collaborative Core Set», GPT apporte une étiquette — et j&#x27;y reconnais un gabarit utilisable. Un Set n&#x27;est pas simplement une sélection, c&#x27;est un gabarit réutilisable. Je me dis : «Si je vois les clusters non pas comme de simples boîtes de tri organisationnelles, mais comme des bocaux d&#x27;épices thématiques, alors il devrait être possible de créer, pour différentes situations, des Sets comme des configurations didactiques sur mesure. Ce sont en quelque sorte de nouveaux mélanges qu&#x27;on pourrait mixer. Des combinaisons de niveaux issus de différents clusters, optimisées comme Core-Sets pour des scénarios d&#x27;apprentissage spécifiques. Pas de manière rigide, comme une recette tirée d&#x27;un livre, mais comme une aide à la conception.</p>
-  <p id="p-fr-047">Et avec l&#x27;aide de l&#x27;IA, je pourrais… – je m&#x27;arrête d&#x27;écrire. Une nouvelle séquence de conversation avec GPT commence, où nous discutons de la didactique assistée par IA et de la façon dont elle et le Learning Analytics pourraient un jour adapter dynamiquement de tels Core-Sets. C&#x27;est passionnant, et c&#x27;est de la musique d&#x27;avenir. Nous sommes en 2025 et je veux d&#x27;abord comprendre si des Core-Sets simples et préparés fonctionnent vraiment dans ma classe.</p>
-  <p id="p-fr-048">Je n&#x27;en suis pas encore là. Mon prochain objectif : avoir quelques Core-Sets prêts à l&#x27;emploi sur mon PC, des Core-Sets qui guident l&#x27;action. Je les appelle pour moi des «gabarits didactiques» pour les prompts. Je suis enseignant du secondaire et je vois des opportunités dans ces gabarits. J&#x27;ai un temps limité, des connaissances limitées, et je perçois la nécessité de gérer constructivement l&#x27;hétérogénéité de la classe. Je ne vais plus seulement modifier la vis de réglage d&#x27;une tâche donnée. Pas juste : plus difficile, plus facile, plus ouvert, plus cadré, plus de soutien, moins de soutien. Ça, je connais. Ce qui est nouveau pour moi, c&#x27;est que je ne vois plus les vis de réglage isolément. Je peux relier consciemment plusieurs niveaux didactiques : contenu, représentation, action, social, produit, créativité, numérique. Il n&#x27;en résulte pas simplement une meilleure tâche, mais un petit gabarit didactique. C&#x27;est là la différence : avant, j&#x27;adaptais une tâche existante. Maintenant, je conçois d&#x27;abord un mélange didactique, puis je me fais construire des tâches, des variantes ou des évaluations adaptées. L&#x27;IA ne remplace pas ma décision. Mais elle m&#x27;aide à rendre mes décisions plus visibles et plus reproductibles. Et si je vois plus clairement à quels endroits je tourne les vis, je peux être davantage présent pour les jeunes, en professionnel et en expert.</p>
-  <p id="p-fr-049">Je pense un instant à l&#x27;autre face de la chose : qu&#x27;est-ce que je pourrais encore faire avec de tels gabarits ? Un template comme outil de contrôle et de pilotage en classe ? J&#x27;écarte cette pensée et je continue.</p>
-  <p id="p-fr-050">Après plusieurs rounds, je définis le «Core-Set» comme une sélection de <strong>niveaux didactiques</strong>, chacun remplissant une <strong>fonction pédagogique</strong>. GPT propose «structurer», «activer», «différencier», «réfléchir» et d&#x27;autres encore. Je décide de me préparer trois à quatre de ces sets. Ce sera du prompting didactique avec l&#x27;IA.</p>
-  <p id="p-fr-051">Et ensuite je crée mon tout premier Core-Set. Il s&#x27;appelle «Set d&#x27;apprentissage exploratif». Pourquoi ? Parce que je me souviens spontanément du début des années 2000 et de l&#x27;époque de «l&#x27;apprentissage actif par la découverte» et de «Maths 2000». Des souvenirs positifs. Alors je dis : «Essayons ça !»<br>La proposition de GPT ressemble à ceci :</p>
+  <p id="p-fr-035">Avec le terme «Collaborative Core Set», GPT pose une étiquette, et j&#x27;y reconnais un gabarit utilisable. Un set, ce n&#x27;est pas juste une sélection — c&#x27;est un gabarit réutilisable. Je me dis : «Si les clusters ne sont pas de simples bacs de tri, mais des bocaux d&#x27;épices thématiques, je devrais pouvoir en composer mes propres mélanges selon les situations.»<br>Des combinaisons de niveaux issus de différents clusters, optimisées comme Core-Sets pour des scénarios d&#x27;apprentissage spécifiques. Non pas comme des configurations didactiques figées tirées d&#x27;un livre de recettes, mais comme une aide à la conception.</p>
+  <p id="p-fr-036">Et avec l&#x27;aide de l&#x27;IA, je pourrais … — je m&#x27;arrête d&#x27;écrire. Un nouveau segment de conversation avec GPT commence, dans lequel nous discutons de la didactique assistée par IA et de la façon dont elle et le Learning Analytics pourraient un jour adapter ces Core-Sets de manière dynamique. C&#x27;est passionnant — et de la musique d&#x27;avenir, en octobre 2025. D&#x27;abord, je veux comprendre si des Core-Sets simples et préparés fonctionnent seulement dans ma classe.</p>
+  <p id="p-fr-037">Je n&#x27;en suis pas encore là. Mon prochain objectif, c&#x27;est d&#x27;avoir quelques Core-Sets préfabriqués et opérationnels sur mon PC. Je les appelle pour l&#x27;instant «gabarits didactiques» pour les prompts. Je suis enseignant au secondaire et je vois des opportunités dans ces gabarits. Mon temps et mes connaissances sont limités — et en même temps, je veux traiter constructivement l&#x27;hétérogénéité de ma classe.<br>Je ne vais plus me contenter de modifier le réglage d&#x27;un seul paramètre dans un exercice donné. Pas juste : plus difficile, plus facile, plus ouvert, plus cadré, plus de soutien, moins de soutien. Ça, je connais. Ce qui est nouveau pour moi, c&#x27;est que je ne vois plus les paramètres isolément. Je peux relier consciemment plusieurs niveaux didactiques : contenu, représentation, action, social, production, créativité, numérité. Il n&#x27;en sort pas simplement un meilleur exercice, mais un petit gabarit didactique. C&#x27;est là la différence : avant, j&#x27;adaptais un exercice existant. Maintenant, je conçois d&#x27;abord un mélange didactique, et je fais ensuite construire des exercices, des variantes ou des évaluations qui y correspondent. L&#x27;IA ne remplace pas mes décisions. Mais elle m&#x27;aide à les rendre plus visibles et plus reproductibles. Et si je peux voir plus précisément où je tourne les réglages, je peux prendre des décisions plus conscientes en tant qu&#x27;enseignant — pour les jeunes.</p>
+  <p id="p-fr-038">Un instant, je pense à l&#x27;envers et je me demande ce que je pourrais encore faire avec de tels gabarits. Un template comme outil de contrôle et de pilotage en classe ? J&#x27;écarte cette pensée et je continue.</p>
+  <p id="p-fr-039">Après plusieurs rounds, je définis le «Core-Set» comme une sélection de <strong>niveaux didactiques</strong> qui remplissent chacun une <strong>fonction pédagogique</strong>. GPT propose «structurer», «activer», «différencier», «réfléchir» et d&#x27;autres. Je décide que je vais me constituer trois à quatre de ces sets. Ce sera du prompting didactique avec l&#x27;IA.</p>
+  <p id="p-fr-040">Et ensuite je crée mon tout premier Core-Set. Il s&#x27;appelle «Set d&#x27;apprentissage exploratoire». Pourquoi ? Parce que je repense spontanément aux premières années 2000 et à l&#x27;époque de l&#x27;«apprentissage actif par découverte» et de «Mathe 2000». Des souvenirs positifs. Alors je me dis : «Essayons ça !»<br>Voici ce que GPT propose :</p>
   <figure id="abb-fr-12" class="evidence scale-ok">
     <span class="stub-tag">Fig. 12</span>
-    <img src="../P2_LAYOUTER/assets/Abb_12.png" alt="La matrice/YAML devient un test de cours." loading="lazy">
-    <figcaption class="cap">La matrice/YAML devient un test de cours.</figcaption>
+    <img src="../P2_LAYOUTER/assets/Abb_12.png" alt="Première proposition pour un set d&#x27;apprentissage exploratoire." loading="lazy">
+    <figcaption class="cap">Première proposition pour un set d&#x27;apprentissage exploratoire.</figcaption>
   </figure>
-  <p id="p-fr-053">Le résultat me paraît brut et inachevé à plusieurs endroits, mais ce n&#x27;est pas grave. Je crée d&#x27;autres sets comme «Collaborative Core Set» ou «Set d&#x27;apprentissage orienté compétences», et j&#x27;en rejette d&#x27;autres qui sont trop fancy. Ce ne sont pas des concepts nouveaux, mais je veux observer lesquels fonctionnent comme prises de travail. Avec ces Core-Sets, je pourrais non seulement créer des tâches didactiquement fondées, mais aussi, à l&#x27;inverse, examiner des tâches existantes pour vérifier leur cohérence didactique. GPT produit, je vérifie sur le plan didactique et j&#x27;ajuste.</p>
-  <p id="p-fr-054">Des heures ont passé depuis le moment Major Tom et je repense à l&#x27;instant où j&#x27;ai pensé : «I like.». Et je pense encore : «Merci pour l&#x27;indication !»</p>
+  <p id="p-fr-041">Le résultat me paraît brut et inachevé à plusieurs endroits — mais ce n&#x27;est pas grave. Je crée encore un «Set d&#x27;apprentissage orienté compétences» et j&#x27;abandonne d&#x27;autres Fancy-Sets. Ce ne sont pas des concepts nouveaux, mais je veux observer lesquels fonctionnent comme prises en main concrètes. Avec ces Core-Sets, je pourrais non seulement créer des exercices didactiquement fondés, mais aussi, dans l&#x27;autre sens, examiner des exercices existants pour voir s&#x27;ils correspondent à un profil didactique. GPT crée, je contrôle didactiquement et j&#x27;ajuste.</p>
+  <p id="p-fr-042">Des heures ont passé depuis le moment Major Tom, et je repense à l&#x27;instant où je me suis dit : «I like.». Et j&#x27;y pense encore : «Merci pour l&#x27;indication !»</p>
 <div class="kapitel-head" id="k-fr-09">
   <div class="kapitel-nr">09</div>
   <h2>Matrice niveaux × Core-Sets</h2>
 </div>
-  <p id="p-fr-055">Quelques jours plus tard, je reprends le travail et je m&#x27;occupe des deux principes d&#x27;organisation : les niveaux didactiques de la Local List et les Core-Sets.</p>
-  <p id="p-fr-056">Je fais créer une vue d&#x27;ensemble – une attribution des niveaux aux quatre Core-Sets.</p>
+  <p id="p-fr-043">Quelques jours plus tard, je reprends le travail et je m&#x27;intéresse aux deux principes d&#x27;organisation : les niveaux didactiques de la Local List et les Core-Sets.</p>
+  <p id="p-fr-044">Je fais créer une vue d&#x27;ensemble — une correspondance des niveaux avec les quatre Core-Sets.</p>
   <figure id="abb-fr-13" class="evidence scale-ok">
     <span class="stub-tag">Fig. 13</span>
-    <img src="../P2_LAYOUTER/assets/Abb_13.png" alt="Exemple de matrice récapitulative : niveaux didactiques et Core-Sets." loading="lazy">
-    <figcaption class="cap">Exemple de matrice récapitulative : niveaux didactiques et Core-Sets.</figcaption>
+    <img src="../P2_LAYOUTER/assets/Abb_13.png" alt="Exemple de matrice de synthèse : niveaux didactiques et Core-Sets." loading="lazy">
+    <figcaption class="cap">Exemple de matrice de synthèse : niveaux didactiques et Core-Sets.</figcaption>
   </figure>
-  <p id="p-fr-058">Je me pose la question de ce qui se passe quand GPT assemble ces sets et à quoi ressemble cette matrice. Par exemple si je dis : «je ne veux pas simplement un Set d&#x27;apprentissage exploratif, mais un qui soit tissé avec le set ‹Collaboration› ou ‹Digital Literacy›». Ce sont des jeux de pensée, une expérimentation autour de la question de ce qui est possible et de ce qui a vraiment du sens. Est-ce un ornement de plus, ou ce mélange de sets ouvre-t-il à nouveau une porte vers le futur ?</p>
-  <p id="p-fr-059">Je n&#x27;ai pas oublié YAML. C&#x27;est ma clé de prompt didactique et je charge naturellement GPT de s&#x27;en occuper :</p>
-  <div id="card-001" class="conv du">
+  <p id="p-fr-045">Je me demande ce qui se passe quand GPT assemble ces sets et à quoi ressemble cette matrice. Autrement dit, si je dis : «Je ne veux pas simplement un set d&#x27;apprentissage exploratif, mais un set qui s&#x27;entrelace avec le set ‹Collaboration› ou ‹Digital Literacy›». Je joue avec la question de ce qui est possible et de ce qui a vraiment du sens. Est-ce un ornement de plus, ou ce mélange de sets ouvre-t-il à nouveau une porte vers l&#x27;avenir ?</p>
+  <p id="p-fr-046">Je n&#x27;ai pas oublié YAML. C&#x27;est ma clé de prompt didactique et j&#x27;en charge GPT, évidemment :</p>
+  <div id="card-fr-007" class="conv du">
     <div class="composer">
-      <p class="ptext"><strong>Toi:</strong><br>Crée-moi un fichier YAML à partir de cette matrice, et tu peux aussi intégrer les vis de réglage.</p>
+      <p class="ptext"><strong>Toi :</strong><br><strong>Du: Génère-moi un fichier YAML sur cette matrice — tu peux aussi y intégrer les paramètres d&#x27;ajustement.</strong></p>
       <div class="toolbar" aria-hidden="true">
         <button class="ibtn outline" type="button" tabindex="-1" aria-label="Hinzufügen"><svg class="icn" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
         <span class="spacer"></span>
@@ -1494,15 +1495,21 @@ body:before{
       </div>
     </div>
   </div>
-  <p id="p-fr-061">Je laisse tout y affluer : les niveaux didactiques, les clusters, les Core-Sets et les vis de réglage, comme méta-outil didactique personnel.</p>
-  <p id="p-fr-065">Et ce YAML-là est différent. Ce n&#x27;est plus un pseudo-YAML de vingt lignes comme en août, mais un code de 778 mots et 222 lignes. Ce genre de chose ne se fait pas en quelques minutes, mais en quelques soirées — parce que ce fichier fait maintenant partie du développement de quelque chose de plus grand.</p>
-  <p id="p-fr-066">La semaine prochaine, je veux tester comment traduire concrètement ce Core-Set en tâche de cours en histoire. Avec «Explorateurs et conquérants», j&#x27;ai un terrain d&#x27;expérimentation possible : les élèves ne se contenteraient pas de lire une source, je pourrais faire varier cette même source en jouant sur le contexte, la perspective, la forme de production ou la forme sociale. Ce qui comptera d&#x27;abord, ce n&#x27;est pas la tâche elle-même, mais la question de savoir si je suis capable de construire ces sets de façon suffisamment stable pour en faire un vrai cours.</p>
+  <p id="p-fr-047">Je laisse tout y converger : les niveaux didactiques, les clusters, les Core-Sets et les paramètres d&#x27;ajustement — comme méta-outil didactique personnel.</p>
+  <div id="card-fr-008" class="conv code">
+    <div class="ocard">
+      <button class="copybtn" type="button" tabindex="-1" aria-label="Kopieren"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
+      <p><strong>CODE:</strong><br><strong>Code: version: &quot;1.0&quot; generated: &quot;2025-10-21&quot; context: &quot;Niveaux méta-didactiques × Core-Sets (compact, 8 niveaux)&quot; core_sets: - id: explorativ label: &quot;Exploratif – Découvrir &amp; Comprendre&quot; - id: kollaborativ label: &quot;Collaboratif – Travail en commun &amp; Participation&quot; - id: kompetenz label: &quot;Orienté compétences – Savoir-faire &amp; Application&quot; - id: future_digital label: &quot;Future &amp; Digital Literacy – Numérique, données &amp; éthique&quot; meta_levels: - id: &quot;C1C2_1-7-8&quot; name: &quot;Contenu &amp; Pensée&quot; clusters: [&quot;C1&quot;, &quot;C2&quot;] levels: - { no: 1, name: &quot;Niveau contenu&quot; } - { no: 7, name: &quot;Niveau cognitif&quot; } Et ainsi de suite…</strong></p>
+    </div>
+  </div>
+  <p id="p-fr-048">Et ce YAML-là a une autre allure. Ce n&#x27;est plus un pseudo-YAML de vingt lignes comme en août, mais un code de 778 mots et environ 200 lignes. Ce genre de chose ne se construit pas en quelques minutes — ça prend plusieurs soirées, parce que ce fichier fait maintenant partie du développement de quelque chose de plus grand.</p>
+  <p id="p-fr-049">La semaine prochaine, je veux voir comment traduire concrètement ce Core-Set en tâche d&#x27;enseignement dans le cours d&#x27;histoire. Avec «Explorateurs et conquérants», j&#x27;ai un terrain d&#x27;expérimentation possible : les élèves ne se contentent pas de lire une source — je pourrais faire varier la même source en jouant sur le contexte, la perspective, la forme de production ou la forme sociale. Ce qui comptera d&#x27;abord, ce ne sera pas la tâche elle-même, mais la question de savoir si je suis capable de construire des sets stables qui tiennent à l&#x27;usage en classe.</p>
   <figure id="abb-fr-14" class="evidence scale-ok">
     <span class="stub-tag">Fig. 14</span>
-    <img src="../P2_LAYOUTER/assets/Abb_14.jpg" alt="Matrice/YAML devient test de cours." loading="lazy">
-    <figcaption class="cap">Matrice/YAML devient test de cours.</figcaption>
+    <img src="../P2_LAYOUTER/assets/Abb_14.jpg" alt="La matrice/YAML devient test de cours." loading="lazy">
+    <figcaption class="cap">La matrice/YAML devient test de cours.</figcaption>
   </figure>
-  <p id="hl3-01" class="kernsatz">Et c&#x27;est exactement là que le bât blesse :<br>Je n&#x27;y arrive pas, parce qu&#x27;un autre développement s&#x27;intercale entre-temps.</p>
+  <p id="hl3-fr-01" class="kernsatz">Et c&#x27;est précisément là que le bât blesse : je n&#x27;arrive pas à le faire, parce qu&#x27;un autre développement s&#x27;intercale.</p>
     </article>
   </div>
 </main>

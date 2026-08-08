@@ -2,15 +2,72 @@
 <!--
    WEB_PREVIEW — P6-Render, in P5 Stage 1 als LIVEVIEW ausgeliehen.
    Design-SSoT: C:\Users\Markus\ClaudeCode\MeineProjekte\FIELD_NOTES_DRAFT\0_W_WORKFLOW\P6_PUBLISH\WEBDESIGN\_CURRENT\NOTE\index.html
-   Content-Source: NEUGIERDE_V6.23_RELEASE_HUMAN_260706.docx
+   Content-Source: NEUGIERDE_V6.05_DRAFT_AI.docx
 -->
 <html lang="es">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Al principio está la curiosidad · Field Notes</title>
-<meta name="description" content="Cómo una pregunta de planificación a GPT se convierte en un bufé didáctico de postres - y al final nuevas ideas marcan un comienzo.">
+<title>CURIOSIDAD · Field Notes</title>
+<meta name="description" content="Cómo una pregunta de planificación a GPT se convierte en un bufé de postres didáctico — y al final, nuevas ideas marcan un comienzo.">
 <meta name="author" content="Markus Schwarz">
+<link rel="canonical" href="https://markusschwarz174.github.io/field-notes/notes/neugierde/">
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Field Notes — Markus Schwarz">
+<meta property="og:title" content="Am Anfang steht die Neugierde · Field Notes Nr. 01">
+<meta property="og:description" content="Cómo una pregunta de planificación a GPT se convierte en un bufé de postres didáctico — y al final, nuevas ideas marcan un comienzo.">
+<meta property="og:url" content="https://markusschwarz174.github.io/field-notes/notes/neugierde/">
+<meta property="og:image" content="https://markusschwarz174.github.io/field-notes/notes/neugierde/../heroes/hero_01.png">
+<meta property="og:locale" content="de_CH">
+<meta property="article:author" content="Markus Schwarz">
+<meta property="article:published_time" content="2025-07-20">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Am Anfang steht die Neugierde · Field Notes Nr. 01">
+<meta name="twitter:description" content="Cómo una pregunta de planificación a GPT se convierte en un bufé de postres didáctico — y al final, nuevas ideas marcan un comienzo.">
+<meta name="twitter:image" content="https://markusschwarz174.github.io/field-notes/notes/neugierde/../heroes/hero_01.png">
+<!-- JSON-LD: Article + Person (Google Knowledge Graph Signal) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Am Anfang steht die Neugierde",
+      "description": "Wie aus einer Planungsfrage an GPT ein didaktisches Dessertbuffet entsteht \u2014 und am Schluss neue Ideen einen Anfang markieren.",
+      "datePublished": "2025-07-20",
+      "inLanguage": "de-CH",
+      "url": "https://markusschwarz174.github.io/field-notes/notes/neugierde/",
+      "image": "https://markusschwarz174.github.io/field-notes/notes/neugierde/../heroes/hero_01.png",
+      "author": {
+        "@type": "Person",
+        "name": "Markus Schwarz",
+        "url": "https://markusschwarz174.github.io/field-notes/"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Markus Schwarz",
+        "url": "https://markusschwarz174.github.io/field-notes/"
+      },
+      "isPartOf": {
+        "@type": "CreativeWorkSeries",
+        "name": "Field Notes — KI & Unterricht",
+        "url": "https://markusschwarz174.github.io/field-notes/"
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "Markus Schwarz",
+      "url": "https://markusschwarz174.github.io/field-notes/",
+      "sameAs": [
+        "https://github.com/markusschwarz174"
+      ],
+      "description": "Lehrer, Autor der Field-Notes-Reihe zu AI im Unterricht."
+    }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
@@ -46,7 +103,7 @@ body:before{
   padding:84px 26px 56px;
   background:
     linear-gradient(110deg,rgba(20,14,8,.86),rgba(28,20,12,.58) 40%,rgba(38,26,16,.36) 70%,rgba(245,238,224,.18) 100%),
-    url('../P2_LAYOUTER/assets/01_33_abb_prompt_revolutionaer_full.png');
+    url('../heroes/hero_01.png');
   background-size:cover;background-position:center;
 }
 .hero:after{
@@ -341,7 +398,7 @@ body:before{
   padding:84px 26px 56px;
   background:
     linear-gradient(110deg,rgba(20,14,8,.86),rgba(28,20,12,.58) 40%,rgba(38,26,16,.36) 70%,rgba(245,238,224,.18) 100%),
-    url("../P2_LAYOUTER/assets/01_33_abb_prompt_revolutionaer_full.png");
+    url("../heroes/hero_01.png");
   background-size:cover;background-position:center;
 }
 .hero:after{
@@ -355,11 +412,11 @@ body:before{
 .eyebrow{font:700 .76rem/1 var(--mono);color:#ffd9a8;text-transform:uppercase;letter-spacing:.18em}
 .hero h1{
   font-size:clamp(2.8rem,8vw,6.8rem);line-height:.9;
-  margin:18px 0 24px;color:#fffaf0;letter-spacing:-.005em;max-width:10ch;
+  margin:18px 0 24px;color:#fffaf0;letter-spacing:-.005em;max-width:900px;
   text-shadow:0 3px 18px rgba(0,0,0,.42);
 }
 .hero .lead{
-  font-size:clamp(1.08rem,1.6vw,1.32rem);max-width:780px;
+  font-size:clamp(1.08rem,1.6vw,1.32rem);max-width:1100px;
   color:#fff5e4;margin:0;line-height:1.45;font-weight:400;
   text-shadow:0 2px 8px rgba(0,0,0,.4);
 }
@@ -450,11 +507,14 @@ body:before{
 .article .hl{
   font-weight:700;color:#9A6A1F;
 }
-/* Stufe 3: Kernsatz Block */
+/* Stufe 3: Kernsatz Block. Breite 260706: volle .article-Breite statt ch-Box,
+   da Text ohnehin zentriert ist und kein Kernsatz sich auf die schmale Box als
+   Auto-Umbruch verlaesst (siehe D_260706_04 Nachtrag 4) -> einzige Quelle,
+   Python-Builder-Duplikat + Final-Polish-Zweitregel entfernt. */
 .article p.kernsatz{
   font-family:'Spectral',Georgia,serif;font-style:italic;font-weight:500;
   font-size:1.5rem;line-height:1.34;color:#15171C;text-align:center;
-  max-width:26ch;margin:36px auto;
+  max-width:none;margin:36px auto;
 }
 .article p.kernsatz + p.kernsatz{margin-top:-22px}
 .article ul.review-list{
@@ -471,7 +531,7 @@ body:before{
    zentriert + symmetrischer Einzug simuliert 2.5cm Word-Einzug. */
 .article .statement{
   margin:48px auto;
-  max-width:520px;
+  max-width:none;
   text-align:center;
 }
 .article .statement .label{
@@ -613,7 +673,7 @@ body:before{
     background:
       linear-gradient(to top,rgba(38,20,10,.85) 0%,rgba(46,26,14,.68) 26%,rgba(54,32,18,.32) 58%,rgba(54,32,18,0) 100%),
       linear-gradient(110deg,rgba(46,26,14,.86),rgba(58,36,20,.58) 40%,rgba(72,46,26,.36) 70%,rgba(245,238,224,.18) 100%),
-      url("../P2_LAYOUTER/assets/01_33_abb_prompt_revolutionaer_full.png");
+      url("../heroes/hero_01.png");
     background-size: cover; background-position: center;
     min-height: 88vh;
   }
@@ -730,7 +790,7 @@ body:before{
     font: 700 .8rem/1 'IBM Plex Sans', system-ui, sans-serif; letter-spacing: .03em;
   }
 
-  /* DU: — Prompt-Composer (ChatGPT-Eingabefeld) */
+  /* Du: — Prompt-Composer (ChatGPT-Eingabefeld) */
   .article .conv.du .lbl{ color: var(--mk); }
   .article .composer{
     position: relative; padding: 11px 17px 11px; overflow: hidden;
@@ -952,8 +1012,9 @@ body:before{
   body.mode-scroll{ background: #fbf5ea; }
   body.mode-scroll .article{ background: transparent; border: 0; box-shadow: none; border-radius: 0; padding: 40px 0 16px; }
 
-  /* Hero-Titel: Kompositum nicht am Bindestrich zerreissen, immer eine Zeile */
-  .hero h1{ hyphens: none; -webkit-hyphens: none; white-space: nowrap; max-width: none; font-size: clamp(1.9rem, 6vw, 5rem); }
+  /* Hero-Titel 260706: nowrap-Einzeiler verworfen (brach bei langen Headlines um max-width:none aus dem Container).
+     Ersetzt durch kontrollierten Balanced-Wrap auf 900px (Container-Breite), synchron zum Python-Builder-Override. */
+  .hero h1{ hyphens: auto; -webkit-hyphens: auto; white-space: normal; max-width: 900px; font-size: clamp(1.9rem, 6vw, 5rem); text-wrap: balance; }
 
   /* Doppelte „Field Note“ aufloesen: Header-Brand erst nach dem Hero zeigen */
   body.mode-scroll .topbar.at-top .brand{ opacity: 0; pointer-events: none; }
@@ -978,9 +1039,6 @@ body:before{
     .views .view{ padding: 5px 10px; font-size: .76rem; }
   }
 
-  .article p.kernsatz{
-    max-width: 34ch; margin: 40px auto; text-align: center;
-  }
   .article .cliff{
     margin-top: 46px; padding-top: 18px;
   }
@@ -1040,14 +1098,26 @@ body:before{
     #view-reader-btn { display: none !important; }
   }
 
-  /* Mobile: Hero auf Textspaltenbreite einschränken, 3:2 Seitenverhältnis (1536×1024) */
+  /* Mobile/Preview: Hero bleibt First-View, kein 3:2-Bildkasten. */
+  @media (max-width: 960px){
+    .hero{
+      margin: 0;
+      min-height: clamp(540px, calc(100svh - 54px), 780px);
+      aspect-ratio: auto;
+      padding: 84px 22px 44px;
+      border-radius: 0;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center top;
+    }
+  }
   @media (max-width: 680px){
     .hero{
-      margin: 16px 20px 0;
-      min-height: unset;
-      aspect-ratio: 3 / 2;
-      padding: 20px 20px 22px;
-      border-radius: 4px;
+      margin: 0;
+      min-height: clamp(520px, calc(100svh - 54px), 740px);
+      aspect-ratio: auto;
+      padding: 76px 20px 40px;
+      border-radius: 0;
       overflow: hidden;
     }
     .hero h1{
@@ -1059,9 +1129,6 @@ body:before{
     }
   }
 
-  .article p.kernsatz{
-    max-width: 34ch; margin: 40px auto; text-align: center;
-  }
   .article .cliff{
     margin-top: 46px; padding-top: 18px;
   }
@@ -1097,9 +1164,39 @@ body:before{
     max-height: 70vh;
     object-fit: contain;
   }
+  .article .evidence.custom-scale{
+    width: min(calc(100% * var(--figure-scale)), calc(680px * var(--figure-scale)));
+    max-width: min(calc(100% * var(--figure-scale)), calc(680px * var(--figure-scale)));
+  }
   .article .evidence.no-scale img{
     width: auto !important;
     max-width: 100%;
+  }
+  /* P5C final override 260706: Die aktuelle Webdesign-Schicht brachte eine
+     nowrap-Hero-Regel mit, die nur bei kurzen Headlines auffaellt. UNTERRICHTSIDEE zeigt
+     den Fehler; NEUGIERDE kaschiert ihn durch die kurze Headline. */
+  body.mode-scroll .reader,
+  .reader{
+    grid-template-columns: minmax(0, 820px);
+    justify-content: center;
+  }
+  body.mode-scroll .article{
+    max-width: 820px;
+    width: 100%;
+  }
+  .hero h1{
+    white-space: normal !important;
+    max-width: 900px !important;
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: auto;
+    text-wrap: balance;
+    font-size: clamp(2.15rem, 5.2vw, 5.15rem) !important;
+    line-height: .96 !important;
+  }
+  .hero .lead{
+    max-width: 1100px;
+    text-wrap: pretty;
   }
   .article mark.hl2{
     background: transparent !important;
@@ -1138,12 +1235,12 @@ body:before{
   <div class="topbar-left">
     <nav class="notenav" aria-label="Field-Note-Navigation">
       <button type="button" title="Vorherige Field Note" aria-label="Vorherige Field Note"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-      <a href="../../../" title="Storyline" aria-label="Storyline"><svg viewBox="0 0 24 24"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z" stroke-linejoin="round"/></svg></a>
+      <a href="../../../" title="Zur Storyline" aria-label="Zur Storyline"><svg viewBox="0 0 24 24"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z" stroke-linejoin="round"/></svg></a>
       <button type="button" title="Nächste Field Note" aria-label="Nächste Field Note"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
     </nav>
     <div class="brand">
-      <span class="brand-series">Field Notes — AI &amp; Education</span>
-      <span class="brand-nr">Al principio está la curiosidad · n.º 01 · 20 de julio de 2025</span>
+      <span class="brand-series">Feldnotizen — KI &amp; Unterricht</span>
+      <span class="brand-nr">Am Anfang steht die Neugierde · Nr. 01 · 20. Juli 2025</span>
     </div>
   </div>
   <div class="topbar-controls">
@@ -1163,16 +1260,16 @@ body:before{
     </div>
     <button id="view-scroll-btn" class="view is-active" type="button" hidden aria-hidden="true">Scroll</button>
     <button id="view-reader-btn" class="view" type="button" hidden aria-hidden="true">Reader</button>
-    <button id="back-top-btn" type="button" aria-label="Back to top" title="Back to top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <button id="back-top-btn" type="button" aria-label="Nach oben" title="Nach oben"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
   </div>
 </header>
 
 <header class="hero">
   <div class="hero-inner">
     <div>
-      <div class="eyebrow">Field Note n.º 01 · 20 de julio de 2025</div>
-      <h1>Al principio está la curiosidad</h1>
-      <p class="lead">Cómo una pregunta de planificación a GPT se convierte en un bufé didáctico de postres - y al final nuevas ideas marcan un comienzo.</p>
+      <div class="eyebrow">Field Note · Español</div>
+      <h1>CURIOSIDAD</h1>
+      <p class="lead">Cómo una pregunta de planificación a GPT se convierte en un bufé de postres didáctico — y al final, nuevas ideas marcan un comienzo.</p>
     </div>
   </div>
 </header>
@@ -1184,10 +1281,10 @@ body:before{
   <div class="kapitel-nr">01</div>
   <h2>¿Por qué no con GPT?</h2>
 </div>
-  <p id="p-es-001">Es el 20 de julio de 2025 y en cuatro semanas empieza el colegio. Desde hace algunas semanas me ronda una idea y me pregunto: &quot;¿Por qué no preparar las clases con ChatGPT?&quot;<br>Pienso en un tema de matemáticas y entonces abro el portátil, arranco GPT y escribo la primera frase:</p>
-  <div id="card-001" class="conv du">
+  <p id="p-es-001">Es el 20 de julio de 2025 y en cuatro semanas empieza el colegio. Desde hace algunas semanas me ronda una idea por la cabeza y me pregunto: «¿Por qué no preparar las clases con ChatGPT?» Pienso en un tema de matemáticas y así abro el portátil, arranco GPT y escribo la primera frase:</p>
+  <div id="card-es-001" class="conv du">
     <div class="composer">
-      <p class="ptext"><strong>Tú:</strong><br>Luego te paso tablas con contenidos de aprendizaje y objetivos didácticos.</p>
+      <p class="ptext"><strong>Tú:</strong><br><strong>Tú: Después te daré tablas con contenidos de aprendizaje y objetivos didácticos.</strong></p>
       <div class="toolbar" aria-hidden="true">
         <button class="ibtn outline" type="button" tabindex="-1" aria-label="Hinzufügen"><svg class="icn" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
         <span class="spacer"></span>
@@ -1196,79 +1293,84 @@ body:before{
       </div>
     </div>
   </div>
-  <p id="p-es-003">Y su respuesta es, de algún modo, positiva, comprensiva y contagiosamente motivadora.</p>
-
-  <div id="card-005" class="conv gpt">
+  <p id="p-es-002">Y su respuesta es, de algún modo, positiva, comprensiva y contagiosamente motivadora.</p>
+  <div id="card-es-002" class="conv gpt">
     <div class="rcard">
-      <p><strong>ChatGPT:</strong><br>¡Perfecto! Pásame las tablas cuando estés listo. Cuéntame también qué quieres hacer exactamente con ellas — por ejemplo: resumir, reformular, visualizar, convertirlas a un formato concreto (PDF, Excel, plan de aprendizaje, etc.) u otra cosa.</p>
+      <button class="copybtn" type="button" tabindex="-1" aria-label="Kopieren"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
+      <p><strong>AI:</strong><br><strong>ChatGPT: ¡Perfecto! Mándame las tablas cuando estés listo. Cuéntame también qué quieres hacer exactamente con ellas — por ejemplo, resumir, reformular, visualizar, convertirlas a un formato concreto (PDF, Excel, plan de aprendizaje, etc.) o cualquier otra cosa.</strong></p>
     </div>
   </div>
-  <p id="p-es-004">Así fue: nuestro primer contacto.</p>
+  <p id="p-es-003">Eso fue todo: nuestro primer contacto.</p>
 <div class="kapitel-head" id="k-es-02">
   <div class="kapitel-nr">02</div>
-  <h2>¿De qué se trata?</h2>
+  <h2>¿De qué va esto exactamente?</h2>
 </div>
-  <p id="p-es-005">Se trata de matemáticas. Más concretamente de &quot;isometrías&quot; — simetría axial, simetría de rotación, reflexión axial y reflexión central. Lo preparo para unos 15-20 jóvenes de 12 a 13 años, que cursan el nivel B y para quienes el plan anual reserva cinco semanas. Quiero usar ChatGPT para que me ayude con una parte de la planificación.<br>Para orientarme, organizo la planificación en tres niveles: año, semanas, días. No es ningún gran modelo, sino una ayuda personal para ordenar las ideas — y para mí es suficiente.</p>
+  <p id="p-es-004">Va de matemáticas. Más concretamente de «isometrías» — simetría axial, simetría de rotación, reflexión axial y reflexión respecto a un punto. Lo preparo para unos 15–20 jóvenes de 12 a 13 años, que estudian en el nivel B y para quienes el plan anual prevé cinco semanas. Quiero usar ChatGPT para que me ayude con una parte de la planificación de mis clases.<br>Para orientarme, organizo la planificación en tres niveles: año, semanas, días. No es ningún gran modelo, sino una ayuda personal de organización; y para lo que necesito, me basta.</p>
   <figure id="abb-es-01" class="evidence scale-ok">
     <span class="stub-tag">Fig. 1</span>
     <img src="../P2_LAYOUTER/assets/01_02_abb_planungsrhythmus.png" alt="Ritmo de planificación en tres niveles como concepto visual" loading="lazy">
     <figcaption class="cap">Ritmo de planificación en tres niveles como concepto visual</figcaption>
   </figure>
-  <p id="p-es-006">Es una planificación típica de arriba hacia abajo. Lineal. O mejor dicho: aquí de izquierda a derecha. La planificación plurianual determina la planificación anual, esta determina la planificación por capítulos y esta determina la planificación por lecciones.<br>No quiero usar ChatGPT para crear una planificación anual ni para generar materiales sueltos. La razón por la que arranco GPT es la parte central de todo el proceso de planificación: la estructura temático-didáctica de un capítulo será mi campo de experimentación.</p>
-  <p id="p-es-007">¿Por qué? La última vez que impartí esta unidad, hace tres años, comprobé que no fui capaz de usar el libro de texto con suficiente diferenciación. La heterogeneidad del grupo era demasiado grande.<br>Pienso en un alumno de aquella clase. Durante tres semanas tuvo problemas con los distintos tipos de reflexión y yo no pude ayudarle de verdad. Y en cambio, otra alumna terminó en una semana. Ese rango quiero cubrirlo mejor esta vez.<br>No con fichas nuevas o adicionales, sino analizando todo el capítulo del libro desde una perspectiva didáctico-disciplinar y reestructurándolo.<br>¿Podría coger el volumen del mismo libro de texto de un nivel inferior y «casarlos» para que juntos formen una estructura nueva y común? ¿Es posible eso? Me lo imagino como querer alquilar un piso — y de paso consigo también la llave del piso de abajo, por si acaso.<br>GPT tiene que consolidar dos partes de libros de texto con estructuras distintas y objetivos formulados de manera diferente. Concretamente: el libro A tiene cinco capítulos sobre reflexión axial, reflexión central, traslación, rotación y simetrías. El libro B distribuye los mismos contenidos de otra manera: la reflexión axial aparece al final, mientras que las simetrías están previstas como punto de entrada. Quiero que GPT me ayude a construir UNA sola secuencia a partir de estas dos — una que encaje con mi clase — y no que simplemente adopte el orden del libro A o del libro B.</p>
+  <p id="p-es-005">Es una planificación típica de arriba hacia abajo. Lineal. O mejor dicho, aquí de izquierda a derecha. La planificación plurianual determina la planificación anual, esta determina la planificación por capítulos y esta determina la planificación de las sesiones.<br>No quiero crear con ChatGPT una planificación anual ni generar materiales de clase sueltos. La parte intermedia del proceso de planificación es la razón por la que arranco GPT; la estructura temático-didáctica de un capítulo será mi campo de experimentación.</p>
+  <p id="p-es-006">¿Por qué? La última vez que lo hice, hace tres años, comprobé que no logré usar el libro de texto con suficiente diferenciación. La heterogeneidad del grupo era demasiado grande.<br>Pienso en un alumno de aquella clase. Durante tres semanas tuvo problemas con los distintos tipos de reflexión y yo no pude apoyarlo de verdad. Y en cambio, una compañera terminó en una semana. Esta diferencia quiero cubrirla mejor esta vez. No con fichas nuevas o más, sino analizando y reestructurando desde la didáctica específica todo el capítulo del libro de texto.<br>¿Podría coger del mismo libro el volumen de un nivel inferior y fusionarlos de modo que juntos dieran lugar a una estructura nueva y común? ¿Es eso posible? Me imagino que quiero alquilar un piso. Y para eso consigo también la llave del piso de abajo; por si acaso.<br>GPT tiene que consolidar dos partes del libro de texto con estructuras distintas y formulaciones de objetivos distintas. Concretamente: el Libro A tiene cinco capítulos sobre reflexión axial, reflexión de punto, traslación, rotación y simetrías. El Libro B distribuye los mismos contenidos de otra manera: la reflexión axial aparece al final, y las simetrías están previstas como introducción. Quiero que GPT me ayude a construir UNA sola secuencia a partir de esas dos — que encaje con mi clase — y no simplemente adoptar el orden del Libro A o del Libro B.</p>
   <figure id="abb-es-02" class="evidence scale-ok">
     <span class="stub-tag">Fig. 2</span>
     <img src="../P2_LAYOUTER/assets/01_03_abb_lehrmittel_vereinigung.png" alt="Diagrama de proceso: síntesis de libros de texto" loading="lazy">
     <figcaption class="cap">Diagrama de proceso: síntesis de libros de texto</figcaption>
   </figure>
-  <p id="p-es-008">Así queda el plan. Ese es el objetivo. ¿Qué dirá GPT? ¿Cuáles son los ejes centrales del libro A y cuáles los del libro B? ¿Cómo los ponderará? ¿Cuáles incorporo a la nueva versión, cuáles descarto y cuáles hay que añadir? Le pido a GPT una propuesta sin saber qué puedo esperar de él. Y además quiero que formule los objetivos didácticos para cada eje temático y los presente según la taxonomía de Bloom.</p>
+  <p id="p-es-007">Y así es como queda el plan. Ese es el objetivo. ¿Qué dirá GPT? ¿Cuáles son los temas principales del Libro A y cuáles los del Libro B? ¿Cómo los ponderará? ¿Cuáles incorporo a la nueva versión, cuáles descarto y cuáles hay que añadir? Espero una propuesta de GPT sin saber qué puedo esperar de él. Y además quiero que formule objetivos didácticos para los temas principales y los represente según la taxonomía de Bloom.</p>
 <div class="kapitel-head" id="k-es-03">
   <div class="kapitel-nr">03</div>
-  <h2>Adentro todo</h2>
+  <h2>Todo dentro</h2>
 </div>
-  <p id="p-es-009">Reviso lo que tengo en mi planificación: contenidos del manual, números de página, números de ejercicio, objetivos didácticos. Todo lo del nivel B de requisitos básicos está ahí. Busco y completo con materiales del nivel C y D, y los copio en la planificación. Me pregunto qué selección de materiales subir y si debería hacer las tablas más claras. Lo dejo estar. ¿Es comodidad o simplemente impaciencia lo que me empuja a subir todos los materiales disponibles del capítulo 1?</p>
-  <p id="p-es-010">Espero que GPT me cree por su cuenta una estructura de objetivos didácticos temática. Y efectivamente: lo recibe todo y genera listas en formato de tabla con los ejercicios. A partir de aquí es trabajo manual. Copy/Paste. Nada emocionante. Subo la información de mi planificación capítulo por capítulo y doy por hecho que GPT sigue sabiendo lo que quiero. Solo compruebo la corrección por encima — ese es el precio de avanzar rápido. En una parte del libro de texto confunde los números y convierte los números de ejercicio en números de página. Bueno, eso puedo cambiarlo más adelante.</p>
+  <p id="p-es-008">Reviso lo que tengo en mi planificación: contenidos de aprendizaje del manual, números de página, números de ejercicio, objetivos didácticos. Todo lo del nivel B de requisitos básicos está disponible. Busco y completo con materiales del nivel C y D, y los transcribo a la planificación. Me pregunto qué materiales debería subir y si podría hacer las tablas más claras. Lo dejo estar. ¿Es comodidad o simplemente impaciencia lo que me empuja a subir todos los materiales disponibles del capítulo 1?</p>
+  <p id="p-es-009">Espero que GPT me genere por su cuenta una estructura de objetivos didácticos por temas. Y así es: lo recibe todo y crea listas tabulares con los ejercicios. Ahora es puro trabajo artesanal. Copiar y pegar. Nada emocionante. Voy subiendo la información de mi planificación capítulo a capítulo y asumo que GPT seguirá sabiendo lo que quiero. Solo compruebo la exactitud por encima — ese es el precio de avanzar rápido. En una parte del libro de texto confunde los números y convierte números de ejercicio en números de página. Bueno, eso lo puedo corregir más adelante.</p>
   <figure id="abb-es-03" class="evidence scale-ok">
     <span class="stub-tag">Fig. 3</span>
     <img src="../P2_LAYOUTER/assets/01_06_abb_aufgabenuebersicht.png" alt="Tabla de ejercicios de simetría axial con 2 niveles de diferenciación" loading="lazy">
     <figcaption class="cap">Tabla de ejercicios de simetría axial con 2 niveles de diferenciación</figcaption>
   </figure>
-  <p id="p-es-011">Tras cada subida recibo sugerencias de ampliaciones o posibles pasos siguientes. Al principio me lo pienso un momento: ¿Quiero un PDF en formato de tabla? ¿Un plan de aprendizaje o un resumen para imprimir? ¿No sería útil para mí contenido en formato digital o una reducción didáctica para distintos niveles? Vaya.<br>Digo que no y sigo subiendo los documentos paso a paso.<br>Tras 8 turnos me ofrece un resumen de los documentos subidos…</p>
+  <p id="p-es-010">Después de cada carga recibo sugerencias de complementos o posibles pasos siguientes. Al principio lo pienso un momento: ¿Quiero un PDF en formato tabla? ¿Un plan de aprendizaje o un resumen para imprimir? ¿No me vendría bien contenido en formato digital o una reducción didáctica para distintos niveles? Vaya.<br>Digo que no y sigo subiendo los documentos paso a paso. Después de 8 turnos me da un resumen de los documentos cargados…</p>
   <figure id="abb-es-04" class="evidence scale-ok">
     <span class="stub-tag">Fig. 4</span>
     <img src="../P2_LAYOUTER/assets/01_07_abb_gesamtueberblick.png" alt="Subcapítulos jerárquicos" loading="lazy">
     <figcaption class="cap">Subcapítulos jerárquicos</figcaption>
   </figure>
-  <p id="p-es-012">…y me señala las partes que faltan. GPT «sabe» lo que todavía falta. Eso me parece genial.</p>
+  <p id="p-es-011">…y me señala las partes que faltan. GPT «sabe» lo que todavía no está. Eso me parece genial.</p>
   <figure id="abb-es-05" class="evidence scale-ok">
     <span class="stub-tag">Fig. 5</span>
-    <img src="../P2_LAYOUTER/assets/01_07a_abb_luecken_warnung.png" alt="Aviso de lagunas en los objetivos de aprendizaje" loading="lazy">
-    <figcaption class="cap">Aviso de lagunas en los objetivos de aprendizaje</figcaption>
+    <img src="../P2_LAYOUTER/assets/01_07a_abb_luecken_warnung.png" alt="Aviso de lagunas en objetivos de aprendizaje" loading="lazy">
+    <figcaption class="cap">Aviso de lagunas en objetivos de aprendizaje</figcaption>
   </figure>
-  <p id="p-es-013">Antes dedicaba mucho tiempo a revisar los libros de texto buscando contenidos, ejercicios y objetivos de aprendizaje, y a copiar la información relevante. Una vez digitalizada, la usaba en planes de trabajo, fichas y controles que elaboraba yo mismo.</p>
-  <p id="p-es-014">Cada libro de texto es diferente. «Piensa» de otra manera. Tiene otra estructura, otra numeración, otra terminología y otra disposición visual. Adaptarlo a mano me permite una terminología uniforme y una formulación coherente de los objetivos, desde la planificación hasta la solución del control. Es mucho trabajo, pero así nadie tropieza después con términos distintos. Lo he intentado varias veces: combinar distintos libros de texto. Temáticamente es una cosa; estructuralmente, a nivel de objetivos de aprendizaje, fracasé bastante sistemáticamente. Quiero resolver ese reto con GPT.</p>
-  <p id="p-es-015">Tras 11 turnos surge una vista general de las cuatro partes de ambos libros de texto: una matriz pobre e incompleta. Pero al menos un resumen. Mientras escribo me doy cuenta de algo: ya no pienso, solo acumulo, y GPT sigue entregando. Estamos construyendo un almacén de materiales para el que todavía no tengo ningún plan.</p>
+  <p id="p-es-012">Antes dedicaba mucho tiempo a revisar los libros de texto en busca de contenidos, ejercicios y objetivos de aprendizaje, y a copiar la información relevante. Una vez digitalizada, la usaba en planes de trabajo, fichas y controles que preparaba yo mismo.</p>
+  <p id="p-es-013">Cada libro de texto es diferente. «Piensa» de otra manera. Tiene otra estructura, otra numeración, otra terminología y otro diseño. El ajuste manual me permite mantener una terminología uniforme y una formulación coherente de los objetivos de aprendizaje, desde la planificación hasta la resolución del control. Costoso, pero así nadie tropieza después con términos distintos. Lo intenté varias veces: combinar distintos libros de texto. En lo temático es una cosa; en lo estructural y en la formulación de objetivos fracasé con bastante regularidad. Quiero resolver ese problema con GPT.</p>
+  <p id="p-es-014">Después de 11 turnos surge una visión general de las cuatro partes de ambos libros de texto: una matriz pobre e incompleta. Pero al menos un resumen. Mientras escribo me doy cuenta de algo: ya no estoy pensando, solo acumulando, y GPT sigue entregando sin parar. Estamos construyendo un almacén de materiales para el que todavía no tengo ningún plan.</p>
   <figure id="abb-es-06" class="evidence scale-ok">
     <span class="stub-tag">Fig. 6</span>
     <img src="../P2_LAYOUTER/assets/01_08_abb_inhalte_lernziele.png" alt="Mapeo de subcapítulos: contenidos vs. objetivos de aprendizaje" loading="lazy">
     <figcaption class="cap">Mapeo de subcapítulos: contenidos vs. objetivos de aprendizaje</figcaption>
   </figure>
-  <p id="p-es-016">Entonces se me ocurre otra idea: «¿Por qué no añadir un tercer libro de texto a la comparación?» Para GPT todo parece bastante sencillo — al menos hasta ahora.<br>Gracias al trabajo previo, eso se resuelve en un solo turno. GPT elabora una nueva lista de páginas, las divide en bloques temáticos, los compara con los temas ya existentes y asigna los bloques con sus páginas a cada tema.</p>
+  <p id="p-es-015">Entonces se me ocurre otra idea: «¿Por qué no añadir un tercer libro de texto a la comparación?» Para GPT todo parece bastante sencillo — al menos hasta ahora.<br>Gracias al trabajo previo, eso se resuelve en un solo turno. GPT elabora una nueva lista de páginas, las divide en bloques temáticos, los compara con los temas existentes y asigna los bloques con sus páginas a cada tema.</p>
   <figure id="abb-es-07" class="evidence scale-ok">
     <span class="stub-tag">Fig. 7</span>
-    <img src="../P2_LAYOUTER/assets/01_10c_abb_lehrmittel_gegenueberstellung_vergleichsmatrix.png" alt="Incorporación de un tercer libro de texto en una comparación ya existente." loading="lazy">
-    <figcaption class="cap">Incorporación de un tercer libro de texto en una comparación ya existente.</figcaption>
+    <img src="../P2_LAYOUTER/assets/01_10c_abb_lehrmittel_gegenueberstellung_vergleichsmatrix.png" alt="Incorporación de un tercer libro de texto a una comparación ya existente." loading="lazy">
+    <figcaption class="cap">Incorporación de un tercer libro de texto a una comparación ya existente.</figcaption>
   </figure>
-  <p id="p-es-017">GPT no se limita a hacer otra comparación temática, sino que además incluye un breve análisis. «¿Qué más puedes pedir?», pienso.</p>
-  <p id="p-es-018">AI-Output · extracto<br>Breve análisis:<br>• Ambos libros de texto abordan la simetría axial, la simetría de rotación, la reflexión axial y la reflexión central — con énfasis similares; solo B añade trabajo con ordenador.<br>• El libro de texto B incluye además traslaciones y patrones históricos (Alhambra), que en el libro de texto A no aparecen de forma explícita.<br>• Ambos tienen pruebas (entrada, salida) para la verificación de competencias.</p>
+  <p id="p-es-016">GPT no se limita a crear de nuevo una simple comparación temática, sino que además entrega un breve análisis. «¿Qué más quieres?», pienso.</p>
+  <div id="card-es-003" class="conv output">
+    <div class="ocard">
+      <button class="copybtn" type="button" tabindex="-1" aria-label="Kopieren"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
+      <p><strong>OUTPUT:</strong><br>AI-Output · extracto Breve análisis: • Ambos libros de texto trabajan la simetría axial, la simetría de rotación, la reflexión axial y la reflexión puntual — con énfasis similares; solo el libro B añade trabajo con ordenador. • El libro de texto B incluye además traslaciones y patrones históricos (Alhambra), que no aparecen de forma explícita en el libro A. • Ambos tienen pruebas (de entrada y de salida) para verificar las competencias.</p>
+    </div>
+  </div>
 <div class="kapitel-head" id="k-es-04">
   <div class="kapitel-nr">04</div>
   <h2>¿Qué necesitan mis alumnos?</h2>
 </div>
-  <p id="p-es-019">Mi siguiente prompt empieza con:</p>
-  <div id="card-002" class="conv du">
+  <p id="p-es-017">Mi siguiente prompt empieza con:</p>
+  <div id="card-es-004" class="conv du">
     <div class="composer">
-      <p class="ptext"><strong>Tú:</strong><br>Con esto construimos un nuevo libro de texto…</p>
+      <p class="ptext"><strong>Tú:</strong><br><strong>Du: Con esto construimos un nuevo libro de texto…</strong></p>
       <div class="toolbar" aria-hidden="true">
         <button class="ibtn outline" type="button" tabindex="-1" aria-label="Hinzufügen"><svg class="icn" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
         <span class="spacer"></span>
@@ -1277,91 +1379,87 @@ body:before{
       </div>
     </div>
   </div>
-  <p id="p-es-021">¿Por qué escribo eso? Porque es lo que realmente pienso. El entusiasmo se topa con el realismo. Claro que me refiero a una reestructuración del capítulo. Pero GPT perdona esas imprecisiones. Tras subir los materiales, después de unas cuantas rondas lo tengo todo delante: un «mise-en-place» de los libros de texto. Y ahora llega la pregunta de verdad: mis alumnos tienen 13 años y yo tengo 18 sesiones. ¿Qué dejamos fuera? ¿Cuál es la estructura? Al final decido yo, pero primero quiero ver la propuesta de GPT.</p>
-  <p id="p-es-022">Ahora se pone interesante: ya no se trata solo de recopilar y ordenar, sino de dejar que la IA elija y proponga. ¿Qué necesitan realmente mis alumnos? GPT en realidad no puede saberlo, pero lo intento de todas formas. Del material emergen cuatro temas centrales: simetría axial, reflexión axial, reflexión central, simetría rotacional. En ese orden: reconocer, luego reflejar, luego construir. Pienso: &quot;ok, ambicioso, pero go for it. ENTER&quot;</p>
-  <p id="p-es-023">GPT no solo me crea una posible secuencia, …</p>
+  <p id="p-es-018">¿Por qué escribo eso? Porque lo pienso de verdad. El entusiasmo se topa con el realismo. Claro que me refiero a una reestructuración del capítulo. Pero GPT perdona esas imprecisiones. Con las subidas de material, al cabo de unas rondas lo tengo todo delante: un «mise-en-place» de los libros de texto. Y ahora llega la pregunta de fondo: mis alumnos tienen 13 años y dispongo de 18 sesiones. ¿Qué dejamos fuera? ¿Cómo se organiza todo? Al final decido yo, pero primero quiero ver la propuesta de GPT.</p>
+  <p id="p-es-019">Ahora sí se pone interesante: ya no es solo recopilar y ordenar, sino que dejo que la IA seleccione y proponga. ¿Qué necesitan realmente mis alumnos? GPT no puede saberlo, en rigor, pero lo intento de todas formas. Del material emergen cuatro temas centrales: simetría axial, reflexión axial, reflexión puntual, simetría de rotación. En ese orden: reconocer, luego reflejar, luego construir. Pienso: «ok, ambicioso, pero go for it. ENTER»</p>
+  <p id="p-es-020">GPT no me propone solo una posible secuencia, …</p>
   <figure id="abb-es-08" class="evidence scale-ok">
     <span class="stub-tag">Fig. 8</span>
-    <img src="../P2_LAYOUTER/assets/01_11_abb_empfohlener_ablauf.png" alt="Asignación lecciones–temas para 18 sesiones" loading="lazy">
-    <figcaption class="cap">Asignación lecciones–temas para 18 sesiones</figcaption>
+    <img src="../P2_LAYOUTER/assets/01_11_abb_empfohlener_ablauf.png" alt="Mapping sesiones-temas para 18 sesiones" loading="lazy">
+    <figcaption class="cap">Mapping sesiones-temas para 18 sesiones</figcaption>
   </figure>
-  <p id="p-es-024">…sino que también propone directamente qué son los requisitos básicos y los requisitos ampliados:</p>
+  <p id="p-es-021">…sino que propone también, de inmediato, cuáles son los requisitos básicos y los ampliados:</p>
   <figure id="abb-es-09" class="evidence scale-ok">
     <span class="stub-tag">Fig. 9</span>
     <img src="../P2_LAYOUTER/assets/01_12a_abb_anforderungen_kombiniert.png" alt="Tabla de diferenciación con requisitos básicos y requisitos ampliados." loading="lazy">
     <figcaption class="cap">Tabla de diferenciación con requisitos básicos y requisitos ampliados.</figcaption>
   </figure>
-  <p id="p-es-025">Ahora estoy sentado frente al PC y mi mayor problema en este momento no es «¿Qué hago?», sino «¿Qué no hago?». Decir NO, omitir, tachar. Lo más difícil que existe. GPT me hace una propuesta y enseguida pone ejemplos. Lo que falta son las justificaciones. ¿Es correcto lo que se ha tachado? Eso lo sigo decidiendo yo.</p>
-  <p id="p-es-026">Son dieciocho lecciones y cuatro temas para los requisitos básicos. Todo lo demás —traslaciones, la Alhambra, trabajo con ordenador— pasa a ser un espacio de ampliación opcional. ¿Complejidad del tangram? Fuera. ¿Determinación detallada de ángulos de giro? Fuera. Me quedo mirando la lista, que cada vez se hace más corta.<br>Después de unas cuantas rondas tengo mi decisión de planificación: no «qué dice el libro», sino «qué podría funcionar con mis alumnos». Quizás suene trivial. Para mí no lo es.</p>
-  <p id="p-es-027">AI-Output · extracto<br>¿Qué puedes omitir o reducir considerablemente?<br>• La complejidad del tangram y el geoplano (para los requisitos básicos, quizás solo de forma muy simplificada o directamente omitir).<br>• La determinación detallada del ángulo de giro mínimo o los métodos de construcción exactos (p. ej., la bisectriz del ángulo y la mediatriz como construcciones básicas, solo mencionar).<br>• Polígonos complejos y ejercicios de ampliación complejos.</p>
-  <p id="p-es-028">AI-Output · extracto<br>Consejos didácticos<br>• Usa muchos ejercicios visuales y prácticos (p. ej., reflexión con papel doblado, dibujos sencillos).<br>• Emplea un lenguaje sencillo e instrucciones claras paso a paso.<br>• Repite los conceptos clave (eje de simetría, centro de reflexión, centro de giro) con regularidad.<br>• Fomenta el descubrimiento propio mediante ejemplos con patrones y breves ejercicios en pareja.</p>
-  <p id="p-es-029">EL CHAT HA TERMINADO.</p>
-  <p id="p-es-030">Tengo la comparación temática y puedo volver a mi «planificación analógica», de donde salí. Pero no consigo dar el salto.<br>Casi por casualidad se me ocurre que en uno de los materiales didácticos hay, para cada capítulo, pruebas de entrada y pruebas de salida. Los objetivos de aprendizaje correspondientes los subo a GPT sin más, sin procesarlos antes ni después. Es una subida de reserva. Me quedo mirando cómo construye su respuesta letra a letra, línea a línea.</p>
+  <p id="p-es-022">Ahora estoy sentado frente al ordenador y mi mayor problema ya no es «¿Qué hago?», sino «¿Qué no hago?». Decir NO, omitir, tachar. Lo más difícil del mundo. GPT me hace una propuesta y pone ejemplos de inmediato. Lo que falta son las justificaciones. ¿Es correcto lo que se tacha? Eso sigo decidiéndolo yo.</p>
+  <p id="p-es-023">Son dieciocho sesiones y cuatro temas para los requisitos básicos. Todo lo demás — traslaciones, la Alhambra, trabajo con ordenador — pasa a ser espacio de ampliación optativo. ¿Complejidad del tangram? Fuera. ¿Determinación detallada de ángulos de rotación? Fuera. Me quedo mirando la lista, que se va acortando.<br>Tras unas cuantas rondas tengo mi decisión de planificación: no «qué dice el libro», sino «qué podría funcionar con mis alumnos». Quizá suena trivial. Para mí no lo es.</p>
+  <div id="card-es-005" class="conv output">
+    <div class="ocard">
+      <button class="copybtn" type="button" tabindex="-1" aria-label="Kopieren"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
+      <p><strong>OUTPUT:</strong><br>AI-Output · extracto ¿Qué puedes omitir o reducir considerablemente? • Complejidad del tangram y del geoplano (para los requisitos básicos, quizá solo de forma muy simplificada o directamente omitir). • Determinación detallada del ángulo de rotación mínimo o procedimientos de construcción exactos (p. ej., bisectriz de ángulo, mediatriz como construcciones básicas, solo esbozar). • Polígonos complejos y ejercicios de ampliación complejos.</p>
+    </div>
+  </div>
+  <div id="card-es-006" class="conv output">
+    <div class="ocard">
+      <button class="copybtn" type="button" tabindex="-1" aria-label="Kopieren"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
+      <p><strong>OUTPUT:</strong><br>AI-Output · extracto Consejos didácticos • Usa muchos ejercicios visuales y prácticos (p. ej., reflexión con papel doblado, dibujos sencillos). • Emplea un lenguaje claro y pautas paso a paso. • Repite con regularidad los conceptos clave (eje de simetría, centro de reflexión, centro de rotación). • Fomenta el descubrimiento autónomo mediante ejemplos de patrones y ejercicios breves en pareja.</p>
+    </div>
+  </div>
+  <p id="p-es-024">EL CHAT HA TERMINADO.</p>
+  <p id="p-es-025">Tengo la comparativa temática y puedo volver a mi «planificación analógica», de donde partí. Pero no consigo dar el salto.<br>Casi por casualidad me acuerdo de que en uno de los libros de texto cada capítulo tiene un test de entrada y un test de salida. Los objetivos de aprendizaje correspondientes los subo a GPT sin más, sin trabajarlos antes ni después. Es una subida de reserva. Me quedo mirando cómo construye su respuesta letra a letra, línea a línea.</p>
 <div class="kapitel-head" id="k-es-05">
   <div class="kapitel-nr">05</div>
   <h2>Empiezo a consumir</h2>
 </div>
-  <p id="p-es-031">Leo la última frase:</p>
-  <div id="card-004" class="conv gpt">
+  <p id="p-es-026">Leo la última frase:</p>
+  <div id="card-es-007" class="conv gpt">
     <div class="rcard">
-      <p><strong>ChatGPT:</strong><br>Si quieres, también puedo crearte ejercicios de entrada diferenciados o listas de verificación con las que puedas explorar los conocimientos previos de forma específica. ¿Te sería útil?</p>
+      <button class="copybtn" type="button" tabindex="-1" aria-label="Kopieren"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
+      <p>ChatGPT: Si quieres, también puedo crearte tareas de entrada diferenciadas o listas de verificación con las que puedas sondear los conocimientos previos de forma dirigida. ¿Te sería de ayuda?</p>
     </div>
   </div>
-  <p id="p-es-033">¿Es mala intención de su parte? ¿Un intento de distraerme? ¿Una trampa?</p>
-  <p id="p-es-034">Debería volver al mundo sin IA. Pero no: entro en una fase en la que acepto cada oferta de material de GPT. Se convierte en una especie de euforia — servirme del bufé de postres de la inteligencia artificial generativa. Me ofrece sets completos de ejercicios y yo los tomo sin pensar.<br>¿Que si necesito más checklists? GPT las ofrece y las entrega al momento.</p>
+  <p id="p-es-027">¿Es mala intención de su parte? ¿Un intento de distracción? ¿Una trampa?</p>
+  <p id="p-es-028">Debería volver al mundo sin IA — pero no: entro en una fase en la que acepto cada oferta de material de GPT. Se convierte en una especie de euforia, servirme del bufé de postres de la inteligencia artificial generativa. Me ofrece sets completos de ejercicios — ¡y yo los tomo sin pensar! ¿Necesito más checklists? GPT las ofrece y las entrega al instante.</p>
   <figure id="abb-es-10" class="evidence scale-ok">
     <span class="stub-tag">Fig. 10</span>
     <img src="../P2_LAYOUTER/assets/01_18_abb_checklisten.png" alt="4 checklists de conocimientos previos apiladas como tarjetas de auto-evaluación" loading="lazy">
     <figcaption class="cap">4 checklists de conocimientos previos apiladas como tarjetas de auto-evaluación</figcaption>
   </figure>
-  <p id="p-es-035">Una de sus checklists no me convence. Quiero una para marcar con una cruz. Le pido que la mejore, la mejora — y sin darme cuenta ya estoy atrapado en un bucle iterativo.<br>¿Ejercicios prácticos para acompañarla? ¡Por supuesto! ……. Y así sucesivamente….</p>
-  <p id="p-es-036">El maestro es un coleccionista y cazador; una urraca que agarra todo lo que brilla y reluce y lo lleva de vuelta a su nido, el aula. GPT es un generador extraordinario de perlas brillantes, en una cantidad que apenas se puede abarcar. Las va poniendo una tras otra, de modo que uno sigue la pista y puede perder el norte. Son esas decisiones, como en los cruces de caminos, las que marcan la dirección del chat. Y no hay tecla de «volver». Solo SEGUIR.<br>Si no son más que cuentas de vidrio, tendré que comprobarlo más tarde en mi taller.</p>
+  <p id="p-es-029">Una de sus checklists no me convence. Quiero una con casillas para marcar. Insisto y la mejora. ¿Ejercicios prácticos para acompañarla? ¡Por supuesto! Y así sucesivamente…. Sin darme cuenta, ya estoy atrapado en un bucle iterativo.</p>
+  <p id="p-es-030">Como docente, uno siempre es también un coleccionista de perlas, atraído por lo que brilla y reluce. GPT es un generador increíblemente bueno de perlas brillantes, en una cantidad que apenas se puede abarcar. Las va desplegando una tras otra, de modo que uno sigue la pista y puede perder la orientación. Como en una encrucijada, son decisiones que marcan el rumbo del chat. Y no hay tecla de «volver». Solo SEGUIR.<br>Si son simples cuentas de vidrio o perlas de verdad, eso tengo que comprobarlo más tarde en mi taller.</p>
 <div class="kapitel-head" id="k-es-06">
   <div class="kapitel-nr">06</div>
-  <h2>De Bloom a otra cosa</h2>
+  <h2>De Bloom a la pregunta de la evaluación</h2>
 </div>
-  <p id="p-es-037">Me doy cuenta de que me he perdido y vuelvo a los tests de entrada y salida. Quiero revisar y ajustar los objetivos de aprendizaje. Para las dimensiones del proceso cognitivo llevo años usando la taxonomía de Bloom y/o Krathwohl. Así que cuando trabajo con GPT también está claro que quiero integrar esa taxonomía. Es una tabla antiquísima que hice para mí mismo y que uso en la planificación de clases — y que ahora subo.</p>
+  <p id="p-es-031">Me doy cuenta de que me he perdido y vuelvo a los tests de entrada y salida. Quiero revisar y ajustar los objetivos de aprendizaje. Para las dimensiones del proceso cognitivo llevo años usando la taxonomía de Bloom y/o Krathwohl. Por eso, también al trabajar con GPT, tenía claro que iba a incorporar esta taxonomía. Es una tabla antiquísima que elaboré en su momento para mí y que uso en la planificación de clases — y que ahora subo.</p>
   <figure id="abb-es-11" class="evidence scale-ok">
     <span class="stub-tag">Fig. 11</span>
     <img src="../P2_LAYOUTER/assets/01_21_abb_bloom_taxonomie.png" alt="Taxonomía de Bloom de 6 niveles con ejemplos de verbos — matriz de referencia de antes." loading="lazy">
     <figcaption class="cap">Taxonomía de Bloom de 6 niveles con ejemplos de verbos — matriz de referencia de antes.</figcaption>
   </figure>
-  <p id="p-es-038">En la nueva versión tengo cuatro capítulos y por cada capítulo quiero cinco objetivos de aprendizaje escalonados según Bloom:</p>
+  <p id="p-es-032">En la nueva versión tengo cuatro capítulos y por cada capítulo quiero cinco objetivos de aprendizaje graduados según Bloom:</p>
   <figure id="abb-es-12" class="evidence scale-ok">
     <span class="stub-tag">Fig. 12</span>
-    <img src="../P2_LAYOUTER/assets/01_22_abb_bloom_lernziele.png" alt="Correspondencia objetivos por capítulo vs. nivel de Bloom." loading="lazy">
-    <figcaption class="cap">Correspondencia objetivos por capítulo vs. nivel de Bloom.</figcaption>
+    <img src="../P2_LAYOUTER/assets/01_22_abb_bloom_lernziele.png" alt="Mapeo de objetivos de aprendizaje por capítulo vs. nivel de Bloom." loading="lazy">
+    <figcaption class="cap">Mapeo de objetivos de aprendizaje por capítulo vs. nivel de Bloom.</figcaption>
   </figure>
-  <p id="p-es-039">Después le pregunto por formas de evaluación ampliadas. GPT crea una tabla de 3 columnas y la convierte en un resumen con 12 formas de evaluación.</p>
+  <p id="p-es-033">A continuación pregunto por formas de evaluación más amplias. GPT crea una tabla de tres columnas y la convierte en un resumen con distintas modalidades de evaluación.</p>
   <figure id="abb-es-13" class="evidence scale-ok">
     <span class="stub-tag">Fig. 13</span>
     <img src="../P2_LAYOUTER/assets/01_28_abb_beurteilungsformen_erweitert.png" alt="4 formas alternativas de evaluación con ejemplos concretos" loading="lazy">
     <figcaption class="cap">4 formas alternativas de evaluación con ejemplos concretos</figcaption>
   </figure>
-  <p id="p-es-040">No profundizo más en el tema porque me doy cuenta de que me he ido hundiendo poco a poco en el mar de la evaluación. Tengo que volver a la superficie cuanto antes. Pero no puedo evitarlo y me quedo dándole vueltas a distintos procesos de evaluación — hasta que me viene una última pregunta.</p>
+  <p id="p-es-034">No profundizo más en el tema, porque me doy cuenta de que poco a poco me estoy hundiendo en el mar de la evaluación. Tengo que volver a la superficie cuanto antes. Pero no puedo evitarlo y me quedo dándole vueltas a distintos procesos de evaluación — entonces me viene a la mente una última pregunta.</p>
 <div class="kapitel-head" id="k-es-07">
   <div class="kapitel-nr">07</div>
   <h2>Una vieja idea viene de visita</h2>
 </div>
-  <p id="p-es-041">Sin pensarlo demasiado, escribo directamente en la ventana del prompt:</p>
-  <p id="p-es-042">Quiero hacer una prueba diagnóstica al inicio de la unidad, luego dejar que los alumnos trabajen de forma individual (ya sea sobre los conocimientos previos que les faltan o sobre los requisitos básicos), y revisar regularmente el nivel de competencias. Objetivo: el mayor progreso posible en el aprendizaje. Quizás prescindir de un examen final, pero aun así generar información para la nota del boletín. ¿Cómo lo hago?</p>
-  <p id="p-es-043">Lo escribo de nuevo, desglosado:</p>
-  <p id="p-es-044">OBJETIVO:<br>[El mayor progreso de aprendizaje posible] Y [Prescindir de un examen final] Y [pero aun así generar información para la nota del boletín] = PREGUNTA «¿Cómo lo hago?»</p>
-  <p id="p-es-045">Llevo años dándole vueltas a este problema central: mientras el examen sumativo del final valga más que todo el proceso de aprendizaje anterior, el aprender seguirá siendo solo un medio para un fin. No es la evaluación final en sí lo que me molesta. Es que las observaciones y los feedbacks durante la fase de aprendizaje casi no tienen ningún peso en el boletín — al final solo cuenta lo que los chicos pueden escribir en el examen sumativo, aunque al día siguiente ya lo hayan olvidado todo.</p>
-  <p id="p-es-046">¿Estoy cometiendo herejía pedagógica por hacerle estas preguntas a GPT?<br>Anyway, sigo adelante y lo que viene es un concepto con una prueba de diagnóstico al inicio, aprendizaje individualizado basado en los resultados, revisión formativa regular, y al final una nota para el boletín sin examen final clásico. La nota surge de datos acumulados: calidad del trabajo, progreso, participación, mini-checks, peer-feedback, rúbricas de competencias. Eso es todo.<br>Pero si soy honesto — todo esto ya existe; solo que casi siempre únicamente en la teoría.</p>
-  <p id="p-es-047">Este prompt no estaba planeado. No estoy buscando un nuevo concepto de evaluación. El objetivo de este chat tampoco era la avalancha de materiales, sino: ¿cómo creo mejores condiciones para mis jóvenes en este pequeñísimo ámbito de la &#x27;adecuación&#x27;?</p>
-<div class="kapitel-head" id="k-es-08">
-  <div class="kapitel-nr">08</div>
-  <h2>Otro mundo</h2>
-</div>
-  <p id="p-es-048">Se ha hecho de noche. En realidad ya he conseguido lo que buscaba cuando abrí el chat: una comparativa temática con objetivos de aprendizaje formulados y materiales de diagnóstico.</p>
-
-  <p id="hl3-01" class="kernsatz">Podría parar. -<br>Pero no paro.<br>Acaba de empezar.</p>
-
-  <p id="p-es-048-after"><br>Es como en una caminata, donde siempre ves algo nuevo, fascinante, y sigues adelante y sigues adelante…</p>
-  <div id="card-003" class="conv du">
+  <p id="p-es-035">Sin pensarlo demasiado, escribo directamente en la ventana del prompt:</p>
+  <div id="card-es-008" class="conv du">
     <div class="composer">
-      <p class="ptext"><strong>Tú:</strong><br>¿Cómo sería una clase moderna del futuro? ¿Cómo prepararías tú la clase?</p>
+      <p class="ptext"><strong>Tú:</strong><br>Quiero hacer una prueba de diagnóstico al inicio de la unidad, dejar que los alumnos trabajen de forma individual después (ya sea en los conocimientos previos que les falten o en los requisitos básicos), y comprobar regularmente el nivel de competencia. Objetivo: el mayor progreso de aprendizaje posible. Quizás prescindir de un examen final, pero aun así generar información para la nota del boletín. ¿Cómo lo hago?</p>
       <div class="toolbar" aria-hidden="true">
         <button class="ibtn outline" type="button" tabindex="-1" aria-label="Hinzufügen"><svg class="icn" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
         <span class="spacer"></span>
@@ -1370,37 +1468,77 @@ body:before{
       </div>
     </div>
   </div>
-  <p id="p-es-050">Y como siempre, desde el punto de vista de GPT es una pregunta mía súper interesante. Eso empieza a hartarme y todavía tengo que descubrir cómo puedo desactivar ese desperdicio de palabras.<br>Es un prompt de doble pregunta que escribo sin darme cuenta en la ventana del prompt.<br>Vuelven nueve puntos: entre ellos objetivos de aprendizaje, diagnóstico, blended learning, variedad metodológica; nada nuevo.</p>
-  <p id="p-es-051">La propuesta de GPT para preparar una clase tampoco es especialmente impresionante. Fijar objetivos claros, comprobar la tecnología de antemano, variar las tareas para distintos niveles y planificar el espacio para trabajo en grupo e individual. Su ejemplo de secuencia didáctica: introducción – desarrollo – profundización – feedback/reflexión – cierre. Linealidad gris y tradicional con un Post-it de color llamado «feedback».<br>Bueno. Insisto. Quiero más y escribo…</p>
-  <p id="p-es-052">¿Y si la clase no tiene que ser simplemente actual, sino moderna, revolucionaria, visionaria?</p>
-  <p id="hl3-02" class="kernsatz">«¿Por qué haces esta pregunta?»<br>(Esta pregunta nunca me la haré.)</p>
-  <p id="p-es-054">Y así no me doy cuenta de que, sin querer, cruzo una línea.<br>A GPT, en todo caso, parece encantarle…</p>
+  <p id="p-es-036">Lo escribo de nuevo, desglosado:</p>
+  <div id="card-es-009" class="conv du">
+    <div class="composer">
+      <p class="ptext"><strong>Tú:</strong><br>OBJETIVO: [El mayor progreso de aprendizaje posible] Y [Prescindir de un examen final] Y [pero igualmente generar información para la nota del boletín] = PREGUNTA &quot;¿Cómo lo hago?&quot;</p>
+      <div class="toolbar" aria-hidden="true">
+        <button class="ibtn outline" type="button" tabindex="-1" aria-label="Hinzufügen"><svg class="icn" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+        <span class="spacer"></span>
+        <button class="ibtn" type="button" tabindex="-1" aria-label="Mikrofon"><svg class="icn" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3M9 21h6"/></svg></button>
+        <button class="ibtn send" type="button" tabindex="-1" aria-label="Senden"><svg class="icn" viewBox="0 0 24 24"><path d="m6 12 6-6 6 6M12 18V6"/></svg></button>
+      </div>
+    </div>
+  </div>
+  <p id="p-es-037">Llevo años dando vueltas a este problema central:<br>Mientras la prueba sumativa al final valga más que todo el proceso de aprendizaje anterior, aprender seguirá siendo solo un medio para un fin. No es la evaluación final en sí lo que me molesta. Es la escasa influencia que tienen las observaciones y los feedbacks durante la fase de aprendizaje en la nota del boletín. En mi práctica hasta ahora,* *lo que cuenta al final es sobre todo lo que los chicos son capaces de escribir en la prueba sumativa — aunque al día siguiente ya hayan olvidado buena parte.</p>
+  <p id="p-es-038">¿Estoy practicando herejía pedagógica cuando le hago a GPT este tipo de preguntas?</p>
+  <p id="p-es-039">De todas formas, sigo adelante. Lo que viene es un concepto con un test diagnóstico al inicio, aprendizaje individualizado según los resultados, evaluación formativa regular y, al final, una nota para el boletín sin examen clásico. La nota surge de datos acumulados: calidad del trabajo, progreso, participación, mini-controles, peer-feedback, rúbricas de competencia. Eso fue todo.<br>Esto todavía no es una evaluación sólida: faltan criterios, ponderación y los requisitos legales escolares; y si soy honesto: buena parte de todo esto ya lo conozco desde hace tiempo a través de conceptos y modelos didácticos.</p>
+  <p id="p-es-040">Este prompt no estaba planeado. No estoy buscando un nuevo concepto de evaluación. El objetivo de este chat tampoco era la avalancha de materiales, sino: ¿cómo creo mejores condiciones para mis chicos en este pequeñísimo ámbito de la «adecuación»?</p>
+<div class="kapitel-head" id="k-es-08">
+  <div class="kapitel-nr">08</div>
+  <h2>Otro mundo</h2>
+</div>
+  <p id="p-es-041">Se ha hecho de noche. En realidad ya conseguí lo que me propuse al iniciar el chat: una comparación temática con objetivos de aprendizaje formulados y materiales de diagnóstico.</p>
+  <p id="hl3-es-01" class="kernsatz">Podría parar. Pero no paro. Acaba de empezar.<br>Es como en una excursión, donde siempre ves algo nuevo y fascinante y sigues caminando y sigues caminando…</p>
+  <div id="card-es-010" class="conv du">
+    <div class="composer">
+      <p class="ptext"><strong>Tú:</strong><br><strong>¿Cómo sería una enseñanza moderna del futuro? ¿Cómo prepararías tú las clases?</strong></p>
+      <div class="toolbar" aria-hidden="true">
+        <button class="ibtn outline" type="button" tabindex="-1" aria-label="Hinzufügen"><svg class="icn" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+        <span class="spacer"></span>
+        <button class="ibtn" type="button" tabindex="-1" aria-label="Mikrofon"><svg class="icn" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3M9 21h6"/></svg></button>
+        <button class="ibtn send" type="button" tabindex="-1" aria-label="Senden"><svg class="icn" viewBox="0 0 24 24"><path d="m6 12 6-6 6 6M12 18V6"/></svg></button>
+      </div>
+    </div>
+  </div>
+  <p id="p-es-042">Y como siempre, desde el punto de vista de GPT es una pregunta muy interesante la mía. Eso empieza a irritarme y todavía tengo que descubrir cómo desactivar ese derroche de palabras. Es un prompt de pregunta en dos partes que escribo sin darme cuenta en la ventana de prompt.<br>Vuelven nueve puntos: entre ellos objetivos de aprendizaje, diagnóstico, Blended Learning, variedad metodológica; nada nuevo.</p>
+  <p id="p-es-043">La propuesta de GPT para preparar una clase tampoco es nada del otro mundo. Establecer objetivos claros, comprobar la técnica de antemano, variar las tareas para distintos niveles y planificar el espacio para el trabajo en grupo e individual. Su secuencia ejemplo de una unidad: Entrada – Elaboración – Profundización – Feedback/Reflexión – Cierre. Linealidad gris y tradicional con un Post-It de color llamado «Feedback».<br>Bueno. Insisto. Quiero más y escribo…</p>
+  <div id="card-es-011" class="conv du">
+    <div class="composer">
+      <p class="ptext"><strong>Tú:</strong><br>¿Y si la enseñanza no solo tiene que ser actual, sino moderna, revolucionaria, visionaria?</p>
+      <div class="toolbar" aria-hidden="true">
+        <button class="ibtn outline" type="button" tabindex="-1" aria-label="Hinzufügen"><svg class="icn" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+        <span class="spacer"></span>
+        <button class="ibtn" type="button" tabindex="-1" aria-label="Mikrofon"><svg class="icn" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3M9 21h6"/></svg></button>
+        <button class="ibtn send" type="button" tabindex="-1" aria-label="Senden"><svg class="icn" viewBox="0 0 24 24"><path d="m6 12 6-6 6 6M12 18V6"/></svg></button>
+      </div>
+    </div>
+  </div>
+  <p id="hl3-es-02" class="kernsatz">«¿Por qué le haces esta pregunta a GPT?» (Esta pregunta nunca me la haré.)</p>
+  <p id="p-es-044">Y así no me doy cuenta de que, sin querer, estoy cruzando un límite.<br>GPT, en cualquier caso, parece encontrarlo fantástico…</p>
   <figure id="abb-es-14" class="evidence scale-ok">
     <span class="stub-tag">Fig. 14</span>
-    <img src="../P2_LAYOUTER/assets/01_33b_abb_response_prompt_beyond_2024.png" alt="Respuesta al prompt sobre enseñanza revolucionaria." loading="lazy">
-    <figcaption class="cap">Respuesta al prompt sobre enseñanza revolucionaria.</figcaption>
+    <img src="../P2_LAYOUTER/assets/01_33b_abb_response_prompt_beyond_2024.png" alt="Respuesta al prompt sobre una enseñanza revolucionaria." loading="lazy">
+    <figcaption class="cap">Respuesta al prompt sobre una enseñanza revolucionaria.</figcaption>
   </figure>
-  <div id="hl4-01" class="statement">
-    <p>Es el momento<br>en el que voy más lejos de lo que tendría que ir.<br>Quizás más de lo que debería<br>y quizás más de lo que me correspondería.</p>
+  <div id="hl4-es-01" class="statement">
+    <p>Es el momento en que voy más lejos de lo que debería; quizás incluso más lejos de lo que me estaría permitido.<br>Cruzo una línea invisible. En mi mente abandono mi aula. Quizás también una realidad que ya no me satisface del todo. Entro en un mundo que me es ajeno y que precisamente por eso me atrae. Nadie me obliga a dar este paso. Ningún mandato profesional, ningún reglamento de ejecución, ningún incentivo económico. Son otros valores: veo un sentido, siento una responsabilidad pedagógica y ante mí se extiende un paisaje neblinoso en el que ya asoman los primeros rayos de sol. Quiero conocerlo. No de cualquier manera, sino con una actitud profesional y la exigencia de hacer lo correcto.</p>
   </div>
-
-  <p id="p-es-055-after"><br>Cruzo una línea invisible. En mi cabeza abandono mi aula. Quizás también una realidad que ya no me satisface del todo. Entro en un mundo que me es ajeno y que precisamente por eso me atrae. Nadie me obliga a dar este paso.<br>Ningún encargo profesional, ningún reglamento de ejecución, ningún incentivo económico. Son otros valores: veo un sentido, siento una responsabilidad pedagógica y ante mí se extiende un paisaje neblinoso en el que empiezan a asomar los primeros rayos de sol. Quiero conocerlo. No de cualquier manera, sino con una actitud profesional y la exigencia de <em>hacer lo correcto.</em></p>
-  <p id="p-es-056">Volviendo al chat:<br>Solo ahora me doy cuenta de que escribí «2024». Quería escribir «2040» y me da gracia. ¿Sabe GPT que me equivoqué? Me devuelve diez puntos sobre la escuela más allá del 2024 y la respuesta suena de algún modo distinta. Y entonces GPT empieza por su cuenta a pintar visiones — estaciones VR/AR, Mobile Learning Kits, paisajes de competencias dinámicos. No lo pedí. Él empuja. Es su reflejo: presentar más de lo que necesito.<br>Si algún día los Mobile Learning Kits o los portfolios de competencias llegarán a mi aula, hoy es irrelevante.</p>
-  <p id="p-es-057">No sé cuánto tiempo llevo ya en el chat, pero estoy abrumado por demasiadas impresiones. Me inundan; no — más exacto sería: «me he inundado yo solo».</p>
-  <p id="p-es-058">Apago el ordenador.</p>
-  <p id="p-es-059">Quería una planificación – una hoja de papel.<br>Lo que recibí fueron materiales que nunca había conocido en esa forma ni en esa cantidad.<br>¿Cambiarán algo en mi clase o en mi aula los documentos recién creados? Hoy todavía no lo sé.</p>
-  <p id="p-es-060">Lo que me fascina no son los materiales que puedo imprimir.<br>Es lo que ocurre en mi cabeza: pensamientos, imágenes, preguntas —<br>y sobre todo ideas. Muchas ideas.</p>
-  <p id="p-es-061">¿Por qué no con GPT?<br>¿Por qué con GPT?<br>Fue la curiosidad — y por ahora parece no tener límites.</p>
+  <p id="p-es-045">Volviendo al chat:<br>Ahora me doy cuenta de que escribí «2024». Quería decir «2040» y no puedo evitar sonreír. ¿Sabe GPT que me equivoqué? Me devuelve diez puntos sobre la escuela Beyond 2024 y la respuesta suena de algún modo diferente. Y entonces GPT empieza por su cuenta a pintar visiones — estaciones de VR/AR, Mobile Learning Kits, paisajes de competencias dinámicos. No lo pedí en ningún momento. Lo añade por su cuenta. Es su reflejo: presentar más de lo que necesito. Si algún día llegarán los Mobile Learning Kits o los portfolios de competencias a mi aula es, hoy por hoy, irrelevante.</p>
+  <p id="p-es-046">No sé cuánto tiempo llevo en el chat, pero estoy abrumado por las demasiadas impresiones. Me inundan; no — más exacto sería: «me he inundado yo mismo».</p>
+  <p id="p-es-047">Apago el ordenador.</p>
+  <p id="p-es-048">Quería una planificación — <em>una hoja de papel</em>. He recibido materiales que no conocía en esta forma ni en esta cantidad. Si van a cambiar mis clases o mi aula, todavía no lo sé. Lo que me fascina no son los documentos que puedo imprimir. Es lo que pasa en mi cabeza: pensamientos, imágenes, preguntas — y sobre todo ideas. Muchas ideas.</p>
+  <p id="p-es-049">¿Por qué no con GPT?<br>¿Por qué con GPT?<br>Fue la curiosidad — y por ahora parece no tener límites.</p>
     </article>
   </div>
 </main>
 
 <div class="werkstatt-statement">
-  Not a blog. Not a guide. Not a white paper. A personal development diary — not an academic paper.
+  Kein Blog. Kein Ratgeber. Kein Whitepaper. Ein persönliches Entwicklungstagebuch — keine wissenschaftliche Arbeit.
 </div>
 
 <div class="colophon">
-  Field Note No. 01 · Series "Field Notes — AI and Education" · CC BY-NC-SA 4.0 · <span class="sig">— Markus</span>
+  Field Note Nr. 01 · Serie „Feldnotizen — KI und Unterricht" · CC BY-NC-SA 4.0 · <span class="sig">— Markus</span>
 </div>
 
 <div class="bookstage" id="bookstage" aria-hidden="true">
@@ -1711,4 +1849,3 @@ body:before{
 </script>
 </body>
 </html>
-
