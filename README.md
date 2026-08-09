@@ -14,4 +14,4 @@ Markus Schwarz
 
 ## Lizenz
 
-Die veröffentlichten Inhalte stehen unter [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+Die veröffentlichten Inhalte stehen unter [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
