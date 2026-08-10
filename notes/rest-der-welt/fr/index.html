@@ -1,0 +1,1942 @@
+<!doctype html>
+<!--
+   WEB_PREVIEW — P6-Render, in P5 Stage 1 als LIVEVIEW ausgeliehen.
+   Design-SSoT: C:\Users\Markus\ClaudeCode\MeineProjekte\FIELD_NOTES_DRAFT\0_W_WORKFLOW\P6_PUBLISH\WEBDESIGN\_CURRENT\NOTE\index.html
+   Content-Source: REST_DER_WELT_V6.05_DRAFT_AI.docx
+-->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ubuntugogy · Field Notes</title>
+<meta name="description" content="Ce qui commence avec 20 concepts mène à un tableau inachevé, où ce n&#x27;est finalement pas l&#x27;exhaustivité qui compte, mais une prise de conscience.">
+<meta name="author" content="Markus Schwarz">
+<link rel="canonical" href="https://markusschwarz174.github.io/field-notes/notes/rest-der-welt/">
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Field Notes — Markus Schwarz">
+<meta property="og:title" content="Ubuntugogy · Field Notes Nr. 12">
+<meta property="og:description" content="Ce qui commence avec 20 concepts mène à un tableau inachevé, où ce n&#x27;est finalement pas l&#x27;exhaustivité qui compte, mais une prise de conscience.">
+<meta property="og:url" content="https://markusschwarz174.github.io/field-notes/notes/rest-der-welt/">
+<meta property="og:image" content="https://markusschwarz174.github.io/field-notes/notes/rest-der-welt/../heroes/hero_12.png">
+<meta property="og:locale" content="de_CH">
+<meta property="article:author" content="Markus Schwarz">
+<meta property="article:published_time" content="Anfang November 2025">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ubuntugogy · Field Notes Nr. 12">
+<meta name="twitter:description" content="Ce qui commence avec 20 concepts mène à un tableau inachevé, où ce n&#x27;est finalement pas l&#x27;exhaustivité qui compte, mais une prise de conscience.">
+<meta name="twitter:image" content="https://markusschwarz174.github.io/field-notes/notes/rest-der-welt/../heroes/hero_12.png">
+<!-- JSON-LD: Article + Person (Google Knowledge Graph Signal) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Ubuntugogy",
+      "description": "Was mit 20 Konzepten beginnt, f\u00fchrt zu einer unvollendeten Tabelle, bei der am Schluss nicht die Vollst\u00e4ndigkeit wichtig ist, sondern eine Erkenntnis.",
+      "datePublished": "Anfang November 2025",
+      "inLanguage": "de-CH",
+      "url": "https://markusschwarz174.github.io/field-notes/notes/rest-der-welt/",
+      "image": "https://markusschwarz174.github.io/field-notes/notes/rest-der-welt/../heroes/hero_12.png",
+      "author": {
+        "@type": "Person",
+        "name": "Markus Schwarz",
+        "url": "https://markusschwarz174.github.io/field-notes/"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Markus Schwarz",
+        "url": "https://markusschwarz174.github.io/field-notes/"
+      },
+      "isPartOf": {
+        "@type": "CreativeWorkSeries",
+        "name": "Field Notes — KI & Unterricht",
+        "url": "https://markusschwarz174.github.io/field-notes/"
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "Markus Schwarz",
+      "url": "https://markusschwarz174.github.io/field-notes/",
+      "sameAs": [
+        "https://github.com/markusschwarz174"
+      ],
+      "description": "Lehrer, Autor der Field-Notes-Reihe zu AI im Unterricht."
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+/* fieldnote.css — Werkbank-Styles fuer WEB_PREVIEW (P1-P5)
+   Extrahiert 2026-06-18 aus 01_2025_07_NEUGIERDE/_render_werkbank.py.
+   Cross-Ref: 0_W_WORKFLOW/P6_RELEASE/HTML_DESIGN_NEW_260617/Bauanleitung Hervorhebungs-System.md
+   Convention: 0_C_CONVENTION/C_FORMAT_HTML.md (ab §13 pending rewrite auf 4-Stufen).
+
+   GESTRICHEN 2026-06-18: .statement-block + .statement-label (Legacy HL1-AKZENT,
+   abgeloest durch 4-Stufen-System Stufe 4 = .statement + .label).
+*/
+
+:root{
+  --bg:#f2eadc;--paper:#fffaf0;--paper-deep:#faf4e6;--ink:#191713;--muted:#6e6458;
+  --line:#d6c8b4;--line-deep:#b8a78d;--red:#bd3f2b;--red-deep:#8b2c1c;
+  --yellow:#f2c84b;--green:#486b55;--ochre:#9A6A1F;
+  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  --sans:"IBM Plex Sans",Inter,"Segoe UI",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.65;font-size:17px;text-align:left}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;opacity:.32;
+  background-image:radial-gradient(rgba(70,55,35,.12) 1px,transparent 1px);
+  background-size:5px 5px;mix-blend-mode:multiply;z-index:0;
+}
+
+/* HERO */
+.hero{
+  min-height:88vh;position:relative;display:grid;align-items:end;overflow:hidden;
+  padding:84px 26px 56px;
+  background:
+    linear-gradient(110deg,rgba(20,14,8,.86),rgba(28,20,12,.58) 40%,rgba(38,26,16,.36) 70%,rgba(245,238,224,.18) 100%),
+    url('../heroes/hero_12.png');
+  background-size:cover;background-position:center;
+}
+.hero:after{
+  content:"";position:absolute;inset:auto 0 0 0;height:42%;
+  background:linear-gradient(transparent,var(--bg));
+}
+.hero-inner{
+  position:relative;z-index:2;max-width:1280px;margin:0 auto;width:100%;
+  display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:64px;align-items:end;
+}
+.eyebrow{font:700 .76rem/1 var(--mono);color:#ffd9a8;text-transform:uppercase;letter-spacing:.18em}
+.hero h1{
+  font-size:clamp(2.8rem,8vw,6.8rem);line-height:.9;
+  margin:18px 0 24px;color:#fffaf0;letter-spacing:-.005em;max-width:10ch;
+  text-shadow:0 3px 18px rgba(0,0,0,.42);
+}
+.hero .lead{
+  font-size:clamp(1.08rem,1.6vw,1.32rem);max-width:680px;
+  color:#fff5e4;margin:0;line-height:1.45;font-weight:400;
+  text-shadow:0 2px 8px rgba(0,0,0,.4);
+}
+
+/* SLIPS (diskret-neutral, kein Postit) */
+.desk{display:grid;gap:14px;align-self:end}
+.slip{
+  background:var(--paper);border:1px solid var(--line-deep);
+  padding:16px 17px;border-radius:3px;
+  box-shadow:0 8px 22px rgba(22,17,10,.22);
+}
+.slip .k{
+  font:700 .68rem/1 var(--mono);color:var(--red);
+  text-transform:uppercase;letter-spacing:.12em;
+  display:block;margin-bottom:8px;
+}
+.slip h3{font-size:1.05rem;line-height:1.25;margin:0 0 6px;font-weight:600;color:var(--ink)}
+.slip p{font-size:.92rem;color:#4d453c;margin:0;line-height:1.5}
+.slip .date{
+  font:600 .82rem/1 var(--mono);color:var(--ink);
+  margin-bottom:8px;letter-spacing:.02em;
+}
+
+/* MAIN-LAYOUT (W5: breiter + responsive) */
+.main{
+  max-width:1280px;margin:0 auto;padding:64px 26px 80px;
+  position:relative;z-index:1;
+}
+.section-title{
+  font:700 .78rem/1 var(--mono);letter-spacing:.16em;
+  text-transform:uppercase;color:var(--red);margin-bottom:20px;
+}
+.reader{
+  display:grid;grid-template-columns:240px minmax(0,820px);gap:56px;
+}
+.rail{
+  position:sticky;top:62px;align-self:start;
+  border-left:2px solid var(--red);padding:8px 0 8px 18px;
+  font:500 .82rem/1.4 var(--mono);color:var(--muted);
+  max-height:calc(100vh - 80px);overflow-y:auto;
+}
+.rail a{
+  display:block;color:inherit;text-decoration:none;
+  padding:8px 0;border-bottom:1px solid var(--line);
+}
+.rail a:hover{color:var(--red)}
+.rail-nr{
+  display:inline-block;width:2em;color:var(--red);font-weight:700;
+}
+
+/* ARTICLE */
+.article{
+  --article-pad-x:clamp(24px,5vw,60px);
+  background:rgba(255,250,240,.84);border:1px solid var(--line);
+  padding:42px var(--article-pad-x);
+  box-shadow:0 22px 70px rgba(48,35,18,.08);
+}
+
+/* ABSTRACT-BLOCK (DIRECTOR-Entscheid: abstract vor Akt-1) */
+.abstract-lead{
+  font-style:italic;font-size:1.12rem;line-height:1.55;
+  color:var(--muted);margin:0 0 36px 0;
+  padding:18px 22px;background:var(--paper-deep);
+  border-left:3px solid var(--line-deep);border-radius:2px;
+}
+
+/* KAPITEL-HEAD (HUMAN-Decision 2026-06-16: Nummerierung weg, scroll-margin-top fuer Anchor-Sprung) */
+.kapitel-head{
+  margin-top:48px;display:flex;align-items:baseline;gap:18px;
+  scroll-margin-top:24px;
+}
+.kapitel-head:first-of-type{margin-top:0}
+.kapitel-head .kapitel-nr{display:none}
+.kapitel-head h2{
+  font-size:1.7rem;line-height:1.18;margin:0;
+  font-weight:700;color:var(--ink);letter-spacing:-.005em;flex:1;
+}
+
+.article p{font-size:1.06rem;color:#2c2620;margin:14px 0 18px 0;line-height:1.65}
+.article strong{font-weight:700;color:#1a1410}
+.article em{font-style:italic}
+.mark{background:linear-gradient(transparent 55%,rgba(242,200,75,.55) 55%)}
+.article strong.hl1{font-weight:700;color:var(--red)}
+.article mark.hl2{background:transparent;color:var(--accent-2,#244f63);font-weight:650;padding:0}
+
+/* 4-STUFEN-HL-SYSTEM (Bauanleitung 2026-06-16) */
+/* Stufe 1: em (built-in) */
+/* Stufe 2: Schluesselsatz inline */
+.article .hl{
+  font-weight:600;color:var(--ochre,#9A6A1F);
+}
+/* Stufe 3: Kernsatz Block */
+.article p.kernsatz{
+  font-family:'Spectral',Georgia,serif;font-style:italic;font-weight:500;
+  font-size:1.5rem;line-height:1.34;color:#15171C;text-align:center;
+  max-width:26ch;margin:36px auto;
+}
+.article p.kernsatz + p.kernsatz{margin-top:-22px}
+.article ul.review-list{
+  margin:14px 0 22px 1.2rem;
+  padding-left:1.1rem;
+}
+.article ul.review-list li{
+  margin:7px 0;
+  line-height:1.7;
+}
+/* Stufe 4: Marker — Inschrift-Variante (HUMAN-Update 2026-06-17, Bauanleitung §2.3/§2.4/§5).
+   Word-Trick: Rahmen oben auf Label + Rahmen unten auf Marker, dazwischen kein Rahmen
+   -> visuell ein Kasten um beide Absaetze. CSS-Aequivalent: top/bottom border auf label/p,
+   zentriert + symmetrischer Einzug simuliert 2.5cm Word-Einzug. */
+.article .statement{
+  margin:48px auto;
+  max-width:520px;
+  text-align:center;
+}
+.article .statement .label{
+  font-family:var(--mono);font-size:.7rem;font-weight:600;letter-spacing:.24em;
+  text-transform:uppercase;color:#15171C;
+  border-top:1.5px solid #15171C;
+  padding:14px 0 10px 0;margin:0;
+}
+.article .statement p{
+  margin:0;font-family:'Spectral',Georgia,serif;font-weight:500;font-style:italic;
+  font-size:1.5rem;line-height:1.34;color:#15171C;
+  border-bottom:1.5px solid #15171C;
+  padding:0 0 16px 0;
+}
+
+/* W8: Bild-Rahmung staerker · W10: Bilder leicht rotieren */
+/* D_260807_15: Standardbreite = volle Artikel-Spalte (statt schmalerer
+   -8px-Ausbruch + Opt-in-Direktive `BREIT=JA`, D_260807_05 -- abgeloest,
+   siehe DECISIONS_LOG). Kein Aufwaerts-Skalieren mehr noetig, nur noch
+   optionales Verkleinern via P5C-Klicktool/`SKALIEREN=<Wert>`. */
+.evidence{
+  margin:36px calc(-1 * var(--article-pad-x));padding:14px;
+  width:calc(100% + 2 * var(--article-pad-x));max-width:none;
+  background:#fff;border:1px solid var(--line-deep);border-radius:2px;
+  transform:rotate(-.3deg);
+  box-shadow:0 16px 30px rgba(60,42,18,.13), 0 1px 0 rgba(255,255,255,.6) inset;
+}
+.evidence:nth-of-type(even){transform:rotate(.4deg)}
+/* D_260807: --figure-scale wurde vom Renderer schon lange gesetzt (figure_style_attr(),
+   SKALIEREN=NN-Marker UND P5C-Klicktool-Werte), aber nie von einer CSS-Regel konsumiert --
+   die Skalierung ging seit Bau des Mechanismus nirgends ins tatsaechliche Bild. Ohne
+   .custom-scale bleibt --figure-scale wirkungslos (Default via var(--figure-scale,1)). */
+.evidence.custom-scale{
+  width:calc(var(--figure-scale,1) * (100% + 2 * var(--article-pad-x)));
+  max-width:none;margin-left:auto;margin-right:auto;
+}
+.evidence img{
+  width:100%;display:block;height:auto;
+  border:1px solid #ddd5c4;background:#fafafa;
+}
+.cap{
+  font:500 .78rem/1.5 var(--mono);color:var(--muted);
+  padding:10px 4px 0;margin:0;
+}
+.evidence-pending{
+  margin:24px 0;padding:14px;
+  border:1px dashed var(--red);background:#fbeae5;
+  font:500 .85rem/1.4 var(--mono);color:var(--red-deep);
+}
+
+/* W3: Card-Familie vereinheitlicht — alle drei Karten gleich strukturiert, nur Seitenlinie-Farbe + Label-Farbe unterschiedlich */
+/* W4: Card-Text kleiner · W10: Cards NICHT rotieren */
+.card{
+  margin:22px 0;padding:14px 18px;
+  background:var(--paper);border-radius:3px;
+  font-family:var(--mono);font-size:.80rem;line-height:1.55;
+  border-left:4px solid var(--line-deep);
+}
+.card:before{
+  display:block;font:700 .60rem/1 var(--mono);
+  letter-spacing:.14em;margin-bottom:8px;
+}
+.card p{margin:0;font-size:inherit;color:#2c2620}
+.card p br{line-height:1.8}
+
+.prompt-card{border-left-color:var(--red);background:#fff8f4}
+.prompt-card:before{content:"\27a4  PROMPT";color:var(--red)}
+
+.response-card{border-left-color:var(--green);background:#f4f7ee}
+.response-card:before{content:"\25c6  RESPONSE";color:var(--green)}
+
+.output-card{border-left-color:#8a6d3d;background:#fbf6e8}
+.output-card:before{content:"\25a3  OUTPUT";color:#8a6d3d}
+
+.quote{
+  border-left:4px solid var(--red);padding:10px 0 10px 22px;
+  margin:34px 0;font-size:1.3rem;line-height:1.35;font-weight:600;
+  color:var(--ink);
+}
+
+/* W9: Cliff in reiner Werkbank-Identitaet */
+.cliff{
+  margin-top:60px;padding:32px 30px;
+  background:linear-gradient(135deg,#211915 0%,#2d211a 100%);
+  color:#fff3df;border-radius:4px;
+  border-top:3px solid var(--red);
+  box-shadow:0 12px 30px rgba(33,25,21,.3);
+}
+.cliff .k{
+  font:700 .72rem/1 var(--mono);color:#ffb19e;
+  text-transform:uppercase;letter-spacing:.16em;
+}
+.cliff h2{
+  margin:14px 0 0;font-size:1.7rem;color:#fffaf0;
+  line-height:1.22;font-weight:600;
+}
+
+/* FOOTER */
+.note-footer-meta{
+  margin-top:48px;padding-top:24px;border-top:1px solid var(--line);
+  font:500 .82rem/1.45 var(--mono);color:var(--muted);
+  display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;
+}
+.note-footer-meta .nav-next{color:var(--red);font-weight:600}
+.note-footer-meta a{color:inherit;text-decoration:none}
+.note-footer-meta a:hover{text-decoration:underline}
+.note-footer-meta .empty{color:var(--muted);font-style:italic}
+
+.colophon{
+  max-width:1280px;margin:0 auto;padding:32px 26px;
+  font:500 .78rem/1.5 var(--mono);color:var(--muted);
+  text-align:center;border-top:1px solid var(--line);
+}
+.colophon .sig{color:var(--red);font-weight:700}
+
+/* WERKSTATT-STATEMENT (HUMAN-Decision 2026-06-16: vom Hero-Postit nach unten) */
+.werkstatt-statement{
+  max-width:880px;margin:48px auto 0;padding:24px 26px 0;
+  font:500 .92rem/1.55 var(--sans);color:var(--muted);
+  text-align:center;font-style:italic;
+}
+
+/* W5: RESPONSIVE — Handy / Tablet / Monitor */
+@media(max-width:960px){
+  .hero-inner{grid-template-columns:1fr;gap:36px}
+  .desk{order:2}
+  .hero{min-height:auto;padding:84px 22px 44px}
+  .hero h1{max-width:12ch}
+  .reader{grid-template-columns:1fr;gap:24px}
+  .rail{
+    position:relative;top:auto;border-left:none;border-top:1px solid var(--red);
+    padding:14px 0 0 0;max-height:none;
+  }
+  .rail a{padding:6px 0}
+  .article{--article-pad-x:20px;padding:28px 20px}
+  .evidence{margin:28px calc(-1 * var(--article-pad-x));width:calc(100% + 2 * var(--article-pad-x));max-width:none}
+  .kapitel-head{flex-direction:column;gap:6px}
+  .kapitel-head .kapitel-nr{font-size:1.1rem}
+}
+@media(min-width:1440px){
+  .main{max-width:1380px}
+  .reader{grid-template-columns:260px minmax(0,920px);gap:64px}
+  .article p{font-size:1.08rem}
+}
+
+
+/* D_260807 HERO_VEIL=off (dieses Note-Dossier) */
+.hero{background-image:url("../heroes/hero_12.png") !important}
+
+
+/* fieldnote.css — Werkbank-Styles fuer WEB_PREVIEW (P1-P5)
+   Extrahiert 2026-06-18 aus 01_2025_07_NEUGIERDE/_render_werkbank.py.
+   Cross-Ref: 0_W_WORKFLOW/P6_RELEASE/HTML_DESIGN_NEW_260617/Bauanleitung Hervorhebungs-System.md
+   Convention: 0_C_CONVENTION/C_FORMAT_HTML.md (ab §13 pending rewrite auf 4-Stufen).
+
+   GESTRICHEN 2026-06-18: .statement-block + .statement-label (Legacy HL1-AKZENT,
+   abgeloest durch 4-Stufen-System Stufe 4 = .statement + .label).
+*/
+
+:root{
+  --bg:#f2eadc;--paper:#fffaf0;--paper-deep:#faf4e6;--ink:#191713;--muted:#6e6458;
+  --line:#d6c8b4;--line-deep:#b8a78d;--red:#bd3f2b;--red-deep:#8b2c1c;
+  --yellow:#f2c84b;--green:#486b55;
+  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  --sans:"IBM Plex Sans",Inter,"Segoe UI",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.65;font-size:17px;text-align:left}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;opacity:.32;
+  background-image:radial-gradient(rgba(70,55,35,.12) 1px,transparent 1px);
+  background-size:5px 5px;mix-blend-mode:multiply;z-index:0;
+}
+
+/* HERO */
+.hero{
+  min-height:88vh;position:relative;display:grid;align-items:end;overflow:hidden;
+  padding:84px 26px 56px;
+  background:
+    linear-gradient(110deg,rgba(20,14,8,.86),rgba(28,20,12,.58) 40%,rgba(38,26,16,.36) 70%,rgba(245,238,224,.18) 100%),
+    url("../heroes/hero_12.png");
+  background-size:cover;background-position:center;
+}
+.hero:after{
+  content:"";position:absolute;inset:auto 0 0 0;height:16%;
+  background:linear-gradient(transparent,var(--bg));
+}
+.hero-inner{
+  position:relative;z-index:2;max-width:1280px;margin:0 auto;width:100%;
+  display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:64px;align-items:end;
+}
+.eyebrow{font:700 .76rem/1 var(--mono);color:#ffd9a8;text-transform:uppercase;letter-spacing:.18em}
+.hero h1{
+  font-size:clamp(2.8rem,8vw,6.8rem);line-height:.9;
+  margin:18px 0 24px;color:#fffaf0;letter-spacing:-.005em;max-width:900px;
+  text-shadow:0 3px 18px rgba(0,0,0,.42);
+}
+.hero .lead{
+  font-size:clamp(1.08rem,1.6vw,1.32rem);max-width:1100px;
+  color:#fff5e4;margin:0;line-height:1.45;font-weight:400;
+  text-shadow:0 2px 8px rgba(0,0,0,.4);
+}
+
+/* SLIPS (diskret-neutral, kein Postit) */
+.desk{display:grid;gap:14px;align-self:end}
+.slip{
+  background:var(--paper);border:1px solid var(--line-deep);
+  padding:16px 17px;border-radius:3px;
+  box-shadow:0 8px 22px rgba(22,17,10,.22);
+}
+.slip .k{
+  font:700 .68rem/1 var(--mono);color:var(--red);
+  text-transform:uppercase;letter-spacing:.12em;
+  display:block;margin-bottom:8px;
+}
+.slip h3{font-size:1.05rem;line-height:1.25;margin:0 0 6px;font-weight:600;color:var(--ink)}
+.slip p{font-size:.92rem;color:#4d453c;margin:0;line-height:1.5}
+.slip .date{
+  font:600 .82rem/1 var(--mono);color:var(--ink);
+  margin-bottom:8px;letter-spacing:.02em;
+}
+
+/* MAIN-LAYOUT (W5: breiter + responsive) */
+.main{
+  max-width:1280px;margin:0 auto;padding:64px 26px 80px;
+  position:relative;z-index:1;
+}
+.section-title{
+  font:700 .78rem/1 var(--mono);letter-spacing:.16em;
+  text-transform:uppercase;color:var(--red);margin-bottom:20px;
+}
+.reader{
+  display:grid;grid-template-columns:240px minmax(0,820px);gap:56px;
+}
+.rail{
+  position:sticky;top:62px;align-self:start;
+  border-left:2px solid var(--red);padding:8px 0 8px 18px;
+  font:500 .82rem/1.4 var(--mono);color:var(--muted);
+  max-height:calc(100vh - 80px);overflow-y:auto;
+}
+.rail a{
+  display:block;color:inherit;text-decoration:none;
+  padding:8px 0;border-bottom:1px solid var(--line);
+}
+.rail a:hover{color:var(--red)}
+.rail-nr{
+  display:inline-block;width:2em;color:var(--red);font-weight:700;
+}
+
+/* ARTICLE */
+.article{
+  --article-pad-x:clamp(24px,5vw,60px);
+  background:rgba(255,250,240,.84);border:1px solid var(--line);
+  padding:42px var(--article-pad-x);
+  box-shadow:0 22px 70px rgba(48,35,18,.08);
+}
+
+/* ABSTRACT-BLOCK (DIRECTOR-Entscheid: abstract vor Akt-1) */
+.abstract-lead{
+  font-style:italic;font-size:1.12rem;line-height:1.55;
+  color:var(--muted);margin:0 0 36px 0;
+  padding:18px 22px;background:var(--paper-deep);
+  border-left:3px solid var(--line-deep);border-radius:2px;
+}
+
+/* KAPITEL-HEAD (HUMAN-Decision 2026-06-16: Nummerierung weg, scroll-margin-top fuer Anchor-Sprung) */
+.kapitel-head{
+  margin-top:48px;display:flex;align-items:baseline;gap:18px;
+  scroll-margin-top:24px;
+}
+.kapitel-head:first-of-type{margin-top:0}
+.kapitel-head .kapitel-nr{display:none}
+.kapitel-head h2{
+  font-size:1.7rem;line-height:1.18;margin:0;
+  font-weight:700;color:var(--ink);letter-spacing:-.005em;flex:1;
+}
+
+.article p{font-size:1.06rem;color:#2c2620;margin:14px 0 18px 0;line-height:1.65}
+.article strong{font-weight:700;color:#1a1410}
+.article em{font-style:italic}
+.mark{background:linear-gradient(transparent 55%,rgba(242,200,75,.55) 55%)}
+.article strong.hl1{font-weight:700;color:var(--red)}
+.article mark.hl2{background:transparent;color:var(--ochre,#9A6A1F);font-weight:650;padding:0}
+
+/* 4-STUFEN-HL-SYSTEM (Bauanleitung 2026-06-16) */
+/* Stufe 1: em (built-in) */
+/* Stufe 2: Schluesselsatz inline */
+.article .hl{
+  font-weight:700;color:#9A6A1F;
+}
+/* Stufe 3: Kernsatz Block. Breite 260706: volle .article-Breite statt ch-Box,
+   da Text ohnehin zentriert ist und kein Kernsatz sich auf die schmale Box als
+   Auto-Umbruch verlaesst (siehe D_260706_04 Nachtrag 4) -> einzige Quelle,
+   Python-Builder-Duplikat + Final-Polish-Zweitregel entfernt. */
+.article p.kernsatz{
+  font-family:'Spectral',Georgia,serif;font-style:italic;font-weight:500;
+  font-size:1.5rem;line-height:1.34;color:#15171C;text-align:center;
+  max-width:none;margin:36px auto;
+}
+.article p.kernsatz + p.kernsatz{margin-top:-22px}
+.article ul.review-list{
+  margin:14px 0 22px 1.2rem;
+  padding-left:1.1rem;
+}
+.article ul.review-list li{
+  margin:7px 0;
+  line-height:1.7;
+}
+/* Stufe 4: Marker — Inschrift-Variante (HUMAN-Update 2026-06-17, Bauanleitung §2.3/§2.4/§5).
+   Word-Trick: Rahmen oben auf Label + Rahmen unten auf Marker, dazwischen kein Rahmen
+   -> visuell ein Kasten um beide Absaetze. CSS-Aequivalent: top/bottom border auf label/p,
+   zentriert + symmetrischer Einzug simuliert 2.5cm Word-Einzug. */
+.article .statement{
+  margin:48px auto;
+  max-width:none;
+  text-align:center;
+}
+.article .statement .label{
+  font-family:var(--mono);font-size:.7rem;font-weight:600;letter-spacing:.24em;
+  text-transform:uppercase;color:#7d4a23;
+  border-top:1.5px solid #15171C;
+  padding:14px 0 10px 0;margin:0;
+}
+.article .statement p{
+  margin:0;font-family:'Spectral',Georgia,serif;font-weight:500;font-style:italic;
+  font-size:1.5rem;line-height:1.34;color:#15171C;
+  border-bottom:1.5px solid #15171C;
+  padding:0 0 16px 0;
+}
+
+/* W8: Bild-Rahmung staerker · W10: Bilder leicht rotieren */
+/* D_260807_15: Standardbreite = volle Artikel-Spalte (statt schmalerer
+   -8px-Ausbruch + Opt-in-Direktive `BREIT=JA`, D_260807_05 -- abgeloest,
+   siehe DECISIONS_LOG). Kein Aufwaerts-Skalieren mehr noetig, nur noch
+   optionales Verkleinern via P5C-Klicktool/`SKALIEREN=<Wert>`. */
+.evidence{
+  margin:36px calc(-1 * var(--article-pad-x));padding:14px;
+  width:calc(100% + 2 * var(--article-pad-x));max-width:none;
+  background:#fff;border:1px solid var(--line-deep);border-radius:2px;
+  transform:rotate(-.3deg);
+  box-shadow:0 16px 30px rgba(60,42,18,.13), 0 1px 0 rgba(255,255,255,.6) inset;
+}
+.evidence:nth-of-type(even){transform:rotate(.4deg)}
+/* D_260807: --figure-scale wurde vom Renderer gesetzt (SKALIEREN=NN-Marker + P5C-Klicktool-
+   Werte), aber nie von einer CSS-Regel konsumiert -- ohne .custom-scale wirkungslos. */
+.evidence.custom-scale{
+  width:calc(var(--figure-scale,1) * (100% + 2 * var(--article-pad-x)));
+  max-width:none;margin-left:auto;margin-right:auto;
+}
+.evidence img{
+  width:100%;display:block;height:auto;
+  border:1px solid #ddd5c4;background:#fafafa;
+}
+.cap{
+  font:500 .78rem/1.5 var(--mono);color:var(--muted);
+  padding:10px 4px 0;margin:0;
+}
+.evidence-pending{
+  margin:24px 0;padding:14px;
+  border:1px dashed var(--red);background:#fbeae5;
+  font:500 .85rem/1.4 var(--mono);color:var(--red-deep);
+}
+
+/* W3: Card-Familie vereinheitlicht — alle drei Karten gleich strukturiert, nur Seitenlinie-Farbe + Label-Farbe unterschiedlich */
+/* W4: Card-Text kleiner · W10: Cards NICHT rotieren */
+.card{
+  margin:22px 0;padding:10px 16px;
+  background:var(--paper);border-radius:3px;
+  font-family:var(--mono);font-size:.80rem;line-height:1.5;
+  border-left:4px solid var(--line-deep);
+}
+.card:before{
+  display:block;font:700 .60rem/1 var(--mono);
+  letter-spacing:.14em;margin-bottom:8px;
+}
+.card p{margin:0;font-size:inherit;color:#2c2620}
+.card p br{line-height:1.8}
+
+.prompt-card{border-left-color:var(--red);background:#fff8f4}
+.prompt-card:before{content:"\27a4  PROMPT";color:var(--red)}
+
+.response-card{border-left-color:var(--green);background:#f4f7ee}
+.response-card:before{content:"\25c6  RESPONSE";color:var(--green)}
+
+.output-card{border-left-color:#8a6d3d;background:#fbf6e8}
+.output-card:before{content:"\25a3  OUTPUT";color:#8a6d3d}
+
+.quote{
+  border-left:4px solid var(--red);padding:10px 0 10px 22px;
+  margin:34px 0;font-size:1.3rem;line-height:1.35;font-weight:600;
+  color:var(--ink);
+}
+
+/* W9: Cliff in reiner Werkbank-Identitaet */
+.cliff{
+  margin-top:60px;padding:32px 30px;
+  background:linear-gradient(135deg,#211915 0%,#2d211a 100%);
+  color:#fff3df;border-radius:4px;
+  border-top:3px solid var(--red);
+  box-shadow:0 12px 30px rgba(33,25,21,.3);
+}
+.cliff .k{
+  font:700 .72rem/1 var(--mono);color:#ffb19e;
+  text-transform:uppercase;letter-spacing:.16em;
+}
+.cliff h2{
+  margin:14px 0 0;font-size:1.7rem;color:#fffaf0;
+  line-height:1.22;font-weight:600;
+}
+
+/* FOOTER */
+.note-footer-meta{
+  margin-top:48px;padding-top:24px;border-top:1px solid var(--line);
+  font:500 .82rem/1.45 var(--mono);color:var(--muted);
+  display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;
+}
+.note-footer-meta .nav-next{color:var(--red);font-weight:600}
+.note-footer-meta a{color:inherit;text-decoration:none}
+.note-footer-meta a:hover{text-decoration:underline}
+.note-footer-meta .empty{color:var(--muted);font-style:italic}
+
+.colophon{
+  max-width:1280px;margin:0 auto;padding:32px 26px;
+  font:500 .78rem/1.5 var(--mono);color:var(--muted);
+  text-align:center;border-top:1px solid var(--line);
+}
+.colophon .sig{color:var(--red);font-weight:700}
+
+/* WERKSTATT-STATEMENT (HUMAN-Decision 2026-06-16: vom Hero-Postit nach unten) */
+.werkstatt-statement{
+  max-width:880px;margin:48px auto 0;padding:24px 26px 0;
+  font:500 .92rem/1.55 var(--sans);color:var(--muted);
+  text-align:center;font-style:italic;
+}
+
+/* W5: RESPONSIVE — Handy / Tablet / Monitor */
+@media(max-width:960px){
+  .hero-inner{grid-template-columns:1fr;gap:36px}
+  .desk{order:2}
+  .hero{min-height:auto;padding:84px 22px 44px}
+  .hero h1{max-width:12ch}
+  .reader{grid-template-columns:1fr;gap:24px}
+  .rail{
+    position:relative;top:auto;border-left:none;border-top:1px solid var(--red);
+    padding:14px 0 0 0;max-height:none;
+  }
+  .rail a{padding:6px 0}
+  .article{--article-pad-x:20px;padding:28px 20px}
+  .evidence{margin:28px calc(-1 * var(--article-pad-x));width:calc(100% + 2 * var(--article-pad-x));max-width:none}
+  .kapitel-head{flex-direction:column;gap:6px}
+  .kapitel-head .kapitel-nr{font-size:1.1rem}
+}
+@media(min-width:1440px){
+  .main{max-width:1380px}
+  .reader{grid-template-columns:260px minmax(0,920px);gap:64px}
+  .article p{font-size:1.08rem}
+}
+
+
+/* ============ Brauner Akzent statt Rot/Blau ============ */
+  :root{ --mk:#7d4a23; --mk-soft:#9c6b3f; --red:#7d4a23; }
+
+  /* ============ HERO (echter Eröffnungs-Prompt als Textur) ============ */
+  .hero{
+    background:
+      linear-gradient(to top,rgba(38,20,10,.85) 0%,rgba(46,26,14,.68) 26%,rgba(54,32,18,.32) 58%,rgba(54,32,18,0) 100%),
+      linear-gradient(110deg,rgba(46,26,14,.86),rgba(58,36,20,.58) 40%,rgba(72,46,26,.36) 70%,rgba(245,238,224,.18) 100%),
+      url("../heroes/hero_12.png");
+    background-size: cover; background-position: center;
+    min-height: 88vh;
+  }
+  .hero-inner{ grid-template-columns: 1fr; }
+  .hero .eyebrow{ font-family: 'IBM Plex Sans', system-ui, sans-serif; font-weight: 700; }
+
+  /* De-Mono: Monospace nur noch in Cards, Header, Footer */
+  .section-title{
+    font-family: 'Spectral', Georgia, serif; font-style: italic; font-weight: 600;
+    text-transform: none; letter-spacing: .01em; font-size: 1rem; color: var(--mk);
+  }
+  /* Inhaltsverzeichnis (Schiene) entfernt -> Artikel zentriert, volle Breite */
+  .reader{ grid-template-columns: minmax(0, 820px); justify-content: center; }
+
+  /* ============ STICKY-HEADER — der ruhende Pol ============ */
+  .topbar{
+    position: sticky; top: 0; z-index: 50;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    padding: 10px clamp(16px,3vw,30px);
+    background: rgba(18,12,7,.82);
+    backdrop-filter: blur(9px); -webkit-backdrop-filter: blur(9px);
+    border-bottom: 1px solid rgba(214,200,180,.18);
+  }
+  .topbar .brand{ display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+  .topbar .brand-series{
+    font: 600 .92rem/1.1 'Spectral', Georgia, serif; letter-spacing: .01em;
+    color: #ffd9a8; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .topbar .brand-nr{ font: 400 italic .78rem/1.2 'Spectral', Georgia, serif; color: #c9bba6; letter-spacing: .02em; }
+  .topbar-controls{ display: flex; flex-direction: row; align-items: center; gap: 14px; }
+
+  /* Linke Seite: Note-Navigation + Brand */
+  .topbar-left{ display: flex; align-items: center; gap: 16px; min-width: 0; }
+  .notenav{ display: flex; gap: 4px; }
+  .notenav button,.notenav a{
+    display: flex; align-items: center; justify-content: center;
+    width: 30px; height: 30px; padding: 0; cursor: pointer;
+    border: 1px solid rgba(214,200,180,.26); border-radius: 3px;
+    background: transparent; color: #d8cbb6;
+  }
+  .notenav button:hover,.notenav a:hover{ border-color: rgba(255,217,168,.7); color: #fff3df; }
+  .notenav button svg,.notenav a svg{ width: 16px; height: 16px; display: block; fill: none; stroke: currentColor; stroke-width: 1.7; }
+
+  /* Sprach-Stubs: nur Flaggen */
+  .langs{ display: flex; gap: 6px; }
+  .langs .lang{
+    display: flex; align-items: center; justify-content: center;
+    padding: 4px; border-radius: 3px; cursor: pointer;
+    border: 1px solid rgba(214,200,180,.26); background: transparent;
+  }
+  .langs .lang .flag{
+    height: 15px; width: auto; display: block; border-radius: 1px;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.2);
+  }
+  .langs .lang:hover{ border-color: rgba(255,217,168,.7); }
+  .langs .lang.is-active{ background: var(--mk); border-color: var(--mk); box-shadow: 0 0 0 1px var(--mk); }
+  .langs .lang[disabled]{ opacity: .5; cursor: not-allowed; }
+  .langs .lang[disabled]:hover{ border-color: rgba(214,200,180,.26); }
+
+  /* Ansicht-Umschalter */
+  .views{ display: flex; border: 1px solid rgba(214,200,180,.3); border-radius: 3px; overflow: hidden; }
+  .views .view{
+    font: 600 .82rem/1 'Spectral', Georgia, serif; letter-spacing: .01em;
+    padding: 6px 13px; cursor: pointer; border: 0; background: transparent; color: #d8cbb6;
+  }
+  .views .view + .view{ border-left: 1px solid rgba(214,200,180,.3); }
+  .views .view:hover{ color: #fff3df; }
+  .views .view.is-active{ background: #f2eadc; color: #191713; }
+
+  /* F19-Fix 260705: #back-top-btn stand als nacktes .view-Textbutton (Leck aus
+     deaktiviertem Scroll/Reader-Toggle) neben den quadratischen Icon-Buttons der
+     .notenav -- jetzt gleiche Box-Optik wie .notenav button (Icon statt Text). */
+  #back-top-btn{
+    display: flex; align-items: center; justify-content: center;
+    width: 30px; height: 30px; padding: 0; cursor: pointer;
+    border: 1px solid rgba(214,200,180,.26); border-radius: 3px;
+    background: transparent; color: #d8cbb6;
+  }
+  #back-top-btn:hover{ border-color: rgba(255,217,168,.7); color: #fff3df; }
+  #back-top-btn svg{ width: 16px; height: 16px; display: block; fill: none; stroke: currentColor; stroke-width: 1.7; }
+
+  /* ============ BODY-SCHRIFT = SERIF ============ */
+  .article > p{
+    font-family: 'Spectral', Georgia, serif;
+    font-size: 1.06rem; line-height: 1.7; color: #2c2620;
+  }
+  .article > p em{ font-style: italic; }
+  .article > p strong{ font-weight: 600; }
+
+  /* ============ HEADINGS ruhiger (Serif, kleiner, weniger fett) ============ */
+  .article .kapitel-head{ display: block; margin-top: 52px; margin-bottom: 10px; }
+  .article .kapitel-head h2{
+    font-family: 'Spectral', Georgia, serif;
+    font-weight: 600; font-size: 1.26rem; line-height: 1.25;
+    letter-spacing: 0; color: #241c12; margin: 0;
+  }
+
+  /* ============ MARKER in Braun ============ */
+  /* #2 braun + fett */
+  .article strong.hl1, .article .hl1{ color: var(--mk); font-weight: 700; }
+  /* #4: gleiche Groesse wie #3 (Kernsatz), kursiv, Linie oben + unten */
+  .article .statement{ margin: 42px auto; }
+  .article .statement p{
+    font-family: 'Spectral', Georgia, serif; font-style: italic; font-weight: 500;
+    font-size: 1.34rem; line-height: 1.36; color: #241c12;
+    border-top: 1.5px solid #2c2620; border-bottom: 1.5px solid #2c2620;
+    padding: 16px 0; margin: 0;
+  }
+  .article p.kernsatz{ font-size: 1.34rem; }
+  /* ============ 4 Gespraechs-Bausteine: DU / GPT / OUTPUT / CODE ============ */
+  .article .conv{ margin: 30px 0; }
+  .article .conv .lbl{
+    margin: 0 0 8px 6px;
+    font: 700 .8rem/1 'IBM Plex Sans', system-ui, sans-serif; letter-spacing: .03em;
+  }
+
+  /* Du: — Prompt-Composer (ChatGPT-Eingabefeld) */
+  .article .conv.du .lbl{ color: var(--mk); }
+  .article .composer{
+    position: relative; padding: 11px 17px 11px; overflow: hidden;
+    background: #f4f1ec; border: 1px solid #ddd5c9; border-radius: 26px;
+    box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 10px 26px rgba(60,42,18,.07);
+  }
+  .article .composer .ptext{
+    margin: 0 !important; padding: 0 5px 11px;
+    font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 1rem; line-height: 1.55; color: #2c2620;
+  }
+  .article .composer .ptext em{ font-style: italic; }
+  .article .composer .toolbar{ display: flex; align-items: center; gap: 9px; }
+  .article .composer .toolbar .spacer{ flex: 1; }
+  .article .ibtn{
+    display: inline-grid; place-items: center; width: 36px; height: 36px; padding: 0;
+    border: 0; border-radius: 50%; background: transparent; color: #463a2c;
+  }
+  .article .ibtn.outline{ background: #fff; border: 1px solid #d5ccbe; }
+  /* Senden-Kreis invertiert: weisser Pfeil auf Braun */
+  .article .ibtn.send{ background: var(--mk); border: 1px solid var(--mk); color: #fff; }
+  .article .icn{ width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .article .ubtn .icn{ width: 15px; height: 15px; }
+
+  /* GPT: — Response-Card (saubere weisse Karte) */
+  .article .conv.gpt .lbl{ color: var(--green); }
+  .article .rcard{
+    position: relative;
+    padding: 19px 22px; background: #fffdf8; border: 1px solid var(--line); border-radius: 16px;
+    box-shadow: 0 1px 2px rgba(0,0,0,.03), 0 8px 22px rgba(60,42,18,.05);
+  }
+  .article .rcard p{ margin: 0; font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: .98rem; line-height: 1.6; color: #2c2620; }
+  .article .rcard p + p{ margin-top: .55em; }
+  .article .rcard em{ font-style: italic; }
+
+  /* Kopieren-Symbol oben rechts (zwei überlappende Quadrate) */
+  .article .copybtn{
+    position: absolute; top: 12px; right: 12px; width: 30px; height: 30px; padding: 0;
+    display: inline-grid; place-items: center; cursor: pointer;
+    border: 1px solid var(--line); border-radius: 7px; background: rgba(255,255,255,.7); color: var(--muted);
+  }
+  .article .copybtn:hover{ color: var(--mk); border-color: var(--mk-soft); }
+  .article .copybtn svg{ width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* OUTPUT: — strukturiertes Resultat */
+  .article .conv.output .lbl{ color: var(--mk-soft); }
+  .article .ocard{
+    position: relative;
+    padding: 16px 50px 16px 19px; background: var(--paper-deep);
+    border: 1px solid var(--line); border-left: 3px solid var(--mk-soft); border-radius: 3px;
+  }
+  .article .ocard p{ margin: 0; font: 500 .9rem/1.6 var(--mono); color: #3a322a; }
+
+  /* CODE: — Code-Block (heller Untergrund, Scrollbalken erst ab ~10 Zeilen) */
+  .article .conv.code .lbl{ color: #5a534a; }
+  .article .ccard{
+    padding: 15px 18px; background: #f3ecdf; border: 1px solid var(--line-deep); border-radius: 6px;
+    max-height: 252px; overflow: auto;
+  }
+  .article .ccard pre{ margin: 0; font: 500 .82rem/1.6 var(--mono); color: #3a322a; white-space: pre; }
+  .article .ccard .cmt{ color: #9a8866; }
+
+  /* ============ QUOTE = Stufe 4: Linie oberhalb + unterhalb ============ */
+  .article .quote{
+    border-left: 0; margin: 44px auto; max-width: 32ch;
+    text-align: center; font-family: 'Spectral', Georgia, serif;
+    font-style: italic; font-weight: 500; font-size: 1.34rem; line-height: 1.36; color: #241c12;
+    border-top: 1.5px solid #2c2620; border-bottom: 1.5px solid #2c2620; padding: 16px 0;
+  }
+
+  /* ============ EVIDENCE — nur das Bild ist zart hinterlegt (Passepartout im Papierton) ============ */
+  /* D_260807_15: margin:36px 0 bleibt korrekt, weil --article-pad-x im
+     mode-scroll-Kontext bereits 0 ist (kein separater Wide-Fall mehr). */
+  .article .evidence{
+    margin: 36px 0; padding: 0; background: none; border: 0; box-shadow: none; transform: none;
+  }
+  .article .evidence:nth-of-type(even){ transform: none; }
+  .article .evidence .stub-tag{
+    display: inline-block; font: 700 .64rem/1 'IBM Plex Sans', system-ui, sans-serif; letter-spacing: .1em;
+    text-transform: uppercase; color: #fffaf0; background: var(--mk-soft);
+    padding: 6px 11px; border-radius: 2px; margin: 0 0 12px;
+  }
+  .article .evidence img{
+    width: 100%; height: auto; display: block; background: var(--paper-deep);
+    border: 1px solid var(--line); border-radius: 2px; padding: 16px; box-shadow: none;
+  }
+  .article .evidence .cap{ color: var(--muted); padding: 12px 2px 0; font-family: 'Spectral', Georgia, serif; font-style: italic; }
+
+  /* ============ CLIFF entschärft (kein dunkler Kasten, klein) ============ */
+  .article .cliff{
+    margin-top: 52px; padding: 22px 0 0; background: none; color: inherit;
+    border: 0; border-top: 1px solid var(--line); border-radius: 0; box-shadow: none;
+  }
+  .article .cliff .k{ color: var(--mk-soft); font: 700 .72rem/1 'IBM Plex Sans', system-ui, sans-serif; letter-spacing: .14em; text-transform: uppercase; }
+  .article .cliff .next-meta{
+    font: 600 .8rem/1.2 'IBM Plex Sans', system-ui, sans-serif; letter-spacing: .02em;
+    color: var(--muted); margin: 11px 0 0;
+  }
+  .article .cliff h2{
+    font-family: 'Spectral', Georgia, serif; font-style: normal; font-weight: 600;
+    font-size: 1.18rem; line-height: 1.3; color: #241c12; margin: 5px 0 0;
+  }
+
+  /* ============ TOC ruhiger: schlichte Nummern 01–09, keine A/B-Codes ============ */
+  .rail{ border-left: 1px solid var(--line-deep); }
+  .rail a{ display: flex; gap: 12px; align-items: baseline; }
+  .rail-nr{
+    width: auto; color: var(--muted); font-weight: 600; font-feature-settings: "tnum";
+    letter-spacing: .04em;
+  }
+  .rail a:hover .rail-nr{ color: var(--mk); }
+  .rail .grp{
+    display: block; padding: 14px 0 6px; margin-top: 6px;
+    font: 700 .66rem/1 var(--mono); letter-spacing: .16em; text-transform: uppercase;
+    color: var(--mk-soft); border-bottom: 0;
+  }
+  .rail .grp:first-child{ margin-top: 0; padding-top: 0; }
+
+  /* ============ READER v2 — Buch-Doppelseite mit Seitenumblaettern ============ */
+  body.mode-reader{ overflow: hidden; }
+  body.mode-reader .hero,
+  body.mode-reader .section-title,
+  body.mode-reader .werkstatt-statement,
+  body.mode-reader .colophon,
+  body.mode-reader .reader{ display: none; }
+  body.mode-reader .main{ padding: 0; max-width: none; }
+
+  /* Header faehrt weg, erscheint nur auf Tipp in die Kopfzone (instant: Transitions frieren hier ein) */
+  body.mode-reader .topbar{ transform: translateY(-100%); }
+  body.mode-reader .topbar.show{ transform: translateY(0); }
+
+  .bookstage{ display: none; }
+  body.mode-reader .bookstage{
+    display: block; position: fixed; inset: 0; z-index: 40;
+    background: radial-gradient(130% 100% at 50% -12%, #efe7d7 0%, #e4d9c5 55%, #d5c7af 100%);
+    overflow: hidden; touch-action: pan-y; user-select: none; -webkit-user-select: none;
+  }
+  .book{
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+    display: flex; perspective: 2600px; border-radius: 5px;
+    box-shadow: 0 36px 66px rgba(46,32,16,.34), 0 6px 16px rgba(46,32,16,.20);
+  }
+  .page-slot{ position: relative; flex: none; background: #fffdf7; overflow: hidden; }
+  .page-slot.left{ border-radius: 5px 0 0 5px; box-shadow: inset -26px 0 40px -26px rgba(60,42,18,.34); }
+  .page-slot.right{ border-radius: 0 5px 5px 0; box-shadow: inset 26px 0 40px -26px rgba(60,42,18,.34); }
+
+  .page{ position: absolute; inset: 0; padding: 46px 46px 50px; box-sizing: border-box; overflow: hidden; }
+  .pageno{ position: absolute; bottom: 16px; font: 600 .72rem/1 var(--mono); color: #a8997f; letter-spacing: .08em; }
+  .page-slot.left .pageno{ left: 46px; }
+  .page-slot.right .pageno{ right: 46px; }
+
+  /* Inhalt auf der Buchseite: kleiner als in der Scroll-Version */
+  .page .article{ background: transparent; border: 0; box-shadow: none; padding: 0; margin: 0; max-width: none; height: auto; }
+  .page .article > *:first-child{ margin-top: 0 !important; }
+  .page .article > p{ font-size: .8rem; line-height: 1.56; margin: .55em 0; }
+  .page .article .kapitel-head{ margin-top: 0; margin-bottom: 6px; }
+  .page .article .kapitel-head h2{ font-size: .98rem; }
+  .page .article p.kernsatz, .page .article .quote, .page .article .statement p{ font-size: .92rem; }
+  .page .article .quote, .page .article .statement{ margin: 18px auto; }
+  .page .article .statement p{ padding: 11px 0; }
+  /* Cards kompakt: weniger Padding, kleinere Schrift, engere Abstaende */
+  .page .article .conv{ margin: 12px 0; }
+  .page .article .conv .lbl{ font-size: .64rem; margin-bottom: 5px; }
+  .page .article .composer{ padding: 11px 12px 8px; border-radius: 18px; }
+  .page .article .composer .ptext{ font-size: .76rem; line-height: 1.45; padding: 0 3px 8px; min-height: 0; }
+  .page .article .composer .toolbar{ gap: 6px; }
+  .page .article .ibtn{ width: 27px; height: 27px; }
+  .page .article .ibtn .icn{ width: 14px; height: 14px; }
+  .page .article .rcard{ padding: 12px 14px; border-radius: 12px; }
+  .page .article .rcard p{ font-size: .76rem; line-height: 1.5; }
+  .page .article .copybtn{ width: 24px; height: 24px; top: 9px; right: 9px; }
+  .page .article .copybtn svg{ width: 13px; height: 13px; }
+  .page .article .ocard{ padding: 10px 40px 10px 13px; }
+  .page .article .ocard p, .page .article .ccard pre{ font-size: .68rem; line-height: 1.5; }
+  .page .article .ccard{ padding: 11px 13px; max-height: 150px; }
+  .page .article .evidence .stub-tag{ font-size: .56rem; padding: 5px 9px; margin-bottom: 9px; }
+  .page .article .evidence img{ max-height: 22vh; width: auto; max-width: 100%; padding: 11px; }
+  .page .article .evidence .cap{ font-size: .72rem; padding-top: 9px; }
+  .page .article .cliff{ margin-top: 22px; padding-top: 16px; }
+  .page .article .cliff h2{ font-size: 1rem; }
+
+  /* Umblaetter-Leaf (3D) */
+  .flipper{ position: absolute; top: 0; height: 100%; z-index: 6; transform-style: preserve-3d; display: none; will-change: transform; }
+  .flip-face{ position: absolute; inset: 0; background: #fffdf7; overflow: hidden; backface-visibility: hidden; -webkit-backface-visibility: hidden; box-shadow: 0 0 30px rgba(60,42,18,.14); }
+  .flip-face.back{ transform: rotateY(180deg); }
+  .flip-shadow{ position: absolute; inset: 0; pointer-events: none; opacity: 0; background: linear-gradient(90deg, rgba(40,26,10,.24), rgba(40,26,10,0) 58%); }
+
+  /* Navigator (1/5) — versteckt, erscheint auf Tipp in die Mitte unten */
+  .pager-ui{
+    position: fixed; left: 50%; transform: translateX(-50%); bottom: 20px; z-index: 60;
+    display: none; align-items: center; gap: 14px; padding: 8px 14px; border-radius: 999px;
+    background: rgba(26,18,10,.84); backdrop-filter: blur(8px);
+    border: 1px solid rgba(214,200,180,.22);
+    opacity: 0; pointer-events: none;
+  }
+  body.mode-reader .pager-ui{ display: flex; }
+  .pager-ui.show{ opacity: 1; pointer-events: auto; }
+  .pager-ui button{
+    font: 700 1rem/1 var(--mono); width: 30px; height: 30px; padding: 0; border-radius: 50%;
+    cursor: pointer; border: 1px solid rgba(214,200,180,.32); background: transparent; color: #fff3df;
+  }
+  .pager-ui button:hover{ background: var(--mk); border-color: var(--mk); }
+  #pg-first{ font-size: .85rem !important; opacity: .65; }
+  #pg-first:hover{ opacity: 1 !important; }
+  #pg-first.at-start{ opacity: .25 !important; pointer-events: none; }
+
+  /* Zurück-nach-oben (Scroll-Modus) */
+  #back-to-top{
+    display: none; position: fixed; bottom: 24px; right: 24px; z-index: 50;
+    width: 36px; height: 36px; align-items: center; justify-content: center;
+    background: rgba(26,18,10,.82); color: #ffd9a8;
+    border: 1px solid rgba(214,200,180,.3); border-radius: 50%;
+    cursor: pointer; font-size: 1.1rem; backdrop-filter: blur(8px);
+    opacity: 0; transition: opacity .25s; pointer-events: none;
+  }
+  body.mode-scroll #back-to-top{ display: flex; }
+  #back-to-top.visible{ opacity: 1; pointer-events: auto; }
+  .pager-ui .pg{ font: 600 .74rem/1 var(--mono); letter-spacing: .1em; color: #efe2cd; min-width: 56px; text-align: center; }
+
+  /* ============ Final-Polish ============ */
+  /* Vollflaechiges Papier statt einer grossen Karte */
+  body.mode-scroll{ background: #fbf5ea; }
+  body.mode-scroll .article{ --article-pad-x: 0px; background: transparent; border: 0; box-shadow: none; border-radius: 0; padding: 40px 0 16px; }
+
+  /* Hero-Titel 260706: nowrap-Einzeiler verworfen (brach bei langen Headlines um max-width:none aus dem Container).
+     Ersetzt durch kontrollierten Balanced-Wrap auf 900px (Container-Breite), synchron zum Python-Builder-Override. */
+  .hero h1{ hyphens: auto; -webkit-hyphens: auto; white-space: normal; max-width: 900px; font-size: clamp(1.9rem, 6vw, 5rem); text-wrap: balance; }
+
+  /* Doppelte „Field Note“ aufloesen: Header-Brand erst nach dem Hero zeigen */
+  body.mode-scroll .topbar.at-top .brand{ opacity: 0; pointer-events: none; }
+
+  /* Code-Laufleiste in Braun statt System-Grau */
+  .ccard{ scrollbar-width: thin; scrollbar-color: #bd9a6f #efe3cf; }
+  .ccard::-webkit-scrollbar{ width: 9px; height: 9px; }
+  .ccard::-webkit-scrollbar-track{ background: #efe3cf; border-radius: 8px; }
+  .ccard::-webkit-scrollbar-thumb{ background: #bd9a6f; border-radius: 8px; border: 2px solid #efe3cf; }
+  .ccard::-webkit-scrollbar-thumb:hover{ background: #a07c50; }
+
+  /* ============ Mobile-Feinschliff Header ============ */
+  @media (max-width: 680px){
+    .topbar{ padding: 9px 14px; gap: 10px; }
+    .topbar-left{ gap: 10px; }
+    .notenav button,.notenav a{ width: 28px; height: 28px; }
+    .notenav button svg,.notenav a svg{ width: 15px; height: 15px; }
+    .topbar .brand-series{ font-size: .82rem; }
+    .topbar .brand-nr{ font-size: .7rem; }
+    .topbar-controls{ gap: 6px; }
+    .langs .lang .flag{ height: 13px; }
+    .views .view{ padding: 5px 10px; font-size: .76rem; }
+  }
+
+  .article .cliff{
+    margin-top: 46px; padding-top: 18px;
+  }
+  .article .cliff .k{
+    color: var(--muted); font-size: .64rem; letter-spacing: .09em;
+  }
+  .article .cliff .next-meta{
+    color: var(--muted); font-size: .72rem; font-weight: 500;
+  }
+  .article .cliff h2{
+    color: #4d453c; font-size: 1rem; font-weight: 500; line-height: 1.4;
+  }
+  .page .article .kapitel-head{
+    margin-top: 1.4rem; margin-bottom: .65rem;
+  }
+  .page .article .ocard p{
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+    font-size: .64rem; line-height: 1.48; font-weight: 500;
+  }
+
+  /* Abb.-Label: nach unten, gleicher Stil wie .cap, gleiche Zeile */
+  .article .evidence{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas: "img img" "stub cap";
+    gap: 0 6px;
+  }
+  .article .evidence img{ grid-area: img; width: 100%; }
+  .article .evidence .stub-tag{
+    grid-area: stub;
+    align-self: baseline;
+    background: none !important;
+    color: var(--muted) !important;
+    font: italic 500 .78rem/1.5 'Spectral', Georgia, serif !important;
+    letter-spacing: normal !important;
+    text-transform: none !important;
+    border-radius: 0 !important;
+    padding: 6px 0 0 !important;
+    margin: 0 !important;
+    display: block !important;
+  }
+  .article .evidence .cap{
+    grid-area: cap;
+    align-self: baseline;
+  }
+  .page .article .evidence .stub-tag{
+    font-size: .72rem !important; padding: 4px 0 0 !important;
+  }
+
+  /* Reader-Modus auf Mobile deaktivieren (≤ 680px) */
+  @media (max-width: 680px) {
+    #view-reader-btn { display: none !important; }
+  }
+  /* Reader-Modus auf Tablet-Portrait deaktivieren */
+  @media (max-width: 1024px) and (orientation: portrait) {
+    #view-reader-btn { display: none !important; }
+  }
+
+  /* Mobile/Preview: Hero bleibt First-View, kein 3:2-Bildkasten. */
+  @media (max-width: 960px){
+    .hero{
+      margin: 0;
+      min-height: clamp(540px, calc(100svh - 54px), 780px);
+      aspect-ratio: auto;
+      padding: 84px 22px 44px;
+      border-radius: 0;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center top;
+    }
+  }
+  @media (max-width: 680px){
+    .hero{
+      margin: 0;
+      min-height: clamp(520px, calc(100svh - 54px), 740px);
+      aspect-ratio: auto;
+      padding: 76px 20px 40px;
+      border-radius: 0;
+      overflow: hidden;
+    }
+    .hero h1{
+      font-size: clamp(1.8rem, 9vw, 3rem);
+      margin: 10px 0 14px;
+    }
+    .hero .lead{
+      font-size: 1rem;
+    }
+  }
+
+/* p5_render_overrides.css -- SQ-1 (SENTINEL_QUALITY_BUG_TRIAGE_AND_FIXPLAN_260723).
+
+Eng begrenzter Transformations-/Kompatibilitaetsadapter fuer den P5-Renderer.
+KEINE zweite Design-SSoT: die eigentliche SSoT bleibt ausschliesslich
+`0_W_WORKFLOW/P6_PUBLISH/WEBDESIGN/_CURRENT/NOTE/index.html`. Dieser Adapter
+darf die SSoT ergaenzen (Selektoren, die die SSoT gar nicht definiert) oder
+-- nur mit einem hashgebundenen, begruendeten Allow-Eintrag in
+`p5_render_overrides_allow.json` -- bewusst und dokumentiert von ihr abweichen.
+Jede stille Abweichung wird von `W_P5_CSS_CONFLICT_GATE.py` vor jedem Render
+erkannt und ist ohne gueltigen Allow-Eintrag ein HOLD (kein Output-Write).
+
+Historisch war dieser Block ein Python-String direkt in
+`W_WEB_PREVIEW_RENDER_BUILDER_260618.py` (`reference_css += """ ... """`);
+SQ-1 verschiebt ihn unveraendert (keine Wertaenderung) in diese benannte
+Ressource, damit er als eigenstaendige, versionierbare, diffbare CSS-Datei
+lebt statt als unsichtbarer Teil eines Python-Strings.
+
+SQ-1-Nachfix (`0_A_AGENTS/SYSTEM_SENTINEL/08_SENTINEL_QUALITY/archive/260723_root_cleanup/SENTINEL_QUALITY_SQ1_NACHFIX_BAUPLAN_260723.md`, CODEX-HOLD):
+`.hero h1`-font-size/line-height, `.article mark.hl2`-color und
+`.article p`-line-height wieder entfernt -- sie waren ohne echten
+HUMAN_APPROVED-Entscheid nur ueber einen fail-open-Allow-Status autorisiert.
+Kein bestehender bindender HUMAN-Entscheid fuer diese drei Werte gefunden
+(gepruefte Quellen: DECISIONS_LOG.md, PIN_WALL.md) -- SSoT-konformer Default
+angewandt: Adapter-Duplikate entfernt, die SSoT-Werte gelten unveraendert.
+`.article mark.hl2`-color-Drift stattdessen an der Design-SSoT selbst
+korrigiert (siehe `_CURRENT/NOTE/index.html`).
+*/
+
+  .article .cliff{
+    margin-top: 46px; padding-top: 18px;
+  }
+  .article .cliff .k{
+    color: var(--muted); font-size: .64rem; letter-spacing: .09em;
+  }
+  .article .cliff .next-meta{
+    color: var(--muted); font-size: .72rem; font-weight: 500;
+  }
+  .article .cliff h2{
+    color: #4d453c; font-size: 1rem; font-weight: 500; line-height: 1.4;
+  }
+  .page .article .kapitel-head{
+    margin-top: 1.4rem; margin-bottom: .65rem;
+  }
+  .page .article .ocard p{
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+    font-size: .64rem; line-height: 1.48; font-weight: 500;
+  }
+  /* D_260807_15: der bisherige `.article .evidence{max-width:min(100%,680px);
+     margin-left/right:auto!important}`-Cap (SQ-1-Adapter) ENTFERNT -- er
+     widersprach direkt dem neuen SSoT-Standard "volle Artikel-Spaltenbreite
+     als Default" (D_260807_15) und haette ihn wegen hoeherer Spezifitaet +
+     !important stillschweigend wieder aufgehoben. Kein Ersatz noetig: die
+     SSoT-Regel `.evidence{width:calc(...);max-width:none}` traegt die
+     Breiten-Entscheidung jetzt allein. */
+  /* D_260807_15-Nachfix: `max-height:70vh` entfernt. Zusammen mit
+     `object-fit:contain` liess das Bild innerhalb einer hoehenbegrenzten Box
+     "einpassen" -- die Box (= .evidence, jetzt standardmaessig volle
+     Spaltenbreite) blieb breit, das sichtbare Bild schrumpfte darin mit
+     Leerraum links/rechts (Letterboxing), sobald die bei voller Breite
+     natuerliche Bildhoehe 70vh ueberstieg. Vor `D_260807_15` war das selten
+     relevant (Bilder waren default schmaler, damit meist niedriger als
+     70vh) -- bei "Standard = maximale Breite" trifft es jedes mittel-hohe
+     Bild. DIRECTOR-Befund: "roter Rahmen hat volle Breite, aber das Bild
+     klebt nicht am Rahmen." */
+  .article .evidence img{
+    width: auto;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  .article .evidence.scale-ok img{
+    width: 100%;
+  }
+  .article .evidence.custom-scale{
+    width: min(calc(100% * var(--figure-scale)), calc(680px * var(--figure-scale)));
+    max-width: min(calc(100% * var(--figure-scale)), calc(680px * var(--figure-scale)));
+  }
+  .article .evidence.no-scale img{
+    width: auto !important;
+    max-width: 100%;
+  }
+  /* P5C final override 260706: Die aktuelle Webdesign-Schicht brachte eine
+     nowrap-Hero-Regel mit, die nur bei kurzen Headlines auffaellt. UNTERRICHTSIDEE zeigt
+     den Fehler; NEUGIERDE kaschiert ihn durch die kurze Headline. */
+  body.mode-scroll .reader,
+  .reader{
+    grid-template-columns: minmax(0, 820px);
+    justify-content: center;
+  }
+  body.mode-scroll .article{
+    max-width: 820px;
+    width: 100%;
+  }
+  .hero h1{
+    white-space: normal !important;
+    max-width: 900px !important;
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: auto;
+    text-wrap: balance;
+  }
+  .hero .lead{
+    max-width: 1100px;
+    text-wrap: pretty;
+  }
+  .article mark.hl2{
+    background: transparent !important;
+    font-weight: 600;
+    padding: 0;
+  }
+  .article p{
+    margin-top:.72rem !important;
+    margin-bottom:.92rem !important;
+  }
+  /* Legacy .hl1/strong.hl1-Bold-Balken-Regel entfernt 260706 (ITEM_260706_001):
+     traf nie genuines modernes HL1 (rendert als <em>, C_HERVORHEBUNG SS3.1),
+     nur die Legacy-Alias-Route HL1-AKZENT -> cls="hl1". Scan über alle 5 aktiven
+     Notes (SENTINEL_QUALITY-Check 260706) fand 0 Runs mit HL1-AKZENT o.ae.
+     Legacy-Styles in Gebrauch -> Regel war reiner Totcode, der zusaetzlich per
+     Mapping-Bug faelschlich echtes HL2 traf (siehe ITEM_260706_001). */
+  .article p,
+  .article .kernsatz,
+  .article .cliff h2{
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: auto;
+  }
+  .article .kernsatz,
+  .article .cliff h2{
+    text-wrap: balance;
+  }
+
+
+/* D_260807 HERO_VEIL=off (dieses Note-Dossier) */
+.hero{background-image:url("../heroes/hero_12.png") !important}
+
+</style>
+</head>
+<body class="mode-scroll">
+
+<header class="topbar">
+  <div class="topbar-left">
+    <nav class="notenav" aria-label="Field-Note-Navigation">
+      <button type="button" title="Vorherige Field Note" aria-label="Vorherige Field Note"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <a href="../../../" title="Zur Storyline" aria-label="Zur Storyline"><svg viewBox="0 0 24 24"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z" stroke-linejoin="round"/></svg></a>
+      <button type="button" title="Nächste Field Note" aria-label="Nächste Field Note"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </nav>
+    <div class="brand">
+      <span class="brand-series">Feldnotizen — KI &amp; Unterricht</span>
+      <span class="brand-nr">Ubuntugogy · Nr. 12 · Anfang November 2025</span>
+    </div>
+  </div>
+  <div class="topbar-controls">
+    <div class="langs" role="group" aria-label="Sprache">
+      <a class="lang" href="../" title="Deutsch" aria-label="Deutsch">
+        <svg class="flag" viewBox="0 0 5 3" aria-hidden="true"><rect width="5" height="3" fill="#000"/><rect width="5" height="2" y="1" fill="#DD0000"/><rect width="5" height="1" y="2" fill="#FFCE00"/></svg>
+      </a>
+      <a class="lang" href="../en/" title="English" aria-label="English">
+        <svg class="flag" viewBox="0 0 60 30" aria-hidden="true"><rect width="60" height="30" fill="#012169"/><path d="M0,0 60,30 M60,0 0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 60,30 M60,0 0,30" stroke="#C8102E" stroke-width="4"/><path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/><path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6"/></svg>
+      </a>
+      <a class="lang" href="../es/" title="Español" aria-label="Español">
+        <svg class="flag" viewBox="0 0 6 4" aria-hidden="true"><rect width="6" height="4" fill="#AA151B"/><rect y="1" width="6" height="2" fill="#F1BF00"/></svg>
+      </a>
+      <button class="lang is-active" type="button" title="Français" aria-label="Français">
+        <svg class="flag" viewBox="0 0 3 2" aria-hidden="true"><rect width="3" height="2" fill="#fff"/><rect width="1" height="2" fill="#0055A4"/><rect x="2" width="1" height="2" fill="#EF4135"/></svg>
+      </button>
+    </div>
+    <button id="view-scroll-btn" class="view is-active" type="button" hidden aria-hidden="true">Scroll</button>
+    <button id="view-reader-btn" class="view" type="button" hidden aria-hidden="true">Reader</button>
+    <button id="back-top-btn" type="button" aria-label="Nach oben" title="Nach oben"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  </div>
+</header>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow">Field Note · Français</div>
+      <h1>Ubuntugogy</h1>
+      <p class="lead">Ce qui commence avec 20 concepts mène à un tableau inachevé, où ce n&#x27;est finalement pas l&#x27;exhaustivité qui compte, mais une prise de conscience.</p>
+    </div>
+  </div>
+</header>
+
+<main class="main">
+  <div class="reader">
+    <article class="article">
+<div class="kapitel-head" id="k-fr-01">
+  <div class="kapitel-nr">01</div>
+  <h2>Vingt contre un</h2>
+</div>
+  <p id="p-fr-001">C&#x27;est le 4 novembre. Assez bas dans la fenêtre latérale de ChatGPT, je vois une conversation intitulée « Modèles didactiques dans le monde ». Je me souviens du début septembre. À l&#x27;époque, ma préparation de cours avait d&#x27;abord donné des briques didactiques, puis une idée de cours, et finalement un concept pédagogique.</p>
+  <p id="p-fr-002">Je m&#x27;étais alors posé la question de savoir dans quelle mesure cette idée de cabane dans l&#x27;arbre était scientifiquement fondée. Ma pensée était à cette époque marquée par un schéma compétitif « meilleur »/« moins bon ». Une certaine ambition s&#x27;est développée en moi à partir de là.</p>
+  <p id="p-fr-003">Au début, j&#x27;ai analysé seulement 20 modèles didactiques européens et regardé quels éléments figuraient déjà dans la cabane dans l&#x27;arbre et lesquels manquaient. J&#x27;ai complété la cabane dans l&#x27;arbre et me suis fait énumérer les modèles suivants. Très vite, cela est devenu international.</p>
+  <p id="p-fr-004">Voici à quoi ressemblait une de ces comparaisons entre la cabane dans l&#x27;arbre et un modèle didactique :</p>
+  <figure id="abb-fr-01" class="evidence scale-ok">
+    <span class="stub-tag">Fig. 1</span>
+    <img src="../P2_LAYOUTER/assets/REST_DER_WELT_OPS_05B_260806_170534/originals/01_image1.png" alt="Une comparaison avec EdVisions Schools : ce qui figure déjà dans la cabane dans l&#x27;arbre, ce qui n&#x27;y est que partiellement présent – et ce qui manque encore. SKALIEREN=70" loading="lazy">
+    <figcaption class="cap">Une comparaison avec EdVisions Schools : ce qui figure déjà dans la cabane dans l&#x27;arbre, ce qui n&#x27;y est que partiellement présent – et ce qui manque encore. SKALIEREN=70</figcaption>
+  </figure>
+  <p id="p-fr-005">Je ne connaissais pas ce concept didactique. Je ne me suis pas non plus donné le temps de m&#x27;y pencher sérieusement, car seuls les « éléments manquants » m&#x27;intéressaient.</p>
+  <p id="p-fr-006">C&#x27;était une course, une chasse à un taux de couverture toujours plus élevé : 65 %, 82 %, 91 %. L&#x27;IA me disait : « Ton modèle couvre 85 % des modèles didactiques mondiaux. Si tu ajoutes cet élément-ci ou celui-là, le taux de couverture montera à 88 %. »<br>C&#x27;était une spirale, jusqu&#x27;à ce que je réalise un jour : je n&#x27;atteindrai jamais 100 %. Ce que j&#x27;ai aujourd&#x27;hui, ce 4 novembre, devant moi, c&#x27;est le procès-verbal de cette chasse – et son abandon. L&#x27;effort avait été grand, la désillusion aussi. Mais la prise de conscience était plus grande encore :</p>
+  <p id="p-fr-007">J&#x27;ai fait affronter ma cabane dans l&#x27;arbre au monde entier, et à la fin j&#x27;ai dû abandonner. Qu&#x27;en reste-t-il ? « Une idée idiote », je le pense aujourd&#x27;hui.</p>
+  <figure id="abb-fr-02" class="evidence scale-ok">
+    <span class="stub-tag">Fig. 2</span>
+    <img src="../P2_LAYOUTER/assets/REST_DER_WELT_OPS_05B_260806_170534/originals/02_image2.jpg" alt="La cabane dans l&#x27;arbre affronte le monde. La couverture augmente, les 100 % restent hors de portée. SKALIEREN=90" loading="lazy">
+    <figcaption class="cap">La cabane dans l&#x27;arbre affronte le monde. La couverture augmente, les 100 % restent hors de portée. SKALIEREN=90</figcaption>
+  </figure>
+<div class="kapitel-head" id="k-fr-02">
+  <div class="kapitel-nr">02</div>
+  <h2>Encore une chasse aux 100 % ?</h2>
+</div>
+  <p id="p-fr-008">Je fais défiler cette très longue conversation et je vois les nombreux modèles didactiques et concepts pédagogiques. Je ne veux plus construire le meilleur concept pédagogique. Peu m&#x27;importe aussi où se trouve la meilleure école ou comment s&#x27;appelle le meilleur enseignant.</p>
+  <p id="p-fr-009">Ce qui m&#x27;intéresse, c&#x27;est ce qui se cache derrière les modèles didactiques : leurs noms, leur origine et surtout leurs éléments individuels. Tout comme j&#x27;ai déjà créé des bases de données sur les formats de tâches et les niveaux didactiques, je veux construire une base de données sur les modèles didactiques. Elle doit m&#x27;aider plus tard à développer du matériel pédagogique et des planifications de manière ciblée. Sans base de données fiable, l&#x27;IA pêche en pleine mer lorsqu&#x27;elle génère. Avec les jeux de données appropriés, je lui donne une partie du cadre : quels modèles, quels termes et quels éléments doivent seulement entrer dans la réponse.</p>
+  <p id="p-fr-010">J&#x27;ouvre le chat et Excel. J&#x27;ai rapidement saisi les premiers concepts d&#x27;apprentissage dans un tableau, qui s&#x27;est ensuite rapidement enrichi d&#x27;autres modèles venus d&#x27;Europe et du monde anglo-saxon. Je saisis aussi des thèmes de développement scolaire. Ensuite j&#x27;enregistre le fichier et je me demande si je ne peux pas simplement confier toute la tâche à Claude : « Crée-moi une bibliothèque complète de tous les modèles didactiques et concepts scolaires du monde entier – sous forme de tableau Excel téléchargeable. »<br>J&#x27;essaie, mais pour Claude, le monde s&#x27;arrête après douze modèles. Après ses deuxièmes excuses – et la liste s&#x27;arrête à nouveau à douze modèles –, je réalise qu&#x27;il doit y avoir une limite sur laquelle je n&#x27;ai aucune influence.<br>Avant d&#x27;agrandir encore mon tableau, je veux d&#x27;abord le vérifier : la structure du tableau est-elle même cohérente ? Puis-je enregistrer, avec les colonnes existantes, toutes les informations nécessaires ?</p>
+<div class="kapitel-head" id="k-fr-03">
+  <div class="kapitel-nr">03</div>
+  <h2>Le premier essai échoue</h2>
+</div>
+  <p id="p-fr-011">Malheureusement, je me suis posé cette question trop tard.</p>
+  <figure id="abb-fr-03" class="evidence scale-ok">
+    <span class="stub-tag">Fig. 3</span>
+    <img src="../P2_LAYOUTER/assets/Diagnostic de Claude sur le premier tableau" alt="cinq lacunes critiques SKALIEREN=70" loading="lazy">
+    <figcaption class="cap">cinq lacunes critiques SKALIEREN=70</figcaption>
+  </figure>
+  <p id="p-fr-012">Le résultat est catastrophique. J&#x27;ai devant moi un tableau Excel incomplet. Est-ce que je recommence à zéro ou je répare le tableau ? Je choisis de réparer, et je ne commence pas par les entrées individuelles, mais par la structure : les colonnes.</p>
+  <div id="card-fr-001" class="conv du">
+    <div class="composer">
+      <p class="ptext"><strong>Toi :</strong><br>D&#x27;abord, j&#x27;aimerais que tu me donnes un feedback sur les en-têtes de colonnes. Lesquelles supprimerais-tu, renommerais-tu et ajouterais-tu ?</p>
+      <div class="toolbar" aria-hidden="true">
+        <button class="ibtn outline" type="button" tabindex="-1" aria-label="Hinzufügen"><svg class="icn" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+        <span class="spacer"></span>
+        <button class="ibtn" type="button" tabindex="-1" aria-label="Mikrofon"><svg class="icn" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3M9 21h6"/></svg></button>
+        <button class="ibtn send" type="button" tabindex="-1" aria-label="Senden"><svg class="icn" viewBox="0 0 24 24"><path d="m6 12 6-6 6 6M12 18V6"/></svg></button>
+      </div>
+    </div>
+  </div>
+  <p id="p-fr-013">Nous travaillons colonne par colonne sur la structure du futur tableau.</p>
+  <figure id="abb-fr-04" class="evidence scale-ok">
+    <span class="stub-tag">Fig. 4</span>
+    <img src="../P2_LAYOUTER/assets/REST_DER_WELT_OPS_05B_260806_170534/originals/04_image4.jpg" alt="Trois états de travail du tableau Excel, 6–8 novembre 2025 SKALIEREN=90" loading="lazy">
+    <figcaption class="cap">Trois états de travail du tableau Excel, 6–8 novembre 2025 SKALIEREN=90</figcaption>
+  </figure>
+  <p id="p-fr-014">Claude vérifie les 13 colonnes selon leur utilisation réelle. Et c&#x27;est ainsi que Claude veut garder des champs comme « concept_id », « branch » et « element », et supprimer des colonnes inutilisées comme « year » et « name_ger ». D&#x27;autres sont renommées ou fusionnées.</p>
+  <figure id="abb-fr-05" class="evidence scale-ok">
+    <span class="stub-tag">Fig. 5</span>
+    <img src="../P2_LAYOUTER/assets/L&#x27;évaluation des colonnes par Claude" alt="garder, supprimer, renommer SKALIEREN=80" loading="lazy">
+    <figcaption class="cap">garder, supprimer, renommer SKALIEREN=80</figcaption>
+  </figure>
+  <p id="p-fr-015">Je pose mon veto. L&#x27;année et la désignation allemande restent, même si la désignation anglaise figure à côté. Une autre décision ne se règle pas non plus par une simple suppression ou un renommage : que faire des noms dont la traduction allemande, bien que compréhensible, s&#x27;éloigne beaucoup de l&#x27;original ?</p>
+  <div id="card-fr-002" class="conv output">
+    <div class="ocard">
+      <button class="copybtn" type="button" tabindex="-1" aria-label="Kopieren"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
+      <p><strong>ChatGPT:</strong> NOM ORIGINAL VERSION FRANÇAISE Universal Design for Learning Conception universelle de l&#x27;apprentissage Flipped Classroom Classe inversée Response to Intervention Système d&#x27;intervention à paliers</p>
+    </div>
+  </div>
+  <p id="p-fr-016">En vérifiant, je découvre un autre problème : les modèles didactiques ont rarement une date de naissance unique, ils en ont le plus souvent plusieurs à la fois.</p>
+  <div id="card-fr-003" class="conv output">
+    <div class="ocard">
+      <button class="copybtn" type="button" tabindex="-1" aria-label="Kopieren"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
+      <p><strong>OUTPUT:</strong><br><em>Commentaire :</em> le PBL est né à la fin des années 1960 à l&#x27;université McMaster ; le terme a été forgé en 1974 par Barrows, l&#x27;ouvrage de référence canonique est paru en 1980 (Barrows &amp; Tamblyn). → 1969 plausible comme <em>année d&#x27;origine</em>, l&#x27;année de référence bibliographique plutôt 1974/1980. (McMaster/Barrows 1980 ; étude historique Schmidt &amp; O&#x27;Grady ; synthèse ERIC)</p>
+    </div>
+  </div>
+  <p id="p-fr-017">GPT me propose trois possibilités : 1974 pour la création du terme, 1980 pour l&#x27;ouvrage de référence – ou les deux années ensemble. Je ne peux pas indiquer les trois années dans le tableau. La colonne demande l&#x27;année de publication, donc je me décide pour 1974 : cette année-là, Victor Neufeld et Howard Barrows publient leur article sur la « McMaster Philosophy ». La pratique curriculaire à l&#x27;université McMaster commence déjà en 1969.</p>
+  <p id="p-fr-018">Je relis le commentaire sur le Problem-Based Learning et je ne peux m&#x27;empêcher de sourire : « né à la fin des années 1960 ». À écouter certains acteurs du monde éducatif, on croirait qu&#x27;il s&#x27;agit d&#x27;une invention toute récente. Ce n&#x27;est pas la seule fois que cette pensée me vient en lisant une fiche didactique. Et ce ne sera pas la dernière fois qu&#x27;une date fait paraître une idée soi-disant nouvelle bien plus ancienne qu&#x27;on ne le pense.</p>
+<div class="kapitel-head" id="k-fr-04">
+  <div class="kapitel-nr">04</div>
+  <h2>Ronde après ronde, au-delà de l&#x27;Europe</h2>
+</div>
+  <p id="p-fr-019">Trois jours plus tard, la structure des colonnes est fixée et les données sont assez « réparées » pour que je puisse continuer à construire. Claude doit élaborer une règle pour cela et me livrer les résultats de manière à ce que je puisse les copier directement dans mon tableau.</p>
+  <div id="card-fr-004" class="conv du">
+    <div class="composer">
+      <p class="ptext"><strong>Toi :</strong><br>Oui, crée-moi un tableau copier-coller pour les colonnes A à G. Règle : les colonnes A et B restent identiques. La colonne C, tu continues la numérotation, afin que chaque concept ait son propre numéro. La colonne F, tu ne la remplis que si c&#x27;est un concept américain/anglais. La colonne G (allemand), tu peux la remplir dans tous les cas ; soit comme nom original, soit comme traduction du titre original anglais.</p>
+      <div class="toolbar" aria-hidden="true">
+        <button class="ibtn outline" type="button" tabindex="-1" aria-label="Hinzufügen"><svg class="icn" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+        <span class="spacer"></span>
+        <button class="ibtn" type="button" tabindex="-1" aria-label="Mikrofon"><svg class="icn" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3M9 21h6"/></svg></button>
+        <button class="ibtn send" type="button" tabindex="-1" aria-label="Senden"><svg class="icn" viewBox="0 0 24 24"><path d="m6 12 6-6 6 6M12 18V6"/></svg></button>
+      </div>
+    </div>
+  </div>
+  <p id="p-fr-020">Claude propose un fichier dit TSV. Je n&#x27;ai aucune idée de ce qu&#x27;est un fichier TSV, mais j&#x27;accepte. Il crée un tel tableau et je constate qu&#x27;à la ligne 1, la numérotation manque. Ensuite, je trouve des années manquantes, et un numéro de modèle apparaît plusieurs fois parce que « Konstruktivismus » avec une espace à la fin n&#x27;apparaît pas dans le mapping.</p>
+  <p id="p-fr-021">Après quelques boucles de correction – et juste avant d&#x27;abandonner – ça fonctionne. Claude me fournit un bloc propre que je peux insérer directement dans Excel.</p>
+  <p id="p-fr-022">À partir de là, c&#x27;est devenu automatique : tour après tour, j&#x27;intègre les données dans Excel ; d&#x27;abord DACH, puis GB/USA, puis à l&#x27;international. Voici à quoi ressemble un tel bloc TSV – prêt pour le passage direct vers Excel :</p>
+  <figure id="abb-fr-06" class="evidence scale-ok">
+    <span class="stub-tag">Fig. 6</span>
+    <img src="../P2_LAYOUTER/assets/REST_DER_WELT_OPS_05B_260806_170534/originals/06_image6.jpg" alt="Le masterprompt permet de rechercher des modèles didactiques. Les informations sont copiées vers Excel sous forme de fichier TSV. SKALIEREN=90" loading="lazy">
+    <figcaption class="cap">Le masterprompt permet de rechercher des modèles didactiques. Les informations sont copiées vers Excel sous forme de fichier TSV. SKALIEREN=90</figcaption>
+  </figure>
+<div class="kapitel-head" id="k-fr-05">
+  <div class="kapitel-nr">05</div>
+  <h2>623 lignes plus tard : un prompt d&#x27;entrée pour le prochain chat</h2>
+</div>
+  <p id="p-fr-023">Ce sont les 70 modèles didactiques, concepts et thèmes de développement scolaire de septembre. Ils comprennent 623 éléments individuels dans la liste Excel. Ça paraît beaucoup, et ça l&#x27;est. Je veux quand même continuer, et Claude a déjà un plan :</p>
+  <div id="card-fr-005" class="conv gpt">
+    <div class="rcard">
+      <button class="copybtn" type="button" tabindex="-1" aria-label="Kopieren"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
+      <p><strong>Claude:</strong> 📋 DÉROULEMENT RECOMMANDÉ : Tour 1 : Asie (25 concepts) Tour 2 : Océanie (15 concepts) Tour 3 : Scandinavie (15 concepts) Tour 4 : Amérique latine (10 concepts) Tour 5 : Qualité de l&#x27;enseignement (10 concepts) Tour 6 : Théories de l&#x27;apprentissage (10 concepts) Tour 7 : Historiques (10 concepts) → ~95 nouveaux concepts</p>
+    </div>
+  </div>
+  <p id="p-fr-024">Mais le chat est devenu trop long. J&#x27;en ai besoin d&#x27;un nouveau et je demande à Claude d&#x27;écrire un prompt de démarrage pour cela.</p>
+  <div id="card-fr-006" class="conv du">
+    <div class="composer">
+      <p class="ptext"><strong>Toi :</strong><br>Lis ce chat. Je veux enrichir mon tableau Excel avec d&#x27;autres modèles didactiques, psychopédagogiques, pédagogiques, mais aussi des thèmes de développement de l&#x27;enseignement ou quelque chose sur la qualité de l&#x27;enseignement. Dans le monde entier. J&#x27;ai besoin d&#x27;un prompt de démarrage que je pourrai utiliser dans un nouveau chat et où les données seront restituées dans l&#x27;ordre des colonnes, afin que je n&#x27;aie plus qu&#x27;à faire du copier-coller. Ton rôle ? Fais-moi une proposition.</p>
+      <div class="toolbar" aria-hidden="true">
+        <button class="ibtn outline" type="button" tabindex="-1" aria-label="Hinzufügen"><svg class="icn" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+        <span class="spacer"></span>
+        <button class="ibtn" type="button" tabindex="-1" aria-label="Mikrofon"><svg class="icn" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3M9 21h6"/></svg></button>
+        <button class="ibtn send" type="button" tabindex="-1" aria-label="Senden"><svg class="icn" viewBox="0 0 24 24"><path d="m6 12 6-6 6 6M12 18V6"/></svg></button>
+      </div>
+    </div>
+  </div>
+  <p id="p-fr-025">C&#x27;est probablement la première fois que je me fais rédiger par une IA un prompt de démarrage aussi précis. Plus tard, j&#x27;appellerai ces transmissions entre chats des «prompts-passerelles».<br>Claude ne crée pas seulement le prompt de démarrage, mais aussi un mode d&#x27;emploi avec un rôle, un déroulement et un contrôle qualité. Il résume aussi brièvement :</p>
+  <figure id="abb-fr-07" class="evidence scale-ok">
+    <span class="stub-tag">Fig. 7</span>
+    <img src="../P2_LAYOUTER/assets/REST_DER_WELT_OPS_05B_260806_170534/originals/07_image7.png" alt="Bilan de Claude : 304 sources manquantes complétées SKALIEREN=70" loading="lazy">
+    <figcaption class="cap">Bilan de Claude : 304 sources manquantes complétées SKALIEREN=70</figcaption>
+  </figure>
+  <p id="p-fr-026">Son bilan m&#x27;impressionne : 304 sources manquantes recherchées. Cinq exemples sont listés, puis seulement : «… et 299 autres.» Qui pourrait faire ça ? Quelle autre technologie pourrait examiner pour moi un tableau de plus de 500 lignes, repérer les lacunes et, surtout, poursuivre ma tâche de manière autonome ? Je n&#x27;en connais aucune.</p>
+  <p id="p-fr-027">Mais autre chose me devient clair : avant de continuer à collecter, je dois vérifier ce qui figure déjà dans le tableau. Je me demande : qui contrôle en fait si tout cela est exact ?</p>
+<div class="kapitel-head" id="k-fr-06">
+  <div class="kapitel-nr">06</div>
+  <h2>Maintenant, c&#x27;est la vérification qui compte, pas la recherche</h2>
+</div>
+  <p id="p-fr-028">Je passe de Claude à GPT, je charge le tableau Excel et lui demande de contrôler l&#x27;exactitude des 520 premières lignes.</p>
+  <div id="card-fr-007" class="conv du">
+    <div class="composer">
+      <p class="ptext"><strong>Toi :</strong><br>Contrôle les lignes 2 à 520 et les colonnes A à G pour leur cohérence et leur exactitude.</p>
+      <div class="toolbar" aria-hidden="true">
+        <button class="ibtn outline" type="button" tabindex="-1" aria-label="Hinzufügen"><svg class="icn" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+        <span class="spacer"></span>
+        <button class="ibtn" type="button" tabindex="-1" aria-label="Mikrofon"><svg class="icn" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3M9 21h6"/></svg></button>
+        <button class="ibtn send" type="button" tabindex="-1" aria-label="Senden"><svg class="icn" viewBox="0 0 24 24"><path d="m6 12 6-6 6 6M12 18V6"/></svg></button>
+      </div>
+    </div>
+  </div>
+  <p id="p-fr-029">Pour GPT, l&#x27;exactitude signifie d&#x27;abord autre chose que pour moi : valeurs manquantes, doublons, espaces et orthographes non uniformes. Mais une autre question me préoccupe : les contenus que Claude a inscrits dans le tableau sont-ils aussi exacts ? Je formule la consigne plus précisément.</p>
+  <div id="card-fr-008" class="conv du">
+    <div class="composer">
+      <p class="ptext"><strong>Toi :</strong><br>Trouve toutes les lignes des concepts 1 et 2 (colonne B). Vérifie l&#x27;exactitude des colonnes C à G (recherche sur internet). Si tu n&#x27;es pas sûr : marque d&#x27;une étoile. Vérifie les éléments dans la colonne H. Sont-ils complets et exacts ?</p>
+      <div class="toolbar" aria-hidden="true">
+        <button class="ibtn outline" type="button" tabindex="-1" aria-label="Hinzufügen"><svg class="icn" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+        <span class="spacer"></span>
+        <button class="ibtn" type="button" tabindex="-1" aria-label="Mikrofon"><svg class="icn" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3M9 21h6"/></svg></button>
+        <button class="ibtn send" type="button" tabindex="-1" aria-label="Senden"><svg class="icn" viewBox="0 0 24 24"><path d="m6 12 6-6 6 6M12 18V6"/></svg></button>
+      </div>
+    </div>
+  </div>
+  <p id="p-fr-030">GPT doit vérifier chaque concept sur internet, marquer les incertitudes et présenter les résultats de façon à ce que je puisse les reprendre dans Excel. Il travaille le tableau concept par concept – et comme Montessori y porte le numéro 1, la vérification commence par Maria Montessori.</p>
+  <figure id="abb-fr-08" class="evidence scale-ok">
+    <span class="stub-tag">Fig. 8</span>
+    <img src="../P2_LAYOUTER/assets/REST_DER_WELT_OPS_05B_260806_170534/originals/08_image8.png" alt="Résultat de la recherche internet effectuée par GPT. Ici, l&#x27;exemple du concept 1, M. Montessori. SKALIEREN=80" loading="lazy">
+    <figcaption class="cap">Résultat de la recherche internet effectuée par GPT. Ici, l&#x27;exemple du concept 1, M. Montessori. SKALIEREN=80</figcaption>
+  </figure>
+  <p id="p-fr-031">Ainsi, je vois d&#x27;un coup d&#x27;œil si tout est correct et ce qu&#x27;il faudrait compléter. Mais ce résultat se transpose difficilement dans ma liste Excel. Je demande à GPT une présentation que je puisse copier :</p>
+  <figure id="abb-fr-09" class="evidence scale-ok">
+    <span class="stub-tag">Fig. 9</span>
+    <img src="../P2_LAYOUTER/assets/REST_DER_WELT_OPS_05B_260806_170534/originals/09_image9.png" alt="Aperçu corrigé sous forme de tableau pour le plan Dalton. SKALIEREN=85" loading="lazy">
+    <figcaption class="cap">Aperçu corrigé sous forme de tableau pour le plan Dalton. SKALIEREN=85</figcaption>
+  </figure>
+  <p id="p-fr-032">Ensuite, je continue concept par concept et je vérifie en même temps les éléments manquants ou non attribués. Mais soudain, GPT se met à commenter les concepts :</p>
+  <div id="card-fr-009" class="conv output">
+    <div class="ocard">
+      <button class="copybtn" type="button" tabindex="-1" aria-label="Kopieren"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
+      <p><strong>OUTPUT:</strong><br><strong>Concept 15 – Modèle de Berlin et de Hambourg (Heimann/Schulz/Otto) Le modèle de Berlin (années 1960) structure la planification de l&#x27;enseignement à travers des champs de conditions et de décisions ; le modèle de Hambourg précise et élargit cette perspective. Il est considéré comme un cadre analytique de planification (et non comme un programme de méthodes), et a marqué la didactique germanophone pendant des décennies.</strong></p>
+    </div>
+  </div>
+  <p id="p-fr-033">Pour GPT, ce sont des <strong>lignes de contexte :</strong> une note ultra-courte, qui situe historiquement. J&#x27;aime les lire, et parfois elles suscitent chez moi des questions :</p>
+  <div id="card-fr-010" class="conv du">
+    <div class="composer">
+      <p class="ptext"><strong>Toi :</strong><br>[…] au fait : comment arrives-tu à «Rosenshine a condensé des pratiques fondées sur des preuves concernant l&#x27;instruction explicite dans ses Principles of Instruction (2010/2012)» ? Rosenshine n&#x27;était-il pas déjà mort depuis longtemps ?</p>
+      <div class="toolbar" aria-hidden="true">
+        <button class="ibtn outline" type="button" tabindex="-1" aria-label="Hinzufügen"><svg class="icn" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+        <span class="spacer"></span>
+        <button class="ibtn" type="button" tabindex="-1" aria-label="Mikrofon"><svg class="icn" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3M9 21h6"/></svg></button>
+        <button class="ibtn send" type="button" tabindex="-1" aria-label="Senden"><svg class="icn" viewBox="0 0 24 24"><path d="m6 12 6-6 6 6M12 18V6"/></svg></button>
+      </div>
+    </div>
+  </div>
+  <div id="card-fr-011" class="conv gpt">
+    <div class="rcard">
+      <button class="copybtn" type="button" tabindex="-1" aria-label="Kopieren"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
+      <p><strong>ChatGPT:</strong> Réfléchi pendant 15s […] Au sujet de Rosenshine : Non, il n&#x27;était pas encore décédé en 2012. Barak Rosenshine a vécu jusqu&#x27;au 22 mai 2017. Son fameux aperçu «Principles of Instruction: Research-Based Strategies That All Teachers Should Know» est paru au printemps 2012 dans American Educator. Il existe en outre un pamphlet IAE de 2010 avec une compilation similaire (10 principes).</p>
+    </div>
+  </div>
+  <p id="p-fr-034">Oui, parfois on peut se tromper.</p>
+<div class="kapitel-head" id="k-fr-07">
+  <div class="kapitel-nr">07</div>
+  <h2>Du va-et-vient naît un masterprompt</h2>
+</div>
+  <p id="p-fr-035">Des boucles de correction émerge peu à peu quelque chose de nouveau : pas seulement une meilleure réponse, mais un modèle réutilisable. Je n&#x27;ai plus besoin d&#x27;expliquer à GPT, pour chaque concept, quelles colonnes vérifier, comment marquer l&#x27;incertitude et sous quelle forme restituer le résultat. Ces règles se trouvent maintenant dans le masterprompt. Il ne me reste plus qu&#x27;à décider ce que GPT doit faire : vérifier sur internet les entrées existantes, ou chercher des modèles et des éléments qui manquent encore dans le tableau. Le masterprompt reçoit ses propres versions, un guide, un README et même un changelog. Les deux modes s&#x27;appellent : Compléter et Vérifier.</p>
+  <figure id="abb-fr-10" class="evidence scale-ok">
+    <span class="stub-tag">Fig. 10</span>
+    <img src="../P2_LAYOUTER/assets/REST_DER_WELT_OPS_05B_260806_170534/originals/10_image10.jpg" alt="De questions isolées et de corrections naît une méthode de travail versionnée avec masterprompt, guide, README et changelog SKALIEREN=90" loading="lazy">
+    <figcaption class="cap">De questions isolées et de corrections naît une méthode de travail versionnée avec masterprompt, guide, README et changelog SKALIEREN=90</figcaption>
+  </figure>
+<div class="kapitel-head" id="k-fr-08">
+  <div class="kapitel-nr">08</div>
+  <h2>Le saut</h2>
+</div>
+  <p id="p-fr-036">Quelques tours plus tard, je tombe sur un autre concept dont j&#x27;avais déjà entendu parler :</p>
+  <figure id="abb-fr-11" class="evidence scale-ok">
+    <span class="stub-tag">Fig. 11</span>
+    <img src="../P2_LAYOUTER/assets/REST_DER_WELT_OPS_05B_260806_170534/originals/11_image11.png" alt="Lesson Study : née au Japon, en croissance depuis la fin du XIXe siècle SKALIEREN=90" loading="lazy">
+    <figcaption class="cap">Lesson Study : née au Japon, en croissance depuis la fin du XIXe siècle SKALIEREN=90</figcaption>
+  </figure>
+  <p id="p-fr-037">Ce n&#x27;est pas le concept qui me surprend, mais la mention «Japon». Ma propre réaction me surprend encore plus : ai-je vraiment eu l&#x27;impression qu&#x27;il n&#x27;existait des modèles didactiques qu&#x27;en Europe et aux États-Unis ? Je dois honnêtement l&#x27;admettre : je ne m&#x27;étais jamais posé la question – jusqu&#x27;à maintenant.</p>
+  <p id="p-fr-038">« Japon ? », je demande. « Quels modèles didactiques existe-t-il là-bas ? » Cette question ne m&#x27;ouvre pas seulement une porte vers un autre pays, mais vers le monde entier. Je suis enseignant depuis presque 30 ans et je ne m&#x27;étais jamais demandé comment un enseignant enseigne au Japon, au Brésil ou en Namibie.</p>
+  <p id="p-fr-039">Dans mes recherches, j&#x27;avais inclus l&#x27;Allemagne et l&#x27;Autriche, mais complètement oublié l&#x27;Italie et la France. Plutôt que de continuer à chercher là, je saute directement vers l&#x27;Asie : « Donne-moi 25 concepts d&#x27;Asie. »</p>
+  <figure id="abb-fr-12" class="evidence scale-ok">
+    <span class="stub-tag">Fig. 12</span>
+    <img src="../P2_LAYOUTER/assets/REST_DER_WELT_OPS_05B_260806_170534/originals/12_image12.jpg" alt="Trois modèles exemplaires venus d&#x27;Asie – résolution de problèmes en commun, variation systématique et échec productif. SKALIEREN=90" loading="lazy">
+    <figcaption class="cap">Trois modèles exemplaires venus d&#x27;Asie – résolution de problèmes en commun, variation systématique et échec productif. SKALIEREN=90</figcaption>
+  </figure>
+  <p id="p-fr-040">Je me plonge dans le concept japonais de la Lesson Study et découvre comment des enseignants font d&#x27;une seule leçon l&#x27;objet commun de leur travail. Ils conçoivent ensemble une unique leçon, l&#x27;observent en direct, puis la décortiquent ensemble. Il en résulte une amélioration collective plutôt qu&#x27;un travail en solitaire. Et moi ? Je suis assis seul devant mon écran, à collectionner des modèles didactiques.<br>Presque à chaque modèle ou concept didactique, les dates me rattrapent : fin du XIXe siècle, les années 2000, 2007. Rien de tout cela n&#x27;est nouveau. C&#x27;était seulement inconnu pour moi jusqu&#x27;ici.</p>
+<div class="kapitel-head" id="k-fr-09">
+  <div class="kapitel-nr">09</div>
+  <h2>La liste devient une carte du monde</h2>
+</div>
+  <p id="p-fr-041">Et j&#x27;envoie GPT à la recherche de modèles didactiques venus d&#x27;Afrique.</p>
+  <figure id="abb-fr-13" class="evidence scale-ok">
+    <span class="stub-tag">Fig. 13</span>
+    <img src="../P2_LAYOUTER/assets/REST_DER_WELT_OPS_05B_260806_170534/originals/13_image13.jpg" alt="Deux perspectives sur l&#x27;apprentissage en regardant vers l&#x27;Afrique – soutien selon le niveau d&#x27;apprentissage et éducation comme tâche communautaire. SKALIEREN=90" loading="lazy">
+    <figcaption class="cap">Deux perspectives sur l&#x27;apprentissage en regardant vers l&#x27;Afrique – soutien selon le niveau d&#x27;apprentissage et éducation comme tâche communautaire. SKALIEREN=90</figcaption>
+  </figure>
+  <p id="p-fr-042">Le TaRL ne commence ni par l&#x27;âge ni par le niveau scolaire, mais par le niveau d&#x27;apprentissage réel des enfants. L&#x27;Ubuntugogy déplace le regard de la performance individuelle vers le lien social, la dignité et la responsabilité mutuelle. L&#x27;un est une méthode de soutien scalable, l&#x27;autre plutôt un principe pédagogique directeur. Ces deux perspectives m&#x27;éloignent beaucoup de ce par quoi ma recherche avait commencé début septembre : j&#x27;avais fait affronter ma cabane dans l&#x27;arbre au monde entier.</p>
+  <p id="hl3-fr-01" class="kernsatz">Et l&#x27;Ubuntugogy ? – ne se demande même pas qui gagne.</p>
+  <figure id="abb-fr-14" class="evidence scale-ok">
+    <span class="stub-tag">Fig. 14</span>
+    <img src="../P2_LAYOUTER/assets/REST_DER_WELT_OPS_05B_260806_170534/originals/14_image14.jpg" alt="Trois chemins d&#x27;apprentissage nordiques – au-delà des frontières disciplinaires, en plein air dans la nature et ensemble vers un résultat tangible. SKALIEREN=90" loading="lazy">
+    <figcaption class="cap">Trois chemins d&#x27;apprentissage nordiques – au-delà des frontières disciplinaires, en plein air dans la nature et ensemble vers un résultat tangible. SKALIEREN=90</figcaption>
+  </figure>
+  <p id="p-fr-043">Scandinavie : Finlande et Suède – complètement oubliées lors de mon premier passage. Je lis sur le Phenomenon-Based Learning, où l&#x27;on travaille temporairement de manière transdisciplinaire sur un phénomène commun. Sur le Friluftsliv, qui déplace l&#x27;apprentissage en extérieur. Et sur le Trialogic Learning, où le savoir prend forme dans quelque chose créé ensemble : un modèle, une esquisse ou un document.</p>
+  <p id="p-fr-044">Je n&#x27;écris pas ces lignes parce que je le sais, mais parce que je le découvre pour la première fois. Comment aurais-je pu chercher un livre dont j&#x27;ignorais l&#x27;existence ?</p>
+  <figure id="abb-fr-15" class="evidence scale-ok">
+    <span class="stub-tag">Fig. 15</span>
+    <img src="../P2_LAYOUTER/assets/REST_DER_WELT_OPS_05B_260806_170534/originals/15_image15.jpg" alt="Deux modèles venus d&#x27;Amérique centrale et du Sud – questionner sa propre réalité par le dialogue et façonner activement la communauté. SKALIEREN=90" loading="lazy">
+    <figcaption class="cap">Deux modèles venus d&#x27;Amérique centrale et du Sud – questionner sa propre réalité par le dialogue et façonner activement la communauté. SKALIEREN=90</figcaption>
+  </figure>
+  <p id="p-fr-045">Amérique centrale et du Sud : au Brésil, je tombe sur Paulo Freire. Depuis plus d&#x27;un demi-siècle, la même idée – questionner plutôt que déposer du savoir. L&#x27;éducation ne doit pas seulement remplir les gens de contenu, mais les aider à comprendre leur réalité et à en parler ensemble.<br>Dans la Colombie voisine, la participation devient très concrète : l&#x27;Escuela Nueva associe des écoles rurales à classes multi-âges avec des guides d&#x27;apprentissage, un gouvernement d&#x27;élèves et de véritables tâches issues de la communauté. Deux approches différentes – mais toutes deux traitent les apprenants non comme des destinataires, mais comme des acteurs.</p>
+  <figure id="abb-fr-16" class="evidence scale-ok">
+    <span class="stub-tag">Fig. 16</span>
+    <img src="../P2_LAYOUTER/assets/REST_DER_WELT_OPS_05B_260806_170534/originals/16_image16.jpg" alt="Trois perspectives sur le développement de l&#x27;enseignement – décrire la qualité, examiner l&#x27;enseignement entre collègues et faire évoluer sa propre pratique par cycles. SKALIEREN=90" loading="lazy">
+    <figcaption class="cap">Trois perspectives sur le développement de l&#x27;enseignement – décrire la qualité, examiner l&#x27;enseignement entre collègues et faire évoluer sa propre pratique par cycles. SKALIEREN=90</figcaption>
+  </figure>
+  <p id="p-fr-046">Australie et Nouvelle-Zélande : je pense d&#x27;abord avoir oublié cette région. Puis je vérifie – « Tour 2 : Océanie » figure déjà dans le tableau depuis longtemps.<br>Dans le Queensland, je tombe sur les Productive Pedagogies et donc sur la question de ce qui fait réellement un bon enseignement. En Nouvelle-Galles du Sud, les enseignants s&#x27;observent mutuellement en classe et font évoluer leur pratique ensemble dans des Quality Teaching Rounds. Le Teaching as Inquiry néo-zélandais en fait un cycle : cibler, examiner, agir, évaluer. Avec chaque région, mon tableau grandit. Et avec chaque région, l&#x27;idée que je pourrais un jour le rendre complet rétrécit.</p>
+<div class="kapitel-head" id="k-fr-10">
+  <div class="kapitel-nr">10</div>
+  <h2>Ce qui reste de la liste</h2>
+</div>
+  <p id="p-fr-047">Le 11 décembre 2025, j&#x27;arrive à la ligne 1465. La base de données a encore besoin d&#x27;un nettoyage. Mais pour le moment, je m&#x27;arrête.</p>
+  <p id="p-fr-048">Je m&#x27;arrête – pas parce que j&#x27;ai terminé, mais parce que d&#x27;autres choses deviennent plus importantes.</p>
+  <p id="p-fr-049">Je fais défiler la liste. Nom après nom, année après année, pays après pays. Pendant de longues minutes. Quelque part entre la ligne 800 et la ligne 1200, je réalise à quel point mon microcosme didactique était étroit jusqu&#x27;ici. Je savais que je savais peu. Maintenant, je le vois devant moi. Ce qui a commencé comme une chasse à l&#x27;exhaustivité cède la place à autre chose : l&#x27;humilité et le respect.</p>
+  <p id="p-fr-050">Quand des gens présentent leur modèle didactique comme le seul juste ou le meilleur, j&#x27;écoute aujourd&#x27;hui différemment. Ce modèle aussi, je me dis, est une réponse possible à la question de comment les enfants peuvent apprendre. Une parmi des centaines – et je ne connais encore que celles que j&#x27;ai rassemblées jusqu&#x27;à aujourd&#x27;hui.</p>
+  <p id="p-fr-051">Et puis je le reconnais – un déjà-vu : début septembre, c&#x27;était avec la cabane dans l&#x27;arbre une course contre une limite inatteignable. Et maintenant je recommence – plus grand, et avec le monde entier. La couverture augmente, et les 100 % resteront toujours hors de portée.</p>
+  <p id="p-fr-052">Sur mon PC se trouve maintenant ce fichier avec tous ces modèles didactiques, et il porte le nom « C11xx_14_MODELLE_WELT_V5.0_251211.xlsx ». Un fichier, je peux le supprimer ou l&#x27;archiver. Mais cette incroyable diversité de modèles, de concepts et d&#x27;idées directrices dans ma tête, non.</p>
+  <p id="p-fr-053">Trois exemples restent gravés en moi : Jugyō Kenkyū (« Lesson Study ») du Japon, l&#x27;Ubuntugogy d&#x27;Afrique et la « Pédagogie des opprimés » de Paulo Freire, du Brésil.<br>Et je me demande : le modèle japonais est-il apparenté à celui du Brésil ? L&#x27;un de ces concepts est-il la réponse à une question qui se pose dans ma salle de classe ? Ou une réponse ne naît-elle peut-être que d&#x27;une combinaison ?</p>
+  <p id="p-fr-054">Quelque chose s&#x27;est déplacé en moi.</p>
+  <p id="p-fr-055">Pour moi, ce sont trois points de départ totalement différents, et pourtant ils tournent tous autour d&#x27;une question similaire : comment les enfants et les jeunes peuvent-ils apprendre et grandir ? Peut-être sommes-nous plus proches sur ce point que mon regard européen ne le laissait supposer jusqu&#x27;ici. Et une chose devient claire pour moi :</p>
+  <p id="hl3-fr-02" class="kernsatz">Combien de personnes sur cette terre cherchent une bonne école pour nos enfants.</p>
+  <p id="p-fr-056">Et cela, c&#x27;est quelque chose d&#x27;incroyablement beau.</p>
+    </article>
+  </div>
+</main>
+
+<div class="werkstatt-statement">
+  Kein Blog. Kein Ratgeber. Kein Whitepaper. Ein persönliches Entwicklungstagebuch — keine wissenschaftliche Arbeit.
+</div>
+
+<div class="colophon">
+  Field Note Nr. 12 · Serie „Feldnotizen — KI und Unterricht" · CC BY-NC-SA 4.0 · <span class="sig">— Markus</span>
+</div>
+
+<div class="bookstage" id="bookstage" aria-hidden="true">
+  <div class="book" id="book">
+    <div class="page-slot left"><div class="page" id="pageL"></div><span class="pageno" id="noL"></span></div>
+    <div class="page-slot right"><div class="page" id="pageR"></div><span class="pageno" id="noR"></span></div>
+    <div class="flipper" id="flipper">
+      <div class="flip-face front"><div class="page" id="faceFront"></div></div>
+      <div class="flip-face back"><div class="page" id="faceBack"></div></div>
+      <div class="flip-shadow" id="flipShadow"></div>
+    </div>
+  </div>
+</div>
+
+<div class="pager-ui" id="pager-ui" aria-label="Seitennavigation">
+  <button id="pg-first" type="button" aria-label="Erste Seite">Anfang</button>
+  <button id="pg-prev" type="button" aria-label="Vorherige Seite">‹</button>
+  <span class="pg" id="pg-count">1 / 1</span>
+  <button id="pg-next" type="button" aria-label="Nächste Seite">›</button>
+</div>
+
+<button id="back-to-top" aria-label="Zurück nach oben" title="Seitenanfang">↑</button>
+
+<script>
+(function(){
+  "use strict";
+  const body      = document.body;
+  const reader    = document.querySelector(".reader");
+  const srcArticle= reader.querySelector(".article");
+  const scrollBtn = document.getElementById("view-scroll-btn");
+  const readerBtn = document.getElementById("view-reader-btn");
+  const topbar    = document.querySelector(".topbar");
+  const heroEl    = document.querySelector(".hero");
+  const stage     = document.getElementById("bookstage");
+  const book      = document.getElementById("book");
+  const pageL     = document.getElementById("pageL");
+  const pageR     = document.getElementById("pageR");
+  const noL       = document.getElementById("noL");
+  const noR       = document.getElementById("noR");
+  const flipper   = document.getElementById("flipper");
+  const faceFront = document.getElementById("faceFront");
+  const faceBack  = document.getElementById("faceBack");
+  const flipShadow= document.getElementById("flipShadow");
+  const pager     = document.getElementById("pager-ui");
+  const pgPrev    = document.getElementById("pg-prev");
+  const pgNext    = document.getElementById("pg-next");
+  const pgCount   = document.getElementById("pg-count");
+  const KEY       = "fieldnote_view";
+  const PADX = 46, PADT = 46, PADB = 50;
+
+  function isReader(){ return body.classList.contains("mode-reader"); }
+
+  /* ---------- Buch-Geometrie ---------- */
+  let geo = { pageW: 480, pageH: 680 };
+  function sizeBook(){
+    const vw = window.innerWidth, vh = window.innerHeight;
+    let pageH = Math.min(vh * 0.92, 940);
+    let pageW = Math.min((vw * 0.95) / 2, 540);
+    if (pageH > pageW * 1.5) pageH = pageW * 1.5;   // nicht zu schmal-hoch
+    geo = { pageW: Math.round(pageW), pageH: Math.round(pageH) };
+    book.style.width  = (geo.pageW * 2) + "px";
+    book.style.height = geo.pageH + "px";
+    book.querySelectorAll(".page-slot").forEach(s => { s.style.width = geo.pageW + "px"; s.style.height = geo.pageH + "px"; });
+    flipper.style.width = geo.pageW + "px";
+  }
+
+  /* ---------- Paginierung in diskrete Seiten ---------- */
+  let pages = [];   // Array von .article-Knoten (je eine Buchseite)
+  function blankPage(){ const d = document.createElement("div"); d.className = "article"; return d; }
+  function cleanClone(node){ const c = node.cloneNode(true); c.removeAttribute("id"); c.querySelectorAll("[id]").forEach(n => n.removeAttribute("id")); return c; }
+
+  function buildPages(){
+    const contentW = geo.pageW - PADX * 2;
+    const contentH = geo.pageH - PADT - PADB - 8;
+    const meas = document.createElement("div");
+    meas.className = "article";
+    meas.style.cssText = "position:absolute;left:-99999px;top:0;visibility:hidden;width:" + contentW + "px;";
+    document.body.appendChild(meas);
+    // .page-Kontext fuer korrekte Schriftgroessen beim Messen
+    const wrap = document.createElement("div"); wrap.className = "page"; wrap.style.cssText = "position:absolute;left:-99999px;top:0;width:" + geo.pageW + "px;height:" + geo.pageH + "px;visibility:hidden;";
+    document.body.appendChild(wrap); wrap.appendChild(meas); meas.style.position = "static"; meas.style.left = ""; meas.style.width = "100%";
+
+    pages = [];
+    const commit = () => { const d = blankPage(); while (meas.firstChild) d.appendChild(meas.firstChild); pages.push(d); };
+    const blocks = Array.from(srcArticle.children);
+    for (const b of blocks){
+      const clone = cleanClone(b);
+      // Lazy-geladene Bilder haben 0px Höhe → max-height für Messung UND Rendering setzen
+      const imgH = Math.floor(contentH * 0.33);
+      clone.querySelectorAll('img').forEach(img => {
+        img.removeAttribute('loading');
+        img.style.maxHeight = imgH + 'px';
+        img.style.width = 'auto';
+        img.style.maxWidth = '100%';
+      });
+      // Kapitel beginnen auf neuer Seite, sobald die laufende Seite bereits halb gefüllt ist.
+      if (clone.classList.contains("kapitel-head") && meas.children.length && meas.offsetHeight > contentH * 0.45){
+        commit();
+      }
+      if (meas.children.length === 0) clone.style.marginTop = "0";
+      meas.appendChild(clone);
+      if (meas.offsetHeight <= contentH) continue;          // passt -> weiter sammeln
+      if (meas.children.length === 1){ commit(); continue; } // einzelner hoher Block -> eigene Seite
+      meas.removeChild(clone);
+      // Ueberschrift oder Einleitungssatz mitnehmen. Bilder beginnen nie nackt am Seitenkopf.
+      const carry = [];
+      const last = meas.lastElementChild;
+      if (last && last.classList.contains("kapitel-head")){
+        carry.unshift(last); meas.removeChild(last);
+      } else if (clone.classList.contains("evidence") && last && last.tagName === "P"){
+        carry.unshift(last); meas.removeChild(last);
+      }
+      commit();
+      for (const node of carry){ node.style.marginTop = "0"; meas.appendChild(node); }
+      clone.style.marginTop = meas.children.length === 0 ? "0" : "";
+      meas.appendChild(clone);
+    }
+    if (meas.children.length) commit();
+    document.body.removeChild(wrap);
+    if (pages.length === 0) pages.push(blankPage());
+  }
+
+  /* ---------- Rendern ---------- */
+  let spread = 0;   // gerade Seitennummer der linken Seite
+  function totalSpreads(){ return Math.max(1, Math.ceil(pages.length / 2)); }
+  function setSlot(host, i){ host.replaceChildren(pages[i] ? pages[i].cloneNode(true) : blankPage()); }
+  function setNo(el, i){ el.textContent = (i >= 0 && i < pages.length) ? (i + 1) : ""; }
+  function renderSpread(){
+    setSlot(pageL, spread);   setNo(noL, spread);
+    setSlot(pageR, spread+1); setNo(noR, spread+1);
+    flipper.style.display = "none"; flipper.style.transform = "";
+    updateNav();
+    const pgFirst = document.getElementById("pg-first");
+    if (pgFirst) pgFirst.classList.toggle("at-start", spread === 0);
+  }
+  function updateNav(){ pgCount.textContent = (spread/2 + 1) + " / " + totalSpreads(); }
+
+  /* ---------- Umblaettern (3D-Animation) ---------- */
+  let animating = false, flipI = null;
+  function runAngle(from, to, done){
+    clearInterval(flipI);
+    const t0 = Date.now(), dur = 800;
+    flipI = setInterval(() => {
+      let p = Math.min(1, (Date.now() - t0) / dur);
+      const e = p < .5 ? 2*p*p : 1 - Math.pow(-2*p + 2, 2)/2;
+      flipper.style.transform = "rotateY(" + (from + (to - from) * e) + "deg)";
+      flipShadow.style.opacity = (Math.sin(p * Math.PI) * 0.30).toFixed(3);
+      if (p >= 1){ clearInterval(flipI); done(); }
+    }, 16);
+  }
+  function flip(dir){
+    if (animating) return;
+    if (dir > 0 && spread + 2 > pages.length - 1) return;
+    if (dir < 0 && spread - 2 < 0) return;
+    animating = true; hideChrome();
+    flipper.style.height = geo.pageH + "px";
+    if (dir > 0){
+      flipper.style.left = geo.pageW + "px";
+      flipper.style.transformOrigin = "left center";
+      faceFront.replaceChildren(pages[spread+1] ? pages[spread+1].cloneNode(true) : blankPage());
+      faceBack.replaceChildren(pages[spread+2] ? pages[spread+2].cloneNode(true) : blankPage());
+      setSlot(pageR, spread+3); setNo(noR, spread+3);   // neuer Recto erscheint darunter
+      flipShadow.style.background = "linear-gradient(90deg, rgba(40,26,10,.24), rgba(40,26,10,0) 58%)";
+      flipper.style.display = "block"; flipper.style.transform = "rotateY(0deg)";
+      runAngle(0, -180, () => { spread += 2; renderSpread(); animating = false; });
+    } else {
+      flipper.style.left = "0px";
+      flipper.style.transformOrigin = "right center";
+      faceFront.replaceChildren(pages[spread] ? pages[spread].cloneNode(true) : blankPage());
+      faceBack.replaceChildren(pages[spread-1] ? pages[spread-1].cloneNode(true) : blankPage());
+      setSlot(pageL, spread-2); setNo(noL, spread-2);
+      flipShadow.style.background = "linear-gradient(270deg, rgba(40,26,10,.24), rgba(40,26,10,0) 58%)";
+      flipper.style.display = "block"; flipper.style.transform = "rotateY(0deg)";
+      runAngle(0, 180, () => { spread -= 2; renderSpread(); animating = false; });
+    }
+  }
+
+  /* ---------- Chrome (Header + Navigator) auto-versteckt ---------- */
+  let hT = null, nT = null;
+  function showHeader(){ topbar.classList.add("show"); clearTimeout(hT); hT = setTimeout(() => topbar.classList.remove("show"), 3500); }
+  function showNav(){ pager.classList.add("show"); clearTimeout(nT); nT = setTimeout(() => pager.classList.remove("show"), 3500); }
+  function hideChrome(){ topbar.classList.remove("show"); pager.classList.remove("show"); }
+
+  /* ---------- Tippen & Wischen ---------- */
+  function handleTap(x, y){
+    const W = window.innerWidth, H = window.innerHeight;
+    if (y < 72){ topbar.classList.contains("show") ? topbar.classList.remove("show") : showHeader(); return; }
+    if (y > H - 96 && x > W*0.30 && x < W*0.70){ pager.classList.contains("show") ? pager.classList.remove("show") : showNav(); return; }
+    if (x < W*0.30){ flip(-1); return; }
+    if (x > W*0.70){ flip(1); return; }
+    pager.classList.contains("show") ? hideChrome() : showNav();
+  }
+  let downX = null, downY = null, swiped = false;
+  stage.addEventListener("pointerdown", e => { downX = e.clientX; downY = e.clientY; swiped = false; });
+  stage.addEventListener("pointermove", e => {
+    if (downX == null || swiped || animating) return;
+    const dx = e.clientX - downX, dy = e.clientY - downY;
+    if (Math.abs(dx) > 48 && Math.abs(dx) > Math.abs(dy)){ swiped = true; flip(dx < 0 ? 1 : -1); }   // kurze 4–5cm-Wischgeste reicht
+  });
+  stage.addEventListener("pointerup", e => {
+    if (downX != null && !swiped){
+      const dx = e.clientX - downX, dy = e.clientY - downY;
+      if (Math.abs(dx) < 8 && Math.abs(dy) < 8) handleTap(e.clientX, e.clientY);
+    }
+    downX = downY = null;
+  });
+  stage.addEventListener("pointercancel", () => { downX = downY = null; });
+
+  /* ---------- Modus & Steuerung ---------- */
+  function enterReader(){
+    sizeBook(); buildPages();
+    const maxSpread = (totalSpreads() - 1) * 2;
+    if (spread > maxSpread) spread = maxSpread;
+    if (spread % 2) spread--;
+    renderSpread();
+  }
+  function setMode(m){
+    m = "scroll";
+    const r = (m === "reader");
+    body.classList.toggle("mode-reader", r);
+    body.classList.toggle("mode-scroll", !r);
+    scrollBtn.classList.toggle("is-active", !r);
+    readerBtn.classList.toggle("is-active", r);
+    try { localStorage.setItem(KEY, m); } catch(e){}
+    if (r){ enterReader(); setTimeout(enterReader, 120); }   // 2. Pass nach Font-Load
+    else { hideChrome(); topbar.classList.remove("show"); if (typeof syncHeaderBrand === "function") syncHeaderBrand(); }
+  }
+
+  scrollBtn.addEventListener("click", () => setMode("scroll"));
+  readerBtn.addEventListener("click", () => setMode("scroll"));
+  pgPrev.addEventListener("click", e => { e.stopPropagation(); flip(-1); showNav(); });
+  pgNext.addEventListener("click", e => { e.stopPropagation(); flip(1); showNav(); });
+  document.getElementById("pg-first").addEventListener("click", e => {
+    e.stopPropagation();
+    if (spread === 0) return;
+    spread = 0; renderSpread(); showNav();
+    document.getElementById("pg-first").classList.add("at-start");
+  });
+
+  /* Zurück-nach-oben (Scroll-Modus) */
+  const backToTop = document.getElementById("back-to-top");
+  window.addEventListener("scroll", () => {
+    backToTop.classList.toggle("visible", window.scrollY > 400);
+  }, {passive: true});
+  backToTop.addEventListener("click", () => window.scrollTo({top: 0, behavior: "smooth"}));
+  window.addEventListener("keydown", e => {
+    if (!isReader()) return;
+    if (e.key === "ArrowRight") flip(1);
+    if (e.key === "ArrowLeft")  flip(-1);
+  });
+  let rT = null;
+  window.addEventListener("resize", () => { if (!isReader()) return; clearTimeout(rT); rT = setTimeout(enterReader, 180); });
+
+  let saved = "scroll";
+  try { localStorage.setItem(KEY, "scroll"); } catch(e){}
+  setMode("scroll");
+
+  const backTopBtn = document.getElementById("back-top-btn");
+  if (backTopBtn) {
+    backTopBtn.addEventListener("click", () => window.scrollTo({top: 0, behavior: "smooth"}));
+  }
+
+  /* Header-Brand erst zeigen, wenn der Hero weggescrollt ist (loest die Doppelung) */
+  function syncHeaderBrand(){
+    if (isReader()){ topbar.classList.remove("at-top"); return; }
+    const past = window.scrollY > (heroEl.offsetHeight - 90);
+    topbar.classList.toggle("at-top", !past);
+  }
+  window.addEventListener("scroll", syncHeaderBrand, { passive: true });
+  syncHeaderBrand();
+})();
+
+/* Reader-Modus auf Mobile/Tablet-Portrait: deaktivieren */
+(function(){
+  function isSmallOrPortrait(){
+    return window.innerWidth <= 680 ||
+           (window.innerWidth <= 1024 && window.innerHeight > window.innerWidth);
+  }
+  function forceScroll(){
+    try { localStorage.setItem('fieldnote_view', 'scroll'); } catch(e) {}
+    /* Falls Reader gerade aktiv ist, auf Scroll wechseln */
+    var scrollBtn = document.getElementById('view-scroll-btn');
+    if (scrollBtn && document.body.classList.contains('mode-reader')) scrollBtn.click();
+  }
+  if (isSmallOrPortrait()) forceScroll();
+  window.addEventListener('resize', function(){
+    if (isSmallOrPortrait()) forceScroll();
+  });
+})();
+
+/* Sprachflaggen: nur anzeigen wenn mind. eine weitere Sprache verfügbar (nicht disabled) */
+(function(){
+  var langs = document.querySelector('.langs');
+  if (!langs) return;
+  var available = langs.querySelectorAll('.lang:not([disabled])');
+  if (available.length <= 1) langs.style.display = 'none';
+})();
+
+/* P5 WEB_PREVIEW: Reader deaktiviert, Topbar-Button scrollt nach oben. */
+(function(){
+  var btn = document.getElementById("back-top-btn");
+  if (!btn) return;
+  btn.addEventListener("click", function(){
+    window.scrollTo({top: 0, behavior: "smooth"});
+  });
+})();
+
+</script>
+</body>
+</html>
