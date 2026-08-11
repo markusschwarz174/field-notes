@@ -130,6 +130,16 @@ body{background:var(--bg);color:#191713;font-family:var(--sans);-webkit-font-smo
 .lang[disabled],.lang.is-disabled{opacity:.42;cursor:not-allowed;box-shadow:none}
 a.lang:hover{background:#7d4a23;color:#fff4df;border-color:#7d4a23}
 
+.about-link{
+  display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 13px;
+  border-radius:999px;border:1px solid rgba(94,55,23,.26);
+  background:rgba(255,250,240,.58);color:#5e3717;
+  font:700 .62rem/1 var(--mono);letter-spacing:.05em;text-decoration:none;
+  box-shadow:0 8px 18px rgba(45,30,14,.12),0 1px 0 rgba(255,255,255,.55) inset;
+}
+.about-link svg{width:11px;height:11px;flex:none}
+.about-link:hover{background:#7d4a23;color:#fff4df;border-color:#7d4a23}
+
 #svg-lines{position:absolute;inset:0;overflow:visible;pointer-events:none;z-index:20}
 #svg-lines path{pointer-events:none}
 body.draft-mode #svg-lines{pointer-events:auto}
@@ -500,6 +510,10 @@ body.draft-mode #draft-export-btn{display:block}
   </div>
 
   <div id="top-actions">
+    <a class="about-link" href="ueber-die-reihe/" title="Über diese Reihe &amp; Methodik">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v6l4 2"/></svg>
+      Über die Reihe
+    </a>
     <div class="langs storyline-langs" role="group" aria-label="Sprache">
       <button class="lang is-active" type="button" title="Deutsch" aria-label="Deutsch">DE</button>
       <a class="lang" href="en/" title="English" aria-label="English">EN</a>
