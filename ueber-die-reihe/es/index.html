@@ -51,8 +51,8 @@ body:before{
   color:#fff7e8;border-bottom:0;
 }
 .masthead:after{content:"";position:absolute;inset:0;box-shadow:inset 0 -1px 0 rgba(255,255,255,.15);pointer-events:none}
-.mast-copy{position:relative;z-index:1;max-width:820px}
-.topbar{position:absolute;z-index:2;top:20px;right:max(24px,calc((100vw - 932px)/2));display:flex;gap:6px}
+.mast-copy{position:relative;z-index:1;max-width:1100px;width:100%}
+.topbar{position:absolute;z-index:2;top:20px;right:max(24px,calc((100vw - 932px)/2));display:flex;align-items:center;gap:6px}
 .lang{display:inline-flex;align-items:center;justify-content:center;min-width:34px;height:30px;padding:0 9px;border:1px solid rgba(255,247,232,.45);border-radius:999px;background:rgba(30,20,12,.38);color:#fff7e8;font:700 .62rem/1 var(--mono);letter-spacing:.08em;text-decoration:none;backdrop-filter:blur(4px)}
 .lang.is-active{background:#fff7e8;color:#5e3717;border-color:#fff7e8}.lang:hover{background:#7d4a23;color:#fff7e8}
 .eyebrow{
@@ -61,12 +61,12 @@ body:before{
 }
 .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:#e6bd78}
 h1{
-  font:800 clamp(2rem,5vw,2.9rem)/1.08 var(--sans);letter-spacing:-.02em;
-  margin:0 0 18px;max-width:16ch;text-wrap:balance;
+  font:800 clamp(2rem,4vw,2.9rem)/1.08 var(--sans);letter-spacing:-.02em;
+  margin:0 0 18px;max-width:none;white-space:nowrap;
 }
 .lead{
-  font:italic 400 1.12rem/1.55 var(--serif);color:#f1e2cd;
-  margin:0 0 14px;max-width:60ch;
+  font:italic 400 1.08rem/1.5 var(--serif);color:#f1e2cd;
+  margin:0 0 14px;max-width:98ch;
 }
 .lead:last-child{margin-bottom:0}
 
@@ -116,6 +116,7 @@ blockquote{
   .page{padding:0 18px 70px}
   .masthead{min-height:420px;padding:34px 18px 30px;background-position:center top}
   .topbar{right:18px;top:14px}
+  h1{white-space:normal}
   .roles{grid-template-columns:1fr}
 }
 </style>
@@ -132,8 +133,8 @@ blockquote{
     </nav>
     <div class="mast-copy">
       <div class="eyebrow"><span class="dot"></span>Sobre esta serie</div>
-      <h1>Escrito por mí — pero ya no solo.</h1>
-      <p class="lead">En lugar de escribir sobre el quién y el qué, me doy cuenta de que estoy al comienzo de una época en la que el con-qué se volverá algo natural. Pero me pregunto quién o qué es ese con-qué: una herramienta, un interlocutor — ¿o ambas cosas?</p>
+      <h1>Escrito por mí — pero ya no solo</h1>
+      <p class="lead">En lugar de escribir sobre el quién y el qué, me doy cuenta de algo: estoy al comienzo de una época en la que el con-qué se está volviendo algo natural para mí. Pero ¿qué o quién es ese con-qué? ¿Es una herramienta, un interlocutor o ambas cosas?</p>
     </div>
   </div>
 
@@ -164,7 +165,7 @@ blockquote{
       <h2>03 · Para que nos entendamos bien</h2>
       <p>Escribo aquí en forma de ensayo, desde mi propia práctica y perspectiva — no como una publicación científica revisada por pares. Las observaciones y valoraciones presentadas son personales y no han sido validadas empíricamente.</p>
       <p>Y las fotografías de trabajos del alumnado fueron deconstruidas para proteger a las personas implicadas. Los nombres y otros datos identificativos fueron anonimizados.</p>
-      <p>Sin mí, lo escrito no estaría aquí; y asumo la responsabilidad de determinar qué decisiones son mías y qué huellas pertenecen a la IA.</p>
+      <p>Sin mí, este texto no estaría aquí. Y asumo la responsabilidad de las decisiones que tomo en él y de las huellas que deja la IA.</p>
     </section>
 
     <a class="back" href="../../es/">← Volver a la vista general</a>

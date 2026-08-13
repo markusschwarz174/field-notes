@@ -51,8 +51,8 @@ body:before{
   color:#fff7e8;border-bottom:0;
 }
 .masthead:after{content:"";position:absolute;inset:0;box-shadow:inset 0 -1px 0 rgba(255,255,255,.15);pointer-events:none}
-.mast-copy{position:relative;z-index:1;max-width:820px}
-.topbar{position:absolute;z-index:2;top:20px;right:max(24px,calc((100vw - 932px)/2));display:flex;gap:6px}
+.mast-copy{position:relative;z-index:1;max-width:1100px;width:100%}
+.topbar{position:absolute;z-index:2;top:20px;right:max(24px,calc((100vw - 932px)/2));display:flex;align-items:center;gap:6px}
 .lang{display:inline-flex;align-items:center;justify-content:center;min-width:34px;height:30px;padding:0 9px;border:1px solid rgba(255,247,232,.45);border-radius:999px;background:rgba(30,20,12,.38);color:#fff7e8;font:700 .62rem/1 var(--mono);letter-spacing:.08em;text-decoration:none;backdrop-filter:blur(4px)}
 .lang.is-active{background:#fff7e8;color:#5e3717;border-color:#fff7e8}.lang:hover{background:#7d4a23;color:#fff7e8}
 .eyebrow{
@@ -61,12 +61,12 @@ body:before{
 }
 .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:#e6bd78}
 h1{
-  font:800 clamp(2rem,5vw,2.9rem)/1.08 var(--sans);letter-spacing:-.02em;
-  margin:0 0 18px;max-width:16ch;text-wrap:balance;
+  font:800 clamp(2rem,4vw,2.9rem)/1.08 var(--sans);letter-spacing:-.02em;
+  margin:0 0 18px;max-width:none;white-space:nowrap;
 }
 .lead{
-  font:italic 400 1.12rem/1.55 var(--serif);color:#f1e2cd;
-  margin:0 0 14px;max-width:60ch;
+  font:italic 400 1.08rem/1.5 var(--serif);color:#f1e2cd;
+  margin:0 0 14px;max-width:98ch;
 }
 .lead:last-child{margin-bottom:0}
 
@@ -116,6 +116,7 @@ blockquote{
   .page{padding:0 18px 70px}
   .masthead{min-height:420px;padding:34px 18px 30px;background-position:center top}
   .topbar{right:18px;top:14px}
+  h1{white-space:normal}
   .roles{grid-template-columns:1fr}
 }
 </style>
@@ -125,6 +126,7 @@ blockquote{
 
   <div class="masthead">
     <nav class="topbar" aria-label="Sprache">
+      <a class="lang" href="../" aria-label="Zurück zur Übersicht">← Übersicht</a>
       <span class="lang is-active" aria-current="page">DE</span>
       <a class="lang" href="en/" hreflang="en">EN</a>
       <a class="lang" href="es/" hreflang="es">ES</a>
@@ -132,8 +134,8 @@ blockquote{
     </nav>
     <div class="mast-copy">
       <div class="eyebrow"><span class="dot"></span>Über diese Reihe</div>
-      <h1>Selber geschrieben — aber nicht mehr allein.</h1>
-      <p class="lead">Anstelle über das Wer und das Was zu schreiben, wird mir bewusst, dass ich am Anfang einer Zeit stehe, in der das Womit selbstverständlich wird. Ich frage mich aber, wer oder was dieses Womit ist: ein Werkzeug, ein Gegenüber — oder beides?</p>
+      <h1>Selber geschrieben — aber nicht mehr allein</h1>
+      <p class="lead">Statt über das Wer und das Was zu schreiben, wird mir bewusst: Ich stehe am Anfang einer Zeit, in der das Womit für mich selbstverständlich wird. Doch was oder wer ist dieses Womit? Ist es ein Werkzeug, ein Gegenüber oder beides?</p>
     </div>
   </div>
 
@@ -164,7 +166,7 @@ blockquote{
       <h2>03 · Damit wir uns richtig verstehen</h2>
       <p>Ich schreibe hier essayistisch aus meiner eigenen Praxis und Perspektive — nicht als peer-begutachtete wissenschaftliche Publikation. Die dargestellten Beobachtungen und Einschätzungen sind persönlich und wurden nicht empirisch validiert.</p>
       <p>Und Fotos von Schülerprodukten wurden zum Schutz der beteiligten Personen dekonstruiert. Namen und andere identifizierende Angaben wurden anonymisiert.</p>
-      <p>Ohne mich wäre das Geschriebene nicht hier und welche Entscheidungen darin meine sind und welche Spuren der KI gehören, dafür trage ich die Verantwortung.</p>
+      <p>Ohne mich stünde dieser Text nicht hier. Und welche Entscheidungen ich darin treffe und welche Spuren die KI darin hinterlässt, dafür trage ich die Verantwortung.</p>
     </section>
 
     <a class="back" href="../">← Zurück zur Übersicht</a>

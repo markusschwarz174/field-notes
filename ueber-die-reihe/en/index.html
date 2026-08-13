@@ -51,8 +51,8 @@ body:before{
   color:#fff7e8;border-bottom:0;
 }
 .masthead:after{content:"";position:absolute;inset:0;box-shadow:inset 0 -1px 0 rgba(255,255,255,.15);pointer-events:none}
-.mast-copy{position:relative;z-index:1;max-width:820px}
-.topbar{position:absolute;z-index:2;top:20px;right:max(24px,calc((100vw - 932px)/2));display:flex;gap:6px}
+.mast-copy{position:relative;z-index:1;max-width:1100px;width:100%}
+.topbar{position:absolute;z-index:2;top:20px;right:max(24px,calc((100vw - 932px)/2));display:flex;align-items:center;gap:6px}
 .lang{display:inline-flex;align-items:center;justify-content:center;min-width:34px;height:30px;padding:0 9px;border:1px solid rgba(255,247,232,.45);border-radius:999px;background:rgba(30,20,12,.38);color:#fff7e8;font:700 .62rem/1 var(--mono);letter-spacing:.08em;text-decoration:none;backdrop-filter:blur(4px)}
 .lang.is-active{background:#fff7e8;color:#5e3717;border-color:#fff7e8}.lang:hover{background:#7d4a23;color:#fff7e8}
 .eyebrow{
@@ -61,12 +61,12 @@ body:before{
 }
 .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:#e6bd78}
 h1{
-  font:800 clamp(2rem,5vw,2.9rem)/1.08 var(--sans);letter-spacing:-.02em;
-  margin:0 0 18px;max-width:16ch;text-wrap:balance;
+  font:800 clamp(2rem,4vw,2.9rem)/1.08 var(--sans);letter-spacing:-.02em;
+  margin:0 0 18px;max-width:none;white-space:nowrap;
 }
 .lead{
-  font:italic 400 1.12rem/1.55 var(--serif);color:#f1e2cd;
-  margin:0 0 14px;max-width:60ch;
+  font:italic 400 1.08rem/1.5 var(--serif);color:#f1e2cd;
+  margin:0 0 14px;max-width:98ch;
 }
 .lead:last-child{margin-bottom:0}
 
@@ -116,6 +116,7 @@ blockquote{
   .page{padding:0 18px 70px}
   .masthead{min-height:420px;padding:34px 18px 30px;background-position:center top}
   .topbar{right:18px;top:14px}
+  h1{white-space:normal}
   .roles{grid-template-columns:1fr}
 }
 </style>
@@ -132,8 +133,8 @@ blockquote{
     </nav>
     <div class="mast-copy">
       <div class="eyebrow"><span class="dot"></span>About this series</div>
-      <h1>Written by me — but no longer alone.</h1>
-      <p class="lead">Instead of writing about the who and the what, I realize that I am at the beginning of a time when the with-what will become a matter of course. But I still wonder who or what this with-what is: a tool, a counterpart — or both?</p>
+      <h1>Written by me — but no longer alone</h1>
+      <p class="lead">Instead of writing about the who and the what, I realize: I am at the beginning of a time when the with-what is becoming a matter of course for me. But what or who is this with-what? Is it a tool, a counterpart, or both?</p>
     </div>
   </div>
 
@@ -164,7 +165,7 @@ blockquote{
       <h2>03 · To avoid any misunderstanding</h2>
       <p>I write here in an essayistic form, from my own practice and perspective — not as a peer-reviewed academic publication. The observations and assessments presented are personal and have not been empirically validated.</p>
       <p>And photographs of student work were deconstructed to protect the people involved. Names and other identifying details were anonymized.</p>
-      <p>Without me, what is written here would not be here; and I am responsible for which decisions in it are mine and which traces belong to AI.</p>
+      <p>Without me, this text would not be here. And I am responsible for the decisions I make in it and the traces AI leaves in it.</p>
     </section>
 
     <a class="back" href="../../en/">← Back to the overview</a>
