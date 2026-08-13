@@ -3,20 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Über diese Reihe &amp; Methodik · Field Notes</title>
-<meta name="description" content="Was «Feldnotizen — KI und Unterricht» ist, wie die Reihe entstanden ist, und was das für das Lesen bedeutet.">
+<!-- V1.80 -- HUMAN-Fassung aus UEBER_DIE_REIHE_V1.80_DRAFT_HUMAN_260813_0145.docx -->
+<title>Selber geschrieben — aber nicht mehr allein · Field Notes</title>
+<meta name="description" content="Wer oder was schreibt eigentlich mit? Über die Reihe «Feldnotizen — KI und Unterricht» und ihre Methodik.">
 <link rel="canonical" href="https://markusschwarz174.github.io/field-notes/ueber-die-reihe/">
 <!-- Open Graph -->
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Field Notes — Markus Schwarz">
-<meta property="og:title" content="Über diese Reihe &amp; Methodik · Field Notes">
-<meta property="og:description" content="Was «Feldnotizen — KI und Unterricht» ist, wie die Reihe entstanden ist, und was das für das Lesen bedeutet.">
+<meta property="og:title" content="Selber geschrieben — aber nicht mehr allein · Field Notes">
+<meta property="og:description" content="Wer oder was schreibt eigentlich mit? Über die Reihe «Feldnotizen — KI und Unterricht» und ihre Methodik.">
 <meta property="og:url" content="https://markusschwarz174.github.io/field-notes/ueber-die-reihe/">
 <meta property="og:locale" content="de_CH">
 <!-- Twitter Card -->
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Über diese Reihe &amp; Methodik · Field Notes">
-<meta name="twitter:description" content="Was «Feldnotizen — KI und Unterricht» ist, wie die Reihe entstanden ist, und was das für das Lesen bedeutet.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Selber geschrieben — aber nicht mehr allein · Field Notes">
+<meta name="twitter:description" content="Wer oder was schreibt eigentlich mit? Über die Reihe «Feldnotizen — KI und Unterricht» und ihre Methodik.">
+<meta property="og:image" content="https://markusschwarz174.github.io/field-notes/ueber-die-reihe/hero_ueber_die_reihe_260813.png">
+<meta name="twitter:image" content="https://markusschwarz174.github.io/field-notes/ueber-die-reihe/hero_ueber_die_reihe_260813.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&family=IBM+Plex+Mono:wght@500;600;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
@@ -37,24 +40,38 @@ body:before{
   background-image:radial-gradient(rgba(70,55,35,.12) 1px,transparent 1px);
   background-size:5px 5px;mix-blend-mode:multiply;z-index:0;
 }
-.page{max-width:820px;margin:0 auto;padding:0 24px 90px;position:relative;z-index:1}
+.page{max-width:980px;margin:0 auto;padding:0 24px 90px;position:relative;z-index:1}
 
-.masthead{padding:52px 0 30px;border-bottom:2px solid var(--ink)}
+.masthead{
+  position:relative;min-height:470px;margin:0 calc(50% - 50vw) 30px;
+  padding:50px max(24px,calc((100vw - 932px)/2)) 42px;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  background:linear-gradient(to bottom,rgba(24,16,9,.03) 20%,rgba(24,16,9,.92) 92%),
+    url('HEROS/UEBER_DIE_REIHE_HERO_S07_FINAL_EDIT_V3_260813.png') center top/cover no-repeat;
+  color:#fff7e8;border-bottom:0;
+}
+.masthead:after{content:"";position:absolute;inset:0;box-shadow:inset 0 -1px 0 rgba(255,255,255,.15);pointer-events:none}
+.mast-copy{position:relative;z-index:1;max-width:820px}
+.topbar{position:absolute;z-index:2;top:20px;right:max(24px,calc((100vw - 932px)/2));display:flex;gap:6px}
+.lang{display:inline-flex;align-items:center;justify-content:center;min-width:34px;height:30px;padding:0 9px;border:1px solid rgba(255,247,232,.45);border-radius:999px;background:rgba(30,20,12,.38);color:#fff7e8;font:700 .62rem/1 var(--mono);letter-spacing:.08em;text-decoration:none;backdrop-filter:blur(4px)}
+.lang.is-active{background:#fff7e8;color:#5e3717;border-color:#fff7e8}.lang:hover{background:#7d4a23;color:#fff7e8}
 .eyebrow{
   font:700 .68rem/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;
-  color:var(--ochre);margin-bottom:16px;display:flex;align-items:center;gap:10px;
+  color:#e6bd78;margin-bottom:16px;display:flex;align-items:center;gap:10px;
 }
-.eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--ochre)}
+.eyebrow .dot{width:6px;height:6px;border-radius:50%;background:#e6bd78}
 h1{
   font:800 clamp(2rem,5vw,2.9rem)/1.08 var(--sans);letter-spacing:-.02em;
   margin:0 0 18px;max-width:16ch;text-wrap:balance;
 }
 .lead{
-  font:italic 400 1.12rem/1.55 var(--serif);color:var(--muted);
-  margin:0;max-width:58ch;
+  font:italic 400 1.12rem/1.55 var(--serif);color:#f1e2cd;
+  margin:0 0 14px;max-width:60ch;
 }
+.lead:last-child{margin-bottom:0}
 
 .body{padding-top:38px}
+.body{max-width:820px;margin:0 auto}
 section{margin:0 0 44px}
 section h2{
   font:700 .76rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;
@@ -70,13 +87,15 @@ blockquote{
   margin:28px 0;padding-left:22px;border-left:3px solid var(--ochre);
 }
 
-.roles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:24px 0 0}
-.role{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:17px 16px}
+.roles{margin:20px 0 0;display:flex;flex-direction:column;gap:12px}
+.role{display:flex;gap:10px;align-items:baseline}
+.role .arrow{color:var(--ochre);flex:none;font-size:1rem;line-height:1.7}
 .role .label{
-  font:700 .66rem/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;
-  color:var(--ochre);margin-bottom:9px;
+  font:700 1.06rem/1.7 var(--serif);color:var(--ink);flex:none;
 }
-.role p{font:400 .9rem/1.5 var(--sans);color:var(--muted);margin:0}
+.role .dash{color:var(--muted)}
+
+.placeholder{color:var(--ochre);font-style:italic}
 
 .meta{
   display:grid;grid-template-columns:auto 1fr;gap:6px 18px;margin-top:26px;
@@ -95,7 +114,8 @@ blockquote{
 
 @media (max-width:640px){
   .page{padding:0 18px 70px}
-  .masthead{padding-top:34px}
+  .masthead{min-height:420px;padding:34px 18px 30px;background-position:center top}
+  .topbar{right:18px;top:14px}
   .roles{grid-template-columns:1fr}
 }
 </style>
@@ -104,31 +124,47 @@ blockquote{
 <div class="page">
 
   <div class="masthead">
-    <div class="eyebrow"><span class="dot"></span>Über diese Reihe &amp; ihre Methodik</div>
-    <h1>Bevor du eine Note liest</h1>
-    <p class="lead">Was «Feldnotizen — KI und Unterricht» ist, wie sie entstanden ist — und was das für das Lesen bedeutet.</p>
+    <nav class="topbar" aria-label="Sprache">
+      <span class="lang is-active" aria-current="page">DE</span>
+      <a class="lang" href="en/" hreflang="en">EN</a>
+      <a class="lang" href="es/" hreflang="es">ES</a>
+      <a class="lang" href="fr/" hreflang="fr">FR</a>
+    </nav>
+    <div class="mast-copy">
+      <div class="eyebrow"><span class="dot"></span>Über diese Reihe</div>
+      <h1>Selber geschrieben — aber nicht mehr allein.</h1>
+      <p class="lead">Anstelle über das Wer und das Was zu schreiben, wird mir bewusst, dass ich am Anfang einer Zeit stehe, in der das Womit selbstverständlich wird. Ich frage mich aber, wer oder was dieses Womit ist: ein Werkzeug, ein Gegenüber — oder beides?</p>
+    </div>
   </div>
 
   <div class="body">
 
     <section>
       <h2>01 · Über diese Reihe</h2>
-      <p>Die Reihe «Feldnotizen — KI und Unterricht» ist ein serialisiertes Entwicklungstagebuch eines Lehrers. Sie dokumentiert und reflektiert den eigenen Unterrichtsalltag im Zusammenspiel mit KI-Werkzeugen. Die einzelnen Field Notes verbinden persönliche Beobachtungen, konkrete Arbeitsschritte und rückblickende Einordnungen.</p>
-      <p>Es handelt sich um eine essayistische Reflexions- und Praxisdokumentation aus der Ich-Perspektive, <span class="em">nicht</span> um eine peer-begutachtete wissenschaftliche Publikation. Die dargestellten Beobachtungen und Einschätzungen sind persönlich und wurden nicht empirisch validiert.</p>
+      <p>Die Reihe ‹Feldnotizen — KI und Unterricht› ist das serialisierte Entwicklungstagebuch eines Lehrers. Sie folgt meinem Weg mit KI von Juli 2025 bis etwa Januar 2026. Sie dokumentiert und reflektiert den eigenen Umgang mit KI und die Auswirkungen auf das Denken und auf das Handeln im Unterrichtsalltag. Die einzelnen Field Notes verbinden persönliche Beobachtungen, konkrete Arbeitsschritte und rückblickende Einordnungen. Diese Seite wird weiter gepflegt und kann deshalb später von archivierten Versionen abweichen.</p>
     </section>
 
     <section>
-      <h2>02 · Methodischer Hinweis</h2>
-      <p>Die Field Notes selbst entstanden erst ab April 2026. Das für die Rekonstruktion erschlossene Arbeitsmaterial umfasst rund 600 indexierte Dokumente mit insgesamt etwa 5'600 Seiten — reale Chatverläufe, authentische Prompts, Daten und Abläufe. Wiedergegebene Chat-Ausschnitte wurden mitsamt sprachlichen Fehlern und damaligen Formulierungen beibehalten.</p>
-      <p>Dieses Material musste nachträglich in einen nachvollziehbaren Zusammenhang gebracht werden. Insbesondere zwischen August und November 2025 verliefen viele Entwicklungen gleichzeitig; für eine verständliche Darstellung wurden die Materialien ausgewählt, verdichtet und teils in eine nachvollziehbare zeitliche Abfolge gebracht.</p>
-      <blockquote>Die Field Notes wurden nicht von einer KI geschrieben. Ich habe sie geschrieben — aber nicht ohne KI.</blockquote>
-      <p>Sie entstanden in einem mehrmonatigen, iterativen Prozess, in dem Mensch und KI ihre Zusammenarbeit und ihre Rollen als Co-Autoren fortlaufend entwickelten:</p>
+      <h2>02 · Wie diese Reihe entstanden ist</h2>
+      <p>Diese Reihe ist aus einem Versuch hervorgegangen, künstliche Intelligenz für die Unterrichtsvorbereitung zu nutzen, und beschreibt den Zeitraum von Juli 2025 bis Januar 2026. Zu Beginn war nicht beabsichtigt, diesen Versuch zu dokumentieren. Die Field Notes selbst entstanden erst ab April 2026. Das für die Rekonstruktion erschlossene Arbeitsmaterial umfasst rund 600 indexierte Dokumente mit insgesamt etwa 5'600 Seiten aus dem Zeitraum Juli 2025 bis Januar 2026. Dazu gehören reale Chatverläufe, authentische Prompts, Daten und Abläufe, Unterrichtsmaterialien, Planungsdokumente, Zwischenfassungen und weitere Arbeitsartefakte. Wiedergegebene Chat-Ausschnitte wurden absichtlich mitsamt sprachlichen Fehlern, Ungenauigkeiten und damaligen Formulierungen beibehalten.</p>
+      <p>Dieses Material musste nachträglich in einen nachvollziehbaren Zusammenhang gebracht werden. Insbesondere zwischen August und November 2025 verliefen viele Entwicklungen gleichzeitig und nicht immer ‹nach Plan›. Für eine verständliche Darstellung mussten die Materialien deshalb ausgewählt und verdichtet werden; parallel verlaufende Entwicklungen wurden in eine nachvollziehbare zeitliche Abfolge gebracht.</p>
+      <blockquote>Die Field Notes wurden nicht von einer KI geschrieben.<br>Ich habe sie geschrieben — aber nicht ohne KI.</blockquote>
+      <p>Sie entstanden ab April 2026 in einem mehrmonatigen, iterativen Prozess, in dem Mensch und KI ihre Zusammenarbeit und ihre Rollen im gemeinsamen Schreibprozess fortlaufend entwickelten. Dabei übernahm die KI unter anderem folgende Rollen:</p>
       <div class="roles">
-        <div class="role"><div class="label">Werkzeug</div><p>half, umfangreiche Chatverläufe zu organisieren, Code zu entwickeln und technische Arbeitsschritte zu bewältigen.</p></div>
-        <div class="role"><div class="label">Sparringspartnerin</div><p>prüfte Fassungen, widersprach, entwickelte Alternativen und half, Entscheidungen zu schärfen.</p></div>
-        <div class="role"><div class="label">Denkspiegel</div><p>machte Muster, Zusammenhänge und blinde Flecken sichtbar — und ermöglichte rückblickende Reflexion.</p></div>
+        <div class="role"><span class="arrow">⮱</span><span class="label">Werkzeug</span><span class="dash">—</span><span>half, umfangreiche Chatverläufe zu organisieren, Code zu entwickeln und technische Arbeitsschritte bis hin zur Gestaltung und Veröffentlichung zu bewältigen.</span></div>
+        <div class="role"><span class="arrow">⮱</span><span class="label">Sparringspartnerin</span><span class="dash">—</span><span>prüfte Fassungen, widersprach, entwickelte Alternativen und half, Entscheidungen zu schärfen.</span></div>
+        <div class="role"><span class="arrow">⮱</span><span class="label">Denkspiegel</span><span class="dash">—</span><span>machte Muster, Zusammenhänge und blinde Flecken sichtbar und ermöglichte mir, den eigenen Entwicklungsprozess rückblickend zu betrachten.</span></div>
       </div>
-      <p style="margin-top:22px">Fotos von Schülerprodukten wurden zum Schutz der beteiligten Personen dekonstruiert. Namen und andere identifizierende Angaben wurden anonymisiert.</p>
+      <p style="margin-top:22px">Diese wechselnden Rollen machen die Frage nach ‹mit KI› oder ‹ohne KI› nicht falsch — aber sie lässt sich nicht mehr eindeutig beantworten. Ich sehe deshalb keine Zukunft darin, diese Grenze zu ziehen, sondern stelle mich der weiterführenden Frage: Wie kann ich mein Denken und Schreiben im Zusammenspiel mit KI zukünftig verantworten?</p>
+      <p>Die Dokumentation der Field-Notes-Reihe beginnt ab Januar 2026 mit der Sichtung und Ordnung der vorhandenen Quellen, dem Verfassen der Notes ab April 2026 — und endet mit dem Hochladen der letzten Note am <span class="placeholder">[Datum noch offen]</span>.</p>
+      <p>Die Entstehungs- und Arbeitsweise dieser Dokumentation dokumentiere ich ausführlich in einer eigenen Field Note. Darin untersuche ich auch, wie sich der gemeinsame Schreibprozess entwickelt hat und was ich daraus für meine Zusammenarbeit mit KI bei umfangreichen Texten gelernt habe.</p>
+    </section>
+
+    <section>
+      <h2>03 · Damit wir uns richtig verstehen</h2>
+      <p>Ich schreibe hier essayistisch aus meiner eigenen Praxis und Perspektive — nicht als peer-begutachtete wissenschaftliche Publikation. Die dargestellten Beobachtungen und Einschätzungen sind persönlich und wurden nicht empirisch validiert.</p>
+      <p>Und Fotos von Schülerprodukten wurden zum Schutz der beteiligten Personen dekonstruiert. Namen und andere identifizierende Angaben wurden anonymisiert.</p>
+      <p>Ohne mich wäre das Geschriebene nicht hier und welche Entscheidungen darin meine sind und welche Spuren der KI gehören, dafür trage ich die Verantwortung.</p>
     </section>
 
     <a class="back" href="../">← Zurück zur Übersicht</a>
