@@ -130,6 +130,16 @@ body{background:var(--bg);color:#191713;font-family:var(--sans);-webkit-font-smo
 .lang[disabled],.lang.is-disabled{opacity:.42;cursor:not-allowed;box-shadow:none}
 a.lang:hover{background:#7d4a23;color:#fff4df;border-color:#7d4a23}
 
+.about-link{
+  display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 13px;
+  border-radius:999px;border:1px solid rgba(94,55,23,.26);
+  background:rgba(255,250,240,.58);color:#5e3717;
+  font:700 .62rem/1 var(--mono);letter-spacing:.05em;text-decoration:none;
+  box-shadow:0 8px 18px rgba(45,30,14,.12),0 1px 0 rgba(255,255,255,.55) inset;
+}
+.about-link svg{width:11px;height:11px;flex:none}
+.about-link:hover{background:#7d4a23;color:#fff4df;border-color:#7d4a23}
+
 #svg-lines{position:absolute;inset:0;overflow:visible;pointer-events:none;z-index:20}
 #svg-lines path{pointer-events:none}
 body.draft-mode #svg-lines{pointer-events:auto}
@@ -216,8 +226,13 @@ body.draft-mode #draft-export-btn{display:block}
   padding:24px 16px 13px;max-width:none;
   background:transparent;
   transform-origin:13px 12px;
-  filter:drop-shadow(5px 9px 5px rgba(24,15,8,.28)) drop-shadow(0 15px 12px rgba(47,31,14,.18));
   transition:transform .16s ease,filter .16s ease;
+}
+/* Schatten nur fuer NEUGIERDE (Screenshot braucht Kontur) und DATENBANKEN (sehr heller Hero
+   braucht Abgrenzung) -- DIRECTOR-Entscheid 260811, ueberall sonst entfernt. */
+.waypoint.postit-node[data-id="01"] .wp-info,
+.waypoint.postit-node[data-id="DB"] .wp-info{
+  filter:drop-shadow(5px 9px 5px rgba(24,15,8,.28)) drop-shadow(0 15px 12px rgba(47,31,14,.18));
 }
 .waypoint.postit-node[data-id="01"] .wp-info{transform:rotate(-2.4deg)}
 .waypoint.postit-node[data-id="02"] .wp-info{transform:rotate(2.1deg)}
@@ -228,7 +243,11 @@ body.draft-mode #draft-export-btn{display:block}
 .waypoint.postit-node[data-id="10"] .wp-info{transform:rotate(-1deg)}
 .waypoint.postit-node[data-id="DB"] .wp-info{transform:rotate(1.7deg)}
 .waypoint.postit-node[data-id="P7"] .wp-info{transform:rotate(-1.5deg)}
-.waypoint.postit-node:hover .wp-info{filter:drop-shadow(5px 10px 6px rgba(24,15,8,.3)) drop-shadow(0 16px 13px rgba(47,31,14,.2)) saturate(1.03) contrast(1.02)}
+.waypoint.postit-node:hover .wp-info{filter:saturate(1.03) contrast(1.02)}
+.waypoint.postit-node[data-id="01"]:hover .wp-info,
+.waypoint.postit-node[data-id="DB"]:hover .wp-info{
+  filter:drop-shadow(5px 10px 6px rgba(24,15,8,.3)) drop-shadow(0 16px 13px rgba(47,31,14,.2)) saturate(1.03) contrast(1.02);
+}
 .waypoint.postit-node[data-id="01"]:hover .wp-info{transform:rotate(-2.4deg)}
 .waypoint.postit-node[data-id="02"]:hover .wp-info{transform:rotate(2.1deg)}
 .waypoint.postit-node[data-id="03"]:hover .wp-info{transform:rotate(-1.2deg)}
@@ -345,7 +364,6 @@ body.draft-mode #draft-export-btn{display:block}
   position:fixed;left:50%;top:50%;width:min(620px,calc(100vw - 42px));
   z-index:60;background:#fffaf0;border:2px solid rgba(42,29,18,.48);border-radius:8px;
   clip-path:none;
-  box-shadow:0 32px 70px rgba(36,23,12,.42),0 2px 0 rgba(255,255,255,.34) inset;
   overflow:hidden;display:none;animation:cardFlyIn .34s cubic-bezier(.2,.78,.25,1) both;
 }
 #expanded-card:before{
@@ -433,11 +451,13 @@ body.draft-mode #draft-export-btn{display:block}
     background:
       linear-gradient(180deg,rgba(255,224,167,.18),rgba(91,52,21,.08)),
       linear-gradient(90deg,#a8743c,#7a4a22);
-    box-shadow:0 6px 0 rgba(52,30,13,.6),0 1px 0 rgba(255,242,202,.28) inset;
     color:#fff3dc;text-align:left;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease;
   }
   .drawer-row:focus-visible{outline:2px solid #ffd9a8;outline-offset:3px}
   .drawer-row[aria-disabled="true"]{cursor:default;opacity:.72}
+  /* Schatten nur fuer NEUGIERDE/DATENBANKEN, gleicher Entscheid wie bei den Desktop-Kacheln. */
+  .drawer-row[data-id="01"],
+  .drawer-row[data-id="DB"]{box-shadow:0 6px 0 rgba(52,30,13,.6),0 1px 0 rgba(255,242,202,.28) inset}
   .drawer-row:after{
     content:"";position:absolute;left:50%;top:11px;width:48px;height:9px;
     transform:translateX(-50%);border-radius:99px;
@@ -489,6 +509,10 @@ body.draft-mode #draft-export-btn{display:block}
   </div>
 
   <div id="top-actions">
+    <a class="about-link" href="../ueber-die-reihe/es/" title="Sobre esta serie y su metodología">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v6l4 2"/></svg>
+      Sobre la serie
+    </a>
     <div class="langs storyline-langs" role="group" aria-label="Idioma">
       <a class="lang" href="../" title="Deutsch" aria-label="Deutsch">DE</a>
       <a class="lang" href="../en/" title="English" aria-label="English">EN</a>
@@ -528,6 +552,9 @@ body.draft-mode #draft-export-btn{display:block}
 'use strict';
 
 /* ── DATA ─────────────────────────────────────────────────────────── */
+/* Schatten-Ausnahme (DIRECTOR-Entscheid 260811): ueberall sonst entfernt -- NEUGIERDE
+   braucht Kontur, weil es ein Screenshot ist; DATENBANKEN, weil sein Hero extrem hell ist. */
+var SHADOW_IDS = new Set(['01','DB']);
 var NOTES = [
   {
     id:'01', kurztitel:'CURIOSIDAD',
@@ -1150,7 +1177,7 @@ function render() {
     if (drawerEl) {
       drawerEl.classList.toggle('is-expanded', expandedId === n.id);
       drawerEl.style.transform = expandedId === n.id ? 'translateX(10px)' : '';
-      drawerEl.style.boxShadow = expandedId === n.id
+      drawerEl.style.boxShadow = (expandedId === n.id && SHADOW_IDS.has(n.id))
         ? '0 9px 0 rgba(52,30,13,.62),0 16px 28px rgba(34,20,10,.28),0 1px 0 rgba(255,242,202,.3) inset'
         : '';
       drawerEl.style.animation = shakeId === n.id ? 'drawerShake .43s ease' : '';
@@ -1173,6 +1200,9 @@ function render() {
 
     expandedOverlay.style.display = 'block';
     expandedCard.style.display = 'block';
+    expandedCard.style.boxShadow = SHADOW_IDS.has(expNote.id)
+      ? '0 32px 70px rgba(36,23,12,.42),0 2px 0 rgba(255,255,255,.34) inset'
+      : 'none';
     expandedCard.style.setProperty('--from-x', sourceP.x.toFixed(1)+'px');
     expandedCard.style.setProperty('--from-y', sourceP.y.toFixed(1)+'px');
     expandedCard.style.setProperty('--from-rot', expNote.id === '02' ? '2deg' : '-2deg');

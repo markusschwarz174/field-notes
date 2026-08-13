@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- V1.80 -- HUMAN-Fassung aus UEBER_DIE_REIHE_V1.80_DRAFT_HUMAN_260813_0145.docx -->
+<title>Écrit par moi — mais plus seul · Field Notes</title>
+<meta name="description" content="Qui ou qu’est-ce qui écrit avec moi ? À propos de la série ‹Field Notes — IA et enseignement› et de sa méthodologie.">
+<link rel="canonical" href="https://markusschwarz174.github.io/field-notes/ueber-die-reihe/fr/">
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Field Notes — Markus Schwarz">
+<meta property="og:title" content="Écrit par moi — mais plus seul · Field Notes">
+<meta property="og:description" content="Qui ou qu’est-ce qui écrit avec moi ? À propos de la série ‹Field Notes — IA et enseignement› et de sa méthodologie.">
+<meta property="og:url" content="https://markusschwarz174.github.io/field-notes/ueber-die-reihe/fr/">
+<meta property="og:locale" content="de_CH">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Écrit par moi — mais plus seul · Field Notes">
+<meta name="twitter:description" content="Qui ou qu’est-ce qui écrit avec moi ? À propos de la série ‹Field Notes — IA et enseignement› et de sa méthodologie.">
+<meta property="og:image" content="https://markusschwarz174.github.io/field-notes/ueber-die-reihe/HEROS/UEBER_DIE_REIHE_HERO_S07_FINAL_EDIT_V3_260813.png">
+<meta name="twitter:image" content="https://markusschwarz174.github.io/field-notes/ueber-die-reihe/HEROS/UEBER_DIE_REIHE_HERO_S07_FINAL_EDIT_V3_260813.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&family=IBM+Plex+Mono:wght@500;600;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f2eadc; --paper:#fffaf0; --paper-deep:#faf4e6;
+  --ink:#191713; --muted:#6e6458; --line:#d6c8b4; --line-deep:#b8a78d;
+  --accent:#7d4a23; --accent-deep:#5e3717; --ochre:#9A6A1F;
+  --sans:'IBM Plex Sans',Inter,'Segoe UI',system-ui,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,Consolas,monospace;
+  --serif:'Spectral',Georgia,serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;opacity:.28;
+  background-image:radial-gradient(rgba(70,55,35,.12) 1px,transparent 1px);
+  background-size:5px 5px;mix-blend-mode:multiply;z-index:0;
+}
+.page{max-width:980px;margin:0 auto;padding:0 24px 90px;position:relative;z-index:1}
+
+.masthead{
+  position:relative;min-height:470px;margin:0 calc(50% - 50vw) 30px;
+  padding:50px max(24px,calc((100vw - 932px)/2)) 42px;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  background:linear-gradient(to bottom,rgba(24,16,9,.03) 20%,rgba(24,16,9,.92) 92%),
+    url('../HEROS/UEBER_DIE_REIHE_HERO_S07_FINAL_EDIT_V3_260813.png') center top/cover no-repeat;
+  color:#fff7e8;border-bottom:0;
+}
+.masthead:after{content:"";position:absolute;inset:0;box-shadow:inset 0 -1px 0 rgba(255,255,255,.15);pointer-events:none}
+.mast-copy{position:relative;z-index:1;max-width:820px}
+.topbar{position:absolute;z-index:2;top:20px;right:max(24px,calc((100vw - 932px)/2));display:flex;gap:6px}
+.lang{display:inline-flex;align-items:center;justify-content:center;min-width:34px;height:30px;padding:0 9px;border:1px solid rgba(255,247,232,.45);border-radius:999px;background:rgba(30,20,12,.38);color:#fff7e8;font:700 .62rem/1 var(--mono);letter-spacing:.08em;text-decoration:none;backdrop-filter:blur(4px)}
+.lang.is-active{background:#fff7e8;color:#5e3717;border-color:#fff7e8}.lang:hover{background:#7d4a23;color:#fff7e8}
+.eyebrow{
+  font:700 .68rem/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;
+  color:#e6bd78;margin-bottom:16px;display:flex;align-items:center;gap:10px;
+}
+.eyebrow .dot{width:6px;height:6px;border-radius:50%;background:#e6bd78}
+h1{
+  font:800 clamp(2rem,5vw,2.9rem)/1.08 var(--sans);letter-spacing:-.02em;
+  margin:0 0 18px;max-width:16ch;text-wrap:balance;
+}
+.lead{
+  font:italic 400 1.12rem/1.55 var(--serif);color:#f1e2cd;
+  margin:0 0 14px;max-width:60ch;
+}
+.lead:last-child{margin-bottom:0}
+
+.body{padding-top:38px}
+.body{max-width:820px;margin:0 auto}
+section{margin:0 0 44px}
+section h2{
+  font:700 .76rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent-deep);margin:0 0 20px;
+  padding-bottom:10px;border-bottom:1px solid var(--line-deep);
+}
+section p{font:400 1.06rem/1.7 var(--serif);color:var(--ink);margin:0 0 17px}
+section p:last-child{margin-bottom:0}
+.em{color:var(--accent-deep);font-style:italic}
+
+blockquote{
+  font:italic 500 1.2rem/1.5 var(--serif);color:var(--ink);
+  margin:28px 0;padding-left:22px;border-left:3px solid var(--ochre);
+}
+
+.roles{margin:20px 0 0;display:flex;flex-direction:column;gap:12px}
+.role{display:flex;gap:10px;align-items:baseline}
+.role .arrow{color:var(--ochre);flex:none;font-size:1rem;line-height:1.7}
+.role .label{
+  font:700 1.06rem/1.7 var(--serif);color:var(--ink);flex:none;
+}
+.role .dash{color:var(--muted)}
+
+.placeholder{color:var(--ochre);font-style:italic}
+
+.meta{
+  display:grid;grid-template-columns:auto 1fr;gap:6px 18px;margin-top:26px;
+  font:400 .92rem/1.5 var(--sans);
+}
+.meta dt{color:var(--muted);font-weight:600}
+.meta dd{margin:0;color:var(--ink)}
+
+.back{
+  display:inline-flex;align-items:center;gap:7px;margin-top:44px;
+  font:600 .8rem/1 var(--mono);color:var(--accent-deep);text-decoration:none;
+  padding:12px 18px;border:1px solid var(--line-deep);border-radius:4px;
+  background:var(--paper);
+}
+.back:hover{background:var(--accent-deep);color:#fff4df;border-color:var(--accent-deep)}
+
+@media (max-width:640px){
+  .page{padding:0 18px 70px}
+  .masthead{min-height:420px;padding:34px 18px 30px;background-position:center top}
+  .topbar{right:18px;top:14px}
+  .roles{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="masthead">
+    <nav class="topbar" aria-label="Langue">
+      <a class="lang" href="../" title="Deutsch" aria-label="Deutsch">DE</a>
+      <a class="lang" href="../en/" title="English" aria-label="English">EN</a>
+      <a class="lang" href="../es/" title="Español" aria-label="Español">ES</a>
+      <span class="lang is-active" aria-current="page" title="Français">FR</span>
+    </nav>
+    <div class="mast-copy">
+      <div class="eyebrow"><span class="dot"></span>À propos de cette série</div>
+      <h1>Écrit par moi — mais plus seul.</h1>
+      <p class="lead">Au lieu d’écrire sur le qui et le quoi, je prends conscience que je me trouve au début d’une époque où l’avec-quoi deviendra une évidence. Mais je me demande qui ou ce qu’est cet avec-quoi : un outil, un vis-à-vis — ou les deux ?</p>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <section>
+      <h2>01 · À propos de cette série</h2>
+      <p>La série ‹Field Notes — IA et enseignement› est le journal de développement, publié en feuilleton, d’un enseignant. Elle suit mon parcours avec l’IA de juillet 2025 à environ janvier 2026. Elle documente et interroge mon propre usage de l’IA ainsi que ses effets sur la pensée et sur l’action au quotidien dans l’enseignement. Chaque Field Note associe des observations personnelles, des étapes de travail concrètes et des mises en perspective rétrospectives. Cette page continuera d’être mise à jour et pourra donc différer ultérieurement des versions archivées.</p>
+    </section>
+
+    <section>
+      <h2>02 · Comment cette série est née</h2>
+      <p>Cette série est née d’une tentative d’utiliser l’intelligence artificielle pour préparer mes cours et couvre la période de juillet 2025 à janvier 2026. Au départ, je n’avais pas l’intention de documenter cette tentative. Les Field Notes elles-mêmes n’ont vu le jour qu’à partir d’avril 2026. Le matériel de travail exploité pour la reconstruction comprend environ 600 documents indexés, représentant au total quelque 5 600 pages datant de juillet 2025 à janvier 2026. Il comprend de véritables historiques de conversation, des prompts authentiques, des données et des processus, du matériel pédagogique, des documents de planification, des versions intermédiaires et d’autres artefacts de travail. Les extraits de conversations reproduits ont volontairement été conservés avec leurs erreurs de langue, leurs imprécisions et les formulations de l’époque.</p>
+      <p>Il a ensuite fallu replacer ce matériel dans un contexte compréhensible. Entre août et novembre 2025 en particulier, de nombreuses évolutions se sont déroulées simultanément et pas toujours ‹comme prévu›. Pour rendre le récit compréhensible, il a donc fallu sélectionner et condenser les éléments ; les évolutions parallèles ont été organisées en une suite chronologique cohérente.</p>
+      <blockquote>Les Field Notes n’ont pas été écrites par une IA.<br>Je les ai écrites — mais pas sans IA.</blockquote>
+      <p>Elles ont été élaborées à partir d’avril 2026, au cours d’un processus itératif de plusieurs mois durant lequel l’humain et l’IA ont continuellement fait évoluer leur collaboration et leurs rôles dans le processus d’écriture commun. L’IA a notamment assumé les rôles suivants :</p>
+      <div class="roles">
+        <div class="role"><span class="arrow">⮱</span><span class="label">Outil</span><span class="dash">—</span><span>a aidé à organiser de longs historiques de conversation, à développer du code et à mener à bien des étapes techniques allant jusqu’à la conception et à la publication.</span></div>
+        <div class="role"><span class="arrow">⮱</span><span class="label">Partenaire de réflexion</span><span class="dash">—</span><span>a examiné les versions, formulé des objections, élaboré des alternatives et aidé à préciser les décisions.</span></div>
+        <div class="role"><span class="arrow">⮱</span><span class="label">Miroir de la pensée</span><span class="dash">—</span><span>a rendu visibles des schémas, des liens et des angles morts, et m’a permis de porter un regard rétrospectif sur mon propre processus d’évolution.</span></div>
+      </div>
+      <p style="margin-top:22px">Ces rôles changeants ne rendent pas fausse la question ‹avec l’IA› ou ‹sans l’IA› — mais il n’est plus possible d’y répondre sans ambiguïté. Je ne vois donc aucun avenir dans le fait de tracer cette frontière. Je préfère affronter la question qui en découle : comment puis-je, à l’avenir, assumer la responsabilité de ma pensée et de mon écriture dans l’interaction avec l’IA ?</p>
+      <p>La documentation de la série Field Notes commence en janvier 2026 par l’examen et le classement des sources disponibles, puis par la rédaction des Notes à partir d’avril 2026 — et se termine avec la mise en ligne de la dernière Note le <span class="placeholder">[Datum noch offen]</span>.</p>
+      <p>Je documente en détail la genèse et la méthode de travail de cette documentation dans une Field Note distincte. J’y examine aussi comment le processus d’écriture commun a évolué et ce que j’en ai appris pour ma collaboration avec l’IA sur des textes de grande ampleur.</p>
+    </section>
+
+    <section>
+      <h2>03 · Pour que nous nous comprenions bien</h2>
+      <p>J’écris ici sous forme d’essai, à partir de ma propre pratique et de mon propre point de vue — et non comme une publication scientifique évaluée par des pairs. Les observations et appréciations présentées sont personnelles et n’ont pas été validées empiriquement.</p>
+      <p>Et les photographies de travaux d’élèves ont été déconstruites afin de protéger les personnes concernées. Les noms et les autres données permettant une identification ont été anonymisés.</p>
+      <p>Sans moi, ce texte ne serait pas ici ; et j’assume la responsabilité de déterminer quelles décisions sont les miennes et quelles traces appartiennent à l’IA.</p>
+    </section>
+
+    <a class="back" href="../../fr/">← Retour à la vue d’ensemble</a>
+
+  </div>
+</div>
+</body>
+</html>
