@@ -2,7 +2,7 @@
 <!--
    WEB_PREVIEW — P6-Render, in P5 Stage 1 als LIVEVIEW ausgeliehen.
    Design-SSoT: C:\Users\Markus\ClaudeCode\MeineProjekte\FIELD_NOTES_DRAFT\0_W_WORKFLOW\P6_PUBLISH\WEBDESIGN\_CURRENT\NOTE\index.html
-   Content-Source: 04_LETS_YAML_V6.05_DRAFT_AI.docx
+   Content-Source: 04_LETS_YAML_V6.25_RELEASE_de_WEBTEST_260824_2140.docx
 -->
 <html lang="de-CH">
 <head>
@@ -174,8 +174,9 @@ body:before{
 
 /* ARTICLE */
 .article{
+  --article-pad-x:clamp(24px,5vw,60px);
   background:rgba(255,250,240,.84);border:1px solid var(--line);
-  padding:42px clamp(24px,5vw,60px);
+  padding:42px var(--article-pad-x);
   box-shadow:0 22px 70px rgba(48,35,18,.08);
 }
 
@@ -250,13 +251,26 @@ body:before{
 }
 
 /* W8: Bild-Rahmung staerker · W10: Bilder leicht rotieren */
+/* D_260807_15: Standardbreite = volle Artikel-Spalte (statt schmalerer
+   -8px-Ausbruch + Opt-in-Direktive `BREIT=JA`, D_260807_05 -- abgeloest,
+   siehe DECISIONS_LOG). Kein Aufwaerts-Skalieren mehr noetig, nur noch
+   optionales Verkleinern via P5C-Klicktool/`SKALIEREN=<Wert>`. */
 .evidence{
-  margin:36px -8px;padding:14px;
+  margin:36px calc(-1 * var(--article-pad-x));padding:14px;
+  width:calc(100% + 2 * var(--article-pad-x));max-width:none;
   background:#fff;border:1px solid var(--line-deep);border-radius:2px;
   transform:rotate(-.3deg);
   box-shadow:0 16px 30px rgba(60,42,18,.13), 0 1px 0 rgba(255,255,255,.6) inset;
 }
 .evidence:nth-of-type(even){transform:rotate(.4deg)}
+/* D_260807: --figure-scale wurde vom Renderer schon lange gesetzt (figure_style_attr(),
+   SKALIEREN=NN-Marker UND P5C-Klicktool-Werte), aber nie von einer CSS-Regel konsumiert --
+   die Skalierung ging seit Bau des Mechanismus nirgends ins tatsaechliche Bild. Ohne
+   .custom-scale bleibt --figure-scale wirkungslos (Default via var(--figure-scale,1)). */
+.evidence.custom-scale{
+  width:calc(var(--figure-scale,1) * (100% + 2 * var(--article-pad-x)));
+  max-width:none;margin-left:auto;margin-right:auto;
+}
 .evidence img{
   width:100%;display:block;height:auto;
   border:1px solid #ddd5c4;background:#fafafa;
@@ -355,8 +369,8 @@ body:before{
     padding:14px 0 0 0;max-height:none;
   }
   .rail a{padding:6px 0}
-  .article{padding:28px 20px}
-  .evidence{margin:28px -4px}
+  .article{--article-pad-x:20px;padding:28px 20px}
+  .evidence{margin:28px calc(-1 * var(--article-pad-x));width:calc(100% + 2 * var(--article-pad-x));max-width:none}
   .kapitel-head{flex-direction:column;gap:6px}
   .kapitel-head .kapitel-nr{font-size:1.1rem}
 }
@@ -469,8 +483,9 @@ body:before{
 
 /* ARTICLE */
 .article{
+  --article-pad-x:clamp(24px,5vw,60px);
   background:rgba(255,250,240,.84);border:1px solid var(--line);
-  padding:42px clamp(24px,5vw,60px);
+  padding:42px var(--article-pad-x);
   box-shadow:0 22px 70px rgba(48,35,18,.08);
 }
 
@@ -499,7 +514,7 @@ body:before{
 .article em{font-style:italic}
 .mark{background:linear-gradient(transparent 55%,rgba(242,200,75,.55) 55%)}
 .article strong.hl1{font-weight:700;color:var(--red)}
-.article mark.hl2{background:transparent;color:var(--accent-2,#244f63);font-weight:650;padding:0}
+.article mark.hl2{background:transparent;color:var(--ochre,#9A6A1F);font-weight:650;padding:0}
 
 /* 4-STUFEN-HL-SYSTEM (Bauanleitung 2026-06-16) */
 /* Stufe 1: em (built-in) */
@@ -536,7 +551,7 @@ body:before{
 }
 .article .statement .label{
   font-family:var(--mono);font-size:.7rem;font-weight:600;letter-spacing:.24em;
-  text-transform:uppercase;color:#0A4DE0;
+  text-transform:uppercase;color:#7d4a23;
   border-top:1.5px solid #15171C;
   padding:14px 0 10px 0;margin:0;
 }
@@ -548,13 +563,24 @@ body:before{
 }
 
 /* W8: Bild-Rahmung staerker · W10: Bilder leicht rotieren */
+/* D_260807_15: Standardbreite = volle Artikel-Spalte (statt schmalerer
+   -8px-Ausbruch + Opt-in-Direktive `BREIT=JA`, D_260807_05 -- abgeloest,
+   siehe DECISIONS_LOG). Kein Aufwaerts-Skalieren mehr noetig, nur noch
+   optionales Verkleinern via P5C-Klicktool/`SKALIEREN=<Wert>`. */
 .evidence{
-  margin:36px -8px;padding:14px;
+  margin:36px calc(-1 * var(--article-pad-x));padding:14px;
+  width:calc(100% + 2 * var(--article-pad-x));max-width:none;
   background:#fff;border:1px solid var(--line-deep);border-radius:2px;
   transform:rotate(-.3deg);
   box-shadow:0 16px 30px rgba(60,42,18,.13), 0 1px 0 rgba(255,255,255,.6) inset;
 }
 .evidence:nth-of-type(even){transform:rotate(.4deg)}
+/* D_260807: --figure-scale wurde vom Renderer gesetzt (SKALIEREN=NN-Marker + P5C-Klicktool-
+   Werte), aber nie von einer CSS-Regel konsumiert -- ohne .custom-scale wirkungslos. */
+.evidence.custom-scale{
+  width:calc(var(--figure-scale,1) * (100% + 2 * var(--article-pad-x)));
+  max-width:none;margin-left:auto;margin-right:auto;
+}
 .evidence img{
   width:100%;display:block;height:auto;
   border:1px solid #ddd5c4;background:#fafafa;
@@ -653,8 +679,8 @@ body:before{
     padding:14px 0 0 0;max-height:none;
   }
   .rail a{padding:6px 0}
-  .article{padding:28px 20px}
-  .evidence{margin:28px -4px}
+  .article{--article-pad-x:20px;padding:28px 20px}
+  .evidence{margin:28px calc(-1 * var(--article-pad-x));width:calc(100% + 2 * var(--article-pad-x));max-width:none}
   .kapitel-head{flex-direction:column;gap:6px}
   .kapitel-head .kapitel-nr{font-size:1.1rem}
 }
@@ -861,6 +887,8 @@ body:before{
   }
 
   /* ============ EVIDENCE — nur das Bild ist zart hinterlegt (Passepartout im Papierton) ============ */
+  /* D_260807_15: margin:36px 0 bleibt korrekt, weil --article-pad-x im
+     mode-scroll-Kontext bereits 0 ist (kein separater Wide-Fall mehr). */
   .article .evidence{
     margin: 36px 0; padding: 0; background: none; border: 0; box-shadow: none; transform: none;
   }
@@ -1010,7 +1038,7 @@ body:before{
   /* ============ Final-Polish ============ */
   /* Vollflaechiges Papier statt einer grossen Karte */
   body.mode-scroll{ background: #fbf5ea; }
-  body.mode-scroll .article{ background: transparent; border: 0; box-shadow: none; border-radius: 0; padding: 40px 0 16px; }
+  body.mode-scroll .article{ --article-pad-x: 0px; background: transparent; border: 0; box-shadow: none; border-radius: 0; padding: 40px 0 16px; }
 
   /* Hero-Titel 260706: nowrap-Einzeiler verworfen (brach bei langen Headlines um max-width:none aus dem Container).
      Ersetzt durch kontrollierten Balanced-Wrap auf 900px (Container-Breite), synchron zum Python-Builder-Override. */
@@ -1129,6 +1157,34 @@ body:before{
     }
   }
 
+/* p5_render_overrides.css -- SQ-1 (SENTINEL_QUALITY_BUG_TRIAGE_AND_FIXPLAN_260723).
+
+Eng begrenzter Transformations-/Kompatibilitaetsadapter fuer den P5-Renderer.
+KEINE zweite Design-SSoT: die eigentliche SSoT bleibt ausschliesslich
+`0_W_WORKFLOW/P6_PUBLISH/WEBDESIGN/_CURRENT/NOTE/index.html`. Dieser Adapter
+darf die SSoT ergaenzen (Selektoren, die die SSoT gar nicht definiert) oder
+-- nur mit einem hashgebundenen, begruendeten Allow-Eintrag in
+`p5_render_overrides_allow.json` -- bewusst und dokumentiert von ihr abweichen.
+Jede stille Abweichung wird von `W_P5_CSS_CONFLICT_GATE.py` vor jedem Render
+erkannt und ist ohne gueltigen Allow-Eintrag ein HOLD (kein Output-Write).
+
+Historisch war dieser Block ein Python-String direkt in
+`W_WEB_PREVIEW_RENDER_BUILDER_260618.py` (`reference_css += """ ... """`);
+SQ-1 verschiebt ihn unveraendert (keine Wertaenderung) in diese benannte
+Ressource, damit er als eigenstaendige, versionierbare, diffbare CSS-Datei
+lebt statt als unsichtbarer Teil eines Python-Strings.
+
+SQ-1-Nachfix (`0_A_AGENTS/SYSTEM_SENTINEL/08_SENTINEL_QUALITY/archive/260723_root_cleanup/SENTINEL_QUALITY_SQ1_NACHFIX_BAUPLAN_260723.md`, CODEX-HOLD):
+`.hero h1`-font-size/line-height, `.article mark.hl2`-color und
+`.article p`-line-height wieder entfernt -- sie waren ohne echten
+HUMAN_APPROVED-Entscheid nur ueber einen fail-open-Allow-Status autorisiert.
+Kein bestehender bindender HUMAN-Entscheid fuer diese drei Werte gefunden
+(gepruefte Quellen: DECISIONS_LOG.md, PIN_WALL.md) -- SSoT-konformer Default
+angewandt: Adapter-Duplikate entfernt, die SSoT-Werte gelten unveraendert.
+`.article mark.hl2`-color-Drift stattdessen an der Design-SSoT selbst
+korrigiert (siehe `_CURRENT/NOTE/index.html`).
+*/
+
   .article .cliff{
     margin-top: 46px; padding-top: 18px;
   }
@@ -1148,21 +1204,30 @@ body:before{
     font-family: 'IBM Plex Sans', system-ui, sans-serif;
     font-size: .64rem; line-height: 1.48; font-weight: 500;
   }
-  .article .evidence{
-    max-width: min(100%, 680px);
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
+  /* D_260807_15: der bisherige `.article .evidence{max-width:min(100%,680px);
+     margin-left/right:auto!important}`-Cap (SQ-1-Adapter) ENTFERNT -- er
+     widersprach direkt dem neuen SSoT-Standard "volle Artikel-Spaltenbreite
+     als Default" (D_260807_15) und haette ihn wegen hoeherer Spezifitaet +
+     !important stillschweigend wieder aufgehoben. Kein Ersatz noetig: die
+     SSoT-Regel `.evidence{width:calc(...);max-width:none}` traegt die
+     Breiten-Entscheidung jetzt allein. */
+  /* D_260807_15-Nachfix: `max-height:70vh` entfernt. Zusammen mit
+     `object-fit:contain` liess das Bild innerhalb einer hoehenbegrenzten Box
+     "einpassen" -- die Box (= .evidence, jetzt standardmaessig volle
+     Spaltenbreite) blieb breit, das sichtbare Bild schrumpfte darin mit
+     Leerraum links/rechts (Letterboxing), sobald die bei voller Breite
+     natuerliche Bildhoehe 70vh ueberstieg. Vor `D_260807_15` war das selten
+     relevant (Bilder waren default schmaler, damit meist niedriger als
+     70vh) -- bei "Standard = maximale Breite" trifft es jedes mittel-hohe
+     Bild. DIRECTOR-Befund: "roter Rahmen hat volle Breite, aber das Bild
+     klebt nicht am Rahmen." */
   .article .evidence img{
     width: auto;
     max-width: 100%;
-    max-height: 70vh;
     margin: 0 auto;
   }
   .article .evidence.scale-ok img{
     width: 100%;
-    max-height: 70vh;
-    object-fit: contain;
   }
   .article .evidence.custom-scale{
     width: min(calc(100% * var(--figure-scale)), calc(680px * var(--figure-scale)));
@@ -1191,8 +1256,6 @@ body:before{
     word-break: normal;
     hyphens: auto;
     text-wrap: balance;
-    font-size: clamp(2.15rem, 5.2vw, 5.15rem) !important;
-    line-height: .96 !important;
   }
   .hero .lead{
     max-width: 1100px;
@@ -1200,12 +1263,10 @@ body:before{
   }
   .article mark.hl2{
     background: transparent !important;
-    color: var(--ochre,#9A6A1F) !important;
     font-weight: 600;
     padding: 0;
   }
   .article p{
-    line-height:1.46 !important;
     margin-top:.72rem !important;
     margin-bottom:.92rem !important;
   }
@@ -1282,9 +1343,9 @@ body:before{
   <h2>Muss man sich immer zuerst aufregen?</h2>
 </div>
 
-  <p id="p-001">Es ist Mitte August und wie oft wollte ich in den vergangenen Tagen am liebsten den Laptop zuknallen. Der Geo-Chat ist derart angewachsen, dass ich meine Prompts für die Aufgabenblätter darin nicht mehr finde. Und wenn ich dann einen Prompt finde und als 1:1 Kopie wiederverwende, dann sieht das Arbeitsblatt mit dem genau gleichen Prompt anders aus als das Vorherige.</p>
+  <p id="p-001">Es ist Mitte August, und wie so oft in den vergangenen Tagen, möchte ich einmal mehr am liebsten <strong class="hl1">einfach den Laptop zuknallen</strong>. Der Geo-Chat ist derart angewachsen, dass ich meine Prompts für die Aufgabenblätter darin nicht mehr finde. Und wenn ich dann einmal einen Prompt finde und als 1:1 Kopie wiederverwende, dann sieht das Arbeitsblatt (mit dem genau gleichen Prompt) anders aus als das Vorherige.</p>
 
-  <p id="p-002">Die Ursache für die Länge der Chats liegt ganz klar bei mir. Anfangs August habe ich mit der Unterrichtsvorbereitung im Fach Geografie und dem Thema «Unsere Erde» begonnen. Das alles habe ich mit GPT am Browser gemacht. Es war ein Ping-Pong und dieses hat so lange gedauert, bis ich den gewünschten Output hatte.</p>
+  <p id="p-002">Die Ursache für die Länge der Chats liegt ganz klar bei mir. Anfangs August habe ich mit der Unterrichtsvorbereitung im Fach Geografie und dem Thema «Unsere Erde» begonnen. Alles habe ich mit GPT am Browser gemacht. Es war ein Ping-Pong und dieses hat so lange gedauert, bis ich jeweils den gewünschten Output hatte.</p>
 
   <p id="p-003">Ich will ein Arbeitsblatt – Ping-Pong – ich habe das Arbeitsblatt.</p>
 
@@ -1296,82 +1357,82 @@ body:before{
     <figcaption class="cap">Browser-Ping-Pong mit GPT und seine Probleme</figcaption>
   </figure>
 
-  <p id="p-005">Das ist super einfach, aber diese Art der Kommunikation hat auch ein paar Schattenseiten:<br>1. Die Chats in GPT werden immer länger und länger.<br>(=&gt; Alleine der Geo-Chat umfasste als Export in WORD ganze 105 Word-Seiten.)<br>2. Wo ist mein «Arbeitsblatt-Prompt»? Und schon beginnt die Suche.<br>3. Auch die Prompts werden länger und detaillierter, aber nicht besser.<br>4. Thematisch sind die Chats ein historisch gewachsenes Ratatouille verschiedenster Themen.<br>Und irgendeinmal funktioniert gar nichts mehr.</p>
+  <p id="p-005">Das ist super einfach, aber diese Art der Kommunikation hat auch ein paar Schattenseiten: 1. Die Chats in GPT werden immer länger und länger. (=&gt; Alleine der Geo-Chat umfasste als Export in WORD ganze 105 Word-Seiten.) 2. Wo ist mein «Arbeitsblatt-Prompt»? Und schon beginnt die Suche. 3. Auch die Prompts werden länger und detaillierter, aber nicht besser. 4. Thematisch sind die Chats ein <strong class="hl1">historisch gewachsenes Ratatouille</strong> verschiedenster Themen. Und irgendeinmal funktioniert gar nichts mehr.</p>
 
-  <p id="p-006">Beim Geo-Arbeitsblatt sehe ich es deutlich: gleiche Eingabe, aber die Darstellung ist anders, ein Element fehlt, irgendetwas stimmt nie überein. Das ist so frustrierend, weil ich denke in «Input = Output», aber so funktioniert das scheinbar nicht. Er (GPT) dichtet immer noch etwas dazu, interpretiert etwas anders, als ich es tue. Das lässt mich manchmal verzweifeln.</p>
+  <p id="p-006">Beim Geo-Arbeitsblatt sehe ich es deutlich: gleiche Eingabe, aber die Darstellung ist anders, ein Element fehlt, irgendetwas stimmt nie überein. Das ist so frustrierend, weil ich denke in «Input = Output», aber so funktioniert das scheinbar nicht. Er (GPT) <strong class="hl1">dichtet immer noch etwas dazu</strong>, interpretiert etwas anders, als ich es tue. Das lässt mich manchmal verzweifeln.</p>
 
-  <p id="p-007">Ich stecke fest im Spannungsfeld zwischen der Generativität der KI und meinem Wunsch, in GPT ein Programm zu haben, das ich programmieren kann. Ich suche aber nicht nach einer Lösung, sondern ich rege mich einfach auf. Es sieht so einfach aus und trotzdem schaffe ich es nicht, dass er das macht, was ich von ihm will.</p>
+  <p id="p-007"><strong class="hl">Ich stecke fest im Spannungsfeld zwischen der Generativität der KI und meinem Wunsch, in GPT ein Programm zu haben, das ich programmieren kann.</strong> Ich suche aber nicht nach einer Lösung, sondern ich rege mich einfach auf. Es sieht so einfach aus und trotzdem schaffe ich es nicht, dass er das macht, was ich von ihm will.</p>
 
-  <p id="p-008">GPT ist ein tolles Werkzeug; dass es aber auch ein Werkzeug zur Problemlösung sein kann, habe ich noch nicht erkannt.</p>
+  <p id="p-008">GPT ist ein tolles Werkzeug; dass er mich aber auch bei Problemstellungen unterstützen kann, habe ich noch nicht erkannt.</p>
 
-  <p id="p-009">Vielleicht war es Zufall, vielleicht war einfach die Zeit dafür reif, dass ich gestern Abend für ein Geografieblatt die Liste mit Aufgabenformaten studierte und mir gleichzeitig die Bewegungsmelder in meinem Kleiderschrank in den Sinn kamen. Assoziationen, die man nicht versteht und nicht verstehen muss.<br>Und es spielt auch keine Rolle, weil ich nun eine Idee habe: Weg vom Promptschreiben hin zum Code-Schreiben. Ich frage mich nicht mehr: «Wie kann ich ein Arbeitsblatt erstellen», sondern: «Wie könnte ich Regeln erstellen, die selbst ein Arbeitsblatt erzeugen?»</p>
+  <p id="p-009">Vielleicht war es Zufall, vielleicht war einfach die Zeit dafür reif, dass ich gestern Abend für ein Geografieblatt die Liste mit Aufgabenformaten studierte und mir gleichzeitig die Bewegungsmelder in meinem Kleiderschrank in den Sinn kamen. Assoziationen, die einfach auftauchen, ohne dass man versteht, woher sie kommen. Und es spielt auch keine Rolle, weil ich jetzt nur eine Idee im Kopf habe: Ich will nicht mehr einen Prompt schreiben, sondern <strong class="hl1">einen Code hochladen</strong>. Funktioniert das auch? Ich frage mich nicht mehr: «Wie kann ich ein Arbeitsblatt erstellen», sondern: «Wie könnte ich Regeln in Form von Code erstellen, die selbst ein Arbeitsblatt erzeugen?»</p>
 
 <div class="kapitel-head" id="k-02">
   <div class="kapitel-nr">02</div>
   <h2>Mein ganz persönliches HEUREKA</h2>
 </div>
 
-  <p id="p-010">Es ist Donnerstagmorgen, der 14. August 2025 und die Uhr zeigt 08:25 Uhr. Experiment beginnt. Ich starte einen neuen Chat und öffne gleichzeitig WORD. Diesmal schreibe ich den Prompt nicht direkt ins Prompt-Fenster im Browser, sondern entwerfe ihn in WORD.<br>Ich will die Idee mit dem YAML-Code ausprobieren und beginne einfach drauflos zu schreiben: «aufgabenformate:» - neue Zeile – «aufgabentyp:» - neue Zeile - und so weiter.</p>
+  <p id="p-010">Es ist Donnerstagmorgen, der 14. August 2025 und die Uhr zeigt 08:25 Uhr. <strong class="hl1">Das Experiment beginnt.</strong> Ich starte einen neuen Chat und öffne gleichzeitig WORD, denn dieses Mal schreibe ich den Prompt nicht ins Prompt-Fenster im Browser, sondern entwerfe den Text in WORD. Ich will die Idee mit dem YAML-Code ausprobieren und beginne einfach drauflos zu schreiben: «aufgabenformate:» - neue Zeile – «aufgabentyp:» - neue Zeile - und so weiter.</p>
 
-  <figure id="abb-02" class="evidence scale-ok custom-scale" style="--figure-scale:0.65">
+  <figure id="abb-02" class="evidence scale-ok custom-scale" style="--figure-scale:0.8">
     <img src="P2_LAYOUTER/assets/YAML_02_abb_yaml_aufgabenkarten.png" alt="Rekonstruierte YAML-Aufgabenkarten zu Geografie" loading="lazy">
     <span class="stub-tag">Abb. 2</span>
     <figcaption class="cap">Rekonstruierte YAML-Aufgabenkarten zu Geografie</figcaption>
   </figure>
 
-  <p id="p-011">Ich schreibe, als würde ich Bibliothekskärtchen verfassen. Nach drei Aufgabenformaten kontrolliere ich am Bildschirm. Es sieht erstens komplett anders aus als in der Oberfläche von HomeAssistant und zweitens sieht das Geschriebene hässlich aus. Der Code ist ganz sicher fehlerhaft und ich müsste ihn korrigieren. Doch ich kann ihn nicht korrigieren, weil ich nicht weiss, wie. Ich erkenne, dass die Leerzeichen und die Klammern nicht stimmen können, aber ich weiss nicht, wie viele Leerzeichen und welche Klammern die richtigen wären. Typisches Halbwissen - Egal.</p>
+  <p id="p-011">Ich schreibe, als würde ich Bibliothekskärtchen verfassen und nach drei Aufgabenformaten kontrolliere ich diese am Bildschirm. Es sieht komplett anders aus als in der Oberfläche von Home Assistant, und das Geschriebene sieht hässlich aus. Ich bin mir sicher, dass der Code fehlerhaft ist und ich ihn korrigieren müsste. Doch ich kann ihn nicht korrigieren, weil ich nicht weiss, wie. Ich erkenne zwar, dass die Leerzeichen und Klammern nicht stimmen können, aber ich weiss nicht, wie viele Leerzeichen und welche Klammern richtig wären. <strong class="hl1">Typisches Halbwissen – egal.</strong></p>
 
   <p id="p-012">Ich lade das Word-Dokument ohne Kommentar in GPT hoch und drücke – es ist 09.05 Uhr – ENTER.</p>
 
-  <p id="p-013">Ich sitze da und schaue, wie GPT Zeile um Zeile schreibt und ich verstehe nicht, warum er das tut, denn ich habe ja gar nichts ins Prompt-Fenster geschrieben.<br>«WORD wird analysiert» oder «Der Code im Word ist fehlerhaft geschrieben». Das erwarte ich von GPT als Antwort, aber eine solche Antwort wird nie erscheinen. Dass er die fehlerhaften Zeilen aus dem Word nicht nur als YAML erkennt und selber korrigiert, sondern auch inhaltlich interpretiert und ein Arbeitsblatt daraus generiert, macht mich sprachlos.</p>
+  <p id="p-013">Ich sitze da und schaue, wie GPT Zeile um Zeile schreibt und ich verstehe nicht, warum er das tut, denn ich habe ja gar nichts ins Prompt-Fenster geschrieben. Ich erwarte «WORD wird analysiert» oder «Der Code im Word ist fehlerhaft geschrieben», aber eine solche Antwort wird nie erscheinen. Dass er die fehlerhaften Zeilen aus dem Word nicht nur als YAML erkennt und selber korrigiert, sondern auch inhaltlich interpretiert und mir am Schluss ein Arbeitsblatt daraus generiert, macht mich sprachlos.</p>
 
-  <p id="p-014">Ich brauche einen Moment, um zu realisieren, dass es funktioniert hat.<br>GPT hat tatsächlich ein Arbeitsblatt zu Geografie erstellt und ich schaue immer noch wie versteinert auf den Bildschirm und denke: «Ich habe GPT programmiert!»</p>
+  <p id="p-014">Ich brauche einen Moment, um zu realisieren, dass das Experiment funktioniert hat. GPT hat tatsächlich ein Arbeitsblatt zu Geografie erstellt und ich schaue immer noch wie versteinert auf den Bildschirm und denke: «<strong class="hl1">Ich habe GPT programmiert!</strong>»</p>
 
-  <p id="p-015">Ich frage nach, warum er den in YAML-Sprache geschriebenen Code lesen konnte, denn ich habe gemeint, dass ich in «echter Sprache» schreiben müsse. GPT erklärt mir, dass er auch andere Formate wie YAML, Markdown, Python, JSON als Strukturhinweise interpretieren und verarbeiten kann. Ich muss umdenken. Ich denke nicht mehr: «Ich brauche ein Arbeitsblatt.» Oder: «Ich will eine Prüfung.» Sondern ich baue eine Vorlage, lade sie hoch – und GPT erstellt daraus in einem Schritt ein ganzes Arbeitsblatt - nach meinen Regeln und in derselben Struktur erneut erzeugbar.</p>
+  <p id="p-015">Ich frage nach, warum er den in YAML-Sprache geschriebenen Code lesen konnte, denn ich habe gemeint, dass er wenigstens die Anweisung in «echter Sprache» benötigt. GPT erklärt mir, dass er auch andere Formate wie YAML, Markdown, Python, JSON als Strukturhinweise interpretieren und verarbeiten kann. <strong class="hl1">Ich muss umdenken.</strong> Ich denke nicht mehr: «Ich brauche ein Arbeitsblatt» oder «Ich will eine Prüfung.» Stattdessen baue ich eine Vorlage und lade sie hoch. <strong class="hl">GPT erstellt daraus in einem Schritt ein ganzes Arbeitsblatt – nach meinen Regeln und in derselben Struktur wiederholbar.</strong></p>
 
-  <p id="p-016">Oder ich übertrage eine bereits vorhandene Bibliothek und nutze diese in einer ähnlichen, aber anderen Struktur. Ich werde mich von Ping-Pong verabschieden.</p>
+  <p id="p-016">Gedanklich überlege ich mir, wie ich diese Bibliotheken in unterschiedlichen Situation nutzen kann. Ich werde mich von Ping-Pong verabschieden.</p>
 
   <figure id="abb-03" class="evidence scale-ok">
-    <img src="P2_LAYOUTER/assets/YAML_03_abb_yaml_workflow.png" alt="Konzeptentwicklung 14.08.2025: Von WORD zu YAML" loading="lazy">
+    <img src="P2_LAYOUTER/assets/YAML_03_abb_yaml_workflow.png" alt="Entwicklung des Promptings an diesem 14.08.2025: Von WORD zu YAML" loading="lazy">
     <span class="stub-tag">Abb. 3</span>
-    <figcaption class="cap">Konzeptentwicklung 14.08.2025: Von WORD zu YAML</figcaption>
+    <figcaption class="cap">Entwicklung des Promptings an diesem 14.08.2025: Von WORD zu YAML</figcaption>
   </figure>
 
 <div class="kapitel-head" id="k-03">
   <div class="kapitel-nr">03</div>
-  <h2>Meine Regeln werden Bibliotheken</h2>
+  <h2>Aus Entwürfen werden Bibliotheken</h2>
 </div>
 
-  <p id="p-017">Dieser Donnerstag, 14. August 2025 verändert mein Prompting und meine Art mit GPT zu kommunizieren. Zwei Runden mühe ich mich noch ab und schreibe im PSEUDO-YAML-Format. Dann erlöst er mich per Zufall. Ich entschuldige mich bei ihm für die vielen Syntax-Fehler im YAML-Code. GPT sagt: «Kein Problem, ich kann diesen auch für dich schreiben.» Ich muss lachen, denn ich wäre nicht draufgekommen.</p>
+  <p id="p-017">Dieser Donnerstag, 14. August 2025 verändert mein Prompting und meine Art mit GPT zu kommunizieren. Zwei Runden mühe ich mich noch ab und entwerfe im PSEUDO-YAML-Format in WORD. Dann erlöst er mich per Zufall. Ich entschuldige mich bei ihm für die vielen Syntax-Fehler im YAML-Code. GPT sagt: «Kein Problem, ich kann diesen auch für dich schreiben.» Ich muss lachen, denn ich wäre nicht draufgekommen.</p>
 
-  <p id="p-018">Und so nutze ich GPT von nun an als meinen persönlichen <em>Codewriter</em>. YAML ist nur ein Datenformat, keine Programmiersprache. Für mich fühlt es sich trotzdem wie Programmieren an.</p>
+  <p id="p-018">Und so nutze ich GPT von nun an als meinen <strong class="hl1">persönlichen Codewriter</strong>. YAML ist nur ein Datenformat, keine Programmiersprache. Für mich fühlt es sich aber trotzdem wie Programmieren an.</p>
 
-  <p id="p-019"><em>Die Regel ist die kleinste Einheit, die Bibliothek ihre Sammlung und der Generator der Workflow, der daraus Arbeitsblätter baut. Ich will Bibliotheken für alles erstellen, was sich im Schulzimmer strukturieren lässt – und weiss bereits, was ich als YAML darstellen will.</em></p>
+  <p id="p-019">Eine geschriebene Zeile ist wie eine Regel. Sie ist die <strong class="hl1">kleinste Einheit</strong>. Und daraus baue ich diese Bibliothek, die ich mir als Sammlung dieser Regeln vorstelle. Das Coole ist, dass GPT mir als Generator aus dieser Bibliothek Arbeitsblätter bauen kann. Ich will mehr Bibliotheken entwerfen und stelle mir vor, was sich im Schulzimmer alles strukturiert als YAML darstellen lässt – es ist eine Menge.</p>
 
-  <p id="p-020">Einmal erstelle ich eine Grundstruktur für die Aufgabendossiers:</p>
+  <p id="p-020">Ich beginne klein mit einer Grundstruktur für Aufgabendossiers:</p>
 
   <div id="card-001" class="conv code">
     <div class="ocard">
       <button class="copybtn" type="button" tabindex="-1" aria-label="Kopieren"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
-      <p><strong>CODE:</strong><br>Grundstruktur:<br>schema_version: 1<br>dokument_typ: &quot;Arbeitsdossier&quot;<br>fach: &quot;Raum-Zeit-Gesellschaft&quot;<br>niveau: &quot;B&quot;<br>klasse_alter: 13<br>ausgabeformat: &quot;Word-ready&quot;<br>quellen:<br>  - name: &quot;Revolution der Erde&quot;<br>    seiten: &quot;S. 12–13&quot;<br>  - name: &quot;Beleuchtung und Erwaermung der Erde&quot;<br>    seiten: &quot;S. 22–23&quot;<br>[…]</p>
+      <p><strong>CODE:</strong><br>Grundstruktur: schema_version: 1 dokument_typ: &quot;Arbeitsdossier&quot; fach: &quot;Raum-Zeit-Gesellschaft&quot; niveau: &quot;B&quot; klasse_alter: 13 ausgabeformat: &quot;Word-ready&quot; quellen: - name: &quot;Revolution der Erde&quot; seiten: &quot;S. 12–13&quot; - name: &quot;Beleuchtung und Erwaermung der Erde&quot; seiten: &quot;S. 22–23&quot; […]</p>
     </div>
   </div>
 
-  <p id="p-021">Und dann definiere ich die Formatregeln für die Aufgaben.</p>
+  <p id="p-021">Dann definiere ich Formatregeln für verschiedene Aufgaben.</p>
 
   <div id="card-002" class="conv code">
     <div class="ocard">
       <button class="copybtn" type="button" tabindex="-1" aria-label="Kopieren"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
-      <p><strong>CODE:</strong><br>formatregeln:<br>  punkteanzeigen: false<br>  platz_fuer_antworten: true<br>  starticons: { einfach: &quot;🟡&quot;, mittel: &quot;🟢&quot;, schwer: &quot;🟣&quot; }<br>  nummerierung: &quot;A, B, C, D, (E)&quot;<br>  ueberschrift_schema: &quot;Lernziel {n}&quot;<br>  schwierigkeit:<br>    A: [I, II]       # einfach<br>    B: [II]          # einfach<br>    C: [III, IV]     # mittel<br>    D: [III, IV]     # mittel<br>    E: [V, VI]       # schwer (Transfer)<br>  quellenregel: &quot;keine Mischquellen innerhalb eines Lernziels&quot;<br>  offene_vs_geschlossene:<br>    einfach_mittel: &quot;geschlossen bevorzugt&quot;<br>    schwer: &quot;offen&quot;<br>[…]</p>
+      <p><strong>CODE:</strong><br>formatregeln: punkteanzeigen: false platz_fuer_antworten: true starticons: { einfach: &quot;🟡&quot;, mittel: &quot;🟢&quot;, schwer: &quot;🟣&quot; } nummerierung: &quot;A, B, C, D, (E)&quot; ueberschrift_schema: &quot;Lernziel {n}&quot; schwierigkeit: A: [I, II] # einfach B: [II] # einfach C: [III, IV] # mittel D: [III, IV] # mittel E: [V, VI] # schwer (Transfer) quellenregel: &quot;keine Mischquellen innerhalb eines Lernziels&quot; offene_vs_geschlossene: einfach_mittel: &quot;geschlossen bevorzugt&quot; schwer: &quot;offen&quot; […]</p>
     </div>
   </div>
 
-  <p id="p-022">Anschliessend einen Block für die Aufgabenformate (Auszug):</p>
+  <p id="p-022">Anschliessend baue ich einen Block für die Aufgabenformate (Auszug):</p>
 
   <div id="card-003" class="conv code">
     <div class="ocard">
       <button class="copybtn" type="button" tabindex="-1" aria-label="Kopieren"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
-      <p><strong>CODE:</strong><br>aufgabenformate:<br>  - code: markieren<br>    icon: &quot;🔠&quot;<br>    beschr: &quot;Markieren/Unterstreichen&quot;<br>  - code: lueckentext<br>    icon: &quot;📝&quot;<br>    beschr: &quot;Lueckentext mit Wortpool&quot;<br>  # ... weitere Formate<br>[…]</p>
+      <p><strong>CODE:</strong><br>aufgabenformate: - code: markieren icon: &quot;🔠&quot; beschr: &quot;Markieren/Unterstreichen&quot; - code: lueckentext icon: &quot;📝&quot; beschr: &quot;Lueckentext mit Wortpool&quot; # ... weitere Formate […]</p>
     </div>
   </div>
 
@@ -1380,168 +1441,177 @@ body:before{
   <div id="card-004" class="conv code">
     <div class="ocard">
       <button class="copybtn" type="button" tabindex="-1" aria-label="Kopieren"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
-      <p><strong>CODE:</strong><br>lernziele:  # Nomen + Verb, 10-15 Woerter, Bloom-gerecht<br>  - text: &quot;Wortarten in Saetzen bestimmen und korrekt benennen.&quot;<br>    kompetenz: &quot;Sprachgebrauch&quot;<br>    quelle: &quot;Revolution der Erde&quot;<br>  - text: &quot;Satzbau erkennen und einfache Saetze sicher umformen.&quot;<br>    kompetenz: &quot;Grammatik&quot;<br>    quelle: &quot;Revolution der Erde&quot;<br>[…]</p>
+      <p><strong>CODE:</strong><br>lernziele: # Nomen + Verb, 10-15 Woerter, Bloom-gerecht - text: &quot;Wortarten in Saetzen bestimmen und korrekt benennen.&quot; kompetenz: &quot;Sprachgebrauch&quot; quelle: &quot;Revolution der Erde&quot; - text: &quot;Satzbau erkennen und einfache Saetze sicher umformen.&quot; kompetenz: &quot;Grammatik&quot; quelle: &quot;Revolution der Erde&quot; […]</p>
     </div>
   </div>
 
-  <p id="p-024">Den ganzen restlichen Tag arbeite ich daran, solche Codezeilen zu generieren. <strong>Es</strong> sind „meine Bibliothekskärtchen“. Ich ändere nur die Seiten und Lernziele. Dann schreibe ich im Prompt: «Generiere die Lernkontrolle nach obigem YAML.» Und GPT erstellt mir eine Test-Lernkontrolle.</p>
+  <p id="p-024">Den ganzen restlichen Tag arbeite ich daran, solche Codezeilen zu generieren. Es sind „meine Bibliothekskärtchen“. Ich ändere nur die Seiten und Lernziele. Dann schreibe ich im Prompt: «Generiere das Arbeitsblatt nach obigem YAML.» Und GPT erstellt mir ein Arbeitsblatt.</p>
 
-  <p id="p-025">Mitten am Nachmittag kommt mir wieder einmal etwas in den Sinn. Ich erinnere mich an letzte Woche: «Weisst du noch, wie du GEO-Arbeitsblätter erstellt hast und alle gleich ausgesehen haben, weil GPT die gleichen Aufgabentypen in immer der gleichen Reihenfolge erstellt hat?»</p>
+  <p id="p-025">Mitten am Nachmittag kommt mir wieder einmal etwas in den Sinn und ich erinnere mich an letzte Woche: «Weisst du noch, wie du GEO-Arbeitsblätter erstellt hast und alle gleich ausgesehen haben, weil GPT die gleichen Aufgabentypen in immer der gleichen Reihenfolge erstellt hat?»</p>
 
-  <p id="p-026">Ich denke mir etwas aus und lasse ihn eine Rotationsmatrix bauen:</p>
+  <p id="p-026">Ich denke mir etwas aus und wir bauen eine <strong class="hl1">Rotationsmatrix zusammen</strong>:</p>
 
   <div id="card-005" class="conv code">
     <div class="ocard">
       <button class="copybtn" type="button" tabindex="-1" aria-label="Kopieren"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
-      <p><strong>CODE:</strong><br>rotationsmatrix:<br>  A: [markieren, lueckentext, fehlerjagd, zuordnung, diagramm]<br>  B: [zuordnung, mehrfach, lueckentext, markieren, regel]<br>[…]</p>
+      <p><strong>CODE:</strong><br>rotationsmatrix: A: [markieren, lueckentext, fehlerjagd, zuordnung, diagramm] B: [zuordnung, mehrfach, lueckentext, markieren, regel] […]</p>
     </div>
   </div>
 
-  <p id="p-027">Es funktioniert. Der Nachmittag wird nur unterbrochen durch ein Telefonat mit dem Chef und dem Problem, dass ein Formular nicht richtig ausgefüllt ist. Die drei Telefonate halten mich kurzzeitig vom Arbeiten ab und ich frage mich, ob ich beim richtigen Arbeitgeber bin. Mein Fokus, meine ganze Konzentration liegt am späteren Nachmittag auf dem Masterprompt «Lerndossier erstellen». Es ist ein Experimentieren. Wann erstellt GPT welchen Output auf welchen Input?</p>
+  <p id="p-027">Es funktioniert. Der Nachmittag wird nur unterbrochen durch ein Telefonat mit dem Chef und dem Problem, dass ein Formular nicht richtig ausgefüllt ist. Die drei Telefonate halten mich kurzzeitig vom Arbeiten ab und ich frage mich, ob ich beim richtigen Arbeitgeber bin. Mein Fokus, meine ganze Konzentration liegt an diesem Nachmittag auf dem Masterprompt «Lerndossiers erstellen». Es ist ein Experimentieren. Wann erstellt GPT welchen Output auf welchen Input?</p>
 
-  <p id="p-028"><em>Es ist kein Ping-Pong mehr.</em> Es sind Workflows, die ich mir überlege und ausprobiere. </p>
+  <p id="p-028"><strong class="hl">Es ist kein Ping-Pong mehr. Es sind Workflows, die ich mir überlege und ausprobiere.</strong></p>
 
-  <p id="p-029">Und jedesmal sind die kleinen Bibliotheken von Lernzielen, Aufgabenformaten, Rotationsmatrix mit dabei und sie wachsen. Jedes Mal sind die kleinen Bibliotheken mit Lernzielen, Aufgabenformaten und Rotationsmatrix dabei. Mit jedem Chat wachsen sie inhaltlich und zahlenmässig. Am Abend habe ich im Grunde genommen einen Arbeitsblatt-Generator gebaut und ich frage mich: «Warum machst du das?» «Diese Tools gibt es zu tausenden im Netz». «Das ist eine Zeitverschwendung». «Die kommerziellen Generatoren sind schneller, bieten mehr und haben ein schöneres Frontend». «Deine Arbeit ist unnötig.»</p>
+  <p id="p-029">Und jedes Mal sind die kleinen Bibliotheken von Lernzielen, Aufgabenformaten, Rotationsmatrix mit dabei und sie wachsen. Sie wachsen nicht nur zahlenmässig, sondern auch inhaltlich und am Abend habe ich im Grunde genommen einen <strong class="hl1">Arbeitsblatt-Generator</strong> gebaut. Irgend einmal halte ich an und frage mich: «Warum machst du das?» «Diese Tools gibt es zu tausenden im Netz». «Das ist eine Zeitverschwendung». «Die kommerziellen Generatoren sind schneller, bieten mehr und haben ein schöneres Frontend». «Deine Arbeit ist absolut unnötig.»</p>
 
-  <p id="p-030">Ich überlege kurz - «Ich mache weiter.»</p>
+  <p id="p-030">Ich überlege kurz - und entscheide: «Ich mache weiter.»</p>
 
-  <p id="p-031">Denn eines können die kommerziellen Tools nicht: mir zeigen, welche Regel was verändert. Es ist die Autonomie, die Transparenz und die Anpassbarkeit, die meinen Code von den anderen abhebt. Von Mathematik zu Geografie – von Lernzielen zu Aufgabenformaten.</p>
+  <p id="p-031">Denn eines können die kommerziellen Tools nicht: mir zeigen, welche Zeile was verändert. Es ist die Autonomie, die Transparenz und die Anpassbarkeit, die meinen Code von den anderen abhebt. Von Mathematik zu Geografie – von Lernzielen zu Aufgabenformaten.</p>
 
-  <p id="hl3-01" class="kernsatz">Ich will sehen, steuern, verstehen -<br>und vor allem selber entscheiden.<br>Meine wichtigste Aufgabe als Mensch.</p>
+  <p id="hl3-01" class="kernsatz">Ich will sehen, steuern, verstehen - <br>und vor allem selber entscheiden. <br>Meine wichtigste Aufgabe als Mensch. </p>
 
-  <p id="p-032">Ich will keine Blackbox benutzen. Also baue ich weiter – mit GPT, aber nach meinen Regeln. <em>Ich bin der Pilot.</em> Ich sitze im Cockpit, nicht auf dem Passagiersitz.</p>
+  <p id="p-032">Ich will keine Blackbox benutzen. Ich will mit GPT Werkzeuge bauen, deren Funktionsweise offenliegt und die ich selbst anpassen kann. Deshalb baue ich weiter. <strong class="hl1">Ich bin der Pilot.</strong> Ich sitze im Cockpit, nicht auf dem Passagiersitz.</p>
 
-  <p id="p-033">Es ist wieder spät geworden. Ich fahre den PC runter, setze mich auf den Sessel im Wintergarten und schaue die Berge an. Die Aussicht ist gleich, aber das innere Gefühl ist anders. Die Augen sagen: «Die Berge sind am gleichen Ort.» Und eine innere Stimme sagt: «<em>Du hast die Berge bewegt</em>, nur ein kleines Stück, aber sie lassen sich bewegen.»</p>
+  <p id="p-033">Es ist wieder spät geworden an diesem spannenden Donnerstag. Ich fahre den PC runter, setze mich auf den Sessel im Wintergarten und schaue die Berge an. Die nächtliche Aussicht ist gleich, aber das innere Gefühl ist anders. Die Augen sagen: «Die Berge sind am gleichen Ort.» Und eine innere Stimme sagt: «Du hast die Berge bewegt, nur ein kleines Stück, aber sie lassen sich bewegen.»</p>
 
 <div class="kapitel-head" id="k-04">
   <div class="kapitel-nr">04</div>
   <h2>Sprache in Mathematik</h2>
 </div>
 
-  <p id="p-034">Am nächsten Morgen stehe ich früh auf. Es ist Freitag, der 15. August. Ich habe noch heute, morgen Samstag und Sonntag bevor die Schule wieder beginnt. Vor drei Wochen habe ich einen Arbeitsplan erstellt und der heutige Tag ist als «RESERVE» vermerkt. Eigentlich sollte ich heute gar nicht mehr arbeiten müssen. Eigentlich. Aber der gestrige Tag sorgt für eine Planänderung. Und so wird aus 0 Stunden neu 24+ Stunden. Im Juli bin ich davon ausgegangen, dass KI meine Arbeitsbelastung reduzieren und die Arbeitszeit verringern wird. Ich merke nichts davon und es stört mich nicht im Geringsten, denn eine neue Sache ist wichtiger:</p>
+  <p id="p-034">Am nächsten Morgen stehe ich früh auf. Es ist Freitag, der 15. August. Ich habe noch heute, morgen Samstag und Sonntag bevor die Schule wieder beginnt. Vor drei Wochen habe ich für mich einen Arbeitsplan erstellt und der heutige Tag ist als «RESERVE» vermerkt. Eigentlich sollte ich heute gar nicht mehr arbeiten müssen. Eigentlich. Aber der gestrige Tag sorgt für eine Planänderung. Und so wird aus <strong class="hl1">0 Stunden neu 24+ Stunden</strong>. Im Juli bin ich davon ausgegangen, dass KI meine Arbeitsbelastung reduzieren und die Arbeitszeit verringern wird. Ich merke nichts davon und es stört mich nicht im Geringsten, denn eine neue Sache ist wichtiger:</p>
 
-  <p id="p-035">Ich darf seit vielen Jahren mit einem tollen schulischen Heilpädagogen zusammenarbeiten, nennen wir ihn einfach Reed. Wir treffen uns in den Pausen oft hinter dem Schulhaus und sprechen über pädagogische oder didaktische Themen. Ich kann mich gut erinnern, wie Reed mehrmals die Bedeutung des Begriffsverständnisses im Mathematik-Unterricht hervorgehoben hat. Denn er hat gesehen, dass viele Jugendliche damit Probleme haben.</p>
+  <p id="p-035">Ich darf seit vielen Jahren mit einem tollen schulischen Heilpädagogen zusammenarbeiten, nennen wir ihn einfach Reed. Wir treffen uns in den Pausen oft hinter dem Schulhaus und sprechen über pädagogische oder didaktische Themen. Ich kann mich gut erinnern, wie Reed mehrmals die Bedeutung des <strong class="hl1">Begriffsverständnisses im Mathematik-Unterricht</strong> hervorgehoben hat, weil er gesehen hat, dass viele Jugendliche damit Probleme haben. Denn er hat gesehen, dass viele Jugendliche damit Probleme haben.</p>
 
-  <p id="p-036">Es war gestern im Wintergarten als mir genau diese Sache mit Reed in den Sinn kam und ich zu mir sprach: «Du hast in Geografie einen Code zum Erstellen von Arbeitsblättern und du hast in Mathematik die Planungsunterlagen für das nächste Thema. Was passiert, wenn du mit dem YAML für Geografie nicht ein Arbeitsblatt für Geografie erstellst, sondern ein Arbeitsblatt für Mathematikbegriffe? Quasi ein Deutschblatt für Mathematik.»</p>
+  <p id="p-036">Es war gestern Abend im Wintergarten als mir genau diese Sache mit Reed in den Sinn kam und ich zu mir sagte: «Du hast für Geografie einen Code zum Erstellen von Arbeitsblättern und für Mathematik die Fachbegriffe zum nächsten Thema. Das Geografie-Arbeitsblatt ist eigentlich ein Deutschblatt mit geografischem Inhalt. Was passiert, wenn du denselben YAML-Code auf Mathematik anwendest? Kannst du daraus ein Deutschblatt für Mathematikbegriffe bauen?»</p>
 
-  <p id="hl3-02" class="kernsatz">Ich kann an diesem Freitagmorgen<br>gar nicht anders, als<br>in diese Frage einzusteigen.</p>
+  <p id="hl3-02" class="kernsatz">Ich kann<br>an diesem Freitagmorgen<br>gar nicht anders,<br>als in diese Frage einzusteigen.</p>
 
-  <p id="p-037">So verbringe ich mehr oder weniger den ganzen Tag damit, mich in Sachen «sprachsensitiver Unterricht» weiterzubilden und mit GPT zusammen ein solches Arbeitsblatt zu entwickeln. An diesem Tag habe ich mehr gelesen als gearbeitet, aber am Abend war das Arbeitsblatt kopierbereit. Ich kann das nicht von vielen Projekten sagen.</p>
+  <p id="p-037">So verbringe ich mehr oder weniger den ganzen Tag damit, mich in Sachen «<strong class="hl1">sprachsensitiver Unterricht</strong>» weiterzubilden und mit GPT zusammen ein solches Arbeitsblatt zu entwickeln. An diesem Tag habe ich mehr gelesen als gearbeitet, aber am Abend war das Arbeitsblatt <strong class="hl1">kopierbereit</strong>. Ich kann das nicht von vielen Projekten sagen.</p>
 
   <p id="p-038">Das ehemalige Arbeitsblatt für Geografie habe ich umgebaut zu einem Arbeitsblatt mit Deutschübungen zu Mathematik. Nichts Spezielles - ein Arbeitsblatt mit einer ganz bestimmten Aufgabe.</p>
 
-  <figure id="abb-04" class="evidence scale-ok">
+  <figure id="abb-04" class="evidence scale-ok custom-scale" style="--figure-scale:0.8">
     <img src="P2_LAYOUTER/assets/YAML_04_abb_sprach_mathe_dossier.png" alt="Drei verschachtelte Aufgabenformate aus dem Sprach-Mathe-Dossier: Lückentext, Buchstabensalat und Zuordnungsübung zu Achsensymmetrie" loading="lazy">
     <span class="stub-tag">Abb. 4</span>
     <figcaption class="cap">Drei verschachtelte Aufgabenformate aus dem Sprach-Mathe-Dossier: Lückentext, Buchstabensalat und Zuordnungsübung zu Achsensymmetrie</figcaption>
   </figure>
 
-  <p id="p-039">Ich habe das Arbeitsblatt cool gefunden und in der folgenden Woche eingesetzt, aber die Jugendlichen fanden es nicht so toll. Im Feedback gaben sie an, zu viel schreiben zu müssen.<br>Diese Rückmeldung akzeptiere ich, und ich habe verstanden warum: Es war am Schluss zu viel Papier mit all den Arbeitsblättern, Dossiers, Lernzielkarten, usw.</p>
+  <p id="p-039">Ich habe das Arbeitsblatt cool gefunden und in der folgenden Woche eingesetzt, aber die Jugendlichen fanden es nicht so toll. Im Feedback gaben sie an, zu viel schreiben zu müssen. Diese Rückmeldung akzeptiere ich, und ich habe verstanden warum: Es war am Schluss <strong class="hl1">zu viel Papier</strong> mit all den Arbeitsblättern, Dossiers, Lernzielkarten, usw.</p>
 
-  <p id="p-040">Die Idee ist gut und richtig, sie darf aber nicht als Zusatzaufgabe oben drauf konzipiert sein. Ich denke <em>Sprachförderung könnte funktionieren, wenn ich sie in die Fachaufgabe einbaue und nicht isoliert oben drauf lege.</em> Es muss eingebettet sein. Ich muss mir überlegen, wie ich diesen Aspekt im nächsten Arbeitsdossier integrieren liesse.</p>
+  <p id="p-040">Die Idee ist gut und richtig, aber sie sollte nicht als Zusatzaufgabe oben drauf konzipiert sein. Ich denke, diese Art der Sprachförderung könnte funktionieren, wenn ich sie in die Fachaufgabe einbaue und nicht isoliert oben drauf lege. <strong class="hl">Es muss eingebettet sein und ich muss mir überlegen, wie ich diesen Aspekt im nächsten Arbeitsdossier besser integriere.</strong></p>
 
-  <p id="hl3-03" class="kernsatz">Und so war es am Schluss ein cooles Blatt –<br>aber ein Blatt zu viel.</p>
+  <p id="hl3-03" class="kernsatz">Und so war es am Schluss ein cooles Blatt – aber ein Blatt zu viel.</p>
 
 <div class="kapitel-head" id="k-05">
   <div class="kapitel-nr">05</div>
   <h2>Die interdisziplinäre Lernkontrolle</h2>
 </div>
 
-  <p id="p-041">Es ist Freitagnachmittag. Während ich noch am sprachsensitiven Matheblatt arbeite, habe ich eine weitere Idee: eine interdisziplinäre Lernkontrolle. Warum eine Rechtschreib- oder Grammatikprüfung immer im Deutsch-Kontext machen und nicht einmal eine Lernkontrolle zu Wortarten mit Inhalten aus Geografie «Unsere Erde» erstellen?<br>Wortarten werden hier nicht als Grammatikinsel geübt, sondern an Sätzen, die im Fachunterricht ohnehin vorkommen. Ich passe das Schema an und erstelle die erste Version «Interdisziplinärer Deutschtest». Scheusslicher Name, den ich noch ändern werde.</p>
+  <p id="p-041">Es ist Freitagnachmittag. Während ich noch am sprachsensitiven Matheblatt arbeite, habe ich eine weitere Idee: ich will eine <strong class="hl1">interdisziplinäre Lernkontrolle</strong> bauen. Ich frage mich: «Warum finden Rechtschreib- und Grammatikprüfungen immer nur im Deutschunterricht statt? Könnte ich nicht eine Lernkontrolle zu Wortarten mit Inhalten aus dem Geografiethema ‹Unsere Erde› erstellen?» <strong class="hl">So versuche ich, das Thema «Wortarten» nicht als Grammatikinsel zu behandeln, sondern in Sätze zu integrieren, die im Fachunterricht ohnehin vorkommen.</strong> Ich passe das Schema im Code an und erstelle eine erste Version mit dem Titel «<strong class="hl1">Interdisziplinärer Deutschtest</strong>». Ein <strong class="hl1">scheusslicher Name</strong>, den ich noch ändern muss.</p>
 
   <div id="card-006" class="conv code">
     <div class="ocard">
       <button class="copybtn" type="button" tabindex="-1" aria-label="Kopieren"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
-      <p><strong>CODE:</strong><br>schema_version: 1<br>klasse: &quot;7–8&quot;<br>niveau: &quot;B&quot;<br>thema: &quot;Erde &amp; Sonne – Grundlagen&quot;<br>lernziele:<br>  - &quot;Wortarten in kurzen Fachsätzen sicher benennen.&quot;<br>  - &quot;Satzglieder erkennen und markieren.&quot;<br>seitenplan:<br>  - titel: &quot;Einführung&quot;<br>  - titel: &quot;Wortarten – Grundlagen&quot;<br>  - titel: &quot;Satzglieder – Anwendung&quot;<br>layout:<br>  zeilenabstand: 1.15<br>  schrift: &quot;Calibri 11&quot;<br>icons:<br>  einfach: &quot;🟡&quot;<br>  mittel: &quot;🟢&quot;<br>  schwer: &quot;🟣&quot;<br># [...]</p>
+      <p><strong>CODE:</strong><br>schema_version: 1 klasse: &quot;7–8&quot; niveau: &quot;B&quot; thema: &quot;Erde &amp; Sonne – Grundlagen&quot; lernziele: - &quot;Wortarten in kurzen Fachsätzen sicher benennen.&quot; - &quot;Satzglieder erkennen und markieren.&quot; seitenplan: - titel: &quot;Einführung&quot; - titel: &quot;Wortarten – Grundlagen&quot; - titel: &quot;Satzglieder – Anwendung&quot; layout: zeilenabstand: 1.15 schrift: &quot;Calibri 11&quot; icons: einfach: &quot;🟡&quot; mittel: &quot;🟢&quot; schwer: &quot;🟣&quot; # [...]</p>
     </div>
   </div>
 
+  <figure id="abb-05" class="evidence scale-ok custom-scale" style="--figure-scale:0.8">
+    <img src="P2_LAYOUTER/assets/YAML_13_abb_interdisziplinaere_lernkontrolle_rekonstruktion.png" alt="Rekonstruierter Ausschnitt einer interdisziplinären Lernkontrolle" loading="lazy">
+    <span class="stub-tag">Abb. 5</span>
+    <figcaption class="cap">Rekonstruierter Ausschnitt einer interdisziplinären Lernkontrolle</figcaption>
+  </figure>
+
   <p id="p-042">Ich schaue den Test am Bildschirm an und frage mich: «Ist das nun ein Geografie-Test zu Rechtschreibung oder ein Rechtschreibtest zu Geografie?»</p>
 
-  <p id="p-043">Vier Exemplare werde ich im Zeitraum August bis Dezember erstellen und durchführen und die Idee auf Schreibanlässe ausweiten: Zum Beispiel mit dem Thema «Entdecker und Eroberer» aus dem Fach Geschichte. Ein «Dialog im Hafen», ein «Reisetagebuch eines Entdeckers», ein «Zeitungsbericht», «Früher und heute in der Navigation». Das funktioniert sehr gut. Ich habe die Schülertexte lesen dürfen.</p>
+  <p id="p-043"><strong class="hl1">Vier Exemplare</strong> werde ich im Zeitraum August bis Dezember erstellen und durchführen und die Idee auf Schreibanlässe ausweiten: Zum Beispiel mit dem Thema «Entdecker und Eroberer» aus dem Fach Geschichte. Ein «Dialog im Hafen», ein «Reisetagebuch eines Entdeckers», ein «Zeitungsbericht», «Früher und heute in der Navigation». Später werde ich sehen, wie gut das funktioniert. Ich werde die <strong class="hl1">Schülertexte lesen dürfen</strong>.</p>
 
 <div class="kapitel-head" id="k-06">
   <div class="kapitel-nr">06</div>
   <h2>Ein Prompt, den andere benutzen können</h2>
 </div>
 
-  <p id="p-044">Ich habe einen wunderbaren Lehrerkollegen, nennen wir ihn Steve, der ebenfalls Mathematik und Deutsch an meiner Schule unterrichtet und ich möchte gerne die Idee des Sprach-Mathe-Dossiers mit ihm teilen. «Funktioniert meine Bibliothek auch, wenn jemand anders sie benutzt?»<br>Die Frage ist also nicht: «Wie kann ich mit dem Code ein Arbeitsblatt bauen?», sondern: «Kann jemand anders mit meinem System ein Arbeitsblatt bauen, ohne meine ganze Vorgeschichte zu kennen?»</p>
+  <p id="p-044">Ich habe einen wunderbaren Lehrerkollegen, nennen wir ihn Steve, der ebenfalls Mathematik und Deutsch an meiner Schule unterrichtet und ich möchte gerne die Idee des Sprach-Mathe-Dossiers mit ihm teilen. «Funktioniert meine Bibliothek auch, wenn jemand anders sie benutzt?» Die Frage ist also nicht: «Wie kann ich mit dem Code ein Arbeitsblatt bauen?», sondern: «Kann jemand anderes mit meinem System auch ein Arbeitsblatt bauen, ohne meine ganze Vorgeschichte zu kennen?»</p>
 
-  <p id="p-045">Es gibt ein kleines, aber bedeutendes Hindernis: Ich kann den Masterprompt nicht einfach schicken, weil dieser ein Arbeitswerkzeug und kein Kommunikationsinstrument ist. Es ist ein PDF, das ich hochlade.</p>
+  <p id="p-045">Es gibt ein <strong class="hl1">kleines, aber bedeutendes Hindernis</strong>: Ich kann den Masterprompt nicht einfach schicken, weil dieser ein <strong class="hl1">Arbeitswerkzeug und kein Kommunikationsinstrument</strong> ist. Es ist ein PDF, das ich hochlade.</p>
 
-  <figure id="abb-05" class="evidence scale-ok">
+  <figure id="abb-06" class="evidence scale-ok">
     <img src="P2_LAYOUTER/assets/YAML_05_abb_masterprompt_sprach_mathe.png" alt="Masterprompt für das Sprach-Mathe-Dossier" loading="lazy">
-    <span class="stub-tag">Abb. 5</span>
+    <span class="stub-tag">Abb. 6</span>
     <figcaption class="cap">Masterprompt für das Sprach-Mathe-Dossier</figcaption>
   </figure>
 
-  <p id="p-046">Ich kenne die Architektur des ganzen Prompts und Steve kennt nur die Datei, die er hochladen muss. Wenn GPT nachher diese Datei sieht, fehlen wichtige Informationen: Welche Klasse? Welche Lernziele? Welche sprachlichen Hürden? Genau diese Fragen muss der Prompt selbst übernehmen, indem KI die Gesprächsführung mit dem Menschen übernimmt. Ich brauche einen Ablauf für das Gespräch «Nutzer mit GPT» und muss diese Interaktion im Prompt abbilden.</p>
+  <p id="p-046">Ich kenne die Architektur des ganzen Prompts und Steve kennt nur die Datei, die er hochladen muss. Wenn GPT nachher diese Datei sieht, fehlen wichtige Informationen: Welche Klasse? Welche Lernziele? Welche sprachlichen Hürden? Genau diese Fragen fehlen und der Prompt selbst müsste diese Fragen stellen, indem KI die <strong class="hl1">Gesprächsführung</strong> mit dem Menschen übernimmt. Ich brauche einen Ablauf für dieses Gespräch und muss diese Interaktion im Prompt abbilden.</p>
 
-  <p id="p-047">Steve soll das PDF hochladen und nur «Lies den Prompt» schreiben müssen. Anschliessend präsentiert GPT einen personalisierten Begrüssungstext, stellt die fehlenden Fragen und erstellt aus Steves Antworten die Unterlagen.<br>Damit das funktioniert, muss ich den Masterprompt umstellen und GPT vorab erklären, worum es geht. Das mache ich mit einem «Hinweis an GPT»:</p>
+  <p id="p-047">Steve soll das PDF hochladen und nur <strong class="hl1">«Lies den Prompt»</strong> schreiben müssen. Anschliessend präsentiert GPT einen personalisierten Begrüssungstext, stellt die fehlenden Fragen und erstellt aus Steves Antworten die Unterlagen. Damit das funktioniert, muss ich den Masterprompt umstellen und GPT vorab erklären, worum es geht. Das mache ich mit einem «Hinweis an GPT»:</p>
 
-  <figure id="abb-06" class="evidence scale-ok">
+  <figure id="abb-07" class="evidence scale-ok">
     <img src="P2_LAYOUTER/assets/YAML_06_abb_spassprompt_einstieg.png" alt="Einleitender Hinweis an GPT im Masterprompt" loading="lazy">
-    <span class="stub-tag">Abb. 6</span>
+    <span class="stub-tag">Abb. 7</span>
     <figcaption class="cap">Einleitender Hinweis an GPT im Masterprompt</figcaption>
   </figure>
 
   <p id="p-048">Im zweiten Teil liegt die Grundstruktur, die über alle Seiten gleich sein soll:</p>
 
-  <figure id="abb-07" class="evidence scale-ok">
+  <figure id="abb-08" class="evidence scale-ok">
     <img src="P2_LAYOUTER/assets/YAML_07_abb_spassprompt_grundstruktur.png" alt="Grundstruktur des Masterprompts" loading="lazy">
-    <span class="stub-tag">Abb. 7</span>
+    <span class="stub-tag">Abb. 8</span>
     <figcaption class="cap">Grundstruktur des Masterprompts</figcaption>
   </figure>
 
   <p id="p-049">Danach füge ich einen eigens für Steve kreierten Abschnitt ein - zum Spass:</p>
 
-  <figure id="abb-08" class="evidence scale-ok">
+  <figure id="abb-09" class="evidence scale-ok custom-scale" style="--figure-scale:0.8">
     <img src="P2_LAYOUTER/assets/YAML_08_abb_spassprompt_testseite.png" alt="Testseite mit Aufgabenformaten und FC-Basel-Gag" loading="lazy">
-    <span class="stub-tag">Abb. 8</span>
+    <span class="stub-tag">Abb. 9</span>
     <figcaption class="cap">Testseite mit Aufgabenformaten und FC-Basel-Gag</figcaption>
   </figure>
 
   <p id="p-050">Und dann kommt der eigentliche Prompt für die Arbeitsseiten:</p>
 
-  <figure id="abb-09" class="evidence scale-ok">
+  <figure id="abb-10" class="evidence scale-ok custom-scale" style="--figure-scale:0.9">
     <img src="P2_LAYOUTER/assets/YAML_09_abb_spassprompt_arbeitsseiten.png" alt="Regulärer Generator mit Aufgabenformat-Pool" loading="lazy">
-    <span class="stub-tag">Abb. 9</span>
+    <span class="stub-tag">Abb. 10</span>
     <figcaption class="cap">Regulärer Generator mit Aufgabenformat-Pool</figcaption>
   </figure>
 
-  <p id="p-051">Als Spass will ich zuerst den legendären lachenden Totenkopfvirus für 2 Sekunden auf dem Bildschirm präsentiert haben. Das geht nicht. Dann versuche ich, einen virtuellen Virus mit einer Countdown-Zeitleiste von 5 Sekunden und folgender Nachricht zu bauen: «Ihr Computer wird gesprengt in: …5, 4, 3, …».<br>GPT findet das nicht lustig und verweigert die Zusammenarbeit. Zudem flagt er mich und sagt mir, dass er keine Viren, Bomben und Waffen bauen dürfe. Auch nicht zum Spass.</p>
+  <p id="p-051">Als Spass will ich zuerst den legendären lachenden Totenkopfvirus für 2 Sekunden auf dem Bildschirm präsentiert haben. Das geht nicht. Dann versuche ich, einen virtuellen Virus mit einer Countdown-Zeitleiste von 5 Sekunden und folgender Nachricht zu bauen: «Ihr Computer wird gesprengt in: …5, 4, 3, …». GPT findet das nicht lustig und verweigert die Zusammenarbeit. Zudem flagt er mich und sagt mir, dass er keine Viren, Bomben und Waffen bauen dürfe. Auch nicht zum Spass.</p>
 
   <p id="p-052">Nach ein bisschen Diskutieren und Hin und Her kann ich GPT überzeugen, dass es um einen harmlosen Klassenzimmer-Spass geht. Am Ende wird daraus eine manipulierte Quizfrage zum nächsten Fussballresultat des FC Basel – aber mit explizitem Hinweis. Gut, ich bin einverstanden. Und so arbeite ich das Wochenende weiter daran, den PDF-Dialogflow zu vereinfachen und stabiler zu bauen: Ich maile jemandem ein PDF. Diese Person lädt es in GPT hoch und schreibt nur «Start» – und dann erscheint folgende Nachricht:</p>
 
-  <figure id="abb-10" class="evidence scale-ok">
+  <figure id="abb-11" class="evidence scale-ok custom-scale" style="--figure-scale:0.8">
     <img src="P2_LAYOUTER/assets/YAML_10_abb_output_chatfenster_welcome.png" alt="GPT-Startantwort nach dem Masterprompt" loading="lazy">
-    <span class="stub-tag">Abb. 10</span>
+    <span class="stub-tag">Abb. 11</span>
     <figcaption class="cap">GPT-Startantwort nach dem Masterprompt</figcaption>
   </figure>
 
-  <p id="p-053"><strong class="hl">Es funktioniert.</strong></p>
+  <p id="p-053"><strong class="hl1">Es funktioniert.</strong></p>
 
-  <p id="p-054">Nicht als fertiges Produkt, sondern als Übergabe: Ein anderer Mensch kann den Prompt starten, GPT stellt die richtigen Fragen, und <strong class="hl">aus einer Datei wird ein Gespräch</strong>.</p>
+  <p id="p-054">Nicht als fertiges Produkt, sondern als Übergabe: <strong class="hl">Ein anderer Mensch kann den Prompt starten, GPT stellt die richtigen Fragen, und aus einer Datei wird ein Gespräch.</strong></p>
 
   <p id="p-055">Und nachher zeigt es die erste Seite an:</p>
 
-  <figure id="abb-11" class="evidence scale-ok">
+  <figure id="abb-12" class="evidence scale-ok custom-scale" style="--figure-scale:0.8">
     <img src="P2_LAYOUTER/assets/YAML_11_abb_output_chatfenster_aufgabe1.png" alt="Generierte Lückentext-Aufgabe" loading="lazy">
-    <span class="stub-tag">Abb. 11</span>
+    <span class="stub-tag">Abb. 12</span>
     <figcaption class="cap">Generierte Lückentext-Aufgabe</figcaption>
   </figure>
 
   <p id="p-056">Und auch die Spassfrage erscheint in leicht abgespeckter Form wie gewünscht:</p>
 
-  <figure id="abb-12" class="evidence scale-ok">
+  <figure id="abb-13" class="evidence scale-ok">
     <img src="P2_LAYOUTER/assets/YAML_12_abb_output_chatfenster_spassaufgabe.png" alt="Einmalige FC-Basel-Spassaufgabe" loading="lazy">
-    <span class="stub-tag">Abb. 12</span>
+    <span class="stub-tag">Abb. 13</span>
     <figcaption class="cap">Einmalige FC-Basel-Spassaufgabe</figcaption>
   </figure>
 
-  <p id="p-057">Noch weiss ich an diesem Sonntagabend nicht, was aus diesen kleinen Bibliotheken alles werden wird. Ich weiss auch noch nicht, dass ich im November ein kleines Auftragsblatt bauen werde; dieses Mal für eine Lernwerkstatt. Und aus dem Auftragsblatt wird zuerst eine Lernfläche und dann ein Lernraum entstehen.</p>
+  <p id="p-057">Noch weiss ich an diesem Sonntagabend nicht, was aus diesen kleinen Bibliotheken alles werden wird. Auch ahne ich noch nicht, dass ich im November ein kleines Auftragsblatt für eine Lernwerkstatt bauen werde. Aus diesem Blatt wird zuerst eine Lernfläche und dann ein Lernraum entstehen.</p>
 
-  <div id="hl4-01" class="statement"><p>YAML wird nicht mehr bloss Aufgaben beschreiben,<br>sondern helfen, Lernwege zu zeichnen.</p></div>
+  <div id="hl4-01" class="statement">
+    <div class="label">***</div>
+    <p>YAML wird nicht mehr bloss Aufgaben beschreiben, <br>sondern helfen, Lernwege zu zeichnen.</p>
+  </div>
 <div class="note-footer-meta">
         <span class="empty">← 03_2025_08_UNTERRICHTSWERKZEUGE</span>
         <a class="nav-next" href="#">05_2025_08_LETS_PLAY →</a>
