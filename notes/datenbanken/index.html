@@ -2,7 +2,7 @@
 <!--
    WEB_PREVIEW — P6-Render, in P5 Stage 1 als LIVEVIEW ausgeliehen.
    Design-SSoT: C:\Users\Markus\ClaudeCode\MeineProjekte\FIELD_NOTES_DRAFT\0_W_WORKFLOW\P6_PUBLISH\WEBDESIGN\_CURRENT\NOTE\index.html
-   Content-Source: DATENBANKEN_V6.05_DRAFT_AI.docx
+   Content-Source: DATENBANKEN_V6.35_RELEASE_de_AI_260826_0133.docx
 -->
 <html lang="de-CH">
 <head>
@@ -174,8 +174,9 @@ body:before{
 
 /* ARTICLE */
 .article{
+  --article-pad-x:clamp(24px,5vw,60px);
   background:rgba(255,250,240,.84);border:1px solid var(--line);
-  padding:42px clamp(24px,5vw,60px);
+  padding:42px var(--article-pad-x);
   box-shadow:0 22px 70px rgba(48,35,18,.08);
 }
 
@@ -250,13 +251,26 @@ body:before{
 }
 
 /* W8: Bild-Rahmung staerker · W10: Bilder leicht rotieren */
+/* D_260807_15: Standardbreite = volle Artikel-Spalte (statt schmalerer
+   -8px-Ausbruch + Opt-in-Direktive `BREIT=JA`, D_260807_05 -- abgeloest,
+   siehe DECISIONS_LOG). Kein Aufwaerts-Skalieren mehr noetig, nur noch
+   optionales Verkleinern via P5C-Klicktool/`SKALIEREN=<Wert>`. */
 .evidence{
-  margin:36px -8px;padding:14px;
+  margin:36px calc(-1 * var(--article-pad-x));padding:14px;
+  width:calc(100% + 2 * var(--article-pad-x));max-width:none;
   background:#fff;border:1px solid var(--line-deep);border-radius:2px;
   transform:rotate(-.3deg);
   box-shadow:0 16px 30px rgba(60,42,18,.13), 0 1px 0 rgba(255,255,255,.6) inset;
 }
 .evidence:nth-of-type(even){transform:rotate(.4deg)}
+/* D_260807: --figure-scale wurde vom Renderer schon lange gesetzt (figure_style_attr(),
+   SKALIEREN=NN-Marker UND P5C-Klicktool-Werte), aber nie von einer CSS-Regel konsumiert --
+   die Skalierung ging seit Bau des Mechanismus nirgends ins tatsaechliche Bild. Ohne
+   .custom-scale bleibt --figure-scale wirkungslos (Default via var(--figure-scale,1)). */
+.evidence.custom-scale{
+  width:calc(var(--figure-scale,1) * (100% + 2 * var(--article-pad-x)));
+  max-width:none;margin-left:auto;margin-right:auto;
+}
 .evidence img{
   width:100%;display:block;height:auto;
   border:1px solid #ddd5c4;background:#fafafa;
@@ -355,8 +369,8 @@ body:before{
     padding:14px 0 0 0;max-height:none;
   }
   .rail a{padding:6px 0}
-  .article{padding:28px 20px}
-  .evidence{margin:28px -4px}
+  .article{--article-pad-x:20px;padding:28px 20px}
+  .evidence{margin:28px calc(-1 * var(--article-pad-x));width:calc(100% + 2 * var(--article-pad-x));max-width:none}
   .kapitel-head{flex-direction:column;gap:6px}
   .kapitel-head .kapitel-nr{font-size:1.1rem}
 }
@@ -469,8 +483,9 @@ body:before{
 
 /* ARTICLE */
 .article{
+  --article-pad-x:clamp(24px,5vw,60px);
   background:rgba(255,250,240,.84);border:1px solid var(--line);
-  padding:42px clamp(24px,5vw,60px);
+  padding:42px var(--article-pad-x);
   box-shadow:0 22px 70px rgba(48,35,18,.08);
 }
 
@@ -499,7 +514,7 @@ body:before{
 .article em{font-style:italic}
 .mark{background:linear-gradient(transparent 55%,rgba(242,200,75,.55) 55%)}
 .article strong.hl1{font-weight:700;color:var(--red)}
-.article mark.hl2{background:transparent;color:var(--accent-2,#244f63);font-weight:650;padding:0}
+.article mark.hl2{background:transparent;color:var(--ochre,#9A6A1F);font-weight:650;padding:0}
 
 /* 4-STUFEN-HL-SYSTEM (Bauanleitung 2026-06-16) */
 /* Stufe 1: em (built-in) */
@@ -536,7 +551,7 @@ body:before{
 }
 .article .statement .label{
   font-family:var(--mono);font-size:.7rem;font-weight:600;letter-spacing:.24em;
-  text-transform:uppercase;color:#0A4DE0;
+  text-transform:uppercase;color:#7d4a23;
   border-top:1.5px solid #15171C;
   padding:14px 0 10px 0;margin:0;
 }
@@ -548,13 +563,24 @@ body:before{
 }
 
 /* W8: Bild-Rahmung staerker · W10: Bilder leicht rotieren */
+/* D_260807_15: Standardbreite = volle Artikel-Spalte (statt schmalerer
+   -8px-Ausbruch + Opt-in-Direktive `BREIT=JA`, D_260807_05 -- abgeloest,
+   siehe DECISIONS_LOG). Kein Aufwaerts-Skalieren mehr noetig, nur noch
+   optionales Verkleinern via P5C-Klicktool/`SKALIEREN=<Wert>`. */
 .evidence{
-  margin:36px -8px;padding:14px;
+  margin:36px calc(-1 * var(--article-pad-x));padding:14px;
+  width:calc(100% + 2 * var(--article-pad-x));max-width:none;
   background:#fff;border:1px solid var(--line-deep);border-radius:2px;
   transform:rotate(-.3deg);
   box-shadow:0 16px 30px rgba(60,42,18,.13), 0 1px 0 rgba(255,255,255,.6) inset;
 }
 .evidence:nth-of-type(even){transform:rotate(.4deg)}
+/* D_260807: --figure-scale wurde vom Renderer gesetzt (SKALIEREN=NN-Marker + P5C-Klicktool-
+   Werte), aber nie von einer CSS-Regel konsumiert -- ohne .custom-scale wirkungslos. */
+.evidence.custom-scale{
+  width:calc(var(--figure-scale,1) * (100% + 2 * var(--article-pad-x)));
+  max-width:none;margin-left:auto;margin-right:auto;
+}
 .evidence img{
   width:100%;display:block;height:auto;
   border:1px solid #ddd5c4;background:#fafafa;
@@ -653,8 +679,8 @@ body:before{
     padding:14px 0 0 0;max-height:none;
   }
   .rail a{padding:6px 0}
-  .article{padding:28px 20px}
-  .evidence{margin:28px -4px}
+  .article{--article-pad-x:20px;padding:28px 20px}
+  .evidence{margin:28px calc(-1 * var(--article-pad-x));width:calc(100% + 2 * var(--article-pad-x));max-width:none}
   .kapitel-head{flex-direction:column;gap:6px}
   .kapitel-head .kapitel-nr{font-size:1.1rem}
 }
@@ -861,6 +887,8 @@ body:before{
   }
 
   /* ============ EVIDENCE — nur das Bild ist zart hinterlegt (Passepartout im Papierton) ============ */
+  /* D_260807_15: margin:36px 0 bleibt korrekt, weil --article-pad-x im
+     mode-scroll-Kontext bereits 0 ist (kein separater Wide-Fall mehr). */
   .article .evidence{
     margin: 36px 0; padding: 0; background: none; border: 0; box-shadow: none; transform: none;
   }
@@ -1010,7 +1038,7 @@ body:before{
   /* ============ Final-Polish ============ */
   /* Vollflaechiges Papier statt einer grossen Karte */
   body.mode-scroll{ background: #fbf5ea; }
-  body.mode-scroll .article{ background: transparent; border: 0; box-shadow: none; border-radius: 0; padding: 40px 0 16px; }
+  body.mode-scroll .article{ --article-pad-x: 0px; background: transparent; border: 0; box-shadow: none; border-radius: 0; padding: 40px 0 16px; }
 
   /* Hero-Titel 260706: nowrap-Einzeiler verworfen (brach bei langen Headlines um max-width:none aus dem Container).
      Ersetzt durch kontrollierten Balanced-Wrap auf 900px (Container-Breite), synchron zum Python-Builder-Override. */
@@ -1129,6 +1157,34 @@ body:before{
     }
   }
 
+/* p5_render_overrides.css -- SQ-1 (SENTINEL_QUALITY_BUG_TRIAGE_AND_FIXPLAN_260723).
+
+Eng begrenzter Transformations-/Kompatibilitaetsadapter fuer den P5-Renderer.
+KEINE zweite Design-SSoT: die eigentliche SSoT bleibt ausschliesslich
+`0_W_WORKFLOW/P6_PUBLISH/WEBDESIGN/_CURRENT/NOTE/index.html`. Dieser Adapter
+darf die SSoT ergaenzen (Selektoren, die die SSoT gar nicht definiert) oder
+-- nur mit einem hashgebundenen, begruendeten Allow-Eintrag in
+`p5_render_overrides_allow.json` -- bewusst und dokumentiert von ihr abweichen.
+Jede stille Abweichung wird von `W_P5_CSS_CONFLICT_GATE.py` vor jedem Render
+erkannt und ist ohne gueltigen Allow-Eintrag ein HOLD (kein Output-Write).
+
+Historisch war dieser Block ein Python-String direkt in
+`W_WEB_PREVIEW_RENDER_BUILDER_260618.py` (`reference_css += """ ... """`);
+SQ-1 verschiebt ihn unveraendert (keine Wertaenderung) in diese benannte
+Ressource, damit er als eigenstaendige, versionierbare, diffbare CSS-Datei
+lebt statt als unsichtbarer Teil eines Python-Strings.
+
+SQ-1-Nachfix (`0_A_AGENTS/SYSTEM_SENTINEL/08_SENTINEL_QUALITY/archive/260723_root_cleanup/SENTINEL_QUALITY_SQ1_NACHFIX_BAUPLAN_260723.md`, CODEX-HOLD):
+`.hero h1`-font-size/line-height, `.article mark.hl2`-color und
+`.article p`-line-height wieder entfernt -- sie waren ohne echten
+HUMAN_APPROVED-Entscheid nur ueber einen fail-open-Allow-Status autorisiert.
+Kein bestehender bindender HUMAN-Entscheid fuer diese drei Werte gefunden
+(gepruefte Quellen: DECISIONS_LOG.md, PIN_WALL.md) -- SSoT-konformer Default
+angewandt: Adapter-Duplikate entfernt, die SSoT-Werte gelten unveraendert.
+`.article mark.hl2`-color-Drift stattdessen an der Design-SSoT selbst
+korrigiert (siehe `_CURRENT/NOTE/index.html`).
+*/
+
   .article .cliff{
     margin-top: 46px; padding-top: 18px;
   }
@@ -1148,21 +1204,30 @@ body:before{
     font-family: 'IBM Plex Sans', system-ui, sans-serif;
     font-size: .64rem; line-height: 1.48; font-weight: 500;
   }
-  .article .evidence{
-    max-width: min(100%, 680px);
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
+  /* D_260807_15: der bisherige `.article .evidence{max-width:min(100%,680px);
+     margin-left/right:auto!important}`-Cap (SQ-1-Adapter) ENTFERNT -- er
+     widersprach direkt dem neuen SSoT-Standard "volle Artikel-Spaltenbreite
+     als Default" (D_260807_15) und haette ihn wegen hoeherer Spezifitaet +
+     !important stillschweigend wieder aufgehoben. Kein Ersatz noetig: die
+     SSoT-Regel `.evidence{width:calc(...);max-width:none}` traegt die
+     Breiten-Entscheidung jetzt allein. */
+  /* D_260807_15-Nachfix: `max-height:70vh` entfernt. Zusammen mit
+     `object-fit:contain` liess das Bild innerhalb einer hoehenbegrenzten Box
+     "einpassen" -- die Box (= .evidence, jetzt standardmaessig volle
+     Spaltenbreite) blieb breit, das sichtbare Bild schrumpfte darin mit
+     Leerraum links/rechts (Letterboxing), sobald die bei voller Breite
+     natuerliche Bildhoehe 70vh ueberstieg. Vor `D_260807_15` war das selten
+     relevant (Bilder waren default schmaler, damit meist niedriger als
+     70vh) -- bei "Standard = maximale Breite" trifft es jedes mittel-hohe
+     Bild. DIRECTOR-Befund: "roter Rahmen hat volle Breite, aber das Bild
+     klebt nicht am Rahmen." */
   .article .evidence img{
     width: auto;
     max-width: 100%;
-    max-height: 70vh;
     margin: 0 auto;
   }
   .article .evidence.scale-ok img{
     width: 100%;
-    max-height: 70vh;
-    object-fit: contain;
   }
   .article .evidence.custom-scale{
     width: min(calc(100% * var(--figure-scale)), calc(680px * var(--figure-scale)));
@@ -1191,8 +1256,6 @@ body:before{
     word-break: normal;
     hyphens: auto;
     text-wrap: balance;
-    font-size: clamp(2.15rem, 5.2vw, 5.15rem) !important;
-    line-height: .96 !important;
   }
   .hero .lead{
     max-width: 1100px;
@@ -1200,12 +1263,10 @@ body:before{
   }
   .article mark.hl2{
     background: transparent !important;
-    color: var(--ochre,#9A6A1F) !important;
     font-weight: 600;
     padding: 0;
   }
   .article p{
-    line-height:1.46 !important;
     margin-top:.72rem !important;
     margin-bottom:.92rem !important;
   }
@@ -1248,15 +1309,15 @@ body:before{
       <button class="lang is-active" type="button" title="Deutsch" aria-label="Deutsch">
         <svg class="flag" viewBox="0 0 5 3" aria-hidden="true"><rect width="5" height="3" fill="#000"/><rect width="5" height="2" y="1" fill="#DD0000"/><rect width="5" height="1" y="2" fill="#FFCE00"/></svg>
       </button>
-      <a class="lang" href="en/" title="English" aria-label="English">
+      <button class="lang" type="button" title="English" aria-label="English" disabled>
         <svg class="flag" viewBox="0 0 60 30" aria-hidden="true"><rect width="60" height="30" fill="#012169"/><path d="M0,0 60,30 M60,0 0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 60,30 M60,0 0,30" stroke="#C8102E" stroke-width="4"/><path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/><path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6"/></svg>
-      </a>
-      <a class="lang" href="es/" title="Español" aria-label="Español">
+      </button>
+      <button class="lang" type="button" title="Español" aria-label="Español" disabled>
         <svg class="flag" viewBox="0 0 6 4" aria-hidden="true"><rect width="6" height="4" fill="#AA151B"/><rect y="1" width="6" height="2" fill="#F1BF00"/></svg>
-      </a>
-      <a class="lang" href="fr/" title="Français" aria-label="Français">
+      </button>
+      <button class="lang" type="button" title="Français" aria-label="Français" disabled>
         <svg class="flag" viewBox="0 0 3 2" aria-hidden="true"><rect width="3" height="2" fill="#fff"/><rect width="1" height="2" fill="#0055A4"/><rect x="2" width="1" height="2" fill="#EF4135"/></svg>
-      </a>
+      </button>
     </div>
     <button id="view-scroll-btn" class="view is-active" type="button" hidden aria-hidden="true">Scroll</button>
     <button id="view-reader-btn" class="view" type="button" hidden aria-hidden="true">Reader</button>
@@ -1282,13 +1343,13 @@ body:before{
   <h2>Vom Methodenraster zur Lernhandlung</h2>
 </div>
 
-  <p id="p-001">In einem <em>linearen Unterrichtsdenken</em> steht die Lehrperson am Anfang. Diese wählt eine Methode und formuliert eine Aufgabe. Und am Schluss führt der Schüler sie aus.<strong class="hl"> Was passiert aber in einem KI-gestützten Lernsystem, wo Lernen zyklisch, vernetzt und co-adaptiv ist? </strong>Werden sich Methoden und Aufgaben da nicht <em>permanent verschränken?</em> Braucht es die beiden Ebenen als didaktische Operationalisierung im Jahre 2040 noch?</p>
+  <p id="p-001">In einem linearen Unterrichtsdenken steht die Lehrperson am Anfang. Sie wählt eine Methode, formuliert eine Aufgabe und am Schluss führt der Schüler sie aus. Was passiert aber in einem KI-gestützten Lernsystem, in dem Lernen zyklisch und vernetzt verläuft? Lassen sich Methode und Aufgabe dann noch sauber trennen? Oder verschränken sie sich so stark, dass diese Unterscheidung bis 2040 ihre Bedeutung verliert?</p>
 
-  <p id="p-002">Ganz kurz mache ich einen Schritt zurück und frage mich: Wem wirst du diese Frage stellen? Die Antwort ist deshalb interessant, weil ich die Frage <em>nie einem Menschen</em> stellen würde. Keinem Erziehungswissenschaftler, keinem Allgemein- oder Fachdidaktiker und auch keinem Dozenten an der Pädagogischen Hochschule. Nicht weil ich sie nicht schätze, sondern weil ich gerade nicht die akademische Antwort suche. Meinen Standort verändern, abweichende Gedanken haben und wissenschaftliche Modelle aus einer anderen Perspektive betrachten und hinterfragen – das suche ich. Und ich werde GPT fragen, weil er mich nicht schräg anschauen wird.</p>
+  <p id="p-002">Ganz kurz mache ich einen Schritt zurück und frage mich: Wem wirst du diese Frage stellen? Die Antwort ist deshalb interessant, weil ich die Frage <strong class="hl1">nie einem Menschen</strong> stellen würde. Keinem Erziehungswissenschaftler, keinem Allgemein- oder Fachdidaktiker und auch keinem Dozenten an der Pädagogischen Hochschule. Nicht weil ich sie nicht schätze, sondern weil ich gerade nicht die akademische Antwort suche. Ich will meinen Standort verändern, abweichende Gedanken haben und wissenschaftliche Modelle aus verschiedenen Perspektiven betrachten und hinterfragen können – das suche ich. Und ich werde GPT fragen, weil er mich nicht schräg anschauen wird.</p>
 
   <div id="card-001" class="conv du">
     <div class="composer">
-      <p class="ptext"><strong>Du:</strong><br>Ist die Trennung der Ebenen 2 und 3 im Jahre 2040 noch sinnvoll? Ich überlege mir gerade ob wir die Ebenen 2 (Methoden) und 3 (Aufgabeformate) zusammennehmen und neu sortieren in (Unterrichtsmethoden); also alles was im Unterricht durch die Lehrperson passiert und Aufgabenformate, für die es die Lehrperson so nicht direkt braucht.</p>
+      <p class="ptext"><strong>Du:</strong><br>Ist die Trennung der Ebenen 2 und 3 im Jahre 2040 noch sinnvoll? Ich überlege mir gerade, ob wir die Ebenen 2 (Methoden) und 3 (Aufgabeformate) zusammennehmen und neu sortieren in (Unterrichtsmethoden); also alles, was im Unterricht durch die Lehrperson passiert, und Aufgabenformate, für die es die Lehrperson so nicht direkt braucht.</p>
       <div class="toolbar" aria-hidden="true">
         <button class="ibtn outline" type="button" tabindex="-1" aria-label="Hinzufügen"><svg class="icn" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
         <span class="spacer"></span>
@@ -1298,14 +1359,14 @@ body:before{
     </div>
   </div>
 
-  <p id="p-003">GPT schlägt ein Modell vor, das er «<em>Lernhandlungsmodell 2040</em>» nennt. Es ist eine Struktur, die konkrete Lernhandlungen beschreibt, unabhängig davon, ob sie von einer Lehrperson, KI, Peer oder dem Lernenden selbst initiiert werden. <em>Lernhandlungen als didaktische Kategorie</em> sind nicht wirklich neu und so nehme ich das einmal zur Kenntnis.</p>
+  <p id="p-003">GPT schlägt ein Modell vor, das er «<strong class="hl1">Lernhandlungsmodell 2040</strong>» nennt. Es ist eine Struktur, die konkrete Lernhandlungen beschreibt, unabhängig davon, ob sie von einer Lehrperson, KI, Peer oder dem Lernenden selbst initiiert werden. <strong class="hl1">Lernhandlungen als didaktische Kategorie</strong> sind nicht wirklich neu und so nehme ich das einmal zur Kenntnis.</p>
 
 <div class="kapitel-head" id="k-02">
   <div class="kapitel-nr">02</div>
   <h2>Die Idee, verschiedene Datenbanken aufzubauen</h2>
 </div>
 
-  <p id="p-004">Es ist der 29. Oktober 2025 und aus den Wochen davor liegen noch Methoden, Aufgabenformate und didaktische Modelle vor mir. Aber sie stehen noch <em>nebeneinander.</em> Was mir fehlt, ist ihre gemeinsame Datenbank-Logik, ihre Verknüpfung. Deshalb nehme ich die Idee der Lernhandlungen und den Vorschlag der Systemintelligenz auf. Es wird eine Fortsetzung der Baumhaus-Entwicklung aus dem September; aber auf einem anderen Niveau. Ich beginne, in <em>vernetzten Datenbanken</em> zu denken. Und so werfe ich GPT diesen Gedanken an den Kopf:</p>
+  <p id="p-004">Es ist der 29. Oktober 2025 und aus den Wochen davor liegen noch Methoden, Aufgabenformate und didaktische Modelle vor mir. Aber sie stehen noch <strong class="hl1">nebeneinander.</strong> Was mir fehlt, ist ihre Verknüpfung durch eine gemeinsame Datenbanklogik. Deshalb nehme ich die Idee der Lernhandlungen und den Vorschlag der Systemintelligenz auf. Es wird eine Fortsetzung der Baumhaus-Entwicklung aus dem September; aber auf einem anderen Niveau. Ich beginne, in <strong class="hl1">vernetzten Datenbanken</strong> zu denken. Und so werfe ich GPT diesen Gedanken an den Kopf:</p>
 
   <div id="card-002" class="conv du">
     <div class="composer">
@@ -1321,21 +1382,22 @@ body:before{
 
   <p id="p-005">Ich beginne mit der Datenbank «Lernhandlungen», weil ich dazu bereits eine Struktur im Kopf habe und lasse diese mit fünf vollständigen Beispieldatensätzen befüllen.</p>
 
-  <figure id="abb-01" class="evidence scale-ok">
-    <img src="P2_LAYOUTER/assets/2025_11_DATENBANKEN_OPS_05B_260714_221307/originals/datenbanken_04_abb_datenbanken_03_abb_matrix_lernhandlungen_204.png" alt="Abb. 1: Matrix: Lernhandlungen" loading="lazy">
-    <figcaption class="cap">Abb. 1: Matrix: Lernhandlungen</figcaption>
+  <figure id="abb-01" class="evidence scale-ok custom-scale" style="--figure-scale:1.05">
+    <img src="P2_LAYOUTER/assets/2025_11_DATENBANKEN_OPS_05B_260714_221307/originals/datenbanken_04_abb_datenbanken_03_abb_matrix_lernhandlungen_204.png" alt="Auswahl aus der Matrix «Lernhandlungen»" loading="lazy">
+    <span class="stub-tag">Abb. 1</span>
+    <figcaption class="cap">Auswahl aus der Matrix «Lernhandlungen»</figcaption>
   </figure>
 
-  <p id="p-006">Die Spalte «Mood / Social Focus» deckt das «Lernbefinden» ab und die Spalte «Trigger/Lernkontext» beantwortet die Frage: «Wann wird welche Lernhandlung aktiviert?»</p>
+  <p id="p-006">Die Spalte «Mood / Social Focus» liefert Hinweise auf das Lernbefinden und die Spalte «Trigger/Lernkontext» beantwortet die Frage: «Wann wird welche Lernhandlung aktiviert?»</p>
 
-  <p id="p-007">Ich lasse GPT weitere Datensätze erstellen: Die ersten fünf Beispiele kontrolliere ich <em>noch selbst,</em> danach ergänze ich Schritt um Schritt weitere, bis ich mit 28 Datensätzen zu allen metakognitiven Strategien meiner damaligen Übersicht etwas habe. Warum gerade zu metakognitiven Strategien? Weil ich vor sechs Wochen die Idee hatte, diese &quot;anschlussfähiger&quot; im Unterricht zu integrieren. Vor diesem Hintergrund stellte ich mir die Frage, welche Berührungspunkte es zwischen kognitiven Strategien und Lernhandlungen gibt, und deshalb ist nun diese Datenbank entstanden. Damit steht die erste Datenbank zu Lernhandlungen. Aber gibt es weitere?</p>
+  <p id="p-007">Ich lasse GPT weitere Datensätze erstellen: Die ersten fünf Beispiele kontrolliere ich <strong class="hl1">noch selbst,</strong> danach ergänze ich Schritt um Schritt weitere, bis ich mit 28 Datensätzen zu allen metakognitiven Strategien meiner damaligen Übersicht etwas habe. Warum gerade zu metakognitiven Strategien? Weil ich vor sechs Wochen die Idee hatte, diese «anschlussfähiger» im Unterricht zu integrieren. Vor diesem Hintergrund stellte ich mir die Frage, welche Berührungspunkte es zwischen metakognitiven Strategien und Lernhandlungen gibt, und deshalb ist nun diese Datenbank entstanden. Aber gibt es weitere?</p>
 
 <div class="kapitel-head" id="k-03">
   <div class="kapitel-nr">03</div>
   <h2>Aus einer Datenbank werden sieben</h2>
 </div>
 
-  <p id="p-008">Die Datenbank «Lernhandlungen» kann ich theoretisch <em>unbegrenzt mit Methoden und Aufgabenformaten anreichern</em>. Ich weiss, dass ich noch mehr Datenbanken bauen könnte und mir kommen spontan «Feedbackprozesse» und «Artefakte» in den Sinn. Ich will schauen, was mir KI für weitere Datenbanken vorschlägt:</p>
+  <p id="p-008">Die Datenbank «Lernhandlungen» kann ich theoretisch <strong class="hl1">unbegrenzt mit Methoden und Aufgabenformaten anreichern</strong>. Ich weiss, dass ich noch mehr Datenbanken bauen könnte und mir kommen spontan «Feedbackprozesse» und «Artefakte» in den Sinn. Ich will schauen, welche weiteren Datenbanken mir KI vorschlägt:</p>
 
   <div id="card-003" class="conv du">
     <div class="composer">
@@ -1350,25 +1412,27 @@ body:before{
   </div>
 
   <figure id="abb-02" class="evidence scale-ok">
-    <img src="P2_LAYOUTER/assets/2025_11_DATENBANKEN_OPS_05B_260714_221307/originals/datenbanken_06_abb_datenbanken_05_abb_erster_vorschlag_zu_daten.png" alt="Abb. 2: Sieben Datenbanken als erster Vorschlag" loading="lazy">
-    <figcaption class="cap">Abb. 2: Sieben Datenbanken als erster Vorschlag</figcaption>
+    <img src="P2_LAYOUTER/assets/2025_11_DATENBANKEN_OPS_05B_260714_221307/originals/datenbanken_06_abb_datenbanken_05_abb_erster_vorschlag_zu_daten.png" alt="Sieben Datenbanken als erster Vorschlag" loading="lazy">
+    <span class="stub-tag">Abb. 2</span>
+    <figcaption class="cap">Sieben Datenbanken als erster Vorschlag</figcaption>
   </figure>
 
-  <p id="p-009">GPT präsentiert eine Übersicht möglicher Datenbanken. Ich behandle die sieben Datenbanken <em>als Vorschläge.</em> Jede von ihnen braucht einen klaren Gegenstand, eigene Datensätze und ich muss Beziehungen zu den anderen Tabellen definieren.</p>
+  <p id="p-009">GPT präsentiert eine Übersicht möglicher Datenbanken. Ich behandle die sieben Datenbanken <strong class="hl1">als Vorschläge.</strong> Jede von ihnen braucht einen klaren Gegenstand, eigene Datensätze und ich muss Beziehungen zwischen ihnen definieren.</p>
 
   <figure id="abb-03" class="evidence scale-ok">
-    <img src="P2_LAYOUTER/assets/2025_11_DATENBANKEN_OPS_05B_260714_221307/originals/datenbanken_espresso_c1_1_datenbank_wird_7_datenbanken.png" alt="Abb. 3: Aus der Datenbank «Lernhandlungen» werden sieben Datenbanken" loading="lazy">
-    <figcaption class="cap">Abb. 3: Aus der Datenbank «Lernhandlungen» werden sieben Datenbanken</figcaption>
+    <img src="P2_LAYOUTER/assets/2025_11_DATENBANKEN_OPS_05B_260714_221307/originals/datenbanken_espresso_c1_1_datenbank_wird_7_datenbanken.png" alt="Aus der Datenbank «Lernhandlungen» werden sieben Datenbanken" loading="lazy">
+    <span class="stub-tag">Abb. 3</span>
+    <figcaption class="cap">Aus der Datenbank «Lernhandlungen» werden sieben Datenbanken</figcaption>
   </figure>
 
-  <p id="p-010">Es ist spät und ich beginne die Listen zu zählen: <em>Sieben. Nicht eine, nicht drei.</em> <em>Sieben Datenbanken</em> liegen vor mir. Noch liegen sie isoliert nebeneinander und ohne Verbindungen, aber alle sind als leere Excel-Tabellen nun vorhanden. Ich starre auf den Bildschirm und frage mich: <strong class="hl">«Kannst du mit diesen Tabellen die Elemente aus dem Baumhaus verknüpfen?»</strong></p>
+  <p id="p-010">Es ist spät und ich beginne die Listen zu zählen: <strong class="hl1">Sieben. Nicht eine, nicht drei.</strong> <strong class="hl1">Sieben Datenbanken</strong> liegen vor mir. Noch liegen sie isoliert nebeneinander und ohne Verbindungen, aber alle sind als leere Excel-Tabellen nun vorhanden. Ich starre auf den Bildschirm, als mir plötzlich das Baumhaus in den Sinn kommt, und frage mich: «Kannst du diese Tabellen mit den Elementen aus dem Baumhaus verknüpfen?»</p>
 
 <div class="kapitel-head" id="k-04">
   <div class="kapitel-nr">04</div>
   <h2>Das Baumhaus sucht seine Daten</h2>
 </div>
 
-  <p id="p-011">Mein didaktisches Modell vom Baumhaus steht in seiner Form. Und die Datenbanken will ich nicht als externe, isolierte Quellen von Daten daneben sehen, sondern als <em>integrierte, vernetzte «Unterstützer»</em> für meine Arbeit im Unterricht. Deshalb frage ich nach einer Verbindung zwischen den Elementen des Baumhauses auf der einen Seite und den Datenbanken daneben:</p>
+  <p id="p-011">Mein didaktisches Modell vom Baumhaus steht in seiner Form. Und die Datenbanken will ich nicht als externe, isolierte Quellen von Daten daneben sehen, sondern als <strong class="hl1">integrierte, vernetzte «Unterstützer»</strong> für meine Arbeit im Unterricht. Deshalb frage ich nach einer Verbindung zwischen den Elementen des Baumhauses auf der einen Seite und den Datenbanken daneben:</p>
 
   <div id="card-004" class="conv du">
     <div class="composer">
@@ -1382,34 +1446,37 @@ body:before{
     </div>
   </div>
 
-  <p id="p-012">Es ist ein <em>didaktisches Zusammenspiel</em> aus systemischer Sicht, das mir KI präsentiert: Es zeigt, wie Daten aus Feedback (DB 3) und Denkprozessen (DB 2) zu «LERNTEST» und «LERNTREPPE» fliessen oder wie die Elemente «LERNBLICK» und «LERNKARTE» die Datenbanken Motivation/Emotion (DB 4) und Lernprofile (DB 6) mit Informationen speisen.</p>
+  <p id="p-012">Es ist ein <strong class="hl1">didaktisches Zusammenspiel</strong>, das mir KI aus systemischer Sicht präsentiert: Das Modell zeigt, wie Daten aus Feedback (DB 3) und Denkprozessen (DB 2) zu «LERNTEST» und «LERNTREPPE» fliessen oder wie die Elemente «LERNBLICK» und «LERNKARTE» die Datenbanken Motivation/Emotion (DB 4) und Lernprofile (DB 6) mit Informationen speisen.</p>
 
   <p id="p-013">Bei der Entwicklung einer KI-basierten Didaktik muss ich diese Fragen beantworten: Was will ich? Und was will ich nicht? Wie genau kann KI mich und meinen Unterricht unterstützen?</p>
 
   <figure id="abb-04" class="evidence scale-ok">
-    <img src="P2_LAYOUTER/assets/2025_11_DATENBANKEN_OPS_05B_260714_221307/originals/datenbanken_08_abb_datenbanken_06_abb_uebersicht_wie_kann_ki_mi.png" alt="Abb. 4: Übersicht «Wie kann KI mich unterstützen?»" loading="lazy">
-    <figcaption class="cap">Abb. 4: Übersicht «Wie kann KI mich unterstützen?»</figcaption>
+    <img src="P2_LAYOUTER/assets/2025_11_DATENBANKEN_OPS_05B_260714_221307/originals/datenbanken_08_abb_datenbanken_06_abb_uebersicht_wie_kann_ki_mi.png" alt="Übersicht «Wie kann KI mich unterstützen?»" loading="lazy">
+    <span class="stub-tag">Abb. 4</span>
+    <figcaption class="cap">Übersicht «Wie kann KI mich unterstützen?»</figcaption>
   </figure>
 
-  <p id="p-014">Und wenn ich diese Fragen nicht beantworten kann oder wenn ich Zweifel habe, dann darf ich <em>KI nicht einsetzen,</em> nicht im wirklichen Leben, nicht im Schulzimmer. In meiner Architektur soll KI die Pädagogik nicht ersetzen, sondern<strong> </strong><strong class="hl">als didaktischer Verstärker dienen. Sie kann Orientierung, Differenzierung und Feedback unterstützen. </strong>Und die <em>Verantwortung </em><strong class="hl">und</strong><em> Kompetenz bleibt beim Menschen:</em> mit pädagogischer Kompetenz, mit Handlungsspielraum und mit der Pflicht, rechtzeitig Nein zu sagen.</p>
+  <p id="p-014">Wenn ich diese Fragen nicht beantworten kann oder Zweifel habe, darf ich KI nicht einsetzen – auch nicht im Schulzimmer. In meiner Architektur soll KI die Pädagogik nicht ersetzen, sondern<strong> </strong><strong class="hl">als didaktischer Verstärker dienen. Sie kann Orientierung geben, Differenzierung ermöglichen und Feedback unterstützen. </strong>Ich verstehe das System. Die Verantwortung soll bei mir als Menschen bleiben, denn die pädagogische Kompetenz bringe ich mit. Aber werde ich auch künftig die Befugnis behalten, über den Einsatz von KI-Systemen zu entscheiden?</p>
 
 <div class="kapitel-head" id="k-05">
   <div class="kapitel-nr">05</div>
-  <h2>Ein Betriebssystem für Lernen</h2>
+  <h2>Ein Betriebssystem für das Lernen</h2>
 </div>
 
   <p id="p-015">Mit der Verbindung der Datenbanken zu den Elementen aus dem Baumhaus entsteht so etwas wie<strong class="hl"> mein didaktisches Betriebssystem</strong>: Eine Vorstellung und ein Verständnis von Lernen in einem dynamischen, hybriden, selbstorganisierenden System. Zuerst erstelle ich eine grobe Übersicht der Datenbanken und ihrer Funktion im Baumhaus-Modell und lasse von GPT noch einen Ausblick in die Zukunft machen.</p>
 
   <figure id="abb-05" class="evidence scale-ok">
-    <img src="P2_LAYOUTER/assets/2025_11_DATENBANKEN_OPS_05B_260714_221307/originals/datenbanken_09_abb_datenbanken_07_abb_kernstruktur_didaktische.png" alt="Abb. 5: Kernstruktur Didaktisches Betriebssystem" loading="lazy">
-    <figcaption class="cap">Abb. 5: Kernstruktur Didaktisches Betriebssystem</figcaption>
+    <img src="P2_LAYOUTER/assets/2025_11_DATENBANKEN_OPS_05B_260714_221307/originals/datenbanken_09_abb_datenbanken_07_abb_kernstruktur_didaktische.png" alt="Kernstruktur Didaktisches Betriebssystem" loading="lazy">
+    <span class="stub-tag">Abb. 5</span>
+    <figcaption class="cap">Kernstruktur Didaktisches Betriebssystem</figcaption>
   </figure>
 
-  <p id="p-016">Mir fällt auf, dass er bereits diskutierte Querschnittsdimensionen aus anderen Chats hier als <em>ergänzende Metaschicht</em> aufnimmt. Er zeigt dies (noch) nicht in Form von Tabellen, sondern ich sehe sie als Tags, die er setzt. Ich habe nichts gegen diese Dimensionen wie «KI-/Medienkompetenz», «Kooperation &amp; Sozialdynamik» und «Reflexion/Metakognition» und so erweitert sich mein Didaktisches Betriebssystem.</p>
+  <p id="p-016">Mir fällt auf, dass er bereits diskutierte Querschnittsdimensionen aus anderen Chats hier als <strong class="hl1">ergänzende Metaschicht</strong> aufnimmt. Er zeigt dies (noch) nicht in Form von Tabellen, sondern ich sehe sie als Tags, die er setzt. Ich habe nichts gegen diese Dimensionen wie «KI-/Medienkompetenz», «Kooperation &amp; Sozialdynamik» und «Reflexion/Metakognition» und so erweitert sich mein Didaktisches Betriebssystem.</p>
 
   <figure id="abb-06" class="evidence scale-ok">
-    <img src="P2_LAYOUTER/assets/2025_11_DATENBANKEN_OPS_05B_260714_221307/originals/datenbanken_espresso_d2_didaktisches_betriebssystem.png" alt="Abb. 6: Die sieben Datenbanken des Baumhaus-Modells als didaktisches Betriebssystem" loading="lazy">
-    <figcaption class="cap">Abb. 6: Die sieben Datenbanken des Baumhaus-Modells als didaktisches Betriebssystem</figcaption>
+    <img src="P2_LAYOUTER/assets/2025_11_DATENBANKEN_OPS_05B_260714_221307/originals/datenbanken_espresso_d2_didaktisches_betriebssystem.png" alt="Die sieben Datenbanken und das Baumhaus-Modell als didaktisches Betriebssystem" loading="lazy">
+    <span class="stub-tag">Abb. 6</span>
+    <figcaption class="cap">Die sieben Datenbanken und das Baumhaus-Modell als didaktisches Betriebssystem</figcaption>
   </figure>
 
 <div class="kapitel-head" id="k-06">
@@ -1417,13 +1484,14 @@ body:before{
   <h2>Ein neuer Chat, ein konkreter Einstieg</h2>
 </div>
 
-  <p id="p-017">Heute Morgen habe ich die Jugendlichen beim Arbeiten beobachtet: Lara war am Schwatzen und bei Tim wusste ich nicht, ob er die Aufgabe wirklich verstanden hat. Ich überlegte und fragte mich: «Was, wenn nicht ich als Lehrperson eine Handlung im Unterricht auslöse, sondern Regeln mit Routinglogiken und Informationen aus Datenbanken mir eine Entscheidung für eine Handlung vorschlagen würden?»</p>
+  <p id="p-017">Heute Morgen habe ich die Jugendlichen beim Arbeiten beobachtet: Lara war am Schwatzen und bei Tim wusste ich nicht, ob er die Aufgabe wirklich verstanden hat. Ich überlegte und fragte mich: Was, wenn nicht ich als Lehrperson eine Handlung im Unterricht auslöse, sondern Informationen aus Datenbanken und Routingregeln mir für diese Situation eine Handlung empfehlen?</p>
 
-  <p id="p-018">Nun ist es Abend und ich öffne einen <em>neuen Chat</em>. Ich lade alles hoch, schildere mit den Datenbanken und meiner Arbeit an der Vernetzung zum Baumhaus kurz den Kontext, definiere die Rolle und <em>beginne mit der Entwicklungsarbeit</em>. GPT erstellt mir eine Auswahl:</p>
+  <p id="p-018">Nun ist es Abend und ich öffne einen <strong class="hl1">neuen Chat</strong>. Ich schildere den Kontext mit den Datenbanken und meiner Arbeit an der Vernetzung zum Baumhaus, definiere die Rolle und beginne mit der Entwicklungsarbeit. GPT erstellt die Übersicht:</p>
 
-  <figure id="abb-07" class="evidence scale-ok">
-    <img src="P2_LAYOUTER/assets/2025_11_DATENBANKEN_OPS_05B_260714_221307/originals/datenbanken_10_abb_datenbanken_08_abb_db_auswahl_liste_png_db_a.png" alt="Abb. 7: Datenbank-Auswahl-Liste" loading="lazy">
-    <figcaption class="cap">Abb. 7: Datenbank-Auswahl-Liste</figcaption>
+  <figure id="abb-07" class="evidence scale-ok custom-scale" style="--figure-scale:0.7">
+    <img src="P2_LAYOUTER/assets/2025_11_DATENBANKEN_OPS_05B_260714_221307/originals/datenbanken_10_abb_datenbanken_08_abb_db_auswahl_liste_png_db_a.png" alt="Datenbank-Auswahl-Liste" loading="lazy">
+    <span class="stub-tag">Abb. 7</span>
+    <figcaption class="cap">Datenbank-Auswahl-Liste</figcaption>
   </figure>
 
   <div id="card-005" class="conv gpt">
@@ -1438,7 +1506,7 @@ body:before{
   <h2>Vernetztes Denken: Element x braucht Element y</h2>
 </div>
 
-  <p id="p-019">Ich weiss, dass die Elemente aus dem Baumhaus <em>Informationen benötigen</em> und diese Informationen sind als Daten in Datenbanken gespeichert und miteinander verbunden — aber ich weiss nicht wie. Deshalb schreibe ich einen Prompt mit 483 Wörtern, frisch von der Leber weg: meine Vorstellung vom Unterricht, die Rolle der Einstiege, der Diagnosetests, der Lernzielkarten und der Aufgabenpools. Wie sich Lerntisch und Lernblick auf Lernraum und Werkstatt auswirken. Wie Schüler-Produkte ins Lernprofil fliessen … und vieles mehr. Und am Schluss schreibe ich einfach:</p>
+  <p id="p-019">Ich weiss, dass die Elemente aus dem Baumhaus <strong class="hl1">Informationen benötigen</strong> und diese Informationen sind als Daten in Datenbanken gespeichert und miteinander verbunden — aber ich weiss noch nicht wie. Deshalb schreibe ich einen Prompt mit 483 Wörtern, frisch von der Leber weg: meine Vorstellungen von Unterricht, die Rolle der Einstiege, der Diagnosetests, der Lernzielkarten und der Aufgabenpools. Wie sich Lerntisch und Lernblick auf Lernraum und Werkstatt auswirken. Wie Schüler-Produkte ins Lernprofil fliessen … und vieles mehr. Und am Schluss schreibe ich einfach:</p>
 
   <div id="card-006" class="conv du">
     <div class="composer">
@@ -1453,19 +1521,21 @@ body:before{
   </div>
 
   <figure id="abb-08" class="evidence scale-ok">
-    <img src="P2_LAYOUTER/assets/2025_11_DATENBANKEN_OPS_05B_260714_221307/originals/datenbanken_13_abb_datenbanken_11_abb_detaillierte_abhaengigkei.png" alt="Abb. 8: Abhängigkeitstabelle von Baumhaus-Elemente" loading="lazy">
-    <figcaption class="cap">Abb. 8: Abhängigkeitstabelle von Baumhaus-Elemente</figcaption>
+    <img src="P2_LAYOUTER/assets/2025_11_DATENBANKEN_OPS_05B_260714_221307/originals/datenbanken_13_abb_datenbanken_11_abb_detaillierte_abhaengigkei.png" alt="Abhängigkeitstabelle der Baumhaus-Elemente" loading="lazy">
+    <span class="stub-tag">Abb. 8</span>
+    <figcaption class="cap">Abhängigkeitstabelle der Baumhaus-Elemente</figcaption>
   </figure>
 
-  <p id="p-020">KI generiert innerhalb von Minuten die Abhängigkeitstabelle und eine Instrumenten-Matrix und erstellt so gleichzeitig eine Materialübersicht. Hätte ich das auch machen können? <em>Definitiv, aber es hätte mich Stunden gekostet.</em> Quasi obendrauf gibt es noch einen Abschnitt zu kritischen Schnittstellen und Workflow-Optimierung.</p>
+  <p id="p-020">KI generiert innerhalb von Minuten die Abhängigkeitstabelle und eine Instrumenten-Matrix und erstellt so gleichzeitig eine Materialübersicht. Hätte ich das auch machen können? <strong class="hl1">Definitiv, aber es hätte mich Stunden gekostet.</strong> Und GPT? Er erstellt mir, quasi als Dessert, noch einen Abschnitt zu kritischen Schnittstellen und zur Workflow-Optimierung.</p>
 
-  <p id="p-021">Am besten finde ich einen selbstständig erstellten Abschnitt von GPT über GPT, wie er <em>seinen eigenen Workflow</em> automatisieren könnte. Diese Meta-Reflexion von ihm finde ich spannend. Und zum Abschluss erstellt er einen <strong class="hl">«Ausblick bis 2040».</strong> Ich bin überrascht über diesen Output, der mich an eine vorbereitete Präsentation erinnert und mich fast vergessen lässt, dass es spontan zusammengewürfelte Informationen sind. Trotzdem: Es ist eindrücklich, was die KI kann und sein &quot;Ausblick bis 2040&quot; ist ein starker Abschluss. Mich erinnert das an eine sauber gestandene Landung im Kunstturnen, wenn die Kür ohne Wackler endet.</p>
+  <p id="p-021">Am besten finde ich einen selbstständig erstellten Abschnitt von GPT über GPT, wie er <strong class="hl1">seinen eigenen Workflow</strong> automatisieren könnte. Diese Meta-Reflexion von ihm finde ich spannend. Und zum Abschluss erstellt er einen <strong class="hl">«Ausblick bis 2040».</strong> Ich bin überrascht über diesen Output, der mich an eine vorbereitete Präsentation erinnert und mich fast vergessen lässt, dass es spontan zusammengewürfelte Informationen sind. Trotzdem: Es ist eindrücklich, was die KI kann und sein «Ausblick bis 2040» ist ein starker Abschluss. Mich erinnert das an eine sauber gestandene Landung im Kunstturnen, wenn die Kür ohne Wackler endet.</p>
 
-  <p id="p-022">Hier merke ich aber: Es geht <em>nicht mehr nur darum, einzelne Datenbanken zu füllen.</em> Sobald diese miteinander vernetzt sind, wird <strong class="hl">die KI und der Mensch selbst Teil einer Prozesslogik:</strong> Welche Rollen spielen die beiden Akteure, wenn es um Fragen geht wie: Welche Daten braucht es? Welcher nächste Schritt folgt daraus? Welche Handlung wird vorgeschlagen? Diese Verschiebung führt mich zu einer Frage, die ich <em>nicht beantworten kann:</em> <strong class="hl">Welche Rolle wird der Mensch in einer zunehmend von KI automatisierten Schule spielen?</strong></p>
+  <p id="p-022">Hier merke ich aber: Es geht <strong class="hl1">nicht mehr nur darum, einzelne Datenbanken zu füllen.</strong> Sobald diese miteinander vernetzt sind, wird <strong class="hl">die KI und der Mensch selbst Teil einer Prozesslogik:</strong> Welche Rollen spielen die beiden Akteure, wenn es um Fragen geht wie: Welche Daten braucht es? Welcher nächste Schritt folgt daraus? Welche Handlung wird vorgeschlagen? Diese Verschiebung führt mich zu einer Frage, die ich <strong class="hl1">nicht beantworten kann:</strong> <strong class="hl">Welche Rolle wird der Mensch in einer zunehmend von KI automatisierten Schule spielen?</strong></p>
 
   <figure id="abb-09" class="evidence scale-ok">
-    <img src="P2_LAYOUTER/assets/2025_11_DATENBANKEN_OPS_05B_260714_221307/originals/datenbanken_espresso_e2_abhaengigkeiten_bindegewebe.png" alt="Abb. 9: Abhängigkeitstabelle von Baumhaus-Elemente und Datenbanken" loading="lazy">
-    <figcaption class="cap">Abb. 9: Abhängigkeitstabelle von Baumhaus-Elemente und Datenbanken</figcaption>
+    <img src="P2_LAYOUTER/assets/2025_11_DATENBANKEN_OPS_05B_260714_221307/originals/datenbanken_espresso_e2_abhaengigkeiten_bindegewebe.png" alt="Abhängigkeitstabelle von Baumhaus-Elemente und Datenbanken" loading="lazy">
+    <span class="stub-tag">Abb. 9</span>
+    <figcaption class="cap">Abhängigkeitstabelle von Baumhaus-Elemente und Datenbanken</figcaption>
   </figure>
 
 <div class="kapitel-head" id="k-08">
@@ -1473,26 +1543,28 @@ body:before{
   <h2>Wie viele Level bis Top-Level?</h2>
 </div>
 
-  <p id="p-023"><em>Wie weit</em> ist eine Automatisierung in der Schule in Zukunft möglich? Und wie weit <em>wird sie gehen?</em> Ich erstelle eine Level-Architektur von Level 0 <strong class="hl">(Analog-Basis, 2024)</strong> bis Level 4 <strong class="hl">(Voll-adaptiv, 2040):</strong> fünf Level mit vier Entwicklungssprüngen. Jede Stufe hat eine <em>andere Art von Datenbank-Anbindung.</em> Es ist keine Entwicklungs-Treppe, sondern ich sehe es eher als ein Werkzeugkasten — je nach Lerngegenstand greife ich zu Level 0 oder Level 4. Ich denke, ich muss passendere Begriffe für «Level» finden.</p>
+  <p id="p-023"><strong class="hl1">Wie weit</strong> ist eine Automatisierung in der Schule in Zukunft möglich? Und wie weit <strong class="hl1">wird sie gehen?</strong> Ich erstelle eine Level-Architektur von Level 0 <strong class="hl">(Analog-Basis, 2024)</strong> bis Level 4 <strong class="hl">(Voll-adaptiv, 2040):</strong> fünf Level mit vier Entwicklungssprüngen. Jede Stufe hat eine <strong class="hl1">andere Art von Datenbank-Anbindung.</strong> Es ist keine Entwicklungs-Treppe, sondern ich sehe es eher als ein Werkzeugkasten — je nach Lerngegenstand greife ich zu Level 0 oder Level 4. Ich denke, ich muss passendere Begriffe für «Level» finden.</p>
 
   <figure id="abb-10" class="evidence scale-ok">
-    <img src="P2_LAYOUTER/assets/2025_11_DATENBANKEN_OPS_05B_260714_221307/originals/datenbanken_16_abb_datenbanken_14_abb_level_architektur_von_ana.png" alt="Abb. 10: LEVEL-Architektur von analog zu voll automatisiert" loading="lazy">
-    <figcaption class="cap">Abb. 10: LEVEL-Architektur von analog zu voll automatisiert</figcaption>
+    <img src="P2_LAYOUTER/assets/2025_11_DATENBANKEN_OPS_05B_260714_221307/originals/datenbanken_16_abb_datenbanken_14_abb_level_architektur_von_ana.png" alt="LEVEL-Architektur von analog zu voll automatisiert" loading="lazy">
+    <span class="stub-tag">Abb. 10</span>
+    <figcaption class="cap">LEVEL-Architektur von analog zu voll automatisiert</figcaption>
   </figure>
 
-  <p id="p-024">Zudem fällt mir auf, dass ich wieder eine Tabelle mit aufsteigender Nummerierung erstellt habe bzw. erstellen liess. Genau das, was ich eigentlich nicht will. Aktuell arbeite ich mit Level Analog-Basis, so nutze ich meine Tabelle «Aufgabenformate» für das Erstellen von Arbeitsblättern.</p>
+  <p id="p-024">Zudem fällt mir auf, dass ich wieder eine Tabelle mit aufsteigender Nummerierung erstellt habe bzw. erstellen liess. Genau das, was ich eigentlich nicht will. Ich schaue die Tabelle an und überlege mir, wo ich stehe: Aktuell arbeite ich auf Level 0, der «Analog-Basis». So nutze ich zum Beispiel meine Tabelle «Aufgabenformate», um Arbeitsblätter zu erstellen.</p>
 
-  <p id="p-025">Ich möchte aber gerade im Bereich der Lernpfade nicht immer auf Empfehlungen von Excel/GPT basieren, sondern mich in Richtung vollständig personalisierte, aber transparent und erklärbare Lernpfade hin entwickeln. Und weil sie personalisiert sind, werde ich in den Algorithmen sozial-kooperative Elemente <em>übergewichten müssen:</em> Für mich eine Art antizyklische Didaktik. Gibt es das? Egal, aber auf alle Fälle in einer Welt, wo alles auf den persönlichen Vorteil gerichtet ist, scheint es mir nicht falsch, <em>an das Zwischenmenschliche zu erinnern.</em></p>
+  <p id="p-025">Ich möchte aber gerade im Bereich der Lernpfade nicht immer auf Empfehlungen von Excel/GPT basieren, sondern mich in Richtung vollständig personalisierter, aber transparenter und erklärbarer Lernpfade entwickeln. Und gerade weil diese so personalisiert sind, werde ich in den Algorithmen sozial-kooperative Elemente als Gegenpol verankern müssen: Für mich eine Art antizyklische Didaktik. Gibt es das? Egal, aber auf alle Fälle in einer Welt, wo alles auf den persönlichen Vorteil gerichtet ist, scheint es mir richtig, das Zwischenmenschliche in der Schule nicht zu vergessen.</p>
 
-  <p id="p-026">Mit <em>antizyklischer Didaktik</em> meine ich hier keinen neuen Theoriebegriff, sondern einen bewussten Kontrast: Gerade wenn alles in Richtung Personalisierung, Individualisierung und Optimierung läuft, will ich kooperative und soziale Lernformen nicht verlieren.</p>
+  <p id="p-026">Mit <strong class="hl1">antizyklischer Didaktik</strong> meine ich hier keinen neuen Theoriebegriff, sondern einen bewussten Kontrast: Gerade wenn alles in Richtung Personalisierung, Individualisierung und Optimierung läuft, will ich kooperative und soziale Lernformen nicht verlieren.</p>
 
-  <p id="p-027">Plötzlich stelle ich mir vor, wie eine kompetitive, leistungsorientierte und auf Aussenwirkung fixierte Person meine Tabelle anschaut und sagt: «Level 2 ist besser als Level 1.» Und ich denke für mich: <em>«Nein, jedes Level ist wertvoll.</em>»</p>
+  <p id="p-027">Plötzlich stelle ich mir vor, wie eine kompetitive, leistungsorientierte und auf Aussenwirkung fixierte Person meine Tabelle anschaut und sagt: «Level 2 ist besser als Level 1.» Und ich denke für mich: <strong class="hl1">«Nein, jedes Level ist wertvoll.</strong>»</p>
 
-  <p id="p-028"><strong class="hl">Level 0 mit Herz geschlagen ist besser als Level 4 ohne Seele.</strong>»</p>
+  <p id="p-028"><strong class="hl">Level 0 mit Herz geschlagen ist besser als Level 4 ohne Seele.</strong></p>
 
   <figure id="abb-11" class="evidence scale-ok">
-    <img src="P2_LAYOUTER/assets/2025_11_DATENBANKEN_OPS_05B_260714_221307/originals/datenbanken_espresso_e3_e7_level_routing_werkzeugkasten.png" alt="Abb. 11: Level-Architektur als Werkzeugkasten und Routingregeln" loading="lazy">
-    <figcaption class="cap">Abb. 11: Level-Architektur als Werkzeugkasten und Routingregeln</figcaption>
+    <img src="P2_LAYOUTER/assets/2025_11_DATENBANKEN_OPS_05B_260714_221307/originals/datenbanken_espresso_e3_e7_level_routing_werkzeugkasten.png" alt="Level-Architektur als Werkzeugkasten und Routingregeln" loading="lazy">
+    <span class="stub-tag">Abb. 11</span>
+    <figcaption class="cap">Level-Architektur als Werkzeugkasten und Routingregeln</figcaption>
   </figure>
 
 <div class="kapitel-head" id="k-09">
@@ -1514,11 +1586,11 @@ body:before{
     </div>
   </div>
 
-  <p id="p-030">Es ist ein <em>technisch-pädagogisches Entwicklungsgespräch</em> zwischen GPT und mir. Und ich muss GPT regelmässig an die Realitäten im Klassenzimmer erinnern. Denn so attraktiv Vorstellungen von webbasierten Aufgaben, automatisierten Auswertungen und personalisierten Feedforwards auch klingen mögen: <strong class="hl">Diese Infrastruktur habe ich nicht.</strong></p>
+  <p id="p-030">Es ist ein <strong class="hl1">technisch-pädagogisches Entwicklungsgespräch</strong> zwischen GPT und mir. Und ich muss GPT regelmässig an die Realitäten in meinem Klassenzimmer erinnern. Denn so attraktiv Vorstellungen von webbasierten Aufgaben, automatisierten Auswertungen und personalisierten Feedforwards auch klingen mögen: <strong class="hl">Diese Infrastruktur habe ich nicht.</strong></p>
 
-  <p id="p-031">Ich habe nur <em>Excel und GPT bzw. Claude</em>.</p>
+  <p id="p-031">Ich habe nur <strong class="hl1">Excel und GPT bzw. Claude</strong>.</p>
 
-  <p id="p-032">Im Dezember werde ich mit einem neuen Mathe-Kapitel zum Thema «Prozentrechnen» beginnen und etwas, das funktionieren könnte, wären zum Beispiel <strong class="hl">webbasierte Kurz-Tests</strong> mit Prompts in GPT. <em>Ist es möglich,</em> einen Code zu entwickeln, den die Jugendlichen in GPT hochladen können, um einen KI-generierten Test zu bearbeiten? Es bleiben noch fünf Wochen.</p>
+  <p id="p-032">Im Dezember werde ich mit einem neuen Mathe-Kapitel zum Thema «Prozentrechnen» beginnen. <strong class="hl">Webbasierte Kurztests</strong> mit Prompts in GPT könnten zum Beispiel funktionieren. <strong class="hl1">Ist es möglich,</strong> einen Code zu entwickeln, den die Jugendlichen in GPT hochladen können, um einen KI-generierten Test zu bearbeiten? Es bleiben noch fünf Wochen.</p>
 
 <div class="kapitel-head" id="k-10">
   <div class="kapitel-nr">10</div>
@@ -1528,21 +1600,23 @@ body:before{
   <p id="p-033">Eine Woche später sitze ich abends vor Excel. Das Mathe-Kapitel ist noch ein Ausblick, aber ich baue an den Tabellen für eine Planung. <strong class="hl">Es ist keine pädagogische, sondern eine technische Arbeit.</strong> Ich brauche Spaltenüberschriften wie zum Beispiel:</p>
 
   <figure id="abb-12" class="evidence scale-ok">
-    <img src="P2_LAYOUTER/assets/2025_11_DATENBANKEN_OPS_05B_260714_221307/originals/datenbanken_20_abb_datenbanken_18_abb_kernpalten_fuer_datenbank.png" alt="Abb. 12: Kernspalten für Datenbank 1" loading="lazy">
-    <figcaption class="cap">Abb. 12: Kernspalten für Datenbank 1</figcaption>
+    <img src="P2_LAYOUTER/assets/2025_11_DATENBANKEN_OPS_05B_260714_221307/originals/datenbanken_20_abb_datenbanken_18_abb_kernpalten_fuer_datenbank.png" alt="Kernspalten der Datenbank 1 «Lernumgebungen»" loading="lazy">
+    <span class="stub-tag">Abb. 12</span>
+    <figcaption class="cap">Kernspalten der Datenbank 1 «Lernumgebungen»</figcaption>
   </figure>
 
-  <p id="p-034">Wenn ich so eine Tabelle anschaue, erinnere ich mich, wie ich anfangs <em>alles in Deutsch</em> formuliert habe. Das ist nicht ein Problem. Es ist mehr eine retrospektive Beobachtung, wie vor 2 Monaten mit <em>Deutsch, als meine Muttersprache,</em> und <em>Englisch, als Sprache von GPT,</em> zwei Sprachen nebeneinander koexistierten. Doch mit jedem Vorschlag von GPT oder Claude verdrängte ein englischer Begriff einen deutschen. Das ist ein fliessender, unauffälliger Prozess und endet mit der vollständigen Übernahme technischer Datenbankbegriffe durch das Englische.</p>
+  <p id="p-034">Wenn ich so eine Tabelle anschaue, erinnere ich mich, wie ich anfangs <strong class="hl1">alles in Deutsch</strong> formuliert habe. Ich sehe das nicht als Problem. Es ist mehr eine retrospektive Beobachtung, wie vor zwei Monaten <strong class="hl1">meine Sprache Deutsch</strong> und <strong class="hl1">diejenige von der KI Englisch</strong> war. Zwei Sprachen koexistierten nebeneinander. Doch mit jedem Vorschlag von GPT oder Claude verdrängte ein englischer Begriff einen deutschen. Das ist ein fliessender, unauffälliger Prozess und endet mit der vollständigen Übernahme technischer Datenbankbegriffe durch das Englische.</p>
 
-  <p id="p-035">Deshalb steht nun zum Beispiel «evidence_event» für die Protokollierung von Lernnachweisen, «learner_id» für das Pseudonymisieren der Schüler oder «artifact_ref» als Verweis auf das konkrete Lernprodukt und Dutzende weitere.</p>
+  <p id="p-035">Deshalb steht nun zum Beispiel «evidence_event» für die Protokollierung von Lernnachweisen, «learner_id» für eine pseudonymisierte Schülerkennung oder «artifact_ref» als Verweis auf das konkrete Lernprodukt und Dutzende weitere.</p>
 
   <p id="p-036">Und etwas anderes beobachte ich an mir: <strong class="hl">Ich beginne beim Prompten in Englisch zu denken.</strong></p>
 
   <p id="p-037">Ein anderes Beispiel zeigt, wo dieser Prozess noch nicht so weit fortgeschritten ist. In der Datenbank 5 «Lernprodukte &amp; Artefakte» erstellt KI Zeilen für ein Projekt in Medien und Informatik, zum Beispiel den Eintrag zum Bau eines CO2-Sensors mit Arduino. Und diese sind teilweise noch in Deutsch. Ja, man könnte Deutsch ganz bewusst pflegen und vielleicht sollte ich das auch.</p>
 
-  <figure id="abb-13" class="evidence scale-ok">
-    <img src="P2_LAYOUTER/assets/2025_11_DATENBANKEN_OPS_05B_260714_221307/originals/datenbanken_21_abb_datenbanken_19_abb_vorschlag_arduino_zu_db_n.png" alt="Abb. 13: Vorschlag Arduino zu Datenbank 5" loading="lazy">
-    <figcaption class="cap">Abb. 13: Vorschlag Arduino zu Datenbank 5</figcaption>
+  <figure id="abb-13" class="evidence scale-ok custom-scale" style="--figure-scale:0.7">
+    <img src="P2_LAYOUTER/assets/2025_11_DATENBANKEN_OPS_05B_260714_221307/originals/datenbanken_21_abb_datenbanken_19_abb_vorschlag_arduino_zu_db_n.png" alt="Vorschlag Arduino zu Datenbank 5" loading="lazy">
+    <span class="stub-tag">Abb. 13</span>
+    <figcaption class="cap">Vorschlag Arduino zu Datenbank 5</figcaption>
   </figure>
 
 <div class="kapitel-head" id="k-11">
@@ -1550,67 +1624,70 @@ body:before{
   <h2>Die Verbindungsschicht der Datenbanken</h2>
 </div>
 
-  <p id="p-038">Wenn es mir langweilig wird, arbeite ich <em>an den Routingregeln</em>. Also <em>wann</em> welches Element bei welchem Ereignis welchen alternativen Lernpfad aktivieren soll, um z.B. einem Schüler eine anspruchsvollere Aufgabe zu geben. Das <em>Interessante sind</em> für mich nicht die Datenbanken selber, sondern die Verzweigungen und Verbindungen. In dieser Verbindungsschicht liegt die Verknüpfungslogik der Datenbanken.</p>
+  <p id="p-038">Wenn es mir langweilig wird, arbeite ich <strong class="hl1">an den Routingregeln</strong>. Also <strong class="hl1">wann</strong> welches Element bei welchem Ereignis welchen alternativen Lernpfad aktivieren soll, um z.B. einem Schüler eine anspruchsvollere Aufgabe zu geben. Das Interessante ist für mich nicht die Datenbanken selber, sondern die Verzweigungen und Verbindungen. In dieser Verbindungsschicht liegt die Verknüpfungslogik der Datenbanken.</p>
 
-  <p id="p-039">Ich lasse GPT ein einfaches Beispiel zur Lernwerkstatt und zum Thema «Feedback &amp; Beurteilung» erstellen. Einmal zeigt er mir die Logik in SQL, also in einer Sprache, mit der relationale Datenbanken definiert, abgefragt und verändert werden können. </p>
+  <p id="p-039">Ich lasse GPT ein einfaches Beispiel zur Lernwerkstatt und zum Thema «Feedback &amp; Beurteilung» erstellen. Einmal zeigt er mir die Logik in SQL, also in einer Sprache, mit der relationale Datenbanken definiert, abgefragt und verändert werden können.</p>
 
-  <figure id="abb-14" class="evidence scale-ok">
-    <img src="P2_LAYOUTER/assets/2025_11_DATENBANKEN_OPS_05B_260714_221307/originals/datenbanken_23_abb_datenbanken_21_abb_sql_portable_png_sql_port.png" alt="Abb. 14: Beispielblock zu SQL (portable)" loading="lazy">
-    <figcaption class="cap">Abb. 14: Beispielblock zu SQL (portable)</figcaption>
+  <figure id="abb-14" class="evidence scale-ok custom-scale" style="--figure-scale:0.9">
+    <img src="P2_LAYOUTER/assets/2025_11_DATENBANKEN_OPS_05B_260714_221307/originals/datenbanken_23_abb_datenbanken_21_abb_sql_portable_png_sql_port.png" alt="Beispielblock zu SQL (portable)" loading="lazy">
+    <span class="stub-tag">Abb. 14</span>
+    <figcaption class="cap">Beispielblock zu SQL (portable)</figcaption>
   </figure>
 
   <p id="p-040">Und einmal zeigt er sie als YAML. Diese kann ich in Visual Studio Code in einer lesbaren Struktur bearbeiten und weiterdenken.</p>
 
-  <figure id="abb-15" class="evidence scale-ok">
-    <img src="P2_LAYOUTER/assets/2025_11_DATENBANKEN_OPS_05B_260714_221307/originals/datenbanken_24_abb_datenbanken_22_abb_yaml_png_yaml.png" alt="Abb. 15: Beispielblock zu YAML" loading="lazy">
-    <figcaption class="cap">Abb. 15: Beispielblock zu YAML</figcaption>
+  <figure id="abb-15" class="evidence scale-ok custom-scale" style="--figure-scale:0.9">
+    <img src="P2_LAYOUTER/assets/2025_11_DATENBANKEN_OPS_05B_260714_221307/originals/datenbanken_24_abb_datenbanken_22_abb_yaml_png_yaml.png" alt="Beispielblock zu YAML" loading="lazy">
+    <span class="stub-tag">Abb. 15</span>
+    <figcaption class="cap">Beispielblock zu YAML</figcaption>
   </figure>
 
-  <p id="p-041">SQL kann ich noch nicht lesen. <em>YAML hingegen</em> kann ich so konstruieren, dass ich verstehe, was GPT oder Claude baut. <strong class="hl">Ich baue die Architektur, KI schreibt Zeilen, und ich überprüfe sie wieder.</strong> Gleichzeitig stelle ich mir immer einen (anderen) konkreten Jugendlichen aus meiner Klasse vor. Während der Entwicklung wechsle ich so ständig zwischen zwei Welten: Der Plan sagt das. Der Schüler macht aber das. Ich weiss nicht, ob das schon Empirie ist oder ob es dafür eine Wissenschaft gibt. Ich weiss nur, dass es Spass macht. Eine Runde noch. Dann muss ich Schluss machen.</p>
+  <p id="p-041">SQL kann ich noch nicht lesen. <strong class="hl1">YAML hingegen</strong> kann ich so konstruieren, dass ich verstehe, was GPT oder Claude baut. <strong class="hl">Ich baue die Architektur, KI schreibt Zeilen, und ich überprüfe sie wieder.</strong> Gleichzeitig stelle ich mir immer einen (anderen) konkreten Jugendlichen aus meiner Klasse vor. Während der Entwicklung wechsle ich so ständig zwischen zwei Welten: Der Plan sagt das eine. Der Schüler macht das andere. Ich weiss nicht, ob es dafür eine Wissenschaft gibt. Ich weiss nur, dass es Spass macht. Eine Runde noch. Dann muss ich an diesem Montagabend Schluss machen.</p>
 
 <div class="kapitel-head" id="k-12">
   <div class="kapitel-nr">12</div>
   <h2>Was braucht ein frustrierter Lernender?</h2>
 </div>
 
-  <p id="p-042">Es ist Montag und mittlerweile ist es spät geworden. Ich möchte noch eine letzte Datenbank-Verknüpfung sehen, diese aber nicht mehr selber konstruieren. Ich bin <em>zu müde dafür</em>. GPT soll weitere Verknüpfungen zwischen den Elementen «Feedback», «Beurteilung» und der Datenbank «MOTIVATION &amp; EMOTION» suchen und als Vorschlag dokumentieren. Ich schreibe, dass es mich nicht interessiert, wie er was verbindet; ich gebe GPT freie Hand.</p>
+  <p id="p-042">Es ist mittlerweile spät geworden. Ich möchte noch eine letzte Datenbank-Verknüpfung sehen, diese aber nicht mehr selber konstruieren. Ich bin <strong class="hl1">zu müde dafür</strong>. GPT soll weitere Verknüpfungen zwischen den Elementen «Feedback», «Beurteilung» und der Datenbank «MOTIVATION &amp; EMOTION» suchen und als Vorschlag dokumentieren. Ich schreibe, dass es mich nicht interessiert, wie er was verbindet und gebe GPT freie Hand.</p>
 
-  <p id="p-043">Der erste Output wirkt zunächst harmlos:<br>«Query 1: Welches Feedback braucht ein frustrierter Lernender im LERNTEST?»</p>
+  <p id="p-043">Der erste Output wirkt zunächst harmlos: «Query 1: Welches Feedback braucht ein frustrierter Lernender im LERNTEST?»</p>
 
   <figure id="abb-16" class="evidence scale-ok">
-    <img src="P2_LAYOUTER/assets/2025_11_DATENBANKEN_OPS_05B_260714_221307/originals/datenbanken_25_abb_datenbanken_23_abb_query_1_welches_feedback.png" alt="Abb. 16: QUERY 1: Welches Feedback braucht ein frustrierter Lernender?" loading="lazy">
-    <figcaption class="cap">Abb. 16: QUERY 1: Welches Feedback braucht ein frustrierter Lernender?</figcaption>
+    <img src="P2_LAYOUTER/assets/2025_11_DATENBANKEN_OPS_05B_260714_221307/originals/datenbanken_25_abb_datenbanken_23_abb_query_1_welches_feedback.png" alt="QUERY 1: Welches Feedback braucht ein frustrierter Lernender?" loading="lazy">
+    <span class="stub-tag">Abb. 16</span>
+    <figcaption class="cap">QUERY 1: Welches Feedback braucht ein frustrierter Lernender?</figcaption>
   </figure>
 
-  <p id="p-044">Bis hierher ist es vertraute pädagogische Arbeit. Ich sehe, dass <em>ein Lernender frustriert ist</em> und ein System eine passende Rückmeldung sucht. Ich sehe eine Abfrage. Aber es sind nicht mehr nur Vorschläge, sondern Tabellen mit Begriffen wie «learner_id», «heart_rate», «galvanic_skin_response (GSR)», «eye_tracking», «attention_event», «off_task», «emotional_label», «flow_state_estimate», «adaptation_action», «alert_log», simulierte Zustände, Messwerte und Entscheidungslogiken. Langsam kippt etwas.</p>
+  <p id="p-044">Bis hierher ist es vertraute pädagogische Arbeit. Ich sehe, dass <strong class="hl1">ein Lernender frustriert ist</strong> und ein System eine passende Rückmeldung sucht. Ich sehe eine Abfrage. Aber es sind nicht mehr nur Vorschläge, sondern Tabellen mit Begriffen wie «learner_id», «heart_rate», «galvanic_skin_response (GSR)», «eye_tracking», «attention_event», «off_task», «emotional_label», «flow_state_estimate», «adaptation_action», «alert_log», simulierte Zustände, Messwerte und Entscheidungslogiken. Langsam kippt etwas.</p>
 
 <div class="kapitel-head" id="k-13">
   <div class="kapitel-nr">13</div>
   <h2>Es friert mich</h2>
 </div>
 
-  <p id="p-045">Nicht wegen der Codezeilen, sondern weil <em>ich plötzlich verstehe,</em> in welche Richtung diese Logik weiterlaufen wird. Die Uhr auf dem Bildschirm zeigt 02:34 Uhr, draussen ist es mucksmäuschenstill und ich sitze <em>wie versteinert vor dem Bildschirm</em>, während GPT Zeile um Zeile weiter schreibt. Ich lese mit, aber nicht aus Neugierde, sondern weil ich nicht abbrechen kann.</p>
+  <p id="p-045">Nicht wegen der Codezeilen, sondern weil <strong class="hl1">ich plötzlich verstehe,</strong> in welche Richtung diese Logik weiterlaufen wird. Die Uhr auf dem Bildschirm zeigt 02:34 Uhr, draussen ist es mucksmäuschenstill und ich sitze <strong class="hl1">wie versteinert vor dem Bildschirm</strong>, während GPT Zeile um Zeile weiterschreibt. Ich lese mit, aber nicht aus Neugierde, sondern weil ich nicht abbrechen kann.</p>
 
-  <p id="p-046">Irgendwann reisse ich mich zusammen und klicke, <em>zum ersten Mal,</em> auf das <em>STOP-Icon</em>.</p>
+  <p id="p-046">Irgendwann reisse ich mich zusammen und klicke, <strong class="hl1">zum ersten Mal,</strong> auf das <strong class="hl1">STOP-Icon</strong>.</p>
 
-  <p id="p-047">Im selben Moment schaue ich auf meine Sportuhr am linken Handgelenk.<strong class="hl"> Sie misst meinen Puls, meinen Schlaf, meine Bewegung. Und plötzlich ist die Frage nach der Datenlogik nicht mehr abstrakt, denn ich trage sie bereits am Handgelenk.</strong></p>
+  <p id="p-047">Im selben Moment schaue ich auf meine Sportuhr.<strong class="hl"> Sie misst meinen Puls, meinen Schlaf, meine Bewegung. Und plötzlich ist die Frage nach der Datenlogik nicht mehr abstrakt, denn ich trage sie bereits am linken Handgelenk.</strong></p>
 
-  <p id="p-048">Es ist eine surreale Situation und obschon mir Learning Analytics, Transhumanes Lernen, Brain-Computer-Interface und andere Begriffe bekannt sind, ist es nicht das Gleiche, wenn man <em>live zuschauen kann,</em> wie ein solcher Code vor einem am Bildschirm generiert wird.</p>
+  <p id="p-048">Es ist eine surreale Situation und obschon mir Learning Analytics, neuroadaptives Lernen, Brain-Computer-Interfaces und andere Begriffe wohl bekannt sind, ist es nicht das Gleiche, wenn man <strong class="hl1">live zuschauen kann,</strong> wie ein solcher Code direkt vor mir auf dem Bildschirm entsteht.</p>
 
 <div class="kapitel-head" id="k-14">
   <div class="kapitel-nr">14</div>
   <h2>Ein Moment von Dystopie</h2>
 </div>
 
-  <p id="p-049">Für einen Moment falle ich. Nicht in eine Analyse, sondern in einen <em>inneren Film</em>:</p>
+  <p id="p-049">Für einen Moment falle ich. Nicht in eine Analyse, sondern in einen <strong class="hl1">inneren Film</strong>:</p>
 
-  <p id="p-050">Monitoring-Software auf Schul-Tablets protokolliert jeden Klick und jede App. Family-Tracker-Apps zeigen, wo das Kind gerade ist. Smartwatches zeichnen Schlaf, Puls und Aktivität auf. AI-Tutoren werden nie müde und geben nie auf. Software für Förderprogramme, die schon ab dem Kindergarten Profile von Kindern erstellen. <strong class="hl">Alles gemessen, bewertet und prognostiziert.</strong> <em>Einzeln gesehen harmlos,</em> zusammen ist es eine <strong class="hl">Architektur der Kontrolle.</strong> Das Kind nicht als Mensch, sondern als Datensatz.</p>
+  <p id="p-050">Monitoring-Software auf Schul-Tablets protokolliert jeden Klick und jede App. Family-Tracker-Apps zeigen, wo das Kind gerade ist. Smartwatches zeichnen Schlaf, Puls und Aktivität auf. AI-Tutoren werden nie müde und geben nie auf. Software für Förderprogramme erstellt schon ab dem Kindergarten Profile von Kindern. <strong class="hl">Alles gemessen, bewertet und prognostiziert.</strong> <strong class="hl1">Einzeln gesehen harmlos,</strong> zusammen ist es eine <strong class="hl">Architektur der Kontrolle.</strong> Das Kind nicht als Mensch, sondern als Datensatz.</p>
 
-  <p id="p-051">Welche Folgen hat eine <em>dauerhaft</em> überstimulierende, engmaschig vermessene Lernumgebung auf Aufmerksamkeit, Resilienz und Bindungsfähigkeit?<br>Besteht das reale Risiko, dass der psychische Druck durch <em>permanente </em>Optimierung zunimmt und Kinder <em>systemisch</em> überfordert werden? Dass eine Generation Kinder als «Programmierfehler» auf dem Altar des Fortschritts geopfert wird?</p>
+  <p id="p-051">Welche Folgen hat eine dauerhaft überstimulierende, engmaschig vermessene Lernumgebung auf Aufmerksamkeit, Resilienz und Bindungsfähigkeit? Besteht das reale Risiko, dass der psychische Druck durch permanente Optimierung zunimmt und Kinder systemisch überfordert werden? Dass eine Generation Kinder als «Programmierfehler» auf dem Altar des Fortschritts geopfert wird?</p>
 
-  <p id="p-052">Was werden wir Erwachsenen sagen? In einer Welt des Wettbewerbs, als Teil einer Leistungsgesellschaft und in der ständigen Angst lebend, etwas zu verpassen, etwas falsch zu machen; umgeben von einer Zeit der Unsicherheit, Krieg und Katastrophen. <strong class="hl">«Wir wollen nur das Beste für unsere Kinder»?</strong> Wir Eltern werden es lieben. Wir werden freiwillig zahlen und die Industrie wird liefern: «Dein Kind schläft 7.2 Stunden, ist heute 92 Prozent fokussiert, das Sprachzentrum hat einen Vorsprung von 14 Wochen.» Wahrscheinlich <em>existieren sie schon;</em> diese Industrien, ich kenne sie nur noch nicht. Spezialisiert auf Lernprozesse, bei denen 100 Prozent nicht das Ziel sind, sondern erst der Anfang der nächsten Optimierung ist. Und genau dieser Gedanke erschreckt mich: Eine Technik muss gar nicht böse sein, um eine pädagogische Hölle zu erschaffen.</p>
+  <p id="p-052">Was werden wir Erwachsenen sagen? In einer Welt des Wettbewerbs, als Teil einer Leistungsgesellschaft und in der ständigen Angst lebend, etwas zu verpassen, etwas falsch zu machen; umgeben von einer Zeit der Unsicherheit, Krieg und Katastrophen. <strong class="hl">«Wir wollen nur das Beste für unsere Kinder»?</strong> Wir Eltern werden es lieben. Wir werden freiwillig zahlen und die Industrie wird liefern: «Dein Kind schläft 7.2 Stunden, ist heute 92 Prozent fokussiert, das Sprachzentrum hat einen Vorsprung von 14 Wochen.» Wahrscheinlich gibt es solche Anbieter und Geschäftsmodelle bereits; ich kenne sie nur noch nicht. Spezialisiert auf Lernprozesse, bei denen 100 Prozent nicht als Ziel gelten, sondern erst als Anfang der nächsten Optimierung. Und genau dieser Gedanke erschreckt mich: Eine Technik muss gar nicht böse sein, um eine pädagogische Hölle zu erschaffen.</p>
 
-  <p id="hl3-01" class="kernsatz">Es reicht, wenn es gut funktioniert<br>und niemand rechtzeitig STOP sagt.</p>
+  <p id="hl3-01" class="kernsatz">Es reicht, wenn es gut funktioniert und niemand rechtzeitig STOP sagt.</p>
 
 <div class="kapitel-head" id="k-15">
   <div class="kapitel-nr">15</div>
@@ -1619,20 +1696,24 @@ body:before{
 
   <p id="p-053">Am nächsten Morgen ist der Code nicht mehr am Bildschirm zu sehen, aber den Schreck trage ich noch in mir. <strong class="hl">Ich war auf der Suche nach einem besseren Unterricht und bin zufällig auf die Schattenseite derselben Idee gestossen.</strong> Wenn Lernen vernetzt, adaptiv und datenbasiert wird, dann wird auch Kontrolle vernetzter, adaptiver und datenbasierter. Ich habe diese Welt nicht entdeckt, aber ich habe sie zum ersten Mal am eigenen Leib gespürt.</p>
 
-  <p id="p-054">Ich werde <em>nicht mit meiner Arbeit aufhören.</em> Aber ich werde noch wachsamer die ethischen Grenzen mitdenken. Vielleicht ist genau das der Punkt: Ich muss die technische Seite eines pädagogischen Betriebssystems kennen, <strong class="hl">nicht um alles zu automatisieren,</strong> sondern um klarer zu sehen, <strong class="hl">was niemals automatisiert werden darf.</strong></p>
+  <p id="p-054">Ich werde <strong class="hl1">nicht mit meiner Arbeit aufhören.</strong> Aber ich werde noch wachsamer die ethischen Grenzen mitdenken. Vielleicht ist genau das der Punkt: Ich muss die technische Seite eines pädagogischen Betriebssystems kennen, <strong class="hl">nicht um alles zu automatisieren,</strong> sondern um klarer zu sehen, <strong class="hl">was niemals automatisiert werden darf.</strong></p>
 
   <figure id="abb-17" class="evidence scale-ok">
-    <img src="P2_LAYOUTER/assets/2025_11_DATENBANKEN_OPS_05B_260714_221307/originals/datenbanken_espresso_f1_stop_unterstuetzung_oder_kontrolle.png" alt="Abb. 17: Der STOP-Moment als ethische Entscheidung" loading="lazy">
-    <figcaption class="cap">Abb. 17: Der STOP-Moment als ethische Entscheidung</figcaption>
+    <img src="P2_LAYOUTER/assets/2025_11_DATENBANKEN_OPS_05B_260714_221307/originals/datenbanken_espresso_f1_stop_unterstuetzung_oder_kontrolle.png" alt="Der STOP-Moment als ethische Entscheidung" loading="lazy">
+    <span class="stub-tag">Abb. 17</span>
+    <figcaption class="cap">Der STOP-Moment als ethische Entscheidung</figcaption>
   </figure>
 
-  <div id="hl4-01" class="statement"><p>Und der abgebrochene Chat?<br>Werde ich den Code behalten?</p></div>
+  <div id="hl4-01" class="statement">
+    <div class="label">STOP</div>
+    <p>Und der abgebrochene Chat? Werde ich den Code behalten?</p>
+  </div>
 
   <p id="p-055">Nein.</p>
 
   <p id="p-056">Löschen.</p>
 <div class="note-footer-meta">
-        <a href="../schablonen/index.html">← 10_2025_09_38EBENEN_02-LERNSETS</a>
+        <span class="empty">← —</span>
         <a class="nav-next" href="#">— →</a>
       </div>
     </article>
