@@ -2,7 +2,7 @@
 <!--
    WEB_PREVIEW — P6-Render, in P5 Stage 1 als LIVEVIEW ausgeliehen.
    Design-SSoT: C:\Users\Markus\ClaudeCode\MeineProjekte\FIELD_NOTES_DRAFT\0_W_WORKFLOW\P6_PUBLISH\WEBDESIGN\_CURRENT\NOTE\index.html
-   Content-Source: REST_DER_WELT_V6.05_DRAFT_AI.docx
+   Content-Source: REST_DER_WELT_V6.45_RELEASE_de_AI_260828_0200.docx
 -->
 <html lang="de-CH">
 <head>
@@ -269,7 +269,9 @@ body:before{
    .custom-scale bleibt --figure-scale wirkungslos (Default via var(--figure-scale,1)). */
 .evidence.custom-scale{
   width:calc(var(--figure-scale,1) * (100% + 2 * var(--article-pad-x)));
-  max-width:none;margin-left:auto;margin-right:auto;
+  max-width:none;
+  margin-left:calc((100% - var(--figure-scale,1) * (100% + 2 * var(--article-pad-x))) / 2);
+  margin-right:calc((100% - var(--figure-scale,1) * (100% + 2 * var(--article-pad-x))) / 2);
 }
 .evidence img{
   width:100%;display:block;height:auto;
@@ -583,7 +585,9 @@ body:before{
    Werte), aber nie von einer CSS-Regel konsumiert -- ohne .custom-scale wirkungslos. */
 .evidence.custom-scale{
   width:calc(var(--figure-scale,1) * (100% + 2 * var(--article-pad-x)));
-  max-width:none;margin-left:auto;margin-right:auto;
+  max-width:none;
+  margin-left:calc((100% - var(--figure-scale,1) * (100% + 2 * var(--article-pad-x))) / 2);
+  margin-right:calc((100% - var(--figure-scale,1) * (100% + 2 * var(--article-pad-x))) / 2);
 }
 .evidence img{
   width:100%;display:block;height:auto;
@@ -1167,7 +1171,7 @@ Eng begrenzter Transformations-/Kompatibilitaetsadapter fuer den P5-Renderer.
 KEINE zweite Design-SSoT: die eigentliche SSoT bleibt ausschliesslich
 `0_W_WORKFLOW/P6_PUBLISH/WEBDESIGN/_CURRENT/NOTE/index.html`. Dieser Adapter
 darf die SSoT ergaenzen (Selektoren, die die SSoT gar nicht definiert) oder
--- nur mit einem hashgebundenen, begruendeten Allow-Eintrag in
+-- nur mit einem per SSoT-Hash abgesicherten, begruendeten Allow-Eintrag in
 `p5_render_overrides_allow.json` -- bewusst und dokumentiert von ihr abweichen.
 Jede stille Abweichung wird von `W_P5_CSS_CONFLICT_GATE.py` vor jedem Render
 erkannt und ist ohne gueltigen Allow-Eintrag ein HOLD (kein Output-Write).
@@ -1234,8 +1238,10 @@ korrigiert (siehe `_CURRENT/NOTE/index.html`).
     width: 100%;
   }
   .article .evidence.custom-scale{
-    width: min(calc(100% * var(--figure-scale)), calc(680px * var(--figure-scale)));
-    max-width: min(calc(100% * var(--figure-scale)), calc(680px * var(--figure-scale)));
+    width: calc(var(--figure-scale) * (100% + 2 * var(--article-pad-x)));
+    max-width: none;
+    margin-left: calc((100% - var(--figure-scale) * (100% + 2 * var(--article-pad-x))) / 2);
+    margin-right: calc((100% - var(--figure-scale) * (100% + 2 * var(--article-pad-x))) / 2);
   }
   .article .evidence.no-scale img{
     width: auto !important;
@@ -1351,21 +1357,21 @@ korrigiert (siehe `_CURRENT/NOTE/index.html`).
   <h2>Zwanzig gegen eins</h2>
 </div>
 
-  <p id="p-001">Es ist der 4. November. Relativ weit unten im Seitenfenster von ChatGPT sehe ich einen Chat mit dem Titel «Didaktische Modelle weltweit». Ich erinnere mich an Anfang September. Damals sind aus meiner Unterrichtsvorbereitung zuerst didaktische Bausteine, dann eine Unterrichtsidee und am Schluss Unterrichtskonzept entstanden.</p>
+  <p id="p-001">Es ist der 4. November. Relativ weit unten im Seitenfenster von ChatGPT sehe ich einen Chat mit dem Titel «Didaktische Modelle weltweit». Ich erinnere mich an Anfang September. Damals sind aus meiner Unterrichtsvorbereitung zuerst didaktische Bausteine, dann eine Unterrichtsidee und am Schluss ist ein Unterrichtskonzept entstanden.</p>
 
-  <p id="p-002">Ich habe mir damals die Frage gestellt, wie wissenschaftlich fundiert diese Baumhaus-Idee überhaupt ist. Mein Denken war zu dieser Zeit geprägt von einem kompetitiven «besser»/«schlechter»-Schema gedacht. Daraus hat sich in mir ein Ehrgeiz entwickelt.</p>
+  <p id="p-002">Ich habe mir damals die Frage gestellt, wie wissenschaftlich fundiert diese Baumhaus-Idee überhaupt ist. Mein Denken war zu dieser Zeit von einem kompetitiven «besser»/«schlechter»-Schema geprägt. Daraus hat sich in mir ein <em>fehlgeleiteter Ehrgeiz</em> entwickelt.</p>
 
   <p id="p-003">Am Anfang habe ich nur 20 didaktische Modelle aus Europa analysiert und geschaut, welche Elemente davon im Baumhaus bereits vorkommen und welche fehlen. Ich ergänzte das Baumhaus und liess mir die nächsten Modelle aufzählen. Sehr schnell wurde es international.</p>
 
-  <p id="p-004">So hat einer dieser Vergleiche zwischen dem Baumhaus und einem didaktischen Modell ausgesehen:</p>
+  <p id="p-004">Und so hat einer dieser Vergleiche zwischen dem Baumhaus und einem didaktischen Modell ausgesehen:</p>
 
-  <figure id="abb-01" class="evidence scale-ok custom-scale" style="--figure-scale:0.7">
+  <figure id="abb-01" class="evidence scale-ok custom-scale" style="--figure-scale:0.8">
     <img src="P2_LAYOUTER/assets/REST_DER_WELT_OPS_05B_260806_170534/originals/01_image1.png" alt="Ein Vergleich mit EdVisions Schools: Was im Baumhaus schon vorkommt, was nur teilweise vorhanden ist – und was noch fehlt" loading="lazy">
     <span class="stub-tag">Abb. 1</span>
     <figcaption class="cap">Ein Vergleich mit EdVisions Schools: Was im Baumhaus schon vorkommt, was nur teilweise vorhanden ist – und was noch fehlt</figcaption>
   </figure>
 
-  <p id="p-005">Ich kannte dieses didaktische Konzept nicht. Ich nahm mir auch keine Zeit, mich vertieft damit zu beschäftigen, weil ich nur an den «fehlenden Elementen» interessiert war.</p>
+  <p id="p-005">Ich kannte dieses didaktische Konzept nicht. Ich nahm mir auch keine Zeit, mich vertieft damit zu beschäftigen, weil ich <em>nur an den «fehlenden Elementen» interessiert</em> war.</p>
 
   <p id="p-006"><strong class="hl">Es war ein Rennen, eine Jagd nach einem immer höheren Deckungsgrad: 65 %, 82 %, 91 %.</strong> Die KI sagte mir: «Dein Modell deckt 85 % der weltweiten didaktischen Modelle ab. Wenn du dieses oder jenes Element noch einbaust, wird der Deckungsgrad auf 88 % steigen.»</p>
 
@@ -1373,7 +1379,7 @@ korrigiert (siehe `_CURRENT/NOTE/index.html`).
 
   <p id="p-008">Ich habe mein Baumhaus gegen die Welt antreten lassen und am Schluss<strong class="hl"> musste ich aufgeben. Was bleibt? «Eine doofe Idee», denke ich heute.</strong></p>
 
-  <figure id="abb-02" class="evidence scale-ok custom-scale" style="--figure-scale:0.9">
+  <figure id="abb-02" class="evidence scale-ok">
     <img src="P2_LAYOUTER/assets/REST_DER_WELT_OPS_05B_260806_170534/originals/02_image2.jpg" alt="Das Baumhaus tritt gegen die Welt an. Die Abdeckung wächst, die 100 % bleiben unerreichbar" loading="lazy">
     <span class="stub-tag">Abb. 2</span>
     <figcaption class="cap">Das Baumhaus tritt gegen die Welt an. Die Abdeckung wächst, die 100 % bleiben unerreichbar</figcaption>
@@ -1386,13 +1392,13 @@ korrigiert (siehe `_CURRENT/NOTE/index.html`).
   <h2>Wieder eine Jagd nach 100 %?</h2>
 </div>
 
-  <p id="p-010">Ich scrolle durch den sehr langen Chat und sehe die vielen didaktischen Modelle und Unterrichtskonzepte. Das beste Unterrichtskonzept will ich nicht mehr bauen. Es ist mir auch egal, wo die beste Schule steht oder wie der beste Lehrer heisst.</p>
+  <p id="p-010">Ich scrolle durch den sehr langen Chat und sehe die vielen didaktischen Modelle und Unterrichtskonzepte. Das beste Unterrichtskonzept will ich <em>nicht mehr bauen</em>. Es ist mir auch egal, wo die beste Schule steht oder wie der beste Lehrer heisst.</p>
 
-  <p id="p-011">Mich interessieren die Daten hinter den didaktischen Modellen: ihre Namen, ihre Herkunft und vor allem ihre einzelnen Elemente. So wie ich bereits Datenbanken zu Aufgabenformaten und didaktischen Ebenen erstellt habe, will ich eine Datenbank zu didaktischen Modellen aufbauen. Sie soll mir später helfen, Unterrichtsmaterial und Planungen gezielt zu entwickeln. Ohne eine verlässliche Datenbasis fischt die KI beim Generieren im offenen Meer. Mit den passenden Datensätzen gebe ich ihr einen Teil des Rahmens vor: welche Modelle, Begriffe und Elemente überhaupt in die Antwort einfliessen sollen.</p>
+  <p id="p-011">Mich interessieren die Daten hinter den didaktischen Modellen: ihre Namen, ihre Herkunft und vor allem ihre einzelnen Elemente. So wie ich bereits Datenbanken zu Aufgabenformaten und didaktischen Ebenen erstellt habe, will ich eine Datenbank zu didaktischen Modellen aufbauen. Sie soll mir später helfen, Unterrichtsmaterial und Planungen gezielt zu entwickeln. <strong class="hl">Ohne eine verlässliche Datenbasis fischt die KI beim Generieren im offenen Meer.</strong> Mit den passenden Datensätzen gebe ich ihr einen Teil des Rahmens vor: welche Modelle, Begriffe und Elemente überhaupt in die Antwort einfliessen sollen.</p>
 
   <p id="p-012">Ich öffne den Chat und Excel. Die ersten Lernkonzepte habe ich rasch in einer Tabelle erfasst, und danach wächst sie rasch um weitere Modelle aus Europa und dem angelsächsischen Raum. Auch Schulentwicklungsthemen erfasse ich. Danach speichere ich die Datei und überlege, ob ich Claude nicht einfach den ganzen Auftrag geben kann: «Erstelle mir eine vollständige Bibliothek aller didaktischen Unterrichtsmodelle und Schulkonzepte weltweit – als downloadbare Excel-Tabelle.»</p>
 
-  <p id="p-013">Ich versuche es, aber für Claude hört die Welt nach zwölf Modellen auf. Nach seiner zweiten Entschuldigung – und wieder endet die Liste bei zwölf Modellen – realisiere ich, dass es eine Grenze geben muss, auf die ich keinen Einfluss habe.</p>
+  <p id="p-013">Ich versuche es, aber für Claude hört die Welt nach zwölf Modellen auf. Nach seiner zweiten Entschuldigung – und wieder endet die Liste bei zwölf Modellen – realisiere ich, dass es eine Grenze geben muss, <em>auf die ich keinen Einfluss habe</em>.</p>
 
   <p id="p-014">Bevor ich meine Tabelle weiter vergrössere, will ich sie zuerst überprüfen: Ist die Tabelle überhaupt stimmig aufgebaut? Kann ich mit den vorhandenen Spalten alle benötigten Informationen speichern?</p>
 
@@ -1401,9 +1407,9 @@ korrigiert (siehe `_CURRENT/NOTE/index.html`).
   <h2>Der erste Anlauf scheitert</h2>
 </div>
 
-  <p id="p-015">Leider habe ich mir diese Frage zu spät gestellt.</p>
+  <p id="p-015">Leider habe ich mir diese Frage <em>zu spät gestellt</em>.</p>
 
-  <figure id="abb-03" class="evidence scale-ok custom-scale" style="--figure-scale:0.7">
+  <figure id="abb-03" class="evidence scale-ok custom-scale" style="--figure-scale:0.8">
     <img src="P2_LAYOUTER/assets/REST_DER_WELT_OPS_05B_260806_170534/originals/03_image3.png" alt="Claude-Diagnose der ersten Tabelle — fünf kritische Lücken" loading="lazy">
     <span class="stub-tag">Abb. 3</span>
     <figcaption class="cap">Claude-Diagnose der ersten Tabelle — fünf kritische Lücken</figcaption>
@@ -1425,26 +1431,27 @@ korrigiert (siehe `_CURRENT/NOTE/index.html`).
 
   <p id="p-017">Wir arbeiten uns Spalte für Spalte durch das Gerüst der künftigen Tabelle.</p>
 
-  <figure id="abb-04" class="evidence scale-ok custom-scale" style="--figure-scale:0.9">
+  <figure id="abb-04" class="evidence scale-ok">
     <img src="P2_LAYOUTER/assets/REST_DER_WELT_OPS_05B_260806_170534/originals/04_image4.jpg" alt="Drei Arbeitsstände der Excel-Tabelle, 6.–8. November 2025" loading="lazy">
     <span class="stub-tag">Abb. 4</span>
     <figcaption class="cap">Drei Arbeitsstände der Excel-Tabelle, 6.–8. November 2025</figcaption>
   </figure>
 
-  <p id="p-018">Claude prüft alle 13 Spalten nach ihrer tatsächlichen Nutzung. Und so kommt es, dass Claude Felder wie «concept_id», «branch» und «element» behalten und ungenutzte Spalten wie «year» und «name_ger» löschen will. Andere werden umbenannt oder zusammengeführt.</p>
+  <p id="p-018">Claude prüft alle 13 Spalten nach ihrer tatsächlichen Nutzung. So kommt es, dass er Felder wie «concept_id», «branch» und «element» behalten und ungenutzte Spalten wie «year» und «name_ger» löschen will. Andere will er umbenennen oder zusammenführen.</p>
 
-  <figure id="abb-05" class="evidence scale-ok custom-scale" style="--figure-scale:0.8">
+  <figure id="abb-05" class="evidence scale-ok">
     <img src="P2_LAYOUTER/assets/REST_DER_WELT_OPS_05B_260806_170534/originals/05_image5.png" alt="Claudes Spaltenbewertung — behalten, löschen, umbenennen" loading="lazy">
     <span class="stub-tag">Abb. 5</span>
     <figcaption class="cap">Claudes Spaltenbewertung — behalten, löschen, umbenennen</figcaption>
   </figure>
 
-  <p id="p-019">Ich lege mein Veto ein. Das Jahr und die deutsche Bezeichnung bleiben drin, auch wenn daneben die englische Bezeichnung steht. Eine weitere Entscheidungen lässt sich auch nicht durch Löschen oder Umbenennen erledigen: Was mache ich mit Namen, deren deutsche Übersetzung zwar verständlich ist, aber weit vom Original wegführt?</p>
+  <p id="p-019"><em>Ich lege mein Veto ein</em>. Das Jahr und die deutsche Bezeichnung bleiben drin, auch wenn daneben die englische Bezeichnung steht. Eine weitere Entscheidung lässt sich ebenfalls nicht durch Löschen oder Umbenennen erledigen: Was mache ich mit Namen, deren deutsche Übersetzung zwar verständlich ist, aber weit vom Original wegführt?</p>
 
   <div id="card-002" class="conv output">
     <div class="ocard">
       <button class="copybtn" type="button" tabindex="-1" aria-label="Kopieren"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
-      <p><strong>ChatGPT:</strong><br><strong>ORIGINALNAME                         DEUTSCHE FASSUNG</strong><br>Universal Design for Learning       Universelles Design für das Lernen<br>Flipped Classroom                   Umgedrehter Unterricht<br>Response to Intervention            Mehrstufiges Unterstützungssystem</p>
+      <p><strong>ChatGPT:</strong></p>
+      <table class="docx-table"><tbody><tr><th>ORIGINALNAME</th><th>DEUTSCHE FASSUNG</th></tr><tr><td>Universal Design for Learning</td><td>Universelles Design für das Lernen</td></tr><tr><td>Flipped Classroom</td><td>Umgedrehter Unterricht</td></tr><tr><td>Response to Intervention</td><td>Mehrstufiges Unterstützungssystem</td></tr></tbody></table>
     </div>
   </div>
 
@@ -1454,23 +1461,20 @@ korrigiert (siehe `_CURRENT/NOTE/index.html`).
     <div class="ocard">
       <button class="copybtn" type="button" tabindex="-1" aria-label="Kopieren"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
       <p><strong>OUTPUT:</strong><br><em>Kommentar:</em> PBL entstand Ende der 1960er an der McMaster University; der Begriff wurde 1974 von Barrows geprägt, das kanonische Standardwerk erschien 1980 (Barrows &amp; Tamblyn). → 1969 als <em>Ursprungsjahr</em> plausibel, Literaturjahr eher 1974/1980. (McMaster/Barrows 1980; Schmidt &amp; O’Grady Historiestudie; ERIC-Übersicht)</p>
+
     </div>
   </div>
 
-  <p id="p-021">GPT bietet mir drei Möglichkeiten: 1974 für die Prägung des Begriffs, 1980 für das Standardwerk – oder beide Jahre zusammen. Ich kann nicht alle drei Jahreszahlen in der Tabelle führen. Die Spalte verlangt das Jahr der Publikation, also entscheide ich mich für 1974: In diesem Jahr veröffentlichen Victor Neufeld und Howard Barrows ihren Artikel über die «McMaster Philosophy». Die curriculare Praxis an der McMaster University beginnt bereits 1969.</p>
+  <p id="p-021">Claude bietet mir drei Möglichkeiten: 1974 für die Prägung des Begriffs, 1980 für das Standardwerk – oder beide Jahre zusammen. Ich kann nicht alle drei Jahreszahlen in der Tabelle führen. Die Spalte verlangt das Jahr der Publikation, also entscheide ich mich für 1974: In diesem Jahr veröffentlichen Victor Neufeld und Howard Barrows ihren Artikel über die «McMaster Philosophy». Die curriculare Praxis an der McMaster University beginnt bereits 1969.</p>
 
-  <p id="p-022">Ich schaue mir den Kommentar zum Problem-Based Learning noch einmal an und muss schmunzeln: «entstand Ende der 1960er Jahre». Wenn ich manchen Akteuren im Bildungswesen zuhöre, könnte man meinen, es sei eine brandneue Erfindung. Es ist nicht das einzige Mal, dass mir beim Lesen einer didaktischen Karte dieser Gedanke kommt.</p>
-
-  <p id="p-023">Es ist nicht das letzte Mal, dass eine Jahreszahl eine vermeintlich neue Idee ziemlich alt aussehen lässt.</p>
-
-  <p id="p-024">Ich entscheide: Für jede Zeile braucht es eine definierte Jahreszahl – und beide Namen bleiben in der Tabelle.</p>
+  <p id="p-022">Ich schaue mir den Kommentar zum Problem-Based Learning noch einmal an und muss schmunzeln: «entstand Ende der 1960er Jahre». Wenn ich manchen Akteuren im Bildungswesen zuhöre, könnte man meinen, es sei eine brandneue Erfindung. Es ist nicht das einzige Mal, dass mir beim Lesen einer didaktischen Karte dieser Gedanke in den Sinn kommt. <strong class="hl">Und so können Jahreszahlen eine vermeintlich neue Idee ziemlich alt aussehen lassen.</strong></p>
 
 <div class="kapitel-head" id="k-04">
   <div class="kapitel-nr">04</div>
   <h2>Runde für Runde über Europa hinaus</h2>
 </div>
 
-  <p id="p-025">Drei Tage später steht die Spaltenstruktur fest und die Datensätze sind so weit «repariert», dass ich weiterbauen kann. Claude soll dafür eine Regel entwerfen und mir die Ergebnisse so ausgeben, dass ich sie direkt in meine Tabelle kopieren kann.</p>
+  <p id="p-023">Drei Tage später steht die Spaltenstruktur fest und die Datensätze sind so weit «repariert», dass ich weiterbauen kann. Claude soll dafür eine Regel entwerfen und mir die Ergebnisse so ausgeben, dass ich sie direkt in meine Tabelle kopieren kann.</p>
 
   <div id="card-004" class="conv du">
     <div class="composer">
@@ -1484,13 +1488,13 @@ korrigiert (siehe `_CURRENT/NOTE/index.html`).
     </div>
   </div>
 
-  <p id="p-026">Claude schlägt eine sogenannte TSV-Datei vor. Ich habe keine Ahnung, was eine TSV-Datei ist und sage zu. Er erstellt so eine Tabelle und ich stelle fest, dass in Zeile 1 die Nummerierung fehlt. Danach finde ich fehlende Jahreszahlen und eine Modellnummer erscheint mehrfach, weil «Konstruktivismus» mit einem Leerzeichen am Ende nicht im Mapping auftaucht. </p>
+  <p id="p-024">Claude schlägt eine sogenannte TSV-Datei vor. Ich habe <em>keine Ahnung</em>, was eine TSV-Datei ist und sage zu. Er erstellt so eine Tabelle und ich stelle fest, dass in Zeile 1 die Nummerierung fehlt. Danach finde ich fehlende Jahreszahlen und eine Modellnummer erscheint mehrfach, weil «Konstruktivismus» mit einem Leerzeichen am Ende nicht im Mapping auftaucht.</p>
 
-  <p id="p-027">Nach einigen Korrekturschlaufen – und kurz vor dem Abbruch – funktioniert es. Claude liefert einen sauberen Block, den ich direkt in Excel einfügen kann.</p>
+  <p id="p-025">Nach einigen Korrekturschlaufen – und <em>kurz vor dem Abbruch</em> – funktioniert es. Claude liefert einen sauberen Block, den ich direkt in Excel einfügen kann.</p>
 
-  <p id="p-028">Von da an ist es ein Automatismus: Runde für Runde füge ich die Daten in Excel ein; zuerst DACH, dann GB/USA, dann international. So sieht ein solcher TSV-Block aus – vorbereitet für den direkten Weg nach Excel:</p>
+  <p id="p-026"><strong class="hl">Von da an ist es ein Automatismus: Runde für Runde füge ich die Daten in Excel ein; zuerst DACH, dann GB/USA, dann international.</strong></p>
 
-  <figure id="abb-06" class="evidence scale-ok custom-scale" style="--figure-scale:0.9">
+  <figure id="abb-06" class="evidence scale-ok">
     <img src="P2_LAYOUTER/assets/REST_DER_WELT_OPS_05B_260806_170534/originals/06_image6.jpg" alt="Mittels Masterprompt wird nach didaktischen Modellen gesucht. Die Informationen werden als TSV-Datei nach Excel kopiert" loading="lazy">
     <span class="stub-tag">Abb. 6</span>
     <figcaption class="cap">Mittels Masterprompt wird nach didaktischen Modellen gesucht. Die Informationen werden als TSV-Datei nach Excel kopiert</figcaption>
@@ -1501,16 +1505,16 @@ korrigiert (siehe `_CURRENT/NOTE/index.html`).
   <h2>623 Zeilen später: ein Einstiegsprompt für den nächsten Chat</h2>
 </div>
 
-  <p id="p-029">Es sind die 70 didaktischen Modelle, Konzepte und Schulentwicklungsthemen vom September. Diese umfassen 623 einzelne Elemente in der Excel-Liste. Das hört sich nach viel an und ist es auch. Trotzdem will ich weiterfahren, und Claude hat bereits einen Plan:</p>
+  <p id="p-027">Es sind die 70 didaktischen Modelle, Konzepte und Schulentwicklungsthemen vom September. Diese umfassen 623 einzelne Elemente in der Excel-Liste. Das hört sich nach viel an und ist es auch. Trotzdem will ich weiterfahren, und Claude hat bereits einen Plan:</p>
 
   <div id="card-005" class="conv gpt">
     <div class="rcard">
       <button class="copybtn" type="button" tabindex="-1" aria-label="Kopieren"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
-      <p><strong>Claude:</strong><br><strong>📋 EMPFOHLENER ABLAUF:</strong><br>Runde 1: Asien (25 Konzepte)<br>Runde 2: Ozeanien (15 Konzepte) <br>Runde 3: Skandinavien (15 Konzepte)<br>Runde 4: Lateinamerika (10 Konzepte)<br>Runde 5: Unterrichtsqualität (10 Konzepte)<br>Runde 6: Lerntheorien (10 Konzepte)<br>Runde 7: Historische (10 Konzepte)<br>→ ~95 neue Konzepte</p>
+      <p><strong>Claude:</strong><br><strong>📋 EMPFOHLENER ABLAUF:</strong><br>Runde 1: Asien (25 Konzepte)<br>Runde 2: Ozeanien (15 Konzepte)<br>Runde 3: Skandinavien (15 Konzepte)<br>Runde 4: Lateinamerika (10 Konzepte)<br>Runde 5: Unterrichtsqualität (10 Konzepte)<br>Runde 6: Lerntheorien (10 Konzepte)<br>Runde 7: Historische (10 Konzepte)<br>→ ~95 neue Konzepte</p>
     </div>
   </div>
 
-  <p id="p-030">Aber der Chat ist zu lange geworden. Ich brauche einen neuen und lasse Claude dafür einen Startprompt schreiben.</p>
+  <p id="p-028">Aber der Chat ist zu lange geworden. Ich brauche einen neuen und lasse Claude dafür einen Startprompt schreiben.</p>
 
   <div id="card-006" class="conv du">
     <div class="composer">
@@ -1524,26 +1528,26 @@ korrigiert (siehe `_CURRENT/NOTE/index.html`).
     </div>
   </div>
 
-  <p id="p-031">Vermutlich lasse ich mir hier zum ersten Mal von einer KI einen solchen spezifischen Startprompt erstellen. Später werde ich diese Übergaben zwischen Chats ‹Brückenprompts› nennen.</p>
+  <p id="p-029">Vermutlich lasse ich mir hier zum ersten Mal von einer KI einen <em>solchen spezifischen Startprompt</em> erstellen. Später werde ich diese Übergaben zwischen Chats ‹Brückenprompts› nennen.</p>
 
-  <p id="p-032">Claude erstellt nicht nur den Startprompt, sondern auch eine Anleitung mit Rolle, Ablauf und einer Qualitätskontrolle. Zudem fasst er kurz zusammen:</p>
+  <p id="p-030">Claude erstellt nicht nur den Startprompt, sondern auch eine Anleitung mit Rolle, Ablauf und einer Qualitätskontrolle. Zudem fasst er kurz zusammen:</p>
 
-  <figure id="abb-07" class="evidence scale-ok custom-scale" style="--figure-scale:0.7">
+  <figure id="abb-07" class="evidence scale-ok custom-scale" style="--figure-scale:0.8">
     <img src="P2_LAYOUTER/assets/REST_DER_WELT_OPS_05B_260806_170534/originals/07_image7.png" alt="Claudes Bilanz: 304 zuvor fehlende Quellen ergänzt" loading="lazy">
     <span class="stub-tag">Abb. 7</span>
     <figcaption class="cap">Claudes Bilanz: 304 zuvor fehlende Quellen ergänzt</figcaption>
   </figure>
 
-  <p id="p-033">Seine Bilanz beeindruckt mich: 304 fehlende Quellen recherchiert. Fünf Beispiele stehen da, danach nur noch: «… und 299 weitere.» Wer könnte das? Welche andere Technologie könnte mir eine Tabelle mit mehr als 500 Zeilen untersuchen, Lücken erkennen und vor allem, meinen Auftrag selbstständig weiterführen? Ich kenne keine.</p>
+  <p id="p-031"><em>Seine Bilanz beeindruckt mich</em>: Er recherchiert 304 fehlende Quellen, listet davon fünf Beispiele auf und macht den Vorschlag: «… und 299 weitere.» Wer könnte das? Welche andere Technologie könnte mir eine Tabelle mit mehr als 500 Zeilen untersuchen, Lücken erkennen und vor allem meinen Auftrag selbstständig weiterführen? Ich kenne keine.</p>
 
-  <p id="p-034">Aber mir wird auch etwas anderes klar: Bevor ich weiter sammle, muss ich prüfen, was bereits in der Tabelle steht. Ich frage mich: Wer kontrolliert eigentlich, ob das alles stimmt?</p>
+  <p id="p-032"><strong class="hl">Aber mir wird auch etwas anderes klar: Wer kontrolliert eigentlich, ob das alles stimmt?</strong> Ich entscheide, dass ich zuerst überprüfen muss, welche Daten bereits in der Tabelle stehen, bevor ich weiter sammeln kann.</p>
 
 <div class="kapitel-head" id="k-06">
   <div class="kapitel-nr">06</div>
   <h2>Jetzt zählt die Prüfung, nicht die Suche</h2>
 </div>
 
-  <p id="p-035">Ich wechsle von Claude zu GPT, lade die Excel-Tabelle hoch und bitte ihn, die ersten 520 Zeilen auf Richtigkeit zu kontrollieren. </p>
+  <p id="p-033">Ich wechsle von Claude zu GPT, lade die Excel-Tabelle hoch und bitte ihn, die ersten 520 Zeilen auf Richtigkeit zu kontrollieren.</p>
 
   <div id="card-007" class="conv du">
     <div class="composer">
@@ -1557,7 +1561,7 @@ korrigiert (siehe `_CURRENT/NOTE/index.html`).
     </div>
   </div>
 
-  <p id="p-036">GPT versteht unter Richtigkeit zunächst etwas anderes als ich: fehlende Werte, Duplikate, Leerzeichen und uneinheitliche Schreibweisen. Mich beschäftigt aber eine andere Frage: Stimmen auch die Inhalte, die Claude in die Tabelle geschrieben hat? Ich formuliere den Auftrag genauer. </p>
+  <p id="p-034">GPT versteht unter Richtigkeit zunächst etwas anderes als ich: fehlende Werte, Duplikate, Leerzeichen und uneinheitliche Schreibweisen. Mich beschäftigt aber eine andere Frage: <em>Stimmen auch die Inhalte</em>, die Claude in die Tabelle geschrieben hat? Ich formuliere den Auftrag genauer.</p>
 
   <div id="card-008" class="conv du">
     <div class="composer">
@@ -1571,7 +1575,7 @@ korrigiert (siehe `_CURRENT/NOTE/index.html`).
     </div>
   </div>
 
-  <p id="p-037">GPT soll jedes Konzept im Internet prüfen, Unsicherheiten markieren und die Ergebnisse so darstellen, dass ich sie in Excel übernehmen kann. Es arbeitet die Tabelle Konzept für Konzept durch – und weil Montessori darin die Nummer 1 trägt, beginnt die Prüfung bei Maria Montessori.</p>
+  <p id="p-035">GPT soll jedes Konzept im Internet prüfen, Unsicherheiten markieren und die Ergebnisse so darstellen, dass ich sie in Excel übernehmen kann. Und weil Montessori darin die Nummer 1 trägt, beginnt die Prüfung bei Maria Montessori.</p>
 
   <figure id="abb-08" class="evidence scale-ok custom-scale" style="--figure-scale:0.8">
     <img src="P2_LAYOUTER/assets/REST_DER_WELT_OPS_05B_260806_170534/originals/08_image8.png" alt="Ergebnis der Internetrecherche durch GPT. Hier am Beispiel von Konzept 1. M. Montessori" loading="lazy">
@@ -1579,24 +1583,25 @@ korrigiert (siehe `_CURRENT/NOTE/index.html`).
     <figcaption class="cap">Ergebnis der Internetrecherche durch GPT. Hier am Beispiel von Konzept 1. M. Montessori</figcaption>
   </figure>
 
-  <p id="p-038">Und so sehe ich auf einen Blick, ob alles passt und was nachgetragen werden müsste. Doch dieses Ergebnis lässt sich kaum in meine Excel-Liste übertragen. Ich bitte GPT um eine kopierbare Darstellung:</p>
+  <p id="p-036">Und so sehe ich auf einen Blick, ob alles passt und was nachgetragen werden müsste. Doch dieses Ergebnis lässt sich kaum in meine Excel-Liste übertragen. Ich bitte GPT um eine kopierbare Darstellung:</p>
 
-  <figure id="abb-09" class="evidence scale-ok custom-scale" style="--figure-scale:0.85">
+  <figure id="abb-09" class="evidence scale-ok custom-scale" style="--figure-scale:0.8">
     <img src="P2_LAYOUTER/assets/REST_DER_WELT_OPS_05B_260806_170534/originals/09_image9.png" alt="Korrigierte Übersicht als Tabelle für den Daltonplan" loading="lazy">
     <span class="stub-tag">Abb. 9</span>
     <figcaption class="cap">Korrigierte Übersicht als Tabelle für den Daltonplan</figcaption>
   </figure>
 
-  <p id="p-039">Danach gehe ich Konzept für Konzept weiter und prüfe gleichzeitig fehlende und nicht zugeordnete Elemente. Aber auf einmal beginnt GPT die Konzepte zu kommentieren:</p>
+  <p id="p-037">Danach gehe ich Konzept für Konzept weiter und prüfe gleichzeitig fehlende und nicht zugeordnete Elemente. Aber auf einmal beginnt GPT die Konzepte zu kommentieren:</p>
 
   <div id="card-009" class="conv output">
     <div class="ocard">
       <button class="copybtn" type="button" tabindex="-1" aria-label="Kopieren"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
-      <p><strong>OUTPUT:</strong><br><strong>Konzept 15 – Berliner &amp; Hamburger Modell (Heimann/Schulz/Otto)</strong><br>Das Berliner Modell (1960er) strukturiert Unterrichtsplanung über Bedingung- und Entscheidungsfelder; das Hamburger Modell präzisiert und erweitert diese Perspektive. Es gilt als analytischer Planungsrahmen (nicht als Methodenprogramm) und prägte die deutschsprachige Didaktik über Jahrzehnte.</p>
+      <p><strong>OUTPUT:</strong><br>Konzept 15 – Berliner &amp; Hamburger Modell (Heimann/Schulz/Otto) Das Berliner Modell (1960er) strukturiert Unterrichtsplanung über Bedingung- und Entscheidungsfelder; das Hamburger Modell präzisiert und erweitert diese Perspektive. Es gilt als analytischer Planungsrahmen (nicht als Methodenprogramm) und prägte die deutschsprachige Didaktik über Jahrzehnte.</p>
+
     </div>
   </div>
 
-  <p id="p-040">Für GPT sind das <strong>Kontext-Einzeiler:</strong> eine ultrakurze, historisch verortende Randnotiz. Ich lese diese gerne und manchmal lösen sie bei mir auch Rückfragen aus:</p>
+  <p id="p-038">Für ihn sind das <strong>Kontext-Einzeiler:</strong> eine ultrakurze, historisch verortende Randnotiz. Ich lese diese gerne und manchmal lösen sie bei mir auch Rückfragen aus:</p>
 
   <div id="card-010" class="conv du">
     <div class="composer">
@@ -1613,20 +1618,22 @@ korrigiert (siehe `_CURRENT/NOTE/index.html`).
   <div id="card-011" class="conv gpt">
     <div class="rcard">
       <button class="copybtn" type="button" tabindex="-1" aria-label="Kopieren"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
-      <p><strong>ChatGPT:</strong><br>Nachgedacht für 15s<br>[…] Zu Rosenshine:<br><strong>Nein</strong>, er war 2012 <strong>nicht</strong> schon verstorben. Barak Rosenshine lebte bis <strong>22. Mai 2017</strong>. <br>Seine bekannte Übersicht «Principles of Instruction: Research-Based Strategies That All Teachers Should Know» erschien im Spring 2012 in American Educator. Zusätzlich existiert ein 2010er IAE-Pamphlet mit ähnlicher Zusammenstellung (10 Prinzipien). </p>
+      <p><strong>ChatGPT:</strong><br>Nachgedacht für 15s […] Zu Rosenshine: Nein, er war 2012 nicht schon verstorben. Barak Rosenshine lebte bis 22. Mai 2017. Seine bekannte Übersicht «Principles of Instruction: Research-Based Strategies That All Teachers Should Know» erschien im Spring 2012 in American Educator. Zusätzlich existiert ein 2010er IAE-Pamphlet mit ähnlicher Zusammenstellung (10 Prinzipien).</p>
     </div>
   </div>
 
-  <p id="p-041">Und so überprüfe ich nicht nur die gelieferten Daten von Claude, sondern prüfe auch, was GPT bei der Prüfung behauptet.<br></p>
+  <p id="p-039">Ja, <em>manchmal kann man sich irren</em>.</p>
+
+  <p id="p-040"><strong class="hl">Und so überprüfe ich nicht nur die gelieferten Daten von Claude, sondern lerne noch etwas dazu.</strong></p>
 
 <div class="kapitel-head" id="k-07">
   <div class="kapitel-nr">07</div>
   <h2>Aus dem Hin und Her entsteht ein Masterprompt</h2>
 </div>
 
-  <p id="p-042">Aus den Korrekturschleifen wächst langsam etwas Neues: nicht nur eine bessere Antwort, sondern eine wiederverwendbare Vorlage. Ich muss GPT nicht mehr bei jedem Konzept erklären, welche Spalten es prüfen, wie es Unsicherheit markieren und in welcher Form es das Ergebnis zurückgeben soll. Diese Regeln stehen jetzt im Masterprompt. Ich muss nur noch entscheiden, was GPT tun soll: bestehende Einträge im Internet prüfen oder nach Modellen und Elementen suchen, die in der Tabelle noch fehlen. Der Masterprompt bekommt eigene Versionen, eine Anleitung, ein README und sogar ein Changelog. Die beiden Modi heissen: Ergänzen und Prüfen.</p>
+  <p id="p-041"><strong class="hl">Aus den Korrekturschleifen wächst langsam etwas Neues: nicht nur eine bessere Antwort, sondern eine wiederverwendbare Vorlage.</strong> Ich muss GPT nicht mehr bei jedem Konzept erklären, welche Spalten es prüfen, wie es Unsicherheit markieren und in welcher Form es das Ergebnis zurückgeben soll. Diese Regeln stehen jetzt in dieser als Text formulierten Datei. Ich muss <em>nur noch entscheiden</em>, was GPT tun soll: bestehende Einträge im Internet prüfen oder nach Modellen und Elementen suchen, die in der Tabelle noch fehlen. Der Masterprompt bekommt eine Anleitung, ein README und sogar ein Changelog, in dem ich die Änderungen der verschiedenen Versionen nachtragen lasse. Zudem baue ich <em>zwei Modi</em> ein. In einem Modus kann ich die ganze Tabelle überprüfen lassen, mit dem anderen im Internet gezielt nach neuen Entwicklungen suchen. Die beiden Modi heissen: Ergänzen und Prüfen.</p>
 
-  <figure id="abb-10" class="evidence scale-ok custom-scale" style="--figure-scale:0.9">
+  <figure id="abb-10" class="evidence scale-ok">
     <img src="P2_LAYOUTER/assets/REST_DER_WELT_OPS_05B_260806_170534/originals/10_image10.jpg" alt="Aus einzelnen Fragen und Korrekturen entsteht eine versionierte Arbeitsweise mit Masterprompt, Anleitung, README und Changelog" loading="lazy">
     <span class="stub-tag">Abb. 10</span>
     <figcaption class="cap">Aus einzelnen Fragen und Korrekturen entsteht eine versionierte Arbeitsweise mit Masterprompt, Anleitung, README und Changelog</figcaption>
@@ -1637,109 +1644,109 @@ korrigiert (siehe `_CURRENT/NOTE/index.html`).
   <h2>Der Sprung</h2>
 </div>
 
-  <p id="p-043">Ein paar Runden später treffe ich auf ein weiteres Konzept, von dem ich bereits gehört habe:</p>
+  <p id="p-042">Ein paar Runden später treffe ich auf ein weiteres Konzept, von dem ich bereits gehört habe:</p>
 
-  <p id="p-044"></p>
+  <p id="p-043"></p>
 
-  <figure id="abb-11" class="evidence scale-ok custom-scale" style="--figure-scale:0.9">
+  <figure id="abb-11" class="evidence scale-ok custom-scale" style="--figure-scale:0.8">
     <img src="P2_LAYOUTER/assets/REST_DER_WELT_OPS_05B_260806_170534/originals/11_image11.png" alt="Lesson Study: in Japan seit dem späten 19. Jahrhundert gewachsen" loading="lazy">
     <span class="stub-tag">Abb. 11</span>
     <figcaption class="cap">Lesson Study: in Japan seit dem späten 19. Jahrhundert gewachsen</figcaption>
   </figure>
 
-  <p id="p-045">Mich überrascht nicht das Konzept, sondern der Vermerk ‹Japan›. Noch mehr überrascht mich meine eigene Reaktion: Habe ich wirklich das Gefühl gehabt, dass es auf der Welt nur in Europa und den USA didaktische Modelle gibt? Ganz ehrlich muss ich mir eingestehen: Ich habe mir darüber nie Gedanken gemacht – bis jetzt.</p>
+  <p id="p-044">Mich überrascht nicht das Konzept, sondern der Vermerk ‹Japan›. Noch mehr überrascht mich meine eigene Reaktion: Habe ich wirklich das Gefühl gehabt, dass es auf der Welt nur in Europa und den USA didaktische Modelle gibt? <em>Ganz ehrlich</em> muss ich mir eingestehen: Ich habe mir darüber nie Gedanken gemacht – bis jetzt.</p>
 
-  <p id="p-046">«Japan?», frage ich. «Welche didaktischen Modelle gibt es dort?» Mit dieser Frage öffnet sich mir nicht nur eine Türe zu einem anderen Land, sondern zur ganzen Welt. <strong class="hl">Ich bin seit fast 30 Jahren Lehrer und ich habe mir nie die Frage gestellt, wie ein Lehrer in Japan, Brasilien oder Namibia unterrichtet.</strong></p>
+  <p id="p-045">«Japan?», frage ich. «Welche didaktischen Modelle gibt es dort?» Mit dieser Frage öffnet sich mir nicht nur eine Türe zu einem anderen Land, sondern ein Tor zur ganzen Welt. <strong class="hl">Ich bin seit fast 30 Jahren Lehrer und ich habe mir nie die Frage gestellt, wie ein Lehrer in Japan, Brasilien oder Namibia unterrichtet.</strong></p>
 
-  <p id="p-047">In meinen Recherchen habe ich Deutschland und Österreich einbezogen, Italien und Frankreich aber völlig vergessen. Statt dort weiterzusuchen, springe ich gleich nach Asien: «Gib mir 25 Konzepte aus Asien.»</p>
+  <p id="p-046">Meine Gedanken reisen durch Europa und ich erinnere mich, dass ich in meinen Recherchen Deutschland und Österreich einbezogen, aber Italien und Frankreich völlig vergessen habe. Soll ich dort weitermachen? Doch <em>Japan hat meine Neugierde gepackt</em> und so springe ich nach Asien: «Gib mir 25 Konzepte aus Asien.»</p>
 
-  <figure id="abb-12" class="evidence scale-ok custom-scale" style="--figure-scale:0.9">
+  <figure id="abb-12" class="evidence scale-ok">
     <img src="P2_LAYOUTER/assets/REST_DER_WELT_OPS_05B_260806_170534/originals/12_image12.jpg" alt="Drei exemplarische Modelle aus Asien – gemeinsames Problemlösen, systematische Variation und produktives Scheitern" loading="lazy">
     <span class="stub-tag">Abb. 12</span>
     <figcaption class="cap">Drei exemplarische Modelle aus Asien – gemeinsames Problemlösen, systematische Variation und produktives Scheitern</figcaption>
   </figure>
 
-  <p id="p-048">Ich lese mich in das japanische Konzept der Lesson Study ein und erfahre, wie Lehrpersonen eine einzelne Unterrichtsstunde gemeinsam zum Gegenstand ihrer Arbeit machen. Sie entwickeln gemeinsam eine einzige Unterrichtsstunde, beobachten sie live und zerlegen sie danach gemeinsam. Es entsteht kollektive Verbesserung statt Einzelkämpfertum. <strong class="hl">Und ich? Ich sitze allein vor dem Bildschirm und sammle didaktische Modelle.</strong></p>
+  <p id="p-047">Ich lese mich in das japanische Konzept der Lesson Study ein und erfahre, wie Lehrpersonen eine einzelne Unterrichtsstunde zum Gegenstand ihrer Arbeit machen. Sie entwickeln gemeinsam eine einzige Unterrichtsstunde, beobachten sie live und zerlegen sie danach. Es entsteht kollektive Verbesserung statt Einzelkämpfertum. <strong class="hl">Und ich? Ich sitze allein vor dem Bildschirm und sammle didaktische Modelle.</strong></p>
 
-  <p id="p-049">Praktisch bei jedem didaktischen Modell oder Konzept holen mich die Jahreszahlen wieder ein: spätes 19. Jahrhundert, die 2000er, 2007. <strong class="hl">Nichts davon ist neu. Nur mir war es bisher unbekannt.</strong></p>
+  <p id="p-048">Praktisch bei jedem didaktischen Modell oder Konzept holen mich die Jahreszahlen wieder ein: spätes 19. Jahrhundert, die 2000er, 2007. <strong class="hl">Nichts davon ist neu.</strong></p>
 
 <div class="kapitel-head" id="k-09">
   <div class="kapitel-nr">09</div>
   <h2>Die Liste wird zur Weltkarte</h2>
 </div>
 
-  <p id="p-050">Und ich schicke GPT auf die Suche nach didaktischen Modellen aus Afrika.</p>
+  <p id="p-049">Und nachher schicke ich GPT auf die Suche nach didaktischen Modellen, die in Afrika entstanden sind oder dort genutzt werden.</p>
 
-  <figure id="abb-13" class="evidence scale-ok custom-scale" style="--figure-scale:0.9">
+  <figure id="abb-13" class="evidence scale-ok">
     <img src="P2_LAYOUTER/assets/REST_DER_WELT_OPS_05B_260806_170534/originals/13_image13.jpg" alt="Zwei Perspektiven auf Lernen beim Blick nach Afrika – Förderung nach Lernstand und Bildung als gemeinschaftliche Aufgabe" loading="lazy">
     <span class="stub-tag">Abb. 13</span>
     <figcaption class="cap">Zwei Perspektiven auf Lernen beim Blick nach Afrika – Förderung nach Lernstand und Bildung als gemeinschaftliche Aufgabe</figcaption>
   </figure>
 
-  <p id="p-051">TaRL beginnt nicht beim Alter oder bei der Klassenstufe, sondern beim tatsächlichen Lernstand der Kinder. Ubuntugogy verschiebt den Blick von der Einzelleistung auf Verbundenheit, Würde und gegenseitige Verantwortung. Das eine ist ein skalierbares Förderverfahren, das andere eher ein pädagogisches Leitprinzip. Diese beiden Perspektiven führen mich weit weg von dem, womit meine Suche Anfang September begann: Ich liess mein Baumhaus gegen die Welt antreten.</p>
+  <p id="p-050">TaRL wurde von Pratham in Indien entwickelt und später in mehreren afrikanischen Ländern adaptiert. Der Ansatz beginnt nicht beim Alter oder bei der Klassenstufe, sondern beim tatsächlichen Lernstand der Kinder. Ubuntugogy verschiebt den Blick von der Einzelleistung auf Verbundenheit, Würde und gegenseitige Verantwortung. Das eine ist ein skalierbares Förderverfahren, das andere eher ein pädagogisches Leitprinzip. Diese beiden Perspektiven führen mich <em>weit weg von dem</em>, womit meine Suche Anfang September begann: Ich liess mein Baumhaus gegen die Welt antreten.</p>
 
   <p id="hl3-01" class="kernsatz">Und Ubuntugogy?<br>– fragt gar nicht erst, wer gewinnt.</p>
 
-  <figure id="abb-14" class="evidence scale-ok custom-scale" style="--figure-scale:0.9">
+  <figure id="abb-14" class="evidence scale-ok">
     <img src="P2_LAYOUTER/assets/REST_DER_WELT_OPS_05B_260806_170534/originals/14_image14.jpg" alt="Drei nordische Lernwege – über Fachgrenzen hinweg, draussen in der Natur und gemeinsam an einem greifbaren Ergebnis" loading="lazy">
     <span class="stub-tag">Abb. 14</span>
     <figcaption class="cap">Drei nordische Lernwege – über Fachgrenzen hinweg, draussen in der Natur und gemeinsam an einem greifbaren Ergebnis</figcaption>
   </figure>
 
-  <p id="p-052">Skandinavien: Finnland und Schweden – und beim ersten Anlauf glatt vergessen. Ich lese vom Phenomenon-Based Learning, bei dem zeitweise fächerübergreifend an einem gemeinsamen Phänomen gearbeitet wird. Von Friluftsliv, das Lernen nach draussen verlegt. Und von Trialogic Learning, bei dem Wissen in etwas gemeinsam Geschaffenem Gestalt annimmt: einem Modell, einem Entwurf oder einem Dokument.</p>
+  <p id="p-051">Und Skandinavien mit Finnland und Schweden? Ich lese vom Phenomenon-Based Learning, bei dem zeitweise fächerübergreifend an einem gemeinsamen Phänomen gearbeitet wird. Von Friluftsliv, das Lernen nach draussen verlegt. Und von Trialogic Learning, bei dem Wissen in etwas gemeinsam Geschaffenem Gestalt annimmt: einem Modell, einem Entwurf oder einem Dokument.</p>
 
-  <p id="p-053"><strong class="hl">Diese Zeilen schreibe ich nicht, weil ich es weiss, sondern weil ich zum ersten Mal darüber lese. Wie hätte ich nach einem Buch suchen sollen, von dessen Existenz ich nichts wusste?</strong></p>
+  <p id="p-052"><strong class="hl">Diese Zeilen schreibe ich nicht, weil ich es weiss, sondern weil ich zum ersten Mal darüber lese. Wie hätte ich nach solchen Ansätzen suchen sollen, wenn ich nicht einmal wusste, dass es sie gibt?</strong></p>
 
-  <figure id="abb-15" class="evidence scale-ok custom-scale" style="--figure-scale:0.9">
+  <figure id="abb-15" class="evidence scale-ok">
     <img src="P2_LAYOUTER/assets/REST_DER_WELT_OPS_05B_260806_170534/originals/15_image15.jpg" alt="Zwei Modelle aus Mittel- und Südamerika – die eigene Wirklichkeit im Dialog befragen und Gemeinschaft aktiv mitgestalten" loading="lazy">
     <span class="stub-tag">Abb. 15</span>
     <figcaption class="cap">Zwei Modelle aus Mittel- und Südamerika – die eigene Wirklichkeit im Dialog befragen und Gemeinschaft aktiv mitgestalten</figcaption>
   </figure>
 
-  <p id="p-054">Mittel- und Südamerika: In Brasilien stosse ich auf Paulo Freire. Seit über einem halben Jahrhundert derselbe Gedanke – fragen statt Wissen einzuzahlen. Bildung soll Menschen nicht bloss mit Stoff füllen, sondern ihnen helfen, ihre Wirklichkeit zu verstehen und gemeinsam über sie zu sprechen.</p>
+  <p id="p-053">Mittel- und Südamerika: In Brasilien stosse ich auf Paulo Freire. Seit über einem halben Jahrhundert derselbe Gedanke – fragen statt Wissen einzuzahlen. Bildung soll Menschen nicht bloss mit Stoff füllen, sondern ihnen helfen, ihre Wirklichkeit zu verstehen und gemeinsam über sie zu sprechen.</p>
 
-  <p id="p-055">Im benachbarten Kolumbien wird Teilhabe ganz praktisch: Escuela Nueva verbindet jahrgangsgemischte Dorfschulen mit Lernleitfäden, Schülerregierung und echten Aufgaben aus der Gemeinde. Zwei unterschiedliche Ansätze – aber beide behandeln Lernende nicht als Empfänger, sondern als Beteiligte.</p>
+  <p id="p-054">Im benachbarten Kolumbien wird Teilhabe ganz praktisch: Escuela Nueva verbindet jahrgangsgemischte Dorfschulen mit Lernleitfäden, Schülerregierung und echten Aufgaben aus der Gemeinde. Zwei unterschiedliche Ansätze – aber beide behandeln Lernende <em>nicht als Empfänger, sondern als Beteiligte</em>.</p>
 
-  <figure id="abb-16" class="evidence scale-ok custom-scale" style="--figure-scale:0.9">
+  <figure id="abb-16" class="evidence scale-ok">
     <img src="P2_LAYOUTER/assets/REST_DER_WELT_OPS_05B_260806_170534/originals/16_image16.jpg" alt="Drei Perspektiven auf Unterrichtsentwicklung – Qualität beschreiben, Unterricht kollegial untersuchen und das eigene Handeln im Zyklus weiterentwickeln" loading="lazy">
     <span class="stub-tag">Abb. 16</span>
     <figcaption class="cap">Drei Perspektiven auf Unterrichtsentwicklung – Qualität beschreiben, Unterricht kollegial untersuchen und das eigene Handeln im Zyklus weiterentwickeln</figcaption>
   </figure>
 
-  <p id="p-056">Australien und Neuseeland: Ich denke zuerst, ich hätte die Region vergessen. Dann schaue ich nach – «Runde 2: Ozeanien» steht längst in der Tabelle.</p>
+  <p id="p-055">Australien und Neuseeland: Ich denke zuerst, ich hätte die Region vergessen. Dann schaue ich nach – «Runde 2: Ozeanien» steht längst in der Tabelle.</p>
 
-  <p id="p-057">In Queensland stosse ich auf die Productive Pedagogies und damit auf die Frage, was guten Unterricht eigentlich ausmacht. In New South Wales besuchen sich Lehrpersonen gegenseitig im Unterricht und entwickeln ihn in Quality Teaching Rounds gemeinsam weiter. Neuseelands Teaching as Inquiry macht daraus einen Kreislauf: fokussieren, untersuchen, handeln, auswerten. <strong class="hl">Mit jeder Region wächst meine Tabelle. Und mit jeder Region wird meine Vorstellung kleiner, ich könnte sie jemals vollständig machen.</strong></p>
+  <p id="p-056">In Queensland stosse ich auf die Productive Pedagogies und damit auf die Frage, was guten Unterricht eigentlich ausmacht. In New South Wales besuchen sich Lehrpersonen gegenseitig im Unterricht und entwickeln ihn in Quality Teaching Rounds gemeinsam weiter. Neuseelands Teaching as Inquiry macht daraus einen Kreislauf: fokussieren, untersuchen, handeln, auswerten. <strong class="hl">Mit jeder Region wächst meine Tabelle. Und mit jeder Region wird meine Vorstellung kleiner, ich könnte sie jemals vollständig machen.</strong></p>
 
 <div class="kapitel-head" id="k-10">
   <div class="kapitel-nr">10</div>
   <h2>Was von der Liste bleibt</h2>
 </div>
 
-  <p id="p-058">Am 11. Dezember 2025 bin ich bei Zeile 1465 angelangt. Die Datenbank braucht noch Bereinigung. Aber für den Moment höre ich auf.</p>
+  <p id="p-057">Am 11. Dezember 2025 bin ich bei Zeile 1465 angelangt. Die Datenbank bräuchte noch Bereinigung, aber für den Moment höre ich auf.</p>
 
-  <p id="p-059"><strong class="hl">Ich höre auf – nicht weil ich fertig bin, sondern weil anderes wichtiger wird.</strong></p>
+  <p id="p-058"><strong class="hl">Ich höre auf – nicht weil ich fertig bin, sondern weil anderes wichtiger wird.</strong></p>
 
-  <p id="p-060">Ich scrolle durch die Liste. Name um Name, Jahr um Jahr, Land um Land. Minutenlang. Irgendwo zwischen Zeile 800 und Zeile 1200 wird mir klar, <strong class="hl1">wie klein mein bisheriger didaktischer Mikrokosmos war</strong>. Ich wusste, wie wenig ich weiss. Jetzt sehe ich es vor mir. <strong class="hl">Was als Jagd nach Vollständigkeit begonnen hat, weicht etwas anderem: Demut und Respekt.</strong></p>
+  <p id="p-059">Ich scrolle durch die Liste. Name um Name, Jahr um Jahr, Land um Land. Minutenlang. Irgendwo zwischen Zeile 800 und Zeile 1200 wird mir klar, <em>wie klein mein bisheriger didaktischer Mikrokosmos war</em>. Ich wusste, wie wenig ich weiss. Jetzt sehe ich es vor mir. <strong class="hl">Was als Jagd nach Vollständigkeit begonnen hat, weicht etwas anderem: Demut und Respekt.</strong></p>
 
-  <p id="p-061">Wenn Menschen ihr didaktisches Modell als das einzig richtige oder beste präsentieren, höre ich heute anders zu. Auch dieses Modell, denke ich, ist eine mögliche Antwort auf die Frage, wie Kinder lernen können. Eine von Hunderten – und ich kenne erst jene, die ich bis heute zusammengetragen habe.</p>
+  <p id="p-060">Wenn Menschen ihr didaktisches Modell als das einzig richtige oder beste präsentieren, höre ich heute anders zu. Auch dieses Modell, denke ich, ist eine mögliche Antwort auf die Frage, wie Kinder lernen können. Ein Modell von Hunderten – und ich kenne erst jene, die ich bis heute zusammengetragen habe.</p>
 
-  <p id="p-062">Und dann erkenne ich es – ein Déjà-vu: Anfang September war es beim Baumhaus ein Wettlauf gegen eine unerreichbare Grenze. <strong class="hl">Und jetzt versuche ich es wieder – grösser und mit der ganzen Welt.</strong> Die Abdeckung wächst, und die 100 % werden immer ausser Reichweite bleiben.</p>
+  <p id="p-061">Und dann trifft mich ein Déjà-vu: Anfang September war es beim Baumhaus ein Wettlauf gegen eine unerreichbare Grenze. <strong class="hl">Und jetzt versuche ich es wieder. Nur grösser und mit der ganzen Welt,</strong> aber die 100 % werden immer ausser Reichweite bleiben.</p>
 
-  <p id="p-063">Auf meinem PC liegt nun diese Datei mit all den didaktischen Modellen und sie trägt den Namen «C11xx_14_MODELLE_WELT_V5.0_251211.xlsx». Eine Datei kann ich löschen oder archivieren. Diese unglaubliche Vielfalt an Modellen, Konzepten und Leitideen in meinem Kopf aber nicht mehr.</p>
+  <p id="p-062">Auf meinem PC liegt nun diese Datei mit all den didaktischen Modellen und sie trägt den Namen «C11xx_14_MODELLE_WELT_V5.0_251211.xlsx». Eine Datei kann ich löschen oder archivieren. Diese unglaubliche Vielfalt an Modellen, Konzepten und Leitideen in meinem Kopf aber nicht mehr.</p>
 
-  <p id="p-064">Drei Beispiele bleiben bei mir hängen: Jugyō Kenkyū (‹Lesson Study›) aus Japan, Ubuntugogy aus Afrika und Paulo Freires ‹Pädagogik der Unterdrückten› aus Brasilien. </p>
+  <p id="p-063">Drei Beispiele bleiben bei mir hängen: Jugyō Kenkyū (‹Lesson Study›) aus Japan, Ubuntugogy aus Afrika und Paulo Freires ‹Pädagogik der Unterdrückten› aus Brasilien.</p>
 
-  <p id="p-065">Und ich frage mich: Ist das Modell aus Japan mit dem aus Brasilien verwandt? Ist eines dieser Konzepte die Antwort auf eine Frage in meinem Schulzimmer? Oder entsteht eine Antwort vielleicht erst aus einer Kombination heraus?</p>
+  <p id="p-064">Und ich frage mich: Ist das Modell aus Japan mit dem aus Brasilien verwandt? Ist eines dieser Konzepte die Antwort auf eine Frage in meinem Schulzimmer? Oder entsteht eine Antwort vielleicht erst aus einer Kombination heraus?</p>
 
-  <p id="p-066">Es hat sich etwas in mir verschoben.</p>
+  <p id="p-065">Es hat sich etwas in mir verschoben.</p>
 
-  <p id="p-067">Für mich sind das drei völlig verschiedene Ausgangspunkte und doch kreisen alle um eine ähnliche Frage: Wie können Kinder und Jugendliche lernen und wachsen? Vielleicht sind wir uns darin näher, als mein europäischer Blick bisher vermuten liess. Und eines wird mir bewusst:</p>
+  <p id="p-066">Für mich sind das drei <em>völlig verschiedene Ausgangspunkte</em> und doch kreisen alle um eine ähnliche Frage: Wie können Kinder und Jugendliche lernen und wachsen? Vielleicht sind wir uns darin näher, als mein europäischer Blick bisher vermuten liess. Und eines wird mir bewusst:</p>
 
   <p id="hl3-02" class="kernsatz">Wie viele Menschen auf der Erde <br>nach einer guten Schule <br>für unsere Kinder suchen.</p>
 
-  <p id="p-068"><strong class="hl">Und das ist etwas unglaublich Schönes.</strong></p>
+  <p id="p-067"><strong class="hl">Und das ist etwas unglaublich Schönes.</strong></p>
 <div class="note-footer-meta">
-        <span class="empty">← 09_2025_09_BAUMHAUS-VERGLEICH</span>
+
         <a class="nav-next" href="#">— →</a>
       </div>
     </article>
