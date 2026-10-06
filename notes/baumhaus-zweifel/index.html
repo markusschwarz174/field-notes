@@ -1,8 +1,8 @@
 <!doctype html>
 <!--
    WEB_PREVIEW — P6-Render, in P5 Stage 1 als LIVEVIEW ausgeliehen.
-   Design-SSoT: C:\Users\Markus\ClaudeCode\MeineProjekte\FIELD_NOTES_DRAFT\0_W_WORKFLOW\P6_PUBLISH\WEBDESIGN\_CURRENT\NOTE\index.html
-   Content-Source: BAUMHAUS_ZWEIFEL_V6.05_DRAFT_AI.docx
+   Design-SSoT: C:\Users\markus.gmx\Documents\30_KI\FIELDNOTES\FIELD_NOTES_DRAFT\0_W_WORKFLOW\P6_PUBLISH\WEBDESIGN\_CURRENT\NOTE\index.html
+   Content-Source: BAUMHAUS_ZWEIFEL_V6.35_RELEASE_de_QUALITY_REVISION_261006_0825.docx
 -->
 <html lang="de-CH">
 <head>
@@ -22,6 +22,7 @@
 <meta property="og:locale" content="de_CH">
 <meta property="article:author" content="Markus Schwarz">
 <meta property="article:published_time" content="2025-09-08">
+<meta property="article:modified_time" content="2026-07-27">
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Wegweiser · Field Notes Nr. 13">
@@ -37,6 +38,7 @@
       "headline": "Wegweiser",
       "description": "Auf der Suche nach Schutz zerst\u00f6re ich die Schule in Gedanken und stosse dadurch auf eine Kraft, die am Ende nicht nur Antworten, sondern auch eine Erkenntnis bringt.",
       "datePublished": "2025-09-08",
+      "dateModified": "2026-07-27",
       "inLanguage": "de-CH",
       "url": "https://markusschwarz174.github.io/field-notes/notes/baumhaus-zweifel/",
       "image": "https://markusschwarz174.github.io/field-notes/notes/baumhaus-zweifel/heroes/hero_13.png",
@@ -103,7 +105,7 @@ body:before{
   padding:84px 26px 56px;
   background:
     linear-gradient(110deg,rgba(20,14,8,.86),rgba(28,20,12,.58) 40%,rgba(38,26,16,.36) 70%,rgba(245,238,224,.18) 100%),
-    url('heroes/hero_13.png');
+    url('../../heroes/hero_13.png');
   background-size:cover;background-position:center;
 }
 .hero:after{
@@ -269,7 +271,9 @@ body:before{
    .custom-scale bleibt --figure-scale wirkungslos (Default via var(--figure-scale,1)). */
 .evidence.custom-scale{
   width:calc(var(--figure-scale,1) * (100% + 2 * var(--article-pad-x)));
-  max-width:none;margin-left:auto;margin-right:auto;
+  max-width:none;
+  margin-left:calc((100% - var(--figure-scale,1) * (100% + 2 * var(--article-pad-x))) / 2);
+  margin-right:calc((100% - var(--figure-scale,1) * (100% + 2 * var(--article-pad-x))) / 2);
 }
 .evidence img{
   width:100%;display:block;height:auto;
@@ -382,7 +386,7 @@ body:before{
 
 
 /* D_260807 HERO_VEIL=off (dieses Note-Dossier) */
-.hero{background-image:url("heroes/hero_13.png") !important}
+.hero{background-image:url("../../heroes/hero_13.png") !important}
 
 
 /* fieldnote.css — Werkbank-Styles fuer WEB_PREVIEW (P1-P5)
@@ -416,7 +420,7 @@ body:before{
   padding:84px 26px 56px;
   background:
     linear-gradient(110deg,rgba(20,14,8,.86),rgba(28,20,12,.58) 40%,rgba(38,26,16,.36) 70%,rgba(245,238,224,.18) 100%),
-    url("heroes/hero_13.png");
+    url("../../heroes/hero_13.png");
   background-size:cover;background-position:center;
 }
 .hero:after{
@@ -583,7 +587,9 @@ body:before{
    Werte), aber nie von einer CSS-Regel konsumiert -- ohne .custom-scale wirkungslos. */
 .evidence.custom-scale{
   width:calc(var(--figure-scale,1) * (100% + 2 * var(--article-pad-x)));
-  max-width:none;margin-left:auto;margin-right:auto;
+  max-width:none;
+  margin-left:calc((100% - var(--figure-scale,1) * (100% + 2 * var(--article-pad-x))) / 2);
+  margin-right:calc((100% - var(--figure-scale,1) * (100% + 2 * var(--article-pad-x))) / 2);
 }
 .evidence img{
   width:100%;display:block;height:auto;
@@ -703,7 +709,7 @@ body:before{
     background:
       linear-gradient(to top,rgba(38,20,10,.85) 0%,rgba(46,26,14,.68) 26%,rgba(54,32,18,.32) 58%,rgba(54,32,18,0) 100%),
       linear-gradient(110deg,rgba(46,26,14,.86),rgba(58,36,20,.58) 40%,rgba(72,46,26,.36) 70%,rgba(245,238,224,.18) 100%),
-      url("heroes/hero_13.png");
+      url("../../heroes/hero_13.png");
     background-size: cover; background-position: center;
     min-height: 88vh;
   }
@@ -1167,7 +1173,7 @@ Eng begrenzter Transformations-/Kompatibilitaetsadapter fuer den P5-Renderer.
 KEINE zweite Design-SSoT: die eigentliche SSoT bleibt ausschliesslich
 `0_W_WORKFLOW/P6_PUBLISH/WEBDESIGN/_CURRENT/NOTE/index.html`. Dieser Adapter
 darf die SSoT ergaenzen (Selektoren, die die SSoT gar nicht definiert) oder
--- nur mit einem hashgebundenen, begruendeten Allow-Eintrag in
+-- nur mit einem per SSoT-Hash abgesicherten, begruendeten Allow-Eintrag in
 `p5_render_overrides_allow.json` -- bewusst und dokumentiert von ihr abweichen.
 Jede stille Abweichung wird von `W_P5_CSS_CONFLICT_GATE.py` vor jedem Render
 erkannt und ist ohne gueltigen Allow-Eintrag ein HOLD (kein Output-Write).
@@ -1234,8 +1240,10 @@ korrigiert (siehe `_CURRENT/NOTE/index.html`).
     width: 100%;
   }
   .article .evidence.custom-scale{
-    width: min(calc(100% * var(--figure-scale)), calc(680px * var(--figure-scale)));
-    max-width: min(calc(100% * var(--figure-scale)), calc(680px * var(--figure-scale)));
+    width: calc(var(--figure-scale) * (100% + 2 * var(--article-pad-x)));
+    max-width: none;
+    margin-left: calc((100% - var(--figure-scale) * (100% + 2 * var(--article-pad-x))) / 2);
+    margin-right: calc((100% - var(--figure-scale) * (100% + 2 * var(--article-pad-x))) / 2);
   }
   .article .evidence.no-scale img{
     width: auto !important;
@@ -1294,7 +1302,7 @@ korrigiert (siehe `_CURRENT/NOTE/index.html`).
 
 
 /* D_260807 HERO_VEIL=off (dieses Note-Dossier) */
-.hero{background-image:url("heroes/hero_13.png") !important}
+.hero{background-image:url("../../heroes/hero_13.png") !important}
 
 </style>
 </head>
@@ -1317,15 +1325,15 @@ korrigiert (siehe `_CURRENT/NOTE/index.html`).
       <button class="lang is-active" type="button" title="Deutsch" aria-label="Deutsch">
         <svg class="flag" viewBox="0 0 5 3" aria-hidden="true"><rect width="5" height="3" fill="#000"/><rect width="5" height="2" y="1" fill="#DD0000"/><rect width="5" height="1" y="2" fill="#FFCE00"/></svg>
       </button>
-      <a class="lang" href="en/" title="English" aria-label="English">
+      <button class="lang" type="button" title="English" aria-label="English" disabled>
         <svg class="flag" viewBox="0 0 60 30" aria-hidden="true"><rect width="60" height="30" fill="#012169"/><path d="M0,0 60,30 M60,0 0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 60,30 M60,0 0,30" stroke="#C8102E" stroke-width="4"/><path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/><path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6"/></svg>
-      </a>
-      <a class="lang" href="es/" title="Español" aria-label="Español">
+      </button>
+      <button class="lang" type="button" title="Español" aria-label="Español" disabled>
         <svg class="flag" viewBox="0 0 6 4" aria-hidden="true"><rect width="6" height="4" fill="#AA151B"/><rect y="1" width="6" height="2" fill="#F1BF00"/></svg>
-      </a>
-      <a class="lang" href="fr/" title="Français" aria-label="Français">
+      </button>
+      <button class="lang" type="button" title="Français" aria-label="Français" disabled>
         <svg class="flag" viewBox="0 0 3 2" aria-hidden="true"><rect width="3" height="2" fill="#fff"/><rect width="1" height="2" fill="#0055A4"/><rect x="2" width="1" height="2" fill="#EF4135"/></svg>
-      </a>
+      </button>
     </div>
     <button id="view-scroll-btn" class="view is-active" type="button" hidden aria-hidden="true">Scroll</button>
     <button id="view-reader-btn" class="view" type="button" hidden aria-hidden="true">Reader</button>
@@ -1337,6 +1345,7 @@ korrigiert (siehe `_CURRENT/NOTE/index.html`).
   <div class="hero-inner">
     <div>
       <div class="eyebrow">Field Note Nr. 13 · 8. September 2025</div>
+      <div class="eyebrow meta-update">Aktualisiert am 27. Juli 2026 · Entwicklungsquellen: August 2025 bis Januar 2026</div>
       <h1>Wegweiser</h1>
       <p class="lead">Auf der Suche nach Schutz zerstöre ich die Schule in Gedanken und stosse dadurch auf eine Kraft, die am Ende nicht nur Antworten, sondern auch eine Erkenntnis bringt.</p>
     </div>
@@ -1353,55 +1362,55 @@ korrigiert (siehe `_CURRENT/NOTE/index.html`).
 
   <p id="p-001">«Wie konnte ich nur nicht an Schutz denken?», frage ich mich, während ich das ausgedruckte Baumhaus-Konzept vor mir auf dem Schreibtisch anschaue.</p>
 
-  <p id="p-002">Ich wollte das Baumhaus gegen Kritik unangreifbar machen und hätte dabei beinahe genau das zerstört, was ich bewahren will: <strong class="hl1">seine Offenheit</strong>. Schutz bedeutet deshalb nicht, noch mehr Regeln, Elemente oder Sicherungen einzubauen. Schutz bedeutet, Grenzen zu setzen und etwas bewusst unvollständig zu lassen. Zu diesem Schluss bin ich gestern gekommen. Aber gilt dies überall? Und stimmt das?</p>
+  <p id="p-002">Ich wollte das Baumhaus gegen Kritik unangreifbar machen und hätte dabei beinahe genau das zerstört, was ich bewahren will: <em>seine Offenheit</em>. Schutz bedeutet deshalb nicht, noch mehr Regeln, Elemente oder Sicherungen einzubauen. Schutz bedeutet, Grenzen zu setzen und etwas bewusst unvollständig zu lassen. Zu diesem Schluss bin ich gestern gekommen. Aber gilt dies überall? Und stimmt das?</p>
 
 <div class="kapitel-head" id="k-02">
   <div class="kapitel-nr">02</div>
   <h2>Schutz bedeutet Begrenzung.</h2>
 </div>
 
-  <p id="p-003">In meiner Freizeit arbeite ich oft an technischen Projekten: an elektronische Schaltungen, die Schutzeinrichtungen benötigen, an einem Windmesser, der bei starkem Wind die Sonnenstore hochfährt, oder an einer Steuerung für die Bewegungsmelder im Treppenhaus, die das Licht nur unterhalb einer festgelegten Helligkeit einschaltet und nach einer bestimmten Zeit wieder ausschaltet.</p>
+  <p id="p-003">In meiner Freizeit arbeite ich oft an technischen Projekten: an elektronischen Schaltungen, die Schutzeinrichtungen benötigen, oder an einem Windmesser, der bei starkem Wind die Sonnenstore hochfährt, oder an einer Steuerung für die Bewegungsmelder im Treppenhaus, die das Licht nur unter bestimmten Bedingungen einschaltet und nach einer bestimmten Zeit wieder ausschaltet.</p>
 
   <p id="p-004">Bei diesen Projekten plane ich nicht nur, was die Steuerung tun soll. Ich lege auch fest, unter welchen Bedingungen sie reagieren darf, wann sie abschaltet und was bei einem Fehler oder einer überschrittenen Grenze geschieht.</p>
 
   <p id="p-005"><strong class="hl">Die Systeme funktionieren unterschiedlich. Eine Sicherung unterbricht. Der Windmesser löst eine Schutzreaktion aus. Das Treppenhauslicht prüft zuerst, ob es überhaupt gebraucht wird, und schaltet sich später selbständig wieder aus.</strong></p>
 
-  <p id="p-006">Gemeinsam ist ihnen nicht dieselbe technische Logik, sondern eine Konstruktionsentscheidung: Ich bestimme nicht nur, was ein System tun soll. Ich lege auch fest, wann es beginnen darf, wann es aufhören muss und was es verweigern soll. <strong class="hl">Jede dieser Steuerungen kennt deshalb nicht nur ein «Mach das», sondern auch ein «Noch nicht», ein «Nicht weiter» oder ein «Stopp».</strong></p>
+  <p id="p-006">Gemeinsam ist ihnen nicht eine technische Logik, sondern eine Konstruktionsentscheidung: Ich bestimme, wann ein System aufhören muss.<br>Jede dieser Steuerungen kennt deshalb<strong class="hl"> nicht nur ein «Mach das», sondern auch ein «Stopp», «Nicht weiter».</strong></p>
 
   <p id="hl3-01" class="kernsatz">Jedes dieser Systeme kann «Nein» sagen.</p>
 
-  <p id="p-007">Dann denke ich an die Volksschule.<br>Die Schule kennt auch Schutzmechanismen. Es gibt Vorgaben für Sicherheit, Datenschutz, Kindesschutz, Qualität und vieles mehr. Gleichzeitig fehlt es ihr auch nicht an Zielen, Konzepten, Instrumenten und Anforderungen. Sie kommen aus der Politik, von Behörden, aus der Wissenschaft, von Eltern, aus der Schule selbst. Jede einzelne Forderung lässt sich begründen. Jede soll ein Problem lösen oder Schule besser machen. Doch wer verantwortet ihre Summe?</p>
+  <p id="p-007">Dann denke ich an die Volksschule. Die Schule kennt auch Schutzmechanismen. Es gibt Vorgaben für Sicherheit, Datenschutz, Kindesschutz, Qualität und vieles mehr. Gleichzeitig fehlt es ihr auch nicht an Zielen, Konzepten, Instrumenten und Anforderungen. Diese «Mach das» kommen aus der Politik, von Behörden, aus der Wissenschaft, von Eltern - oder oft aus der Schule selbst. Jede einzelne Forderung lässt sich begründen. Jede soll ein Problem lösen oder Schule besser machen. Doch wer verantwortet ihre Summe?</p>
 
   <p id="p-008">Die Schule schützt vieles. Aber wer schützt die Schule davor, mehr aufnehmen zu müssen, als sie bewältigen kann?</p>
 
-  <p id="p-009">Ich suche nach der Stelle, an der diese Anforderungen geprüft werden, bevor sie das Schulzimmer erreichen. Gibt es zeitliche oder mengenmässige Kapazitätsgrenzen? Was geschieht, wenn sie überschritten werden? Fällt eine bestehende Aufgabe weg, wenn eine neue hinzukommt? Wer prüft später, ob eine Einführung tatsächlich etwas bewirkt hat? Und wer darf «Stopp» sagen?</p>
+  <p id="p-009">Ich suche nach einer Stelle im System, wo diese Anforderungen geprüft werden können, bevor sie das Schulzimmer erreichen. Gibt es zeitliche oder mengenmässige Kapazitätsgrenzen? Und was geschieht, wenn sie überschritten werden? Fällt eine bestehende Aufgabe weg, wenn eine neue hinzukommt? Wer prüft später, ob eine Einführung tatsächlich etwas bewirkt hat? Und wer darf «Stopp» sagen?</p>
 
   <p id="p-010">Ich finde in der Schule viele Verfahren, mit denen Neues eingeführt wird. Aber ich finde kaum eines, mit dem die Schule wieder etwas los wird.</p>
 
   <p id="p-011">Ich drucke das Baumhaus aus und lege es auf den Tisch. Die Schutzmechanismen schreibe ich auf Post-its, um zu sehen, wo diese wirken sollen. Wenn ich verhindern will, dass es unter der Last seiner eigenen Möglichkeiten zusammenbricht, muss ich ihm beibringen, Nein zu sagen.</p>
 
-  <p id="p-012">Ich brauche eine Firewall. Keine starre Mauer, sondern eine <strong class="hl1">durchlässige Grenze</strong>, die prüft, was hinein darf und was wieder hinaus muss. Das Baumhaus kann nicht alles aufnehmen und muss doch offen bleiben.</p>
+  <p id="p-012">Ich brauche eine Firewall. Keine starre Mauer, sondern eine <em>durchlässige Grenze</em>, die prüft, was hinein darf und was wieder hinaus muss. Das Baumhaus kann nicht alles aufnehmen und muss doch offen bleiben.</p>
 
-  <p id="p-013">Ich schreibe mir drei erste Regeln auf: Ein neues Element erhält ein Verfallsdatum und bleibt nur, wenn ich es bewusst verlängere. Eine Kapazitätsgrenze im Masterprompt oder YAML begrenzt die Anzahl der Aufgaben und Instrumente; ein Aufwandsalarm warnt mich vor überladenen Planungen. Und wenn etwas Neues hinzukommt, muss ich entscheiden, was dafür wegfällt. Schutz bedeutet auch, <strong class="hl1">etwas wegzulassen</strong>. Ich spiele diese letzte Regel an einem Beispiel durch: Entwickle ich ein kantonales Standardformular qualitativ weiter, darf es nicht einfach zusätzlich eingesetzt werden. Entweder kann es dieses ersetzen oder es bleibt draussen.</p>
+  <p id="p-013">Ich schreibe mir drei erste Regeln auf: a) Ein neues Element erhält ein Verfallsdatum und bleibt nur, wenn ich es bewusst verlängere. b) Eine Kapazitätsgrenze im Masterprompt oder YAML begrenzt die Anzahl der Aufgaben und Instrumente; ein Aufwandsalarm warnt mich vor überladenen Planungen. c) Und wenn etwas Neues hinzukommt, muss ich entscheiden, was dafür wegfällt. Schutz bedeutet auch,<br>etwas wegzulassen<br>. Ich spiele diese letzte Regel an einem Beispiel durch: Entwickle ich ein kantonales Standardformular qualitativ weiter, dann darf es nicht einfach zusätzlich neben dem bestehenden Standardformular eingesetzt werden. Entweder kann es dieses ersetzen oder die Weiterentwicklung bleibt in der Schublade.</p>
 
-  <figure id="abb-01" class="evidence scale-ok custom-scale" style="--figure-scale:0.9">
-    <img src="P2_LAYOUTER/assets/BAUMHAUS-ZWEIFEL_OPS_05B_260805_230907/originals/01_image1.png" alt="Zeigt die Filterzone, die eingehende Ideen kontrolliert durchlässt – Offenheit braucht eine kontrollierte Grenze" loading="lazy">
+  <figure id="abb-01" class="evidence scale-ok">
+    <img src="../../P2_LAYOUTER/assets/BAUMHAUS_ZWEIFEL_OPS_05B_260829_233723/originals/01_image1.png" alt="Zeigt die Filterzone, die eingehende Ideen kontrolliert durchlässt – Offenheit braucht eine kontrollierte Grenze" loading="lazy">
     <span class="stub-tag">Abb. 1</span>
     <figcaption class="cap">Zeigt die Filterzone, die eingehende Ideen kontrolliert durchlässt – Offenheit braucht eine kontrollierte Grenze</figcaption>
   </figure>
 
-  <p id="p-014">Ich nehme diesen Schutz in das Konzept auf. Noch immer liegt das Baumhaus vor mir auf dem Schreibtisch. Da kehrt die Unzufriedenheit zurück. Der Schutz zeigt mir jetzt, was dem Baumhaus nicht geschehen darf. Meine andere Frage beantwortet er nicht:</p>
+  <p id="p-014">Ich nehme diesen Schutz in das Konzept auf. Noch immer liegt das Baumhaus vor mir auf dem Schreibtisch, als die Unzufriedenheit zurückkehrt: Der Schutz zeigt mir jetzt, was dem Baumhaus nicht geschehen darf. Meine andere Frage ist jedoch nicht beantwortet:</p>
 
   <p id="p-015">Was fehlt?</p>
 
-  <p id="p-016">Es ist nicht ein weiterer Baustein, nach dem ich suche. Dieses Mal liegt das Gefühl tiefer. Ich spüre, dass etwas fehlt – aber ich weiss weder, was es ist, noch wo ich danach suchen soll. Wenn ich die Antwort durch Weiterbauen nicht finde, muss ich die Suchrichtung ändern. Ich drehe GPT um und setze ihn nicht länger als co-konstruktiven Sparringpartner ein. Er soll das Baumhaus nicht verbessern, sondern angreifen – Seine Rolle: mein schärfster Kritiker und grösster Fehlerfinder.</p>
+  <p id="p-016">Ich komme nicht weiter. Wenn ich die Antwort durch Weiterbauen nicht finde, muss ich die Suchrichtung ändern. Ich setze GPT nicht länger als co-konstruktiven Sparringpartner ein. Er soll das Baumhaus nicht verbessern, sondern angreifen. Er soll mein schärfster Kritiker und grösster Fehlerfinder werden. Ich drehe GPT um.</p>
 
 <div class="kapitel-head" id="k-03">
   <div class="kapitel-nr">03</div>
   <h2>Advocatus diaboli</h2>
 </div>
 
-  <p id="p-017">Zwei Wochen später. Eine KI findet immer eine Möglichkeit, eine Idee gut aussehen zu lassen. Während ich mit ihm am Baumhaus arbeite, frage ich mich immer wieder: Stimmen seine Aussagen? Seine Bewertungen und Beurteilungen? Oder liefert er mir einfach die überzeugendste Darstellung dessen, was ich ohnehin hören wollte?</p>
+  <p id="p-017">Aber das ist ein Problem. Eine KI findet immer eine Möglichkeit, eine Idee gut aussehen zu lassen. Während ich mit GPT am Baumhaus arbeite, frage ich mich immer wieder: Stimmen seine Aussagen? Seine Bewertungen und Beurteilungen? Oder liefert er mir einfach die überzeugendste Darstellung dessen, was ich ohnehin hören wollte?</p>
 
   <p id="p-018">Ich will einen kognitiven Sparringpartner und keine gezuckerte Vollrahmdose, die alles versüsst. Lange sitze ich vor dem PC und überlege mir, wie ich GPT dazu bringe, nicht länger für, sondern gegen meine Idee zu argumentieren.</p>
 
@@ -1417,28 +1426,28 @@ korrigiert (siehe `_CURRENT/NOTE/index.html`).
     </div>
   </div>
 
-  <p id="p-019">GPT beginnt ohne Anlauf. Die erste Überschrift lautet: ‹Strukturelle Schwächen: Warum dein Modell in der Praxis scheitert›. Wenig später folgt: ‹Pädagogische Mängel: Warum dein Ansatz Lernende im Stich lässt›. Mit einer Direktheit, die ich so nicht erwartet habe, deckt er noch die kleinsten Schwachstellen auf, zerlegt und filetiert meine stundenlange Denkarbeit in Sekunden und präsentiert mir die schlechtesten Teile auf einem silbernen Tablett. Ich finde das – <strong class="hl1">faszinierend</strong>.</p>
+  <p id="p-019">GPT beginnt ohne Anlauf. Die erste Überschrift lautet: ‹Strukturelle Schwächen: Warum dein Modell in der Praxis scheitert›. Wenig später folgt: ‹Pädagogische Mängel: Warum dein Ansatz Lernende im Stich lässt›. Mit einer Direktheit, die ich so weder erwartet habe noch je erlebt habe, deckt er selbst kleinste Schwachstellen auf. In Sekunden zerlegt und filetiert er meine stundenlange Denkarbeit und präsentiert mir die schlechtesten Teile auf einem silbernen Tablett. Ich finde das –<br><em>faszinierend</em><br>.</p>
 
   <p id="p-020">Ich lese seine Kritikpunkte. Im Grunde sind es drei:</p>
 
   <p id="p-021">Zuerst greift er die pädagogische Offenheit an: Das Baumhaus verlasse sich zu stark auf Selbststeuerung und vernachlässige die systematische Vermittlung von Grundlagen. Davon profitieren vor allem Lernende, die bereits über Unterstützung, Sprache und Orientierung verfügen. Ausgerechnet ein Modell, das mehr Möglichkeiten schaffen wolle, verstärke bestehende Ungleichheiten.</p>
 
-  <p id="p-022">Dann greift er die praktische Umsetzbarkeit an: Das Baumhaus sei zu teuer, zu anspruchsvoll und kaum skalierbar. Es brauche Räume, Zeit und Lehrpersonen, die bereit seien, weit über das Übliche hinauszugehen. Eltern erwartet von Schule Verlässlichkeit und keine dauernde Versuchsanordnung.</p>
+  <p id="p-022">Dann greift er die praktische Umsetzbarkeit an: Das Baumhaus sei zu teuer, zu anspruchsvoll und kaum skalierbar. Es brauche Räume, Zeit und Lehrpersonen, die bereit seien, weit über das Übliche hinauszugehen. Eltern erwarten von Schule Verlässlichkeit und keine dauernde Versuchsanordnung.</p>
 
   <p id="p-023">Schliesslich greift GPT das Modell systemisch an: Das Baumhaus sei idealistisch und schwer messbar. Es verspreche Lernabenteuer, Eigenverantwortung und Zukunftskompetenzen, könne aber nicht zeigen, ob daraus tatsächlich besseres Lernen entstehe. Vielleicht, so sein Vorwurf, reite ich auf einer Welle aus KI, Technik und Bildungsoptimismus, während für guten Unterricht ein Buch und eine gute Lehrperson ausreichten.</p>
 
   <p id="p-024">GPT kennt inzwischen die Autoren, die ich in den Chats immer wieder nenne. Deshalb überrascht es mich nicht, dass er ausgerechnet Hattie heranzieht, um auch mit dem empirischen Finger auf die Lücken meines Baumhauses zu zeigen. Seine Kritik setzt er fort mit: «Für dein Lernabenteuer fehlt die Evidenz.»</p>
 
-  <p id="p-025">Er wirft mir vor, Erkenntnisse zur Wirksamkeit zu ignorieren. Mein Baumhaus stelle Projektlernen mit d = 0.30 und Game-based Learning mit d = 0.34 über direkte Instruktion mit d = 0.59. GPT macht noch eine ganze Weile weiter und schliesst mit zwei Fragen: «Wo sind die harten Daten? Und die Messbarkeit?» Die Antwort gibt er gleich selbst: «Fehlanzeige!»</p>
+  <p id="p-025">Er wirft mir vor, Erkenntnisse zur Wirksamkeit zu ignorieren. Mein Baumhaus stelle Projektlernen mit d = 0.30 und Game-based Learning mit d = 0.34 über direkte Instruktion mit d = 0.59. GPT macht noch eine ganze Weile weiter und schliesst mit zwei Fragen: «Wo sind die harten Daten? Und die Messbarkeit?»<br>Die Antwort gibt er gleich selbst: «Fehlanzeige!»</p>
 
-  <p id="p-026">Die Kritik ist hart. Aber sie ist kein Beweis, dass GPT recht hat, weil ich die Angaben nicht überprüfe. Er argumentiert sprachlich sehr überzeugend – diesmal einfach gegen mich. Ich atme tief durch, weil die Kritik sitzt. Trotz der grossen Arbeit, die im Baumhaus steckt, empfinde ich die Kritik interessanterweise nicht als Angriff und ich sehe ihre Härte auch nicht als Niederlage. Seine Antwort zeigt mir aber, dass <strong class="hl1">der Versuch funktioniert hat</strong>.</p>
+  <p id="p-026">Die Kritik ist hart. Aber sie ist kein Beweis, dass GPT recht hat, solange ich seine Angaben nicht überprüft habe. Er argumentiert sprachlich sehr überzeugend – diesmal einfach gegen mich. Ich atme tief durch, weil die Kritik sitzt. Trotz der grossen Arbeit, die im Baumhaus steckt, empfinde ich die Kritik interessanterweise nicht als Niederlage und ich sehe ihre Härte auch nicht als Angriff. Seine Antwort zeigt mir aber, dass<br>mein<em> Versuch funktioniert hat</em><br>.</p>
 
-  <p id="p-027">Ich lasse die Kritik eine Weile wirken. Dann beobachte ich einen interessanten Prozess in mir: Das Wasser aus der kritischen Giesskanne löscht mein inneres Feuer nicht. Stattdessen beginnen auf dem Boden neue Fragen zu spriessen. </p>
+  <p id="p-027">Ich lasse die Kritik eine Weile wirken. Dann beobachte ich einen interessanten Prozess in mir: Das Wasser aus der kritischen Giesskanne löscht mein inneres Feuer nicht. Stattdessen beginnen auf dem Boden neue Fragen zu spriessen.</p>
 
-  <p id="p-028">Plötzlich entdecke ich Fragen an Stellen, an denen ich bisher zu schnell weitergedacht habe. Die Kritik beantwortet diese Fragen nicht und vor allem eine davon bleibt mir besonders hartnäckig: <strong class="hl">Wie verhindere ich, dass ausgerechnet jene Lernenden allein bleiben, die am dringendsten Orientierung brauchen?</strong></p>
+  <p id="p-028">Plötzlich entdecke ich Fragen an Stellen, an denen ich bisher zu schnell weitergedacht habe. Die Kritik beantwortet diese Fragen nicht und vor allem eine davon beschäftigt mich intensiv:<br><strong class="hl">Wie verhindere ich, dass ausgerechnet jene Lernenden die Orientierung verlieren, die sie am dringendsten brauchen?</strong></p>
 
-  <figure id="abb-02" class="evidence scale-ok custom-scale" style="--figure-scale:0.9">
-    <img src="P2_LAYOUTER/assets/BAUMHAUS-ZWEIFEL_OPS_05B_260805_230907/originals/02_image2.png" alt="Baumhauskonstruktion unter dem Transparentblatt mit Prüf-, Streich- und Bruchspuren und GPTs Rolle als Advocatus Diaboli" loading="lazy">
+  <figure id="abb-02" class="evidence scale-ok">
+    <img src="../../P2_LAYOUTER/assets/BAUMHAUS_ZWEIFEL_OPS_05B_260829_233723/originals/02_image2.png" alt="Baumhauskonstruktion unter dem Transparentblatt mit Prüf-, Streich- und Bruchspuren und GPTs Rolle als Advocatus Diaboli" loading="lazy">
     <span class="stub-tag">Abb. 2</span>
     <figcaption class="cap">Baumhauskonstruktion unter dem Transparentblatt mit Prüf-, Streich- und Bruchspuren und GPTs Rolle als Advocatus Diaboli</figcaption>
   </figure>
@@ -1448,17 +1457,17 @@ korrigiert (siehe `_CURRENT/NOTE/index.html`).
   <h2>Zerstöre die Schule und du findest, was du suchst</h2>
 </div>
 
-  <p id="p-029">Die letzte Kritikrunde hat mir gute Fragen gebracht, aber ich komme trotzdem nicht weiter bei der Suche nach dem Unbekannten. Die einzelnen Bausteine wirken in sich stimmig, aber mit ihrem Zusammenspiel stimmt etwas nicht.</p>
+  <p id="p-029">Die Kritikrunden haben mir gute Fragen geliefert, zeigen mir aber keine Richtung auf der Suche nach dem Unbekannten. Ich komme nicht weiter. Die einzelnen Bausteine wirken in sich stimmig, aber mit ihrem Zusammenspiel stimmt etwas nicht.</p>
 
-  <p id="p-030">An diesem Montag studiere ich an diesen Verbindungen zwischen den Elementen herum und frage mich, ob es nicht auch irgendetwas drum herum gibt – etwas, das Wachstum und Entwicklung ermöglicht? Aber auf der Suche nach diesem Guten komme ich nicht weiter. Also frage ich mich: Was passiert, wenn ich die Suchrichtung wieder umkehre?</p>
+  <p id="p-030">An diesem Montagabend studiere ich an den Verbindungen zwischen den Elementen herum und frage mich, ob es nicht auch etwas um sie herum gibt – etwas, das Wachstum und Entwicklung ermöglicht. Aber auf der Suche nach diesem Guten komme ich nicht weiter. Also frage ich mich: Was passiert, wenn ich die Suchrichtung wieder umkehre?</p>
 
-  <p id="p-031">Ich suche nicht danach, was das Baumhaus wachsen lässt, sondern frage, was es zerstören könnte: Seine Elemente, seine Verbindungen und der ganze Bereich, auf dem sie stehen. Was bringt Wachstum und Entwicklung zum Stillstand?</p>
+  <p id="p-031">Ich suche nicht danach, was das Baumhaus wachsen lässt, sondern frage, was es zerstören könnte: Seine Elemente, seine Verbindungen und das ganze Fundament, auf dem sie stehen. Was bringt Wachstum und Entwicklung zum Stillstand? Was vergiftet den Boden? Wie zerstöre ich die Schule?</p>
 
   <p id="p-032">Wenn ich diese schädigenden Faktoren erkenne, kann ich sie invertieren. Soweit meine Logik.</p>
 
-  <p id="p-033">Und wenn ich weiss, was Schule zerstört, weiss ich vielleicht auch, was sie wachsen lässt. </p>
+  <p id="p-033">Und wenn ich weiss, was Schule zerstört, weiss ich vielleicht auch, was sie wachsen lässt.</p>
 
-  <p id="p-034">Also schreibe ich einen Prompt und bin einverstanden – man merkt dem Prompt an, dass ich früher viele <strong class="hl1">Tom-Clancy-Romane</strong> gelesen habe.</p>
+  <p id="p-034">Also tippe ich einen spontanen Prompt – man merkt, dass ich früher viele <em>Tom-Clancy-Romane</em> gelesen habe.</p>
 
   <div id="card-002" class="conv du">
     <div class="composer">
@@ -1472,23 +1481,23 @@ korrigiert (siehe `_CURRENT/NOTE/index.html`).
     </div>
   </div>
 
-  <p id="p-035">Beim Lesen der Antwort realisiere ich, dass ich eine Tür geöffnet habe, die <strong class="hl1">besser geschlossen geblieben</strong> wäre. GPT führt historisch dokumentierte Begriffe aus der Subversion, den psychologischen Operationen und der hybriden Kriegsführung ein und überträgt sie auf die Schule.</p>
+  <p id="p-035">Ich sehe, dass GPT eine Internetrecherche durchführt und anschliessend Themen wie psychologischen Operationen oder hybride Kriegsführung analysiert. Es sind historisch dokumentierte Begriffe aus der Welt von Geheimdiensten und Militär und er überträgt diese nun auf die Schule.</p>
 
-  <p id="p-036">In diesem Gedankenspiel greift der Agent die Schule nicht von aussen an. Sein Ziel ist, sie von innen zu schwächen, indem er das Vertrauen in das Bildungssystem untergräbt. GPT beschreibt ausführlich verschiedene Methoden wie Desinformation, Cognitive Warfare, Active Measures, Grey-Zone-Taktiken und kulturelle Subversion. Interessiert lese ich diese Strategien aus dem Kalten Krieg und staune, welche strategische Bedeutung GPT der Volksschule zuschreibt. Schule erscheint darin nicht nur als Ort des Lernens, sondern als Trägerin gemeinsamer Werte, Normen und kultureller Identität.</p>
+  <p id="p-036">Es ist ein künstlich generiertes Gedankenspiel: Der Agent greift die Schule nicht von aussen an. Sein Ziel ist, sie von innen zu schwächen, indem er das Vertrauen in das Bildungssystem untergräbt. Er beschreibt historische Praktiken wie Desinformation und Active Measures sowie heutige Begriffe für verwandte Einflussoperationen, darunter Cognitive Warfare und Grey-Zone-Taktiken. Ich staune, welche strategische Bedeutung GPT der Volksschule zuschreibt. Schule erscheint darin nicht nur als Ort des Lernens, sondern als Trägerin gemeinsamer Werte, Normen und kultureller Identität.</p>
 
   <p id="p-037">Was sich bis jetzt wie ein fiktiver Roman liest, verändert plötzlich meine Wahrnehmung, als GPT beginnt, mögliche Taktiken aufzuzählen:</p>
 
   <p id="p-038">Lehrpläne mit immer neuen, schwer überprüfbaren Kompetenzen überfrachten. Eine Kompetenzinflation erzeugen: viele Begriffe, wenig Klarheit und immer grösseren Interpretationsspielraum.</p>
 
-  <p id="p-039">Lehrpersonen mit Dokumentationspflichten überziehen und Beurteilungen überakademisieren. Am Ende zählt nicht mehr, was wirkt, sondern was sich nachweisen lässt.</p>
+  <p id="p-039">– Lehrpersonen mit Dokumentationspflichten überziehen und Beurteilungen überakademisieren. Am Ende zählt nicht mehr, was wirkt, sondern nur noch, was sich nachweisen lässt.</p>
 
-  <p id="p-040">Schule und Unterricht ideologisch polarisieren: „links-grün“ gegen „konservativ“. Themen wie Gender, Klima oder Migration für Lagerkämpfe instrumentalisieren, Misstrauen schüren und Lehrpersonen spalten.</p>
+  <p id="p-040">– Die ideologische Polarisierung in Schule und Unterricht fördern: «links-grün» gegen «konservativ». Themen wie Gender, Klima oder Migration für Lagerkämpfe instrumentalisieren, um damit Misstrauen zu schüren und Lehrpersonen zu spalten.</p>
 
-  <p id="p-041">Individualisierung so weit treiben, bis die Klasse fragmentiert: einzelne Lernwege, digitale Selbstlernprozesse, weniger gemeinsame Erfahrungen und immer weniger soziale Bindung.</p>
+  <p id="p-041">– Die Individualisierung so weit treiben, bis die Klasse fragmentiert: nur noch einzelne Lernwege und digitale Selbstlernprozesse, keine gemeinsamen Erfahrungen mehr und dadurch immer weniger soziale Bindung.</p>
 
-  <p id="p-042">Systematisch Zweifel an der Fachkompetenz von Lehrpersonen säen. Einzelfälle zu Beweisen für das Versagen der Schule erklären: „Der Lehrplan versagt.“ „Die Kinder können nicht mehr lesen.“ Eltern und Lehrpersonen gegeneinander aufbringen.</p>
+  <p id="p-042">– Systematisch Zweifel an der Fachkompetenz von Lehrpersonen säen. Einzelfälle hochspielen und zu Beweisen für das Versagen der Schule erklären: «Der Lehrplan versagt.» «Die Kinder können nicht mehr lesen.» Akteure im Bildungswesen gegeneinander aufbringen.</p>
 
-  <p id="p-043">«Das ist aber nicht mehr Kalter Krieg», denke ich. «Ist das nicht wie heute? Ist das nicht das Hier und Jetzt?» Dann halte ich inne. Habe ich bei GPT nicht gerade <strong class="hl1">eine Zerstörungsanleitung bestellt</strong>? Nicht mit Gewalt, nicht lautstark, sondern langsam, geduldig und unbemerkt.</p>
+  <p id="p-043">GPT nennt weitere Operationsziele des fiktiven CIA-Agenten, und ich muss eine Pause machen. Wegen seines Einstiegs war ich gedanklich im Kalten Krieg. Aber «das ist nicht Kalter Krieg», denke ich. «Ist das nicht heute? Ist das nicht eine Beschreibung des Hier und Jetzt?» Dann halte ich inne. Habe ich bei GPT nicht gerade <em>eine Zerstörungsanleitung bestellt</em>? Nicht mit Gewalt, nicht lautstark, aber langsam, geduldig und unbemerkt.</p>
 
   <p id="p-044">«Warum die Schule?», frage ich GPT und er erklärt die Schule zu einer Schlüsselstruktur einer stabilen Gesellschaft. Wird sie geschwächt, so seine Argumentation, leiden langfristig der gesellschaftliche Zusammenhalt, die Demokratie und die wirtschaftliche Entwicklung – kurz: die Zukunftsfähigkeit einer ganzen Nation. Mir leuchtet das ein.</p>
 
@@ -1496,10 +1505,10 @@ korrigiert (siehe `_CURRENT/NOTE/index.html`).
 
   <p id="p-046">Vielleicht sind die Lehrpersonen der empfindlichste Punkt im System. Ich spiele den Gedanken weiter: Wenn ich die Schule schwächen wollte, könnte ich bei den Lehrpersonen ansetzen? Würden sie systematisch geschwächt, hätte das Auswirkungen auf die Unterrichtsqualität? Und was, wenn diese Folgen zunächst unsichtbar blieben? Wenn sie sich erst Jahre später zeigen – in den beruflichen Chancen und Entwicklungsmöglichkeiten einzelner Jugendlicher und, in ihrer Summe, vielleicht sogar in der ganzen Gesellschaft? Vielleicht zu spät, um noch zu erkennen, womit die Kette begonnen hat?</p>
 
-  <p id="hl3-02" class="kernsatz">Vielleicht beginnt die Zukunft<br>eines Landes damit,<br>wie es über seine Lehrpersonen denkt.</p>
+  <p id="hl3-02" class="kernsatz">Vielleicht beginnt die Zukunft eines Landes damit, wie es über seine Lehrpersonen denkt.</p>
 
-  <figure id="abb-03" class="evidence scale-ok custom-scale" style="--figure-scale:0.9">
-    <img src="P2_LAYOUTER/assets/BAUMHAUS-ZWEIFEL_OPS_05B_260805_230907/originals/03_image3.png" alt="Kontrollierter Zerstörungstest eines belasteten Baumhausmodells" loading="lazy">
+  <figure id="abb-03" class="evidence scale-ok">
+    <img src="../../P2_LAYOUTER/assets/BAUMHAUS_ZWEIFEL_OPS_05B_260829_233723/originals/03_image3.png" alt="Kontrollierter Zerstörungstest eines belasteten Baumhausmodells" loading="lazy">
     <span class="stub-tag">Abb. 3</span>
     <figcaption class="cap">Kontrollierter Zerstörungstest eines belasteten Baumhausmodells</figcaption>
   </figure>
@@ -1509,11 +1518,11 @@ korrigiert (siehe `_CURRENT/NOTE/index.html`).
   <h2>Zwischen Gleichschritt und Vereinzelung</h2>
 </div>
 
-  <p id="p-047">Der Gedanke steht nun im Raum. Ich beginne bei einer Entwicklung, die mich schon länger beschäftigt: Was macht zunehmende Standardisierung mit den Lehrpersonen?</p>
+  <p id="p-047">Viele Gedanken stehen nun im Raum, und ich beginne bei einer Entwicklung, die mich schon länger beschäftigt: Was macht zunehmende Standardisierung mit den Lehrpersonen?</p>
 
-  <p id="p-048">Gleichzeitig soll der Unterricht auf Ebene der Schülerinnen und Schüler immer individueller werden. Das wirkt widersprüchlich: mehr Differenzierung bei den Lernenden, mehr Standardisierung bei Schulen und Lehrpersonen.</p>
+  <p id="p-048">Gleichzeitig soll aber der Unterricht auf Ebene der Schülerinnen und Schüler immer individueller werden. Das wirkt widersprüchlich: mehr Differenzierung bei den Lernenden, mehr Standardisierung bei Schulen und Lehrpersonen.</p>
 
-  <p id="p-049">Ich gebe zu: Der nächste Prompt schreibe ich nicht tiefenentspannt. Er ist manipulativ und suggestiv und ich formuliere die gewünschte Antwort beinahe schon in die Frage hinein.</p>
+  <p id="p-049">Ich gebe zu: Den nächsten Prompt schreibe ich nicht tiefenentspannt. Er ist manipulativ und suggestiv und ich formuliere die gewünschte Antwort beinahe schon in die Frage hinein.</p>
 
   <div id="card-003" class="conv du">
     <div class="composer">
@@ -1529,9 +1538,9 @@ korrigiert (siehe `_CURRENT/NOTE/index.html`).
 
   <p id="p-050">Selbstverständlich bestätigt GPT, dass eine übermässige Standardisierung eine Schule von innen erodieren lassen kann. Wenn engagierte Lehrpersonen innerlich kündigten, verliere die Schule ihre lebendige professionelle Substanz. Lehrpersonen erleben sich nicht mehr als Fachleute, sondern als Ausführende eines Systems. Eigene Ideen, Erfahrungen und Intuition werden durch Vorgaben, Checklisten und Raster ersetzt. Nachweisbarkeit wird wichtiger als Wirksamkeit. <strong class="hl">Hinter jedem neuen Kontrollinstrument steckt auch eine Botschaft: Wir vertrauen eurem professionellen Urteil nicht.</strong> Und wenn jede Abweichung zuerst begründet, dokumentiert und abgesichert werden muss, wird aus einer neuen Idee schnell ein zusätzliches Risiko.</p>
 
-  <p id="p-051">Vielleicht sollen die Kontrollen vor allem einen Mindeststandard sichern. Sie sollen verhindern, dass einzelne Lehrpersonen zu wenig tun oder sich dem gemeinsamen Auftrag entziehen. Aber möglicherweise treffen sie zuerst die Falschen. Nicht jene, die ohnehin nur Dienst nach Vorschrift machen, sondern die Engagierten: jene, die ausprobieren, Verantwortung übernehmen und mehr tun als verlangt. Gerade sie verlieren durch immer engere Vorgaben ihren Handlungsspielraum. </p>
+  <p id="p-051">Vielleicht sollen die Kontrollen vor allem einen Mindeststandard sichern. Sie sollen verhindern, dass einzelne Lehrpersonen zu wenig tun oder sich dem gemeinsamen Auftrag entziehen. Aber möglicherweise treffen sie zuerst die Falschen. Nicht jene, die ohnehin nur Dienst nach Vorschrift machen, sondern die Engagierten: jene, die ausprobieren, Verantwortung übernehmen und mehr tun als verlangt. Gerade sie verlieren durch immer engere Vorgaben ihren Handlungsspielraum.</p>
 
-  <p id="p-052">Vielleicht ziehen sie sich zurück. Vielleicht machen sie irgendwann selbst nur noch Dienst nach Vorschrift. Vielleicht gehen sie. Und mit ihnen verschwindet in der Schule ein Teil des <strong class="hl1">pädagogischen Feuers</strong>.</p>
+  <p id="p-052">Vielleicht ziehen sie sich zurück. Vielleicht machen sie irgendwann selbst nur noch Dienst nach Vorschrift. Vielleicht gehen sie. Und mit ihnen verschwindet in der Schule ein Teil des <em>pädagogischen Feuers</em>.</p>
 
   <div id="card-004" class="conv du">
     <div class="composer">
@@ -1551,29 +1560,29 @@ korrigiert (siehe `_CURRENT/NOTE/index.html`).
 
   <p id="p-055">Auch die versprochene Freiheit verteilt sich nicht automatisch gerecht. Kinder, die zu Hause Unterstützung erhalten und ihren Lernweg bereits selbst organisieren können, finden sich eher zurecht. Andere verlieren möglicherweise genau die Orientierung, die Schule ihnen geben müsste.</p>
 
-  <p id="p-056">Bildung droht damit vom gemeinsam getragenen <strong class="hl1">öffentlichen Gut</strong> zum privaten Projekt einzelner Lernender zu werden.</p>
+  <p id="p-056">Bildung droht damit vom gemeinsam getragenen <em>öffentlichen Gut</em> zum privaten Projekt einzelner Lernender zu werden.</p>
 
   <p id="p-057">Damit kippt mein Gedankenspiel. Zu viel Einheitlichkeit kann Lehrpersonen in den Dienst nach Vorschrift treiben. Aber eine grenzenlose Individualisierung kann sie von der anderen Seite überfordern – und gleichzeitig das Gemeinsame schwächen. Ich stehe zwischen zwei Gefahren, die sich nicht gegenseitig aufheben, sondern beide zugleich wirken können.</p>
 
-  <p id="p-058">Keiner der beiden Pole gibt mir die Orientierung, die ich suche. Ich möchte bewegliche Post-its, aber <strong class="hl1">keine Beliebigkeit</strong>. Eine gemeinsame Struktur, aber keinen Gleichschritt. Differenzierung, aber nicht 24 voneinander getrennte Lernwege.</p>
+  <p id="p-058">Keiner der beiden Pole gibt mir die Orientierung, die ich suche. Ich möchte bewegliche Post-its, aber <em>keine Beliebigkeit</em>. Eine gemeinsame Struktur, aber keinen Gleichschritt. Differenzierung, aber nicht 24 voneinander getrennte Lernwege.</p>
 
   <p id="p-059">Das Baumhaus braucht deshalb mehr als nur Post-its, die ich hinzufügen, verschieben oder entfernen kann. Es braucht einen festen Bezugspunkt, an dem ich Entscheidungen prüfen kann. Eine Richtung. Die Frage lautet nun nicht mehr nur: Was kann sich verändern?</p>
 
-  <p id="hl3-03" class="kernsatz">Was muss bleiben,<br>wenn sich alles andere verändern darf?</p>
+  <p id="hl3-03" class="kernsatz">Was muss bleiben, wenn sich alles andere verändern darf?</p>
 
 <div class="kapitel-head" id="k-06">
   <div class="kapitel-nr">06</div>
   <h2>Die Richtung bleibt</h2>
 </div>
 
-  <p id="p-060">Die Idee mit dem Polarstern ist nicht neu. Schon am Abend des 25. August schreibe ich ihn auf, als ich Mistral die einzelnen Elemente des Baumhauses erkläre. Bei der Baumkrone schreibe ich hin: Was ist das oberste Ziel? Was wird auch in zwanzig Jahren noch Bestand haben, wenn sich Technologien, Methoden und Bedingungen längst verändert haben? Was ist unser Polarstern?</p>
+  <p id="p-060">Mir kommt die Idee mit dem Polarstern wieder in den Sinn. Neu ist sie aber nicht. Schon am Abend des 25. August schreibe ich ihn auf, als ich Mistral die einzelnen Elemente des Baumhauses erkläre. Bei der Baumkrone schreibe ich hin: Was ist das oberste Ziel? Was wird auch in zwanzig Jahren noch Bestand haben, wenn sich Technologien, Methoden und Bedingungen längst verändert haben? Was ist unser Polarstern?</p>
 
   <p id="p-061">Damals bleibt es eine Frage innerhalb eines einzelnen Promptes. Am nächsten Tag arbeite ich lange in einem Chat und Mistral stellt mir eine Abschlussfrage:</p>
 
   <div id="card-005" class="conv gpt">
     <div class="rcard">
       <button class="copybtn" type="button" tabindex="-1" aria-label="Kopieren"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
-      <p><strong>Mistral:</strong><br>Wenn du eine Sache aus deinem Modell für die Ewigkeit konservieren könntest – welche wäre das? (Nicht weil sie perfekt ist, sondern weil sie dich am meisten berührt.)</p>
+      <p><strong>AI:</strong><br><strong>MISTRAL</strong><br>Wenn du eine Sache aus deinem Modell für die Ewigkeit konservieren könntest – welche wäre das? (Nicht weil sie perfekt ist, sondern weil sie dich am meisten berührt.)</p>
     </div>
   </div>
 
@@ -1593,14 +1602,14 @@ korrigiert (siehe `_CURRENT/NOTE/index.html`).
 
   <p id="p-063">Mistral schreibt:</p>
 
-  <p id="hl3-04" class="kernsatz">Ein Polarstern braucht keine Werbung.<br>Er ist einfach da – für die, die ihn suchen.</p>
+  <p id="hl3-04" class="kernsatz">Ein Polarstern braucht keine Werbung. Er ist einfach da – für die, die ihn suchen.</p>
 
-  <p id="p-064">Der Begriff ist nicht neu. Aber seine Bedeutung verändert sich für mich. Am Vorabend war der Polarstern noch eine Frage innerhalb der Baumkrone. Jetzt wird er zur Antwort auf die Frage, was bleiben muss, wenn sich alles andere verändern darf. <strong class="hl1">Der Polarstern ist kein weiteres Element, das ich ins Baumhaus kleben kann. Er ist keine Methode und kein Instrument</strong>, weil diese kommen und gehen. Unterricht muss sich verändern können, weil sich Menschen und Bedingungen verändern.</p>
+  <p id="p-064">Der Begriff ist nicht neu, aber seine Bedeutung verändert sich nun für mich. In MISTRAL war der Polarstern noch ein Begriff innerhalb der Baumkrone. Nun ist die Frage zur Antwort geworden, was bleiben muss, wenn sich alles andere verändern darf. Der Polarstern ist etwas Besonderes. Ich schreibe ihn nicht auf ein Post-It, damit ich dieses herum schieben kann. Er ist <em>keine Methode und kein Werkzeug</em>, weil diese kommen und gehen. Und das ist richtig. Unterricht muss sich verändern können, weil sich Menschen und Bedingungen verändern.</p>
 
-  <p id="p-065">Was genau dieser Polarstern enthält, habe ich noch nicht abschliessend bestimmt. In meinen bisherigen Skizzen tauchen aber fünf Orientierungspunkte immer wieder auf: Kompetenzaufbau, Selbstwirksamkeit, Lernen lernen, Transfer und Zusammenarbeit. Seine Aufgabe wird klar: Er gibt mir einen festen Bezugspunkt, an dem ich Veränderungen prüfen kann, ohne einen bestimmten Weg vorzuschreiben. Das Baumhaus soll den Menschen dienen – nicht die Menschen dem Modell. Der Weg darf sich verändern. <strong class="hl1">Die Richtung bleibt</strong>.</p>
+  <p id="p-065">Was genau dieser Polarstern enthält, habe ich noch nicht abschliessend bestimmt. In meinen bisherigen Skizzen tauchen aber fünf Orientierungspunkte immer wieder auf: Kompetenzaufbau, Selbstwirksamkeit, Lernen lernen, Transfer und Zusammenarbeit. Seine Aufgabe wird klar: Er gibt mir einen festen Bezugspunkt, an dem ich Veränderungen prüfen kann, ohne einen bestimmten Weg vorzuschreiben. Das Baumhaus soll den Menschen dienen – nicht die Menschen dem Modell. Der Weg darf sich verändern, wenn die Richtung bleibt.</p>
 
-  <figure id="abb-04" class="evidence scale-ok custom-scale" style="--figure-scale:0.9">
-    <img src="P2_LAYOUTER/assets/BAUMHAUS-ZWEIFEL_OPS_05B_260805_230907/originals/04_image4.png" alt="Zeigt Baumhaus-Versionen entlang verzweigter Äste durch die Jahreszeiten, über denen der Polarstern schwebt" loading="lazy">
+  <figure id="abb-04" class="evidence scale-ok">
+    <img src="../../P2_LAYOUTER/assets/BAUMHAUS_ZWEIFEL_OPS_05B_260829_233723/originals/04_image4.png" alt="Zeigt Baumhaus-Versionen entlang verzweigter Äste durch die Jahreszeiten, über denen der Polarstern schwebt" loading="lazy">
     <span class="stub-tag">Abb. 4</span>
     <figcaption class="cap">Zeigt Baumhaus-Versionen entlang verzweigter Äste durch die Jahreszeiten, über denen der Polarstern schwebt</figcaption>
   </figure>
@@ -1628,13 +1637,13 @@ korrigiert (siehe `_CURRENT/NOTE/index.html`).
 
   <p id="p-068">Anfang August habe ich das Baumhaus um das Lehrmittel herum gebaut. Daraus sind einzelne Bausteine entstanden: Lernzielkärtchen, Diagnosetests und Aufgaben. Sie alle sind mit dem Lehrmittel verbunden. Aber eben nicht nur.</p>
 
-  <p id="p-069">Ich habe diese als Post-its auf den Schreibtisch geklebt und mir die Frage gestellt: &quot;Was geht da dazwischen ab?&quot; Und beim Umkleben der Post-its ist mir aufgefallen, dass ich nie ein einzelnes Post-it verschiebe, ohne an mindestens ein anderes zu denken. <strong class="hl1">Sie wirken aufeinander</strong>.</p>
+  <p id="p-069">Ich habe diese als Post-its auf den Schreibtisch geklebt und mir die Frage gestellt: «Was geht da dazwischen ab?» Und beim Umkleben der Post-its ist mir aufgefallen, dass ich nie ein einzelnes Post-it verschiebe, ohne an mindestens ein anderes zu denken. <em>Sie wirken aufeinander</em>.</p>
 
-  <p id="p-070">Ich merke, dass die Lernzielkärtchen und der Diagnosetest miteinander verbunden sind. Die Lernziele bestimmen, was der Test überprüft. Der Test zeigt, welche Aufgaben gebraucht werden. Und bei der Arbeit an diesen Aufgaben merke ich, dass ich ein Lernziel neu formulieren muss. Das ist für mich nicht neu. Aber was passiert, wenn ich mit Hilfe einer KI die Grenzen zwischen den Bausteinen durchlässiger mache und dadurch die Verbindungen sichtbarer werden?</p>
+  <p id="p-070">Ich merke, dass die Lernzielkärtchen und der Diagnosetest miteinander verbunden sind. Die Lernziele bestimmen, was der Test überprüft. Der Test zeigt, welche Aufgaben gebraucht werden. Und bei der Arbeit an diesen Aufgaben wird klar, dass ein Lernziel neu formuliert werden muss. Das ist für mich nicht neu. Aber nun habe ich GPT. Was passiert, wenn ich die Grenzen zwischen den Bausteinen durchlässiger mache? Werden dadurch die Verbindungen sichtbarer?</p>
 
-  <p id="p-071">Monate später, als ich mit denselben Bausteinen weiterarbeite, nenne ich dieses Aufeinanderwirken zunächst <strong class="hl1">Resonanz</strong>, ohne zu wissen, wie ich dieses ‹Etwas› zwischen den Elementen beschreiben soll. Ist es eine Verbindung? Eine Kraft? Ich weiss es nicht.</p>
+  <p id="p-071">Monate später, als ich mit denselben Bausteinen weiterarbeite, nenne ich dieses Aufeinanderwirken zunächst <em>Resonanz</em>, ohne zu wissen, wie ich dieses ‹Etwas› zwischen den Elementen beschreiben soll. Ist es eine Verbindung? Eine Kraft? Ich weiss es nicht.</p>
 
-  <p id="p-072">Mit den Bausteinen entwickle ich nicht einfach Module, die ich beliebig auf den Unterricht packen kann. Es sind keine Add-Ons. Die Bausteine können sich verändern, sich entwickeln und wachsen. Das ist die Idee vom Baumhaus:</p>
+  <p id="p-072">Mit den Bausteinen entwickle ich nicht einfach Module, die ich beliebig in den Unterricht packen kann. Es sind keine Add-Ons. Die Bausteine können sich verändern, sich entwickeln und wachsen. Das ist die Idee vom Baumhaus:</p>
 
   <p id="p-073"><strong class="hl">Es ist kein starres Gebäude — es schwingt, es antwortet, es lebt.</strong></p>
 
@@ -1650,12 +1659,12 @@ korrigiert (siehe `_CURRENT/NOTE/index.html`).
     </div>
   </div>
 
-  <p id="p-074">Diese Veränderungen von Bausteinen und ihre Wirkung auf andere Elemente kann dazu führen, dass aus ihrem Zusammenspiel etwas entsteht, das vorher noch nicht da war. Ist das generativ? Zusammen mit der Resonanz versuche ich, sie zusammenzubringen als resonant-generativ. Sie beschreiben am besten, wonach ich suche. Dann kürze ich sie ab zu: <strong class="hl1">RESOGENA</strong>. Es ist keine Theorie und kein fertiges Modell. Es ist einfach mein vorläufiger Arbeitsname für ein Phänomen, das ich aus dem Schulzimmer kenne, über das ich aber nie wirklich nachgedacht habe. Ich denke, ich muss in noch tiefer suchen gehen. Irgendwo beim Lernen zwischen Mensch, Aufgabe und Welt, irgendwo muss es sein. Und ich stelle mir vor, wie ein Feld dieses etwas darstellt.</p>
+  <p id="p-074">Diese Veränderungen von Bausteinen und ihre Wirkung auf andere Bausteine können dazu führen, dass aus diesem Zusammenspiel etwas entsteht, das vorher noch nicht da war. Ist das generativ? Ich verbinde diese Idee mit der Resonanz und nenne das Zusammenspiel resonant-generativ. Diese beiden Begriffe beschreiben am besten, wonach ich suche. Dann kürze ich sie ab zu: <em>RESOGENA</em>. Es ist keine Theorie und kein fertiges Modell. Es ist einfach mein vorläufiger Arbeitsname für ein Phänomen, das ich aus dem Schulzimmer kenne, über das ich aber nie wirklich nachgedacht habe. Ich denke, ich muss noch tiefer suchen. Irgendwo beim Lernen zwischen Mensch, Aufgabe und Welt, irgendwo muss es sein. Und ich stelle mir vor, wie ein Feld dieses Etwas darstellt.</p>
 
-  <figure id="abb-05" class="evidence scale-ok custom-scale" style="--figure-scale:0.9">
-    <img src="P2_LAYOUTER/assets/BAUMHAUS-ZWEIFEL_OPS_05B_260805_230907/originals/05_image5.png" alt="Zeigt sich überlagernde Wellen verbundener Baumhaus-Inseln, aus denen eine neue Struktur wächst" loading="lazy">
+  <figure id="abb-05" class="evidence scale-ok">
+    <img src="../../P2_LAYOUTER/assets/BAUMHAUS_ZWEIFEL_OPS_05B_260829_233723/originals/05_image5.png" alt="RESOGENA zeigt sich als überlagernde Wellen verbundener Baumhaus-Inseln, aus denen eine neue Struktur wächst" loading="lazy">
     <span class="stub-tag">Abb. 5</span>
-    <figcaption class="cap">Zeigt sich überlagernde Wellen verbundener Baumhaus-Inseln, aus denen eine neue Struktur wächst</figcaption>
+    <figcaption class="cap">RESOGENA zeigt sich als überlagernde Wellen verbundener Baumhaus-Inseln, aus denen eine neue Struktur wächst</figcaption>
   </figure>
 
 <div class="kapitel-head" id="k-08">
@@ -1663,13 +1672,13 @@ korrigiert (siehe `_CURRENT/NOTE/index.html`).
   <h2>Soll ich aufhören?</h2>
 </div>
 
-  <p id="p-075">In den letzten Wochen frage ich mich immer häufiger, warum ich das mache.<br>Es gehört nicht zu meinem Berufsauftrag. Ich verdiene kein Geld damit. Niemand erwartet etwas von mir. <strong class="hl">Kein Mensch weiss etwas von diesem Projekt.</strong> Die Kids erleben einen anderen Unterricht und sagen, er sei cool. Aber sie wissen nicht, was dahintersteckt.</p>
+  <p id="p-075">In den letzten Wochen frage ich mich immer häufiger, warum ich diese Arbeit mache. Es gehört nicht zu meinem Berufsauftrag. Ich verdiene kein Geld damit. Niemand erwartet etwas von mir. Kein Mensch weiss etwas von diesem Projekt. Die Kids erleben einen anderen Unterricht und sagen, er sei cool. Aber sie wissen nicht, was dahintersteckt.</p>
 
   <p id="p-076">Bin ich in einem Loop gefangen?</p>
 
-  <p id="p-077">Je weiter ich das Baumhaus entwickle, desto stärker verändert es auch mich – und desto mehr entfernen sich meine Vorstellungen von Schule und Unterricht von den Rahmenbedingungen und der Realität, in der ich arbeite. Ich weiss nicht, ob sich die Volksschule in den letzten Jahren verändert hat oder ich mich in den letzten Monaten. Aber mein Weg und der Weg der Volksschule scheinen nicht mehr in die gleiche Richtung zu führen. Der Abstand zwischen Ist und Soll wächst.</p>
+  <p id="p-077">Je weiter ich das Baumhaus entwickle, desto stärker verändert es auch mich – und desto mehr entfernen sich meine Vorstellungen von Schule und Unterricht von den Rahmenbedingungen und der Realität, in der ich arbeite. Ich weiss nicht, ob sich die Volksschule in den letzten Jahren verändert hat oder ich mich in den letzten Monaten. Aber mein Weg und der Weg der Volksschule scheinen nicht mehr in die gleiche Richtung zu führen. Der Abstand zwischen uns wird grösser.</p>
 
-  <p id="p-078">Der Aufwand hat längst Dimensionen angenommen, den ich nie erwartet habe. Gleichzeitig reizt es mich, etwas Neues zu entdecken und so schwanke ich <strong class="hl1">zwischen Aufhören und Weitermachen</strong>. Das muss ich selbst entscheiden. Eine KI kann mir diese Entscheidung nicht abnehmen. Sie kann aber meine Gründe prüfen, Gegenargumente sichtbar machen und mir zeigen, ob ich etwas übersehe. Also unternehme ich eine letzte Gegenprobe und schreibe:</p>
+  <p id="p-078">Der Aufwand für die<em> Arbeit mit</em> KI hat längst Dimensionen angenommen, die alle Grenzen sprengen. Gleichzeitig reizt es mich, etwas Neues zu entdecken, und so schwanke ich weiterhin zwischen Aufhören und Weitermachen. Das muss ich selbst entscheiden. Eine KI kann mir diese Entscheidung nicht abnehmen. Sie kann aber meine Gründe prüfen, Gegenargumente sichtbar machen und mir zeigen, ob ich etwas übersehe. Also unternehme ich eine letzte Gegenprobe meiner Arbeit und schreibe:</p>
 
   <div id="card-009" class="conv du">
     <div class="composer">
@@ -1683,12 +1692,12 @@ korrigiert (siehe `_CURRENT/NOTE/index.html`).
     </div>
   </div>
 
-  <p id="p-079">GPT wägt das Projekt ab. Es spricht für das Weitermachen: Das Baumhaus verbinde Elemente, die sonst häufig getrennt betrachtet würden, und richte den Blick auf Fragen, die für die Zukunft der Schule wichtig seien. Gleichzeitig warnt es vor der wachsenden Komplexität, dem enormen Zeitaufwand und der Gefahr, ein Modell zu entwickeln, das am Ende nur für mich selbst funktioniert. Die Antwort ist differenzierter als frühere Einschätzungen, und trotzdem empfiehlt er nichts. Stattdessen schlägt GPT einen Perspektivenwechsel vor: Ich solle mir vorstellen, wie ich im Jahr 2040 auf diesen Moment zurückblicke.</p>
+  <p id="p-079">GPT wägt das Projekt ab. Er spricht für das Weitermachen: Das Baumhaus verbinde Elemente, die sonst häufig getrennt betrachtet würden, und richte den Blick auf Fragen, die für die Zukunft der Schule wichtig seien. Gleichzeitig warnt er vor der wachsenden Komplexität, dem enormen Zeitaufwand und der Gefahr, ein Modell zu entwickeln, das am Ende nur für mich selbst funktioniert. Die Antwort ist differenzierter als frühere Einschätzungen, und trotzdem empfiehlt er nichts. Stattdessen schlägt GPT einen Perspektivenwechsel vor: Ich solle mir vorstellen, wie ich im Jahr 2040 auf diesen Moment zurückblicke.</p>
 
   <div id="card-010" class="conv gpt">
     <div class="rcard">
       <button class="copybtn" type="button" tabindex="-1" aria-label="Kopieren"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
-      <p><strong>ChatGPT:</strong><br>Stell dir vor, es ist 2040 und […]<br>«… du hast es nicht gemacht.»<br>«… hast es gemacht, aber bist gescheitert.»<br>«… hast es gemacht und es funktioniert.»</p>
+      <p><strong>AI:</strong><br><strong>ChatGPT</strong><br>Stell dir vor, es ist 2040 und […]<br>• «… du hast es nicht gemacht.»<br>• «… hast es gemacht, aber bist gescheitert.»<br>• «… hast es gemacht und es funktioniert.»</p>
     </div>
   </div>
 
@@ -1719,31 +1728,34 @@ korrigiert (siehe `_CURRENT/NOTE/index.html`).
 
   <p id="p-084">GPT schlägt einen Samen oder Keimling vor – ein kleines Element, das für die Zukunft des Baumes steht. Zuerst wirkt die Antwort beinahe zu einfach. Dann erkenne ich, was mir an diesem Bild gefällt: Der Samen ist kein weiteres Modul, das ich ins Baumhaus einbauen muss. Er steht für den Menschen, der seine Möglichkeiten überhaupt erst in Bewegung bringt. Für Neugier. Für innere Motivation. Für die Bereitschaft, eine Frage weiterzuverfolgen, obwohl niemand einen Auftrag dazu erteilt hat.</p>
 
-  <p id="p-085">Das Baumhaus kann Räume öffnen, Werkzeuge bereitstellen und Verbindungen ermöglichen. Aber es kann niemanden dazu zwingen, etwas daraus wachsen zu lassen. Vielleicht liegt hier der Unterschied zwischen einem System, das lediglich funktioniert, und einem Menschen, der aus eigenem Antrieb etwas entwickelt.</p>
+  <p id="p-085">Das Baumhaus kann Räume öffnen, Werkzeuge bereitstellen und Verbindungen ermöglichen. Aber es kann niemanden dazu zwingen, etwas daraus wachsen zu lassen. <strong class="hl">Vielleicht liegt hier der Unterschied zwischen einem System, das lediglich funktioniert, und einem Menschen, der aus eigenem Antrieb etwas entwickelt.</strong></p>
 
-  <p id="p-086">Das Bild des Samens lenkt meinen Blick zurück auf mich selbst. Was hat dieses Baumhaus eigentlich in Bewegung gebracht? Ich wollte nie ein Modell entwickeln. Ich wollte Unterricht vorbereiten. Doch aus jeder Antwort entstand eine neue Frage. Aus jedem Element ergab sich eine weitere Verbindung. Ich baute weiter, weil ich verstehen wollte, was in meinem Unterricht geschieht und was ich verändern kann. Und deshalb ist es auch kein Modell, das sich vergleichen lässt. <strong class="hl1">Das ist meine Werkstatt</strong>. Kein Modell aus Marmor und kein Denkmal, das fertig gebaut und anschliessend verteidigt werden muss. Es bleibt beweglich. Ich kann prüfen, verschieben oder entfernen. Was heute funktioniert, darf morgen wieder verschwinden.</p>
+  <p id="p-086">Das Bild des Samens lenkt meinen Blick zurück auf mich selbst. Was hat dieses Baumhaus eigentlich in Bewegung gebracht? Ich wollte nie ein Modell entwickeln. Ich wollte Unterricht vorbereiten. Doch aus jeder Antwort entstand eine neue Frage. Aus jedem Element ergab sich eine weitere Verbindung. Ich baute weiter, weil ich verstehen wollte, was in meinem Unterricht geschieht und was ich verändern kann. Und deshalb ist es auch kein Modell, das sich vergleichen lässt. <em>Das ist meine Werkstatt</em>. Kein Modell aus Marmor und kein Denkmal, das fertig gebaut und anschliessend verteidigt werden muss. Es bleibt beweglich. Ich kann prüfen, verschieben oder entfernen. <strong class="hl">Was heute funktioniert, darf morgen wieder verschwinden.</strong></p>
 
   <p id="p-087">Seine einzelnen Elemente sind nicht neu. Lernziele, Rückmeldungen, Portfolios und Lernwerkstätten gibt es längst. Auch ihre Kombination ist nicht automatisch einzigartig. Entscheidend ist, warum ich sie auswähle, wie ich sie miteinander verbinde und wann ich bereit bin, sie wieder zu verändern.</p>
 
   <p id="p-088">Jeder Unterricht entsteht unter anderen Bedingungen. Was zu meiner Klasse passt, muss nicht zu einer anderen passen. Deshalb lässt sich das sichtbare Ergebnis nicht einfach von einem Ort an einen anderen übertragen.</p>
 
-  <figure id="abb-06" class="evidence scale-ok custom-scale" style="--figure-scale:0.9">
-    <img src="P2_LAYOUTER/assets/BAUMHAUS-ZWEIFEL_OPS_05B_260805_230907/originals/06_image6.png" alt="Zeigt dieselbe Denkstruktur in fünf austauschbaren Formen – Wald, Schiff, Labor, Flussdelta, Sichtbetonhaus – mit sichtbaren Bleistift-Umbauspuren" loading="lazy">
+  <figure id="abb-06" class="evidence scale-ok">
+    <img src="../../P2_LAYOUTER/assets/BAUMHAUS_ZWEIFEL_OPS_05B_260829_233723/originals/06_image6.png" alt="Zeigt dieselbe Denkstruktur in fünf austauschbaren Formen – Wald, Schiff, Labor, Flussdelta, Sichtbetonhaus – mit sichtbaren Bleistift-Umbauspuren" loading="lazy">
     <span class="stub-tag">Abb. 6</span>
     <figcaption class="cap">Zeigt dieselbe Denkstruktur in fünf austauschbaren Formen – Wald, Schiff, Labor, Flussdelta, Sichtbetonhaus – mit sichtbaren Bleistift-Umbauspuren</figcaption>
   </figure>
 
   <p id="p-089"><strong class="hl">Einzelne Elemente lassen sich übernehmen. Wer aber nur das sichtbare Ergebnis kopiert, ohne den Denkprozess dahinter zu durchlaufen, baut eine Attrappe.</strong></p>
 
-  <p id="p-090">Erst rückblickend erkenne ich, dass daraus das Baumhaus geworden ist. Nicht als Plan. Nicht als fertige Theorie. Sondern als <strong class="hl1">Spur meines eigenen Denkens</strong>. Ich will Antworten. Ich will Rätsel lösen. Ich will genug verstehen, um in meinem Unterricht gute Entscheidungen zu treffen. Das Baumhaus bündelt die Fragen, die mich dabei begleiten: Was brauchen die Kinder vor mir? Was darf sich verändern? Und was muss bleiben? Es ist meine ganz persönliche Art, all das ein bisschen besser zu verstehen.</p>
+  <p id="p-090">Erst rückblickend erkenne ich, dass daraus das Baumhaus geworden ist. Nicht als Plan. Nicht als fertige Theorie. Sondern als <em>Spur meines eigenen Denkens</em>. Ich will Antworten. Ich will Rätsel lösen. Ich will genug verstehen, um in meinem Unterricht gute Entscheidungen zu treffen. Das Baumhaus bündelt die Fragen, die mich dabei begleiten: Was brauchen die Kinder von mir? Was darf sich verändern? Und was muss bleiben? Es ist meine ganz persönliche Art, all das ein bisschen besser zu verstehen.</p>
 
-  <figure id="abb-07" class="evidence scale-ok custom-scale" style="--figure-scale:0.9">
-    <img src="P2_LAYOUTER/assets/BAUMHAUS-ZWEIFEL_OPS_05B_260805_230907/originals/07_image7.png" alt="Konzepttafel von Baumhaus und RESOGENA als Referenzdiagramm mit 14 nummerierten Elementen" loading="lazy">
+  <figure id="abb-07" class="evidence scale-ok">
+    <img src="../../P2_LAYOUTER/assets/BAUMHAUS_ZWEIFEL_OPS_05B_260829_233723/originals/07_image7.png" alt="Konzepttafel von Baumhaus und RESOGENA als Referenzdiagramm mit 14 nummerierten Elementen" loading="lazy">
     <span class="stub-tag">Abb. 7</span>
     <figcaption class="cap">Konzepttafel von Baumhaus und RESOGENA als Referenzdiagramm mit 14 nummerierten Elementen</figcaption>
   </figure>
 
-  <div id="hl4-01" class="statement"><p>Das Baumhaus?<br>Es ist nur eine sichtbare Form meines Denkens, Fragens und Bauens.</p></div>
+  <div id="hl4-01" class="statement">
+    <div class="label">WEGWEISER</div>
+    <p>Das Baumhaus? Es ist nur eine sichtbare Form meines Denkens, Fragens und Bauens.</p>
+  </div>
 
       <div class="cliff">
         <div class="k">Nächste Field Note</div>
@@ -1752,7 +1764,7 @@ korrigiert (siehe `_CURRENT/NOTE/index.html`).
       </div>
 
       <div class="note-footer-meta">
-        <span class="empty">← 07_2025_08_BAUMHAUS-SYSTEM</span>
+        <span class="empty">← 09_2025_09_BAUMHAUS-VERGLEICH</span>
         <a class="nav-next" href="#">— →</a>
       </div>
     </article>
