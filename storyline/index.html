@@ -92,7 +92,7 @@ body{background:var(--bg);color:#191713;font-family:var(--sans);-webkit-font-smo
 
 #bg-img{
   position:fixed;inset:0;pointer-events:none;z-index:0;
-  background-image:url('assets/storyline_fieldnotes_bg_260714.png');
+  background-image:url('../assets/storyline_fieldnotes_bg_260714.png');
   background-size:cover;background-position:center 30%;opacity:.8;
 }
 #bg-grad{
@@ -129,6 +129,16 @@ body{background:var(--bg);color:#191713;font-family:var(--sans);-webkit-font-smo
 .lang.is-active{background:#5e3717;color:#fff4df;border-color:rgba(94,55,23,.7)}
 .lang[disabled],.lang.is-disabled{opacity:.42;cursor:not-allowed;box-shadow:none}
 a.lang:hover{background:#7d4a23;color:#fff4df;border-color:#7d4a23}
+
+.about-link{
+  display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 13px;
+  border-radius:999px;border:1px solid rgba(94,55,23,.26);
+  background:rgba(255,250,240,.58);color:#5e3717;
+  font:700 .62rem/1 var(--mono);letter-spacing:.05em;text-decoration:none;
+  box-shadow:0 8px 18px rgba(45,30,14,.12),0 1px 0 rgba(255,255,255,.55) inset;
+}
+.about-link svg{width:11px;height:11px;flex:none}
+.about-link:hover{background:#7d4a23;color:#fff4df;border-color:#7d4a23}
 
 #svg-lines{position:absolute;inset:0;overflow:visible;pointer-events:none;z-index:20}
 #svg-lines path{pointer-events:none}
@@ -216,8 +226,13 @@ body.draft-mode #draft-export-btn{display:block}
   padding:24px 16px 13px;max-width:none;
   background:transparent;
   transform-origin:13px 12px;
-  filter:drop-shadow(5px 9px 5px rgba(24,15,8,.28)) drop-shadow(0 15px 12px rgba(47,31,14,.18));
   transition:transform .16s ease,filter .16s ease;
+}
+/* Schatten nur fuer NEUGIERDE (Screenshot braucht Kontur) und DATENBANKEN (sehr heller Hero
+   braucht Abgrenzung) -- DIRECTOR-Entscheid 260811, ueberall sonst entfernt. */
+.waypoint.postit-node[data-id="01"] .wp-info,
+.waypoint.postit-node[data-id="DB"] .wp-info{
+  filter:drop-shadow(5px 9px 5px rgba(24,15,8,.28)) drop-shadow(0 15px 12px rgba(47,31,14,.18));
 }
 .waypoint.postit-node[data-id="01"] .wp-info{transform:rotate(-2.4deg)}
 .waypoint.postit-node[data-id="02"] .wp-info{transform:rotate(2.1deg)}
@@ -228,7 +243,11 @@ body.draft-mode #draft-export-btn{display:block}
 .waypoint.postit-node[data-id="10"] .wp-info{transform:rotate(-1deg)}
 .waypoint.postit-node[data-id="DB"] .wp-info{transform:rotate(1.7deg)}
 .waypoint.postit-node[data-id="P7"] .wp-info{transform:rotate(-1.5deg)}
-.waypoint.postit-node:hover .wp-info{filter:drop-shadow(5px 10px 6px rgba(24,15,8,.3)) drop-shadow(0 16px 13px rgba(47,31,14,.2)) saturate(1.03) contrast(1.02)}
+.waypoint.postit-node:hover .wp-info{filter:saturate(1.03) contrast(1.02)}
+.waypoint.postit-node[data-id="01"]:hover .wp-info,
+.waypoint.postit-node[data-id="DB"]:hover .wp-info{
+  filter:drop-shadow(5px 10px 6px rgba(24,15,8,.3)) drop-shadow(0 16px 13px rgba(47,31,14,.2)) saturate(1.03) contrast(1.02);
+}
 .waypoint.postit-node[data-id="01"]:hover .wp-info{transform:rotate(-2.4deg)}
 .waypoint.postit-node[data-id="02"]:hover .wp-info{transform:rotate(2.1deg)}
 .waypoint.postit-node[data-id="03"]:hover .wp-info{transform:rotate(-1.2deg)}
@@ -264,15 +283,13 @@ body.draft-mode #draft-export-btn{display:block}
   transform:rotate(-1.3deg);
 }
 .waypoint.postit-node[data-id="01"] .wp-info:before{
-  /* NEUGIERDE behaelt die Verdunkelung -- Hero ist ein echter Screenshot, braucht Kontrastschutz.
-     !important noetig: .with-hero-Regel steht spaeter im Stylesheet, gleiche Spezifitaet, gewinnt sonst per Kaskade. */
   background:
     linear-gradient(180deg,rgba(255,241,201,.24) 0 16%,rgba(255,241,201,0) 34%),
     linear-gradient(135deg,rgba(46,26,12,.2),rgba(46,26,12,.72)),
     radial-gradient(rgba(255,242,213,.18) .8px,transparent 1px) 0 0/5px 5px,
-    url('heroes/hero_01.png') !important;
-  background-size:cover,cover,5px 5px,cover !important;
-  background-position:center,center,0 0,center !important;
+    url('heroes/hero_01.png');
+  background-size:cover,cover,5px 5px,cover;
+  background-position:center,center,0 0,center;
   border-color:rgba(28,20,13,.62);
   box-shadow:
     2px 2px 0 rgba(24,16,9,.38),
@@ -284,9 +301,10 @@ body.draft-mode #draft-export-btn{display:block}
 .waypoint.postit-node[data-id="02"] .wp-info:before{
   background:
     linear-gradient(180deg,rgba(255,241,201,.22) 0 16%,rgba(255,241,201,0) 34%),
+    linear-gradient(135deg,rgba(46,26,12,.18),rgba(46,26,12,.68)),
     url('heroes/hero_02_2x1_ai_260707_1536x768.png');
-  background-size:cover,cover;
-  background-position:center,center;
+  background-size:cover,cover,cover;
+  background-position:center,center,center;
   border-color:rgba(28,20,13,.62);
   box-shadow:
     2px 2px 0 rgba(24,16,9,.38),
@@ -298,9 +316,10 @@ body.draft-mode #draft-export-btn{display:block}
 .waypoint.postit-node.with-hero .wp-info:before{
   background:
     linear-gradient(180deg,rgba(255,241,201,.22) 0 16%,rgba(255,241,201,0) 34%),
+    linear-gradient(135deg,rgba(46,26,12,.18),rgba(46,26,12,.68)),
     var(--postit-hero);
-  background-size:cover,cover;
-  background-position:center,center;
+  background-size:cover,cover,cover;
+  background-position:center,center,center;
   border-color:rgba(28,20,13,.62);
   box-shadow:
     2px 2px 0 rgba(24,16,9,.38),
@@ -345,7 +364,6 @@ body.draft-mode #draft-export-btn{display:block}
   position:fixed;left:50%;top:50%;width:min(620px,calc(100vw - 42px));
   z-index:60;background:#fffaf0;border:2px solid rgba(42,29,18,.48);border-radius:8px;
   clip-path:none;
-  box-shadow:0 32px 70px rgba(36,23,12,.42),0 2px 0 rgba(255,255,255,.34) inset;
   overflow:hidden;display:none;animation:cardFlyIn .34s cubic-bezier(.2,.78,.25,1) both;
 }
 #expanded-card:before{
@@ -355,12 +373,12 @@ body.draft-mode #draft-export-btn{display:block}
   border:1px solid rgba(97,66,31,.24);border-radius:3px;
   box-shadow:0 5px 11px rgba(32,20,9,.18),0 1px 0 rgba(255,255,255,.36) inset;
 }
-#card-photo{position:relative;display:flex;align-items:flex-end;justify-content:flex-start;min-height:390px;background-size:cover;background-position:center}
-#card-inner{padding:92px 100px 28px 30px;width:100%;text-align:left}
+#card-photo{display:flex;align-items:flex-end;justify-content:flex-start;min-height:390px;background-size:cover;background-position:center}
+#card-inner{padding:92px 30px 28px;max-width:76%;text-align:left}
 #card-meta{font:600 .68rem/1 var(--mono);letter-spacing:.12em;color:#ffd9a8;margin-bottom:10px;text-shadow:0 1px 8px rgba(20,12,4,.7)}
 #card-title{font:800 clamp(1.35rem,3vw,2.35rem)/1.03 var(--sans);letter-spacing:0;color:#fffaf0;margin:0;text-shadow:0 1px 8px rgba(20,12,4,.7)}
 #card-abs{font-family:var(--serif);font-size:1.06rem;line-height:1.48;color:#f6ecdd;margin:14px 0 0;text-shadow:0 1px 8px rgba(20,12,4,.7)}
-#card-langs{position:absolute;right:30px;bottom:28px;display:flex;flex-direction:column;align-items:flex-end;gap:7px}
+#card-langs{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-top:15px}
 #card-langs .lang{
   min-width:36px;height:29px;background:rgba(255,250,240,.18);
   border-color:rgba(255,217,168,.42);color:#ffd9a8;
@@ -369,6 +387,8 @@ body.draft-mode #draft-export-btn{display:block}
 #card-langs .lang.is-active{background:rgba(255,217,168,.22);color:#fffaf0;border-color:rgba(255,217,168,.7)}
 #card-langs .lang[disabled],#card-langs .lang.is-disabled{color:rgba(255,217,168,.55);border-color:rgba(255,217,168,.18)}
 #card-langs a.lang:hover{background:rgba(255,217,168,.28);color:#fffaf0}
+#card-link{display:inline-block;margin-top:14px;font:600 .72rem/1 var(--mono);letter-spacing:.06em;color:#ffd9a8;text-decoration:none;border-bottom:1.5px solid #ffd9a8;padding-bottom:3px;text-shadow:0 1px 8px rgba(20,12,4,.7)}
+#card-link:hover{color:#fff}
 
 #footer{
   position:fixed;bottom:0;left:0;right:0;z-index:200;pointer-events:none;
@@ -431,11 +451,13 @@ body.draft-mode #draft-export-btn{display:block}
     background:
       linear-gradient(180deg,rgba(255,224,167,.18),rgba(91,52,21,.08)),
       linear-gradient(90deg,#a8743c,#7a4a22);
-    box-shadow:0 6px 0 rgba(52,30,13,.6),0 1px 0 rgba(255,242,202,.28) inset;
     color:#fff3dc;text-align:left;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease;
   }
   .drawer-row:focus-visible{outline:2px solid #ffd9a8;outline-offset:3px}
   .drawer-row[aria-disabled="true"]{cursor:default;opacity:.72}
+  /* Schatten nur fuer NEUGIERDE/DATENBANKEN, gleicher Entscheid wie bei den Desktop-Kacheln. */
+  .drawer-row[data-id="01"],
+  .drawer-row[data-id="DB"]{box-shadow:0 6px 0 rgba(52,30,13,.6),0 1px 0 rgba(255,242,202,.28) inset}
   .drawer-row:after{
     content:"";position:absolute;left:50%;top:11px;width:48px;height:9px;
     transform:translateX(-50%);border-radius:99px;
@@ -488,6 +510,10 @@ body.draft-mode #draft-export-btn{display:block}
   </div>
 
   <div id="top-actions">
+    <a class="about-link" href="ueber-die-reihe/" title="Über diese Reihe &amp; Methodik">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v6l4 2"/></svg>
+      Über die Reihe
+    </a>
     <div class="langs storyline-langs" role="group" aria-label="Sprache">
       <button class="lang is-active" type="button" title="Deutsch" aria-label="Deutsch">DE</button>
       <a class="lang" href="en/" title="English" aria-label="English">EN</a>
@@ -511,6 +537,7 @@ body.draft-mode #draft-export-btn{display:block}
         <div id="card-title"></div>
         <div id="card-abs"></div>
         <div id="card-langs" role="group" aria-label="Sprache"></div>
+        <a id="card-link" href="#">Note öffnen →</a>
       </div>
     </div>
   </div>
@@ -526,16 +553,18 @@ body.draft-mode #draft-export-btn{display:block}
 'use strict';
 
 /* ── DATA ─────────────────────────────────────────────────────────── */
+/* Schatten-Ausnahme (DIRECTOR-Entscheid 260811): ueberall sonst entfernt -- NEUGIERDE
+   braucht Kontur, weil es ein Screenshot ist; DATENBANKEN, weil sein Hero extrem hell ist. */
+var SHADOW_IDS = new Set(['01','DB']);
 var NOTES = [
   {
     id:'01', kurztitel:'NEUGIERDE',
     titel:'AM ANFANG STEHT DIE NEUGIERDE',
     datum:'2025-07-20', datum_publish:'2026-06-22',
     abstract:'Wie aus einer Planungsfrage an GPT ein didaktisches Dessertbuffet entsteht — und am Schluss neue Ideen einen Anfang markieren.',
-    subline:'Wie aus einer Planungsfrage an GPT ein didaktisches Dessertbuffet entsteht — und am Schluss neue Ideen einen Anfang markieren.',
-    status:'LIVE', url:'notes/neugierde/index.html',
-    langs:{de:'notes/neugierde/index.html',en:'notes/neugierde/en/index.html'},
-    hero:'heroes/hero_01.png', heroAnchor:'tl',
+    status:'LIVE', url:'../notes/neugierde/index.html',
+    langs:{de:'../notes/neugierde/index.html',en:'../notes/neugierde/en/index.html',es:'../notes/neugierde/es/index.html',fr:'../notes/neugierde/fr/index.html'},
+    hero:'../heroes/hero_01.png', heroAnchor:'tl',
     geht_nach:[{ref:'02',typ:'direkt'}]
   },
   {
@@ -543,10 +572,9 @@ var NOTES = [
     titel:'VOM ARBEITSBLATT ZUR UNTERRICHTSIDEE',
     datum:'2025-08-02', datum_publish:null,
     abstract:'Aus der Absicht Übungsblätter zu erstellen, wurde eine Materialschlacht und unbewusst dazu eine Mise en place der eigenen Didaktik — bis ein Déjà-vu alles veränderte.',
-    subline:'Aus der Absicht Übungsblätter zu erstellen, wurde eine Materialschlacht und unbewusst dazu eine Mise en place der eigenen Didaktik — bis ein Déjà-vu alles veränderte.',
-    status:'LIVE', url:'notes/unterrichtsidee/index.html',
-    langs:{de:'notes/unterrichtsidee/index.html',en:'notes/unterrichtsidee/en/index.html'},
-    hero:'heroes/hero_02_2x1_ai_260707_1536x768.png', heroAnchor:'tl',
+    status:'LIVE', url:'../notes/unterrichtsidee/index.html',
+    langs:{de:'../notes/unterrichtsidee/index.html',en:'../notes/unterrichtsidee/en/index.html',es:'../notes/unterrichtsidee/es/index.html',fr:'../notes/unterrichtsidee/fr/index.html'},
+    hero:'../heroes/hero_02_2x1_ai_260707_1536x768.png', heroAnchor:'tl',
     geht_nach:[{ref:'03',typ:'Zweig'},{ref:'04',typ:'Zweig'},{ref:'05',typ:'Zweig'}]
   },
   {
@@ -554,10 +582,9 @@ var NOTES = [
     titel:'UNTERRICHTSWERKZEUGE',
     datum:'2025-08-12', datum_publish:'2026-10-06',
     abstract:'Was in der Vision als Idee aufblitzt, wird zur Werkstatt: Die ersten Werkzeuge werden gebaut.',
-    subline:'Sechs Werkzeuge sollten aus einer theoretischen Idee entstehen. Doch nicht jede gute Idee trägt im Schulzimmer — fünf blieben übrig.',
-    status:'LIVE', url:'notes/unterrichtswerkzeuge/index.html',
-    langs:{de:'notes/unterrichtswerkzeuge/index.html',en:'notes/unterrichtswerkzeuge/en/index.html',es:'notes/unterrichtswerkzeuge/es/index.html',fr:'notes/unterrichtswerkzeuge/fr/index.html'},
-    hero:'heroes/hero_03.png', heroAnchor:'tl',
+    status:'LIVE', url:'../notes/unterrichtswerkzeuge/index.html',
+    langs:{de:'../notes/unterrichtswerkzeuge/index.html',en:'../notes/unterrichtswerkzeuge/en/index.html',es:'../notes/unterrichtswerkzeuge/es/index.html',fr:'../notes/unterrichtswerkzeuge/fr/index.html'},
+    hero:'../heroes/hero_03.png', heroAnchor:'tl',
     geht_nach:[{ref:'08',typ:'Zweig'}]
   },
   {
@@ -565,10 +592,9 @@ var NOTES = [
     titel:'YAML FÜR DEN UNTERRICHT',
     datum:'2025-08-14', datum_publish:null,
     abstract:'Vier Tage vor Schulbeginn wird aus einem hochgeladenen Pseudo-YAML ein Unterrichtsbaukasten: für Aufgaben, sprachsensitiven Unterricht, interdisziplinäre Lernkontrollen und einen Kollegen.',
-    subline:'Vier Tage vor Schulbeginn wird aus einem hochgeladenen Pseudo-YAML ein Unterrichtsbaukasten: für Aufgaben, sprachsensitiven Unterricht, interdisziplinäre Lernkontrollen und einen Kollegen.',
-    status:'LIVE', url:'notes/lets-yaml/index.html',
-    langs:{de:'notes/lets-yaml/index.html',en:'notes/lets-yaml/en/index.html'},
-    hero:'heroes/hero_04.png', heroAnchor:'tl',
+    status:'LIVE', url:'../notes/lets-yaml/index.html',
+    langs:{de:'../notes/lets-yaml/index.html',en:'../notes/lets-yaml/en/index.html',es:'../notes/lets-yaml/es/index.html',fr:'../notes/lets-yaml/fr/index.html'},
+    hero:'../heroes/hero_04.png', heroAnchor:'tl',
     geht_nach:[]
   },
   {
@@ -576,8 +602,7 @@ var NOTES = [
     titel:'GAMES',
     datum:'2025-08-25', datum_publish:null,
     abstract:'Offener Seitenzweig: Gamification-Konzepte treffen auf den Unterrichtsalltag. Der Konflikt zwischen Spiel und Ernst bleibt unaufgelöst.',
-    subline:'Gamification wird erst dann zum Lernverstärker, wenn Feedback, Autonomie und Kompetenzerleben wichtiger bleiben als Punkte und Belohnungen.',
-    status:'ANNOUNCED', url:null, hero:'heroes/hero_05.png', heroAnchor:'tl',
+    status:'ANNOUNCED', url:null, hero:'../heroes/hero_05.png', heroAnchor:'tl',
     geht_nach:[]
   },
   {
@@ -585,10 +610,9 @@ var NOTES = [
     titel:'VON DER FRAGE ZUM DIDAKTISCHEN WALD',
     datum:'2025-09-02', datum_publish:'2026-07-15',
     abstract:'Aus einer einfachen Liste wächst eine grosse Sammlung aus didaktischen Ebenen, Clustern und Ordnungen - und sie wird zu gross für den Unterricht.',
-    subline:'Aus einer einfachen Liste wächst eine grosse Sammlung aus didaktischen Ebenen, Clustern und Ordnungen - und sie wird zu gross für den Unterricht.',
-    status:'LIVE', url:'notes/wald/index.html',
-    langs:{de:'notes/wald/index.html',en:'notes/wald/en/index.html'},
-    hero:'heroes/hero_08.png', heroAnchor:'tl',
+    status:'LIVE', url:'../notes/wald/index.html',
+    langs:{de:'../notes/wald/index.html',en:'../notes/wald/en/index.html',es:'../notes/wald/es/index.html',fr:'../notes/wald/fr/index.html'},
+    hero:'../heroes/hero_08.png', heroAnchor:'tl',
     geht_nach:[{ref:'10',typ:'direkt'}]
   },
   {
@@ -596,10 +620,9 @@ var NOTES = [
     titel:'VOM WALD ZU DIDAKTISCHEN SCHABLONEN',
     datum:'2025-10-21', datum_publish:'2026-07-15',
     abstract:'Aus 38 didaktischen Ebenen wird eine Arbeitsliste. Dann suche ich nach Stellschrauben für den Unterricht und lande bei didaktischen Schablonen.',
-    subline:'Aus 38 didaktischen Ebenen wird eine Arbeitsliste. Dann suche ich nach Stellschrauben für den Unterricht und lande bei didaktischen Schablonen.',
-    status:'LIVE', url:'notes/schablonen/index.html',
-    langs:{de:'notes/schablonen/index.html',en:'notes/schablonen/en/index.html'},
-    hero:'heroes/hero_10.png', heroAnchor:'tl',
+    status:'LIVE', url:'../notes/schablonen/index.html',
+    langs:{de:'../notes/schablonen/index.html',en:'../notes/schablonen/en/index.html',es:'../notes/schablonen/es/index.html',fr:'../notes/schablonen/fr/index.html'},
+    hero:'../heroes/hero_10.png', heroAnchor:'tl',
     geht_nach:[{ref:'DB',typ:'direkt'}]
   },
   {
@@ -607,10 +630,9 @@ var NOTES = [
     titel:'DATENBANKEN',
     datum:'2025-10-29', datum_publish:'2026-07-15',
     abstract:'Aus dem Nachdenken über Unterricht entsteht ein didaktisches Betriebssystem. Aber am Ende klicke ich auf STOP.',
-    subline:'Aus dem Nachdenken über Unterricht entsteht ein didaktisches Betriebssystem. Aber am Ende klicke ich auf STOP.',
-    status:'LIVE', url:'notes/datenbanken/index.html',
-    langs:{de:'notes/datenbanken/index.html',en:'notes/datenbanken/en/index.html'},
-    hero:'heroes/hero_datenbanken_2x1_variante_01.png', heroAnchor:'tl',
+    status:'LIVE', url:'../notes/datenbanken/index.html',
+    langs:{de:'../notes/datenbanken/index.html',en:'../notes/datenbanken/en/index.html',es:'../notes/datenbanken/es/index.html',fr:'../notes/datenbanken/fr/index.html'},
+    hero:'../heroes/hero_datenbanken_2x1_variante_01.png', heroAnchor:'tl',
     geht_nach:[]
   },
   {
@@ -618,7 +640,6 @@ var NOTES = [
     titel:'DAS LERNTEST-PAKET',
     datum:'2025-12-04', datum_publish:'soon',
     abstract:'Vom Papier-Kurztest zum adaptiven GPT-Testpaket: Aufgaben, Auswertung und Rückmeldung werden in mehreren Schleifen zu einem zusammenhängenden System.',
-    subline:'Vom Papier-Kurztest über den ersten Klassenversuch zum funktionierenden GPT-Testpaket',
     status:'LIVE', url:'../notes/lerntest-01-paket/index.html',
     langs:{de:'../notes/lerntest-01-paket/index.html',en:'../notes/lerntest-01-paket/en/index.html',es:'../notes/lerntest-01-paket/es/index.html',fr:'../notes/lerntest-01-paket/fr/index.html'},
     hero:'../heroes/hero_testpaket.png', heroAnchor:'center',
@@ -629,7 +650,6 @@ var NOTES = [
     titel:'TOSKAT',
     datum:'2026-01-05', datum_publish:'soon',
     abstract:'Aus der Frage, wie Schülerbuchtexte für unterschiedliche Jugendliche lesbar werden, entsteht ein steuerbares Textwerkzeug mit sieben Merkmalen und einer YAML-Architektur.',
-    subline:'Wie aus der schwierigen Frage «Was macht Texte einfacher oder schwieriger?» ein nicht ganz einfaches Werkzeug entsteht.',
     status:'LIVE', url:'../notes/toskat/index.html',
     langs:{de:'../notes/toskat/index.html',en:'../notes/toskat/en/index.html',es:'../notes/toskat/es/index.html',fr:'../notes/toskat/fr/index.html'},
     hero:'../heroes/hero_toskat.png', heroAnchor:'center',
@@ -645,94 +665,92 @@ var NOTES = [
     geht_nach:[]
   },
   {
-    id:'P7', kurztitel:'ÜBERSETZUNG',
-    titel:'WIE DIE NOTES ÜBERSETZT WERDEN',
-    datum:'2026-07-13', datum_publish:'2026-07-14',
-    abstract:'Drei Versionen einer Übersetzungsgeschichte: erst Browser-Manual, dann CLI-Zwischenroute, jetzt SDK-Pipeline. P7 zeigt, warum Hochladen nach GPT nicht reicht und warum Übersetzung Spuren braucht.',
-    status:'LIVE', url:'p7-translation/index.html',
-    langs:{de:'p7-translation/index.html'},
-    hero:'p7-translation/hero_p7_translation_260714.png', heroAnchor:'tr',
-    geht_nach:[]
-  },
-  /* ── 260807: 4 P5-Notes, als aktiv dargestellt (status LIVE, url:null = noch ohne Verdrahtung).
-     Wird beim P6/P8-Launch dieser Notes durch echte Verdrahtung ersetzt. ── */
-  {
     id:'07', kurztitel:'SECHS BAUSTEINE',
     titel:'SECHS BAUSTEINE, EIN HAUS',
-    datum:'2025-08-23', datum_publish:null,
-    abstract:'Aus sechs Werkzeugen werden Ende August fünf Bausteine einer Unterrichtsarchitektur: Portal, Forschungsreise, Werkstatt, Marktplatz und Lagerfeuer fügen sich zu einem Haus, das noch keinen Schutz kennt.',
-    subline:'Aus verstreuten Unterrichtsideen soll ein Ganzes werden — doch ich frage mich, ob Zusammenbauen reicht, oder ob dazwischen noch mehr existiert.',
-    status:'LIVE', url:null,
-    hero:'heroes/hero_07.png', heroAnchor:'br',
-    geht_nach:[]
+    datum:'2025-08-21', datum_publish:'2026-08-08',
+    abstract:'Aus verstreuten Unterrichtsideen soll ein Ganzes werden — doch ich frage mich, ob Zusammenbauen reicht, oder ob dazwischen noch mehr existiert.',
+    status:'LIVE', url:'../notes/baumhaus-system/index.html',
+    langs:{de:'../notes/baumhaus-system/index.html',en:'../notes/baumhaus-system/en/index.html',es:'../notes/baumhaus-system/es/index.html',fr:'../notes/baumhaus-system/fr/index.html'},
+    hero:'../heroes/hero_07.png', heroAnchor:'tl', heroVeil:'off',
+    geht_nach:[{ref:'09',typ:'Zweig'},{ref:'13',typ:'Zweig'}]
   },
   {
     id:'09', kurztitel:'SCHULMODELL',
     titel:'DAS BESTE SCHULMODELL DER WELT',
-    datum:'2025-11-04', datum_publish:null,
-    abstract:'Ich vergleiche mein Baumhaus-Modell mit immer mehr Referenzmodellen – zwanzig, vierzig, schliesslich siebzig. Aus dem Vergleich wird ein Wettkampf um das beste Schulmodell. Erst als mich die Bestätigung mehr treibt als die Sache selbst, merke ich: Ich habe vergessen, worum es eigentlich geht.',
-    subline:'Wie aus einem Modellvergleich ein Wettkampf wird, und ich vergesse, worum es eigentlich geht.',
-    status:'LIVE', url:null,
-    hero:'heroes/hero_baumhaus_vergleich.png', heroAnchor:'tr',
-    geht_nach:[]
+    datum:'2025-09-05', datum_publish:'2026-08-08',
+    abstract:'Wie aus einem Modellvergleich ein Wettkampf wird, und ich vergesse, worum es eigentlich geht.',
+    status:'LIVE', url:'../notes/baumhaus-vergleich/index.html',
+    langs:{de:'../notes/baumhaus-vergleich/index.html',en:'../notes/baumhaus-vergleich/en/index.html',es:'../notes/baumhaus-vergleich/es/index.html',fr:'../notes/baumhaus-vergleich/fr/index.html'},
+    hero:'../heroes/hero_baumhaus_vergleich.png', heroAnchor:'tl', heroVeil:'off',
+    geht_nach:[{ref:'12',typ:'direkt'}]
   },
   {
     id:'13', kurztitel:'WEGWEISER',
     titel:'WEGWEISER',
-    datum:'2025-09-08', datum_publish:null,
-    abstract:'Auf der Suche nach Schutz für sein Baumhaus-Konzept macht der Autor GPT zum härtesten Kritiker und lässt ihn durchspielen, wie man die Schule von innen zerstören könnte. Aus dieser Zerstörungslogik entsteht der Polarstern als fester Bezugspunkt und RESOGENA als Name für die resonant-generativen Kräfte zwischen den Bausteinen.',
-    subline:'Auf der Suche nach Schutz zerstöre ich sie und stosse dadurch auf eine Kraft, die am Ende nicht nur Antworten, sondern auch eine Erkenntnis bringt.',
-    status:'LIVE', url:null,
-    hero:'heroes/hero_13.png', heroAnchor:'tr',
+    datum:'2025-09-08', datum_publish:'2026-08-08',
+    abstract:'Auf der Suche nach Schutz zerstöre ich die Schule in Gedanken und stosse dadurch auf eine Kraft, die am Ende nicht nur Antworten, sondern auch eine Erkenntnis bringt.',
+    status:'LIVE', url:'../notes/baumhaus-zweifel/index.html',
+    langs:{de:'../notes/baumhaus-zweifel/index.html',en:'../notes/baumhaus-zweifel/en/index.html',es:'../notes/baumhaus-zweifel/es/index.html',fr:'../notes/baumhaus-zweifel/fr/index.html'},
+    hero:'../heroes/hero_13.png', heroAnchor:'tr', heroVeil:'off',
     geht_nach:[]
   },
   {
     id:'12', kurztitel:'UBUNTUGOGY',
     titel:'UBUNTUGOGY',
-    datum:'2025-12-11', datum_publish:null,
-    abstract:'Fortsetzung des Baumhaus-Vergleichs: Aus 20 europäischen Modellen wächst über sieben Sammelrunden (Claude erweitert, GPT prüft) eine Excel-Datenbank mit 1465 Zeilen aus allen Weltregionen. Vollständigkeit bleibt unerreichbar – am Ende zählt der kleiner gewordene eigene Horizont.',
-    subline:'Was mit 20 Konzepten beginnt, führt zu einer unvollendeten Tabelle, bei der am Schluss nicht die Vollständigkeit wichtig ist, sondern eine Erkenntnis.',
-    status:'LIVE', url:null,
-    hero:'heroes/hero_12.png', heroAnchor:'tr',
+    datum:'2025-11-01', datum_publish:'2026-08-08',
+    abstract:'Was mit 20 Konzepten beginnt, führt zu einer unvollendeten Tabelle, bei der am Schluss nicht die Vollständigkeit wichtig ist, sondern eine Erkenntnis.',
+    status:'LIVE', url:'../notes/rest-der-welt/index.html',
+    langs:{de:'../notes/rest-der-welt/index.html',en:'../notes/rest-der-welt/en/index.html',es:'../notes/rest-der-welt/es/index.html',fr:'../notes/rest-der-welt/fr/index.html'},
+    hero:'../heroes/hero_12.png', heroAnchor:'tl', heroVeil:'off',
+    geht_nach:[]
+  },
+  {
+    id:'P7', kurztitel:'ÜBERSETZUNG',
+    titel:'WIE DIE NOTES ÜBERSETZT WERDEN',
+    datum:'2026-07-13', datum_publish:'2026-07-14',
+    abstract:'Drei Versionen einer Übersetzungsgeschichte: erst Browser-Manual, dann CLI-Zwischenroute, jetzt SDK-Pipeline. P7 zeigt, warum Hochladen nach GPT nicht reicht und warum Übersetzung Spuren braucht.',
+    status:'LIVE', url:'../p7-translation/index.html',
+    langs:{de:'../p7-translation/index.html',en:'../p7-translation/en/index.html',es:'../p7-translation/es/index.html',fr:'../p7-translation/fr/index.html'},
+    hero:'p7-translation/hero_p7_translation_260714.png', heroAnchor:'tr',
     geht_nach:[]
   }
 ];
 
 var DEFAULTS = {
-  /* HUM-kuratiert per Draft-Mode-Export 260807 (Drag-Prep-Session) */
-  '01':{x:0.02, y:0.2894017649593414},
-  '02':{x:0.04148935511293494, y:0.5225472372131335},
-  '03':{x:0.07877875949709129, y:0.7553696380719607},
-  '04':{x:0.1436626756903957, y:0.44384274142668606},
-  '05':{x:0.17331068061981958, y:0.6739032465686886},
-  '08':{x:0.34567115653402564, y:0.7026998406894215},
-  '10':{x:0.4465084527456979, y:0.7458844911075169},
-  'DB':{x:0.5849172229846628, y:0.6792375438486077},
-  'TP':{x:0.7636530429961738, y:0.6950496865149026},
-  'TS':{x:0.8730290617587487, y:0.4055075629911663},
-  'TB':{x:0.8476974940665235, y:0.5995046141854377},
-  'P7':{x:0.8533518642150526, y:0.11401532640371279},
-  '07':{x:0.30617799049896727, y:0.47020061678736136},
-  '09':{x:0.4771727668802152, y:0.4896848662193321},
-  '13':{x:0.3884817073482492, y:0.3613180078544726},
-  '12':{x:0.6657590424702431, y:0.48624652326960965}
+  '01':{x:0.03666666616996128, y:0.29054785741518624},
+  '02':{x:0.17187498437170062, y:0.4573485554282278},
+  '03':{x:0.2767328354380645, y:0.7500598481465741},
+  '04':{x:0.020625986531262037, y:0.5355332421178348},
+  '05':{x:0.04393032777498785, y:0.7661740132122234},
+  '08':{x:0.5059030545201303, y:0.5617860183186028},
+  '10':{x:0.45717570555377174, y:0.7653689154253223},
+  'DB':{x:0.6828294504127024, y:0.5320552715141129},
+  'TP':{x:0.6471433089615464, y:0.7393136884431939},
+  'TS':{x:0.813603308994865, y:0.6951747978764833},
+  'TB':{x:0.8531932625087274, y:0.47723333840551674},
+  'P7':{x:0.8470691576797532, y:0.13693796250686466},
+  /* DIRECTOR-kuratiert per Draft-Mode-Session 260811 (Ueberlappungs-Korrektur
+     nach Baumhaus-Arc-Ergaenzung), Export via index_draggable.html. */
+  '07':{x:0.3221289182333423, y:0.5109982699856035},
+  '09':{x:0.3998720902619117, y:0.3436725600059532},
+  '13':{x:0.5590337267399902, y:0.3656124414482227},
+  '12':{x:0.7160657005338593, y:0.33593985975642604}
 };
 
-/* HUM-fixierte Kurven-Griffe aus Draft-Mode-Export 260706 (Bezier-Feintuning).
-   Fix 260706b: cps wird jetzt normiert (0..1) gespeichert/gelesen (siehe gc()),
-   wie DEFAULTS/positions -> bleibt bei jeder Fenstergroesse korrekt platziert.
-   Diese Werte sind aus den urspruenglich exportierten Absolut-Pixeln anhand
-   des zuletzt verifizierten Testfensters (1528x717) zurückgerechnet — bei
-   Bedarf im Draft-Mode einmal neu ziehen+exportieren fuer echte Praezision. */
+/* HUM-fixierte Kurven-Griffe, Draft-Mode-Export 260811 (Ueberlappungs-Korrektur
+   nach Baumhaus-Arc-Ergaenzung, ersetzt den 260706-Export vollstaendig). */
 var DEFAULT_CPS = {
-  '01-02':{x:0.1760465191335736, y:0.16112148703323506},
-  '02-04':{x:0.1630255735982348, y:0.5439224631182016},
-  '02-03':{x:0.17743438370267092, y:0.7076685375956165},
-  '02-05':{x:0.1953309822866501, y:0.7595225458551662},
-  '03-08':{x:0.18395833730697633, y:0.6478083111488656},
-  '08-10':{x:0.2624218948682149, y:0.689999891307256},
-  '10-DB':{x:0.5431961987357784, y:0.7280856206796007},
-  'TP-TB':{x:0.7552653238103081, y:0.7421066401843681}
+  '01-02':{x:0.2398501537771283, y:0.3092810863374343},
+  '02-04':{x:0.026829281810951032, y:0.4709163672319711},
+  '02-03':{x:0.21056318750080152, y:0.9438649029520618},
+  '02-05':{x:0.19287695483826842, y:0.7702587824274318},
+  '03-08':{x:0.4612590139252799, y:0.7100782849037485},
+  '08-10':{x:0.4587409081913176, y:0.6449078808092092},
+  '10-DB':{x:0.6143617522374526, y:0.9170429113290147},
+  'TP-TB':{x:0.6350198316925626, y:0.3813704417590752},
+  '07-13':{x:0.5816140809709086, y:0.6300064934309315},
+  '09-12':{x:0.738463109599117, y:0.22385775619203646},
+  '07-09':{x:0.3976168700093963, y:0.45352966595894645}
 };
 
 var LS_POS = 'fn-storyline-v8-postit';
@@ -809,6 +827,7 @@ var cardMeta = document.getElementById('card-meta');
 var cardTitle = document.getElementById('card-title');
 var cardAbs = document.getElementById('card-abs');
 var cardLangs = document.getElementById('card-langs');
+var cardLink = document.getElementById('card-link');
 
 /* ── DRAG STATE ────────────────────────────────────────────────────── */
 var _drag = null;
@@ -1162,7 +1181,7 @@ function render() {
     if (drawerEl) {
       drawerEl.classList.toggle('is-expanded', expandedId === n.id);
       drawerEl.style.transform = expandedId === n.id ? 'translateX(10px)' : '';
-      drawerEl.style.boxShadow = expandedId === n.id
+      drawerEl.style.boxShadow = (expandedId === n.id && SHADOW_IDS.has(n.id))
         ? '0 9px 0 rgba(52,30,13,.62),0 16px 28px rgba(34,20,10,.28),0 1px 0 rgba(255,242,202,.3) inset'
         : '';
       drawerEl.style.animation = shakeId === n.id ? 'drawerShake .43s ease' : '';
@@ -1174,35 +1193,54 @@ function render() {
   if (expNote && (expNote.status === 'LIVE' || expNote.id === '02')) {
     var hasHero = !!expNote.hero;
     var hv = '46,26,14'; /* Espresso-Braun 260706, ersetzt alte V6.05-Schwarzbraun-Schattierung */
-    var veil = 'linear-gradient(180deg,rgba(255,241,201,.18) 0 18%,rgba(255,241,201,0) 38%),radial-gradient(140% 140% at 0% 0%,rgba('+hv+',.94) 0%,rgba('+hv+',.78) 34%,rgba('+hv+',.35) 64%,rgba('+hv+',.08) 100%)';
+    /* D_260807_01_HERO_VEIL_OPTOUT: Notes mit hero.veil:"off" im Dossier tragen die Dunkel-
+       zone bereits im Hero-Bild selbst (ESPRESSO-Stil) - zusaetzliche CSS-Abdunkelung waere
+       doppelt. War bisher nur im Note-Page-Renderer verdrahtet, hier fuer die Storyline-Karte
+       nachgezogen (DIRECTOR-Befund 260808, Kacheln SYSTEM/VERGLEICH/ZWEIFEL/REST_DER_WELT). */
+    var veil = (expNote.heroVeil === 'off') ? '' :
+      'linear-gradient(180deg,rgba(255,241,201,.18) 0 18%,rgba(255,241,201,0) 38%),radial-gradient(140% 140% at 0% 0%,rgba('+hv+',.94) 0%,rgba('+hv+',.78) 34%,rgba('+hv+',.35) 64%,rgba('+hv+',.08) 100%),';
     var tsh = hasHero ? '0 1px 8px rgba(20,12,4,.7)' : 'none';
     var sourceP = posOf(expNote.id);
 
     expandedOverlay.style.display = 'block';
     expandedCard.style.display = 'block';
+    expandedCard.style.boxShadow = SHADOW_IDS.has(expNote.id)
+      ? '0 32px 70px rgba(36,23,12,.42),0 2px 0 rgba(255,255,255,.34) inset'
+      : 'none';
     expandedCard.style.setProperty('--from-x', sourceP.x.toFixed(1)+'px');
     expandedCard.style.setProperty('--from-y', sourceP.y.toFixed(1)+'px');
     expandedCard.style.setProperty('--from-rot', expNote.id === '02' ? '2deg' : '-2deg');
 
     if (hasHero) {
-      /* NEUGIERDE (Screenshot-Hero) behaelt Veil, alle anderen Espresso-Motive nicht */
-      cardPhoto.style.backgroundImage = (expNote.id === '01' ? veil+',' : '') + 'url("'+expNote.hero+'")';
+      cardPhoto.style.backgroundImage = veil+'url("'+expNote.hero+'")';
       cardPhoto.style.minHeight = '390px';
       cardMeta.style.color = '#ffd9a8';
       cardTitle.style.color = '#fffaf0';
       cardAbs.style.color = '#f6ecdd';
+      cardLink.style.color = '#ffd9a8';
+      cardLink.style.borderBottomColor = '#ffd9a8';
     } else {
       cardPhoto.style.backgroundImage = 'none';
       cardPhoto.style.minHeight = '300px';
       cardMeta.style.color = '#9a8d7b';
       cardTitle.style.color = '#241c12';
       cardAbs.style.color = '#2c2620';
+      cardLink.style.color = accentDeep;
+      cardLink.style.borderBottomColor = accent;
     }
     cardMeta.textContent = expNote.id+' · '+fmt(expNote.datum);
     cardTitle.textContent = expNote.titel;
-    cardAbs.textContent = expNote.subline||expNote.abstract||'Abstract folgt.';
+    cardAbs.textContent = expNote.abstract||'Abstract folgt.';
     renderLangs(expNote);
-    cardMeta.style.textShadow = cardTitle.style.textShadow = cardAbs.style.textShadow = tsh;
+    if (expNote.url) {
+      cardLink.style.display = 'inline-block';
+      cardLink.href = expNote.url;
+      cardLink.textContent = expNote.id === 'P7' ? 'Werkstatt öffnen →' : 'Note öffnen →';
+    } else {
+      cardLink.style.display = 'none';
+      cardLink.href = '#';
+    }
+    cardMeta.style.textShadow = cardTitle.style.textShadow = cardAbs.style.textShadow = cardLink.style.textShadow = tsh;
   } else {
     expandedOverlay.style.display = 'none';
     expandedCard.style.display = 'none';
