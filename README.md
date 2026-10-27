@@ -1,5 +1,7 @@
 # Feldnotizen — KI und Unterricht
 
+**Deutsch** · [English](README.en.md) · [Français](README.fr.md) · [Español](README.es.md)
+
 ## Selber geschrieben — aber nicht mehr allein.
 
 Statt über das Wer und das Was zu schreiben, wird mir bewusst: Ich stehe am Anfang einer Zeit, in der das Womit für mich selbstverständlich wird. Doch was oder wer ist dieses Womit? Ist es ein Werkzeug, ein Gegenüber oder etwas anderes?
